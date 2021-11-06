@@ -1,18 +1,18 @@
 -- |
--- Module      : Amazonka.Sign.V2Header.Base
--- Copyright   : (c) 2013-2021 Brendan Hay <brendan.g.hay+amazonka@gmail.com>
--- License     : Mozilla Public License, v. 2.0.
--- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Module      : Amazonka.Sign.V2Header
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
--- This module provides auxiliary functions necessary for the AWS compliant V2
--- Header request signer.
--- /See/: "Amazonka.Sign.V2Header"
-module Amazonka.Sign.V2Header.Base
-  ( newSigner,
-
-    -- * Testing
+-- This module provides an AWS compliant V2 Header request signer. It is based
+-- heavily on <https://github.com/boto/boto boto>, specifically boto's
+-- @HmacAuthV1Handler@ AWS capable signer. AWS documentation is available
+-- <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html here>.
+--
+-- Notice: Limitations include an inability to sign with a security token and
+-- inability to overwrite the @Date@ header with an expiry.
+module Amazonka.Sign.V2Header
+  ( v2Header,
+    newSigner,
     toSignerQueryBS,
     constructSigningHeader,
     constructSigningQuery,
@@ -21,16 +21,79 @@ module Amazonka.Sign.V2Header.Base
   )
 where
 
+import qualified Amazonka.Bytes as Bytes
+import qualified Amazonka.Crypto as Crypto
+import Amazonka.Data
 import qualified Amazonka.Data.Query as Query
 import Amazonka.Prelude
+import Amazonka.Types
 import qualified Data.ByteString.Builder as Build
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.ByteString.Lazy as LBS
 import qualified Data.CaseInsensitive as CI
 import qualified Data.Function as Function
 import qualified Data.List as List
+import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Types as HTTP
 import qualified Network.HTTP.Types.URI as URI
+
+data V2Header = V2Header
+  { metaTime :: UTCTime,
+    metaEndpoint :: Endpoint,
+    metaSignature :: ByteString,
+    headers :: HTTP.RequestHeaders,
+    signer :: ByteString
+  }
+
+instance ToLog V2Header where
+  build V2Header {..} =
+    buildLines
+      [ "[Version 2 Header Metadata] {",
+        "  time      = " <> build metaTime,
+        "  endpoint  = " <> build (_endpointHost metaEndpoint),
+        "  signature = " <> build metaSignature,
+        "  headers = " <> build headers,
+        "  signer = " <> build signer,
+        "}"
+      ]
+
+v2Header :: Signer
+v2Header = Signer sign (const sign)
+
+sign :: Algorithm a
+sign Request {..} AuthEnv {..} r t = Signed meta rq
+  where
+    meta = Meta (V2Header t end signature headers signer)
+
+    signer = newSigner headers meth path' _requestQuery
+
+    rq =
+      (newClientRequest end _serviceTimeout)
+        { Client.method = meth,
+          Client.path = path',
+          Client.queryString = toBS _requestQuery,
+          Client.requestHeaders = headers,
+          Client.requestBody = toRequestBody _requestBody
+        }
+
+    meth = toBS _requestMethod
+    path' = toBS (escapePath _requestPath)
+
+    end@Endpoint {} = _serviceEndpoint r
+
+    Service {..} = _requestService
+
+    signature =
+      Bytes.encodeBase64
+        . Crypto.hmacSHA1 (toBS _authSecretAccessKey)
+        $ signer
+
+    headers =
+      hdr HTTP.hDate time
+        . hdr HTTP.hAuthorization ("AWS " <> toBS _authAccessKeyId <> ":" <> signature)
+        $ _requestHeaders
+
+    time = toBS (Time t :: RFC822)
 
 -- | Construct a full header signer following the V2 Header scheme
 newSigner ::

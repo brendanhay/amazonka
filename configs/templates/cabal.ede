@@ -20,10 +20,8 @@ description:
     .
     It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
     .
-    Generated lenses for legacy behaviour can be found in "Amazonka.{{ serviceAbbrev }}.Lens"
-    and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
+    Generated lenses can be found in "Amazonka.{{ serviceAbbrev }}.Lens" and are
+    suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
     .
     See "Amazonka.{{ serviceAbbrev }}" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
@@ -53,12 +51,9 @@ library
         , {{ module.value }}
       {% endfor %}
 
-    reexported-modules:
-      Amazonka
-
     build-depends:
-          amazonka == {{ clientVersion }}.*
-        , base     >= 4.12 && < 5
+          amazonka-core == {{ clientVersion }}.*
+        , base >= 4.12 && < 5
       {% for dep in extraDependencies %}
         , {{ dep.value }}
       {% endfor %}
@@ -80,7 +75,7 @@ test-suite {{ libraryName }}-test
         , Test.AWS.{{ serviceAbbrev }}.Internal
 
     build-depends:
-          amazonka      == {{ clientVersion }}.*
+          amazonka-core == {{ clientVersion }}.*
         , amazonka-test == {{ clientVersion }}.*
         , {{ libraryName }}
         , base

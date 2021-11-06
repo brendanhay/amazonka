@@ -13,6 +13,7 @@ semantic="$2"
 specs=(
   examples/examples.cabal
   lib/amazonka/amazonka.cabal
+  lib/amazonka-core/amazonka-core.cabal
   lib/amazonka-test/amazonka-test.cabal
   lib/amazonka-s3-encryption/amazonka-s3-encryption.cabal
 )

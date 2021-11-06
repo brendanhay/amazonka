@@ -13,14 +13,13 @@ Released: **22nd October, 2021**, Compare: [1.6.1](https://github.com/brendanhay
 - Naming
   - Record smart constructors (previously `describeInstances`, `getObject`, etc.) are now strictly prefixed with `new`, such as `newDescribeInstances`.
   - Record fields are no longer prefixed and are fully exported.
-  - All generated datatype constructors are fully exported. The datatype constructor is strictly prime suffixed, so for a given type `data <type> = <type>'`.
   - Generated lenses are no longer exported from the top-level `Amazonka.<name>` module - instead a `Amazonka.<name>.Lens` module is provided for backwards compatibility. These lenses may be deprecated in future.
   - Generated lenses no longer use mnemonic or heuristically assigned prefixes such as `dirsrsInstances` and instead strictly prefix using the type name `describeInstances_instances` - following the form `<type>_<field>`.
   - A library such as [`generic-lens`](https://hackage.haskell.org/package/generic-lens) or [`optics`](https://hackage.haskell.org/package/optics) can be used with the type's `Generic` instance for more succinct lenses that match the record field name or AWS documentation.
 
 - Exports
-  - Every `amazonka-*` package re-exports the `Amazonka.Prelude` module.
-  - All type constructors (Such as record constructors) are now exported by default.
+  - The `amazonka` package now re-exports modules from `amazonka-core` such as `Amazonka.Data`, `Amazonka.Types`.
+  - All generated datatype constructors are fully exported. The datatype constructor is strictly prime suffixed, so for a given type `data <type> = <type>'`.
 
 - CI
   - Nix, Bazel, and GitHub Actions are used for CI.

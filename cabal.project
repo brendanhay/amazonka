@@ -9,6 +9,7 @@ optimization: 1
 packages:
    examples/
    lib/amazonka/
+   lib/amazonka-core/
    lib/amazonka-test/
    lib/amazonka-s3-encryption/
 

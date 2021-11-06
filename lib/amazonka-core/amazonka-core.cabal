@@ -1,0 +1,165 @@
+cabal-version:      2.2
+name:               amazonka-core
+version:            2.0
+synopsis:           Core data types and functionality for Amazonka libraries.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files: README.md
+description:
+  Core data types and serialisation primitives for Amazonka related Amazon Web Service SDKs.
+  .
+  The external interface of this library is stable with respect to the downstream
+  Amazonka libraries only, and is not suitable for use in non-Amazonka projects.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   lib/amazonka-core
+
+common base
+  default-language:   Haskell2010
+  ghc-options:
+    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -fwarn-missing-deriving-strategies
+    -fwarn-unused-packages
+
+  default-extensions:
+    NoImplicitPrelude
+    ConstraintKinds
+    DataKinds
+    DefaultSignatures
+    DeriveAnyClass
+    DeriveFoldable
+    DeriveFunctor
+    DeriveGeneric
+    DeriveTraversable
+    DerivingStrategies
+    DerivingVia
+    DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
+    GADTs
+    GeneralizedNewtypeDeriving
+    LambdaCase
+    NamedFieldPuns
+    OverloadedStrings
+    PackageImports
+    PatternSynonyms
+    RankNTypes
+    RecordWildCards
+    ScopedTypeVariables
+    StandaloneDeriving
+    StrictData
+    TupleSections
+    TypeApplications
+    TypeFamilies
+    ViewPatterns
+
+  build-depends:      base >=4.12 && <5
+
+library
+  import:          base
+  hs-source-dirs:  src
+  exposed-modules:
+    Amazonka.Bytes
+    Amazonka.Core
+    Amazonka.Crypto
+    Amazonka.Data
+    Amazonka.Data.Base64
+    Amazonka.Data.Body
+    Amazonka.Data.ByteString
+    Amazonka.Data.Headers
+    Amazonka.Data.JSON
+    Amazonka.Data.Log
+    Amazonka.Data.Path
+    Amazonka.Data.Query
+    Amazonka.Data.Sensitive
+    Amazonka.Data.Text
+    Amazonka.Data.Time
+    Amazonka.Data.XML
+    Amazonka.Endpoint
+    Amazonka.Error
+    Amazonka.Lens
+    Amazonka.Pager
+    Amazonka.Prelude
+    Amazonka.Request
+    Amazonka.Response
+    Amazonka.Sign.V2
+    Amazonka.Sign.V2Header
+    Amazonka.Sign.V4
+    Amazonka.Sign.V4.Base
+    Amazonka.Sign.V4.Chunked
+    Amazonka.Types
+    Amazonka.Waiter
+
+  build-depends:
+    , aeson                 >=1.3.1   && <1.6.2
+    , attoparsec            >=0.11.3
+    , bytestring            >=0.10.8
+    , case-insensitive      >=1.2
+    , conduit               >=1.3
+    , conduit-extra         >=1.3
+    , cryptonite            >=0.25
+    , deepseq               >=1.4
+    , hashable              >=1.2
+    , http-client           >=0.5     && <0.8
+    , http-conduit          >=2.3     && <3
+    , http-types            >=0.12
+    , lens                  >=4.14
+    , memory                >=0.6
+    , regex-posix           >=0.96
+    , resourcet             >=1.1
+    , scientific            >=0.3
+    , text                  >=1.1
+    , time                  >=1.9
+    , transformers          >=0.2
+    , unordered-containers  >=0.2.7
+    , xml-conduit           >=1.7.0.1
+    , xml-types             >=0.3.4
+
+test-suite tests
+  import:         base
+  type:           exitcode-stdio-1.0
+  hs-source-dirs: test
+  main-is:        Main.hs
+  ghc-options:    -Wall -threaded
+  other-modules:
+    Test.Amazonka.Arbitrary
+    Test.Amazonka.Data.Base64
+    Test.Amazonka.Data.List
+    Test.Amazonka.Data.Maybe
+    Test.Amazonka.Data.Numeric
+    Test.Amazonka.Data.Path
+    Test.Amazonka.Data.Query
+    Test.Amazonka.Data.Time
+    Test.Amazonka.Error
+    Test.Amazonka.Sign.V2Header
+    Test.Amazonka.Sign.V4
+    Test.Amazonka.Sign.V4.Chunked
+    Test.Amazonka.Util
+
+  build-depends:
+    , aeson
+    , amazonka-core
+    , bytestring
+    , case-insensitive
+    , conduit
+    , data-ordlist
+    , http-conduit
+    , http-types
+    , lens
+    , QuickCheck
+    , quickcheck-unicode
+    , tasty
+    , tasty-hunit
+    , tasty-quickcheck
+    , template-haskell
+    , text
+    , time

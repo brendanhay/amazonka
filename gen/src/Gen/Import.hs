@@ -86,12 +86,12 @@ signatureImport = \case
 
 testImports :: Library -> [NS]
 testImports l =
-  [ mkNS $ "Test.AWS." <> l ^. serviceAbbrev,
-    mkNS $ "Test.AWS." <> l ^. serviceAbbrev <> ".Internal"
+  [ mkNS $ "Test.Amazonka." <> l ^. serviceAbbrev,
+    mkNS $ "Test.Amazonka." <> l ^. serviceAbbrev <> ".Internal"
   ]
 
 fixtureImports :: Library -> [NS]
 fixtureImports l =
   [ l ^. libraryNS,
-    mkNS $ "Test.AWS." <> l ^. serviceAbbrev <> ".Internal"
+    mkNS $ "Test.Amazonka." <> l ^. serviceAbbrev <> ".Internal"
   ]

@@ -92,8 +92,8 @@ base h rq a r ts = (meta, auth)
 -- the signing documentation, passing 'ByteString's everywhere, with
 -- some type guarantees.
 --
--- Data.Tagged is not used for no reason other than syntactic length and
--- the ToByteString instance.
+-- Data.Tagged is not used for no reason other than the dependency, syntactic length,
+-- and the ToByteString instance.
 newtype Tag (s :: Symbol) a = Tag {untag :: a}
   deriving stock (Show)
 

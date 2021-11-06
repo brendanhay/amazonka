@@ -6,7 +6,7 @@
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 module Amazonka.Sign.V4
-  ( V4 (..),
+  ( Base.V4 (..),
     v4,
   )
 where
@@ -19,8 +19,8 @@ import Amazonka.Data.Time
 import Amazonka.Lens ((%~), (<>~))
 import Amazonka.Prelude
 import Amazonka.Request
-import Amazonka.Sign.V4.Base
-import Amazonka.Sign.V4.Chunked
+import qualified Amazonka.Sign.V4.Base as Base
+import qualified Amazonka.Sign.V4.Chunked as Chunked
 import Amazonka.Types
 import qualified Data.CaseInsensitive as CI
 
@@ -28,21 +28,21 @@ v4 :: Signer
 v4 = Signer sign presign
 
 presign :: Seconds -> Algorithm a
-presign ex rq a r ts = signRequest meta mempty auth
+presign ex rq a r ts = Base.signRequest meta mempty auth
   where
-    auth = clientRequestQuery <>~ ("&X-Amz-Signature=" <> toBS (metaSignature meta))
+    auth = clientRequestQuery <>~ ("&X-Amz-Signature=" <> toBS (Base.metaSignature meta))
 
-    meta = signMetadata a r ts presigner digest (prepare rq)
+    meta = Base.signMetadata a r ts presigner digest (prepare rq)
 
     presigner c shs =
-      pair (CI.original hAMZAlgorithm) algorithm
+      pair (CI.original hAMZAlgorithm) Base.algorithm
         . pair (CI.original hAMZCredential) (toBS c)
         . pair (CI.original hAMZDate) (Time ts :: AWSTime)
         . pair (CI.original hAMZExpires) ex
         . pair (CI.original hAMZSignedHeaders) (toBS shs)
         . pair (CI.original hAMZToken) (toBS <$> _authSessionToken a)
 
-    digest = Tag "UNSIGNED-PAYLOAD"
+    digest = Base.Tag "UNSIGNED-PAYLOAD"
 
     prepare = requestHeaders %~ (hdr hHost host)
 
@@ -57,10 +57,10 @@ presign ex rq a r ts = signRequest meta mempty auth
 sign :: Algorithm a
 sign rq a r ts =
   case _requestBody rq of
-    Chunked x -> chunked x rq a r ts
+    Chunked x -> Chunked.chunked x rq a r ts
     Hashed x -> hashed x rq a r ts
 
 hashed :: HashedBody -> Algorithm a
 hashed x rq a r ts =
-  let (meta, auth) = base (Tag (sha256Base16 x)) rq a r ts
-   in signRequest meta (toRequestBody (Hashed x)) auth
+  let (meta, auth) = Base.base (Base.Tag (sha256Base16 x)) rq a r ts
+   in Base.signRequest meta (toRequestBody (Hashed x)) auth

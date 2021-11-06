@@ -1,7 +1,6 @@
 # See: https://docs.bazel.build/versions/master/user-manual.html#bazelrc.
 
-# Darwin fix - taken from https://github.com/digital-asset/daml/pull/8697.
-startup --host_jvm_args=-Xmx2g --host_jvm_args=-Djdk.tls.client.protocols=TLSv1.2
+startup --host_jvm_args=-Xmx2g
 
 build --compilation_mode=fastbuild
 build --distinct_host_configuration=false
@@ -34,8 +33,18 @@ run --remote_download_outputs=all
 build --remote_timeout=3600s
 build --remote_upload_local_results=false
 
-build:linux --remote_cache=https://storage.googleapis.com/tlon-opensource-cache/linux
-build:darwin --remote_cache=https://storage.googleapis.com/tlon-opensource-cache/darwin
+# build:linux --remote_cache=https://storage.googleapis.com/tlon-opensource-cache/linux
+# build:darwin --remote_cache=https://storage.googleapis.com/tlon-opensource-cache/darwin
+
+build --remote_cache=grpcs://remote.buildbuddy.io
+build --remote_timeout=3600s
+build --remote_upload_local_results=false
+
+# Upload build telemetry to buildbuddy.io. Disabled by default.
+build:remote --bes_backend=grpcs://remote.buildbuddy.io
+build:remote --bes_results_url=https://app.buildbuddy.io/invocation/
+build:remote --bes_timeout=900s
+build:remote --keep_backend_build_event_connections_alive=false
 
 #
 # Continuous Integration
@@ -45,7 +54,6 @@ common:ci --color=no
 
 build:ci --disk_cache=
 build:ci --loading_phase_threads=1
-build:ci --http_timeout_scaling=2.0
 build:ci --remote_upload_local_results=true
 build:ci --remote_download_minimal
 

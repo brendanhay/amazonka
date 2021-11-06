@@ -1,3 +1,5 @@
+{-# LANGUAGE MagicHash #-}
+
 -- |
 -- Module      : Amazonka.Data.Time
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -31,11 +33,11 @@ import Amazonka.Prelude
 import qualified Data.Aeson as Aeson
 import qualified Data.Aeson.Types as Aeson
 import qualified Data.Attoparsec.Text as A
+import GHC.Exts (Proxy#, proxy#)
 import qualified Data.Attoparsec.Text as AText
 import qualified Data.ByteString.Char8 as BS
 import Data.Hashable (hashWithSalt)
 import qualified Data.Scientific as Scientific
-import Data.Tagged (Tagged (..), untag)
 import qualified Data.Text as Text
 import qualified Data.Time as Time
 import Data.Time.Clock.POSIX
@@ -75,19 +77,19 @@ type AWSTime = Time 'AWSFormat
 type POSIX = Time 'POSIXFormat
 
 class TimeFormat a where
-  format :: Tagged a String
+  format :: Proxy# a -> String
 
 instance TimeFormat RFC822 where
-  format = Tagged "%a, %d %b %Y %H:%M:%S GMT"
+  format _ = "%a, %d %b %Y %H:%M:%S GMT"
 
 instance TimeFormat ISO8601 where
-  format = Tagged (iso8601DateFormat (Just "%XZ"))
+  format _ = iso8601DateFormat (Just "%XZ")
 
 instance TimeFormat BasicTime where
-  format = Tagged "%Y%m%d"
+  format _ = "%Y%m%d"
 
 instance TimeFormat AWSTime where
-  format = Tagged "%Y%m%dT%H%M%SZ"
+  format _ = "%Y%m%dT%H%M%SZ"
 
 instance FromText BasicTime where
   fromText = A.parseOnly ((parseUnixTimestamp <|> parseFormattedTime) <* A.endOfInput)
@@ -108,8 +110,8 @@ parseFormattedTime :: A.Parser (Time a)
 parseFormattedTime = do
   s <- Text.unpack <$> AText.takeText
 
-  let parse :: Tagged b String -> A.Parser (Time a)
-      parse (untag -> fmt) =
+  let parse :: String -> A.Parser (Time a)
+      parse fmt =
         case Time.parseTimeM True defaultTimeLocale fmt s of
           Just x -> pure (Time x)
           Nothing ->
@@ -120,12 +122,12 @@ parseFormattedTime = do
                   ++ show s
               )
 
-  parse (format :: Tagged RFC822 String)
-    <|> parse (format :: Tagged ISO8601 String)
-    <|> parse (format :: Tagged BasicTime String)
-    <|> parse (format :: Tagged AWSTime String)
+  parse (format (proxy# @RFC822))
+    <|> parse (format (proxy# @ISO8601))
+    <|> parse (format (proxy# @BasicTime))
+    <|> parse (format (proxy# @AWSTime))
     -- Deprecated ISO8601 format exhibited in the AWS-supplied examples.
-    <|> parse (Tagged $ iso8601DateFormat (Just "%X%Q%Z"))
+    <|> parse (iso8601DateFormat (Just "%X%Q%Z"))
     -- Exhaustive Failure
     <|> fail ("Failure parsing Time from value: " ++ show s)
 
@@ -152,10 +154,7 @@ instance ToText POSIX where
 
 renderFormattedTime :: forall a. TimeFormat (Time a) => Time a -> String
 renderFormattedTime (Time t) =
-  formatTime defaultTimeLocale (untag f) t
-  where
-    f :: Tagged (Time a) String
-    f = format
+  formatTime defaultTimeLocale (format (proxy# @(Time a))) t
 
 instance FromXML RFC822 where
   parseXML = parseXMLText "RFC822"

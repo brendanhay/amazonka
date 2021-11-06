@@ -41,12 +41,14 @@ description:
 source-repository head
   type:     git
   location: git://github.com/brendanhay/amazonka.git
+  subdir:   lib/amazonka-s3-encryption
 
 common base
   default-language:   Haskell2010
   ghc-options:
     -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates -fwarn-missing-deriving-strategies
+    -fwarn-unused-packages
 
   default-extensions:
     NoImplicitPrelude

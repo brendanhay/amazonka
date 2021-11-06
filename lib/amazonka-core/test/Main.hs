@@ -15,7 +15,7 @@ import qualified Test.Amazonka.Data.Path as Path
 import qualified Test.Amazonka.Data.Query as Query
 import qualified Test.Amazonka.Data.Time as Time
 import qualified Test.Amazonka.Error as Error
-import qualified Test.Amazonka.Sign.V2Header.BaseSpec as V2Header
+import qualified Test.Amazonka.Sign.V2Header as V2Header
 import qualified Test.Amazonka.Sign.V4 as V4
 import Test.Tasty
 import Prelude

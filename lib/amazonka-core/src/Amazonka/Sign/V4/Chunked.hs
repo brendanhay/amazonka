@@ -5,10 +5,7 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Sign.V4.Chunked
-  ( chunked,
-  )
-where
+module Amazonka.Sign.V4.Chunked where
 
 import qualified Amazonka.Bytes as Bytes
 import qualified Amazonka.Crypto as Crypto

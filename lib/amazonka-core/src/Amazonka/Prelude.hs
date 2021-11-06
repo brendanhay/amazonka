@@ -37,8 +37,8 @@ import Control.Lens as Export
   )
 import Control.Monad as Export
 import Control.Monad.IO.Class as Export (MonadIO (liftIO))
-import Control.Monad.Trans as Export (MonadTrans (lift))
 import Control.Monad.Trans.Resource as Export (MonadResource)
+import Control.Monad.Trans.Class as Export (MonadTrans (lift))
 import Data.Bifoldable as Export
 import Data.Bifunctor as Export
 import Data.Bitraversable as Export
@@ -49,7 +49,6 @@ import Data.CaseInsensitive as Export (CI)
 import Data.Coerce as Export (Coercible, coerce)
 import Data.Function as Export ((&))
 import Data.Functor as Export ((<&>))
-import Data.Functor.Contravariant as Export (Contravariant)
 import Data.Functor.Identity as Export (Identity (..))
 import Data.HashMap.Strict as Export (HashMap)
 import Data.HashSet as Export (HashSet)

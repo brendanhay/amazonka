@@ -2,13 +2,11 @@
 -- Module      : Test.Amazonka.Sign.V2Header.BaseSpec
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Test.Amazonka.Sign.V2Header.BaseSpec (tests) where
+module Test.Amazonka.Sign.V2Header (tests) where
 
-import Amazonka.Core hiding
-  ( nonEmptyText,
-  )
+import Amazonka.Core hiding (nonEmptyText)
 import Amazonka.Prelude
-import Amazonka.Sign.V2Header.Base
+import Amazonka.Sign.V2Header
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.CaseInsensitive as CI
 import qualified Data.List as List

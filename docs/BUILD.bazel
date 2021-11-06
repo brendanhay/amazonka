@@ -11,6 +11,7 @@ haskell_doc(
     # The deps attribute is auto-populated by buildozer via scripts/generate.
     deps = [
         "//lib/amazonka",
+        "//lib/amazonka-core",
         "//lib/amazonka-s3-encryption",
         "//lib/amazonka-test",
         "//lib/services/amazonka-accessanalyzer",

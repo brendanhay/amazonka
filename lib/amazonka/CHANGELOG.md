@@ -12,19 +12,29 @@ Released: **22nd October, 2021**, Compare: [1.6.1](https://github.com/brendanhay
 
 - Naming
   - Record smart constructors (previously `describeInstances`, `getObject`, etc.) are now strictly prefixed with `new`, such as `newDescribeInstances`.
-  - Generated lenses are no longer exported from the top-level `Amazonka.<name>` module - instead a `Amazonka.<name>.Lens` module is provided.
+  - Record fields are no longer prefixed and are fully exported.
+  - All generated datatype constructors are fully exported. The datatype constructor is strictly prime suffixed, so for a given type `data <type> = <type>'`.
+  - Generated lenses are no longer exported from the top-level `Amazonka.<name>` module - instead a `Amazonka.<name>.Lens` module is provided for backwards compatibility. These lenses may be deprecated in future.
   - Generated lenses no longer use mnemonic or heuristically assigned prefixes such as `dirsrsInstances` and instead strictly prefix using the type name `describeInstances_instances` - following the form `<type>_<field>`.
-  - You may prefer to use a library like [`generic-lens`](https://hackage.haskell.org/package/generic-lens) instead of the long lens names.
+  - A library such as [`generic-lens`](https://hackage.haskell.org/package/generic-lens) or [`optics`](https://hackage.haskell.org/package/optics) can be used with the type's `Generic` instance for more succinct lenses that match the record field name or AWS documentation.
 
 - Exports
   - Every `amazonka-*` package re-exports the `Amazonka.Prelude` module.
   - All type constructors (Such as record constructors) are now exported by default.
 
 - CI
-  - Nix, Bazel, and GitHub Actions are used for CI
-  - `nix-build-uncached` is used to prevent spurious rebuilds in CI [#627](https://github.com/brendanhay/amazonka/pull/627)
+  - Nix, Bazel, and GitHub Actions are used for CI.
   - CPP supporting GHC < 8.8 has been removed.
   - While GHC 8.6 is not in the CI matrix, it currently builds, so packages depend on `base >= 4.12`.
+
+- The `Control.Monad.Trans.AWS` transformer and its related instances has been removed. Functions such as `send` and `paginate` now universally take an `Env` as their first argument, so you can build your own transformer, or use your preferred effects system.
+
+- Namespace
+  - The core `Network.AWS` namespace has been renamed to `Amazonka`, which now matches the package name. A simple search and replace on your codebase should be sufficient for migration:
+
+```
+perl -pi -e 's/Network\.AWS/Amazonka/g' `find . -type f -name '*.hs'`
+```
 
 ### Fixed
 

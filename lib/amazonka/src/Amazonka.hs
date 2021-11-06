@@ -528,7 +528,7 @@ presign ::
 presign env time expires rq =
   Presign.presignWith
     (appEndo (getDual (Env.envOverride env)))
-    (Env.envAuth env)
+    (fromMaybe (error "Amazonka.presign: Env with no Auth") $ Env.envAuth env)
     (Env.envRegion env)
     time
     expires

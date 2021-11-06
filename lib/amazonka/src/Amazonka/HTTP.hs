@@ -128,11 +128,13 @@ httpRequest Env {..} x =
     go = do
       time <- liftIO Time.getCurrentTime
 
-      Signed meta rq <-
-        withAuth envAuth $ \a ->
-          return $! requestSign x a envRegion time
+      rq <- case envAuth of
+        Nothing -> pure $! requestUnsigned x envRegion
+        Just auth -> withAuth auth $ \a -> do
+          let Signed meta rq = requestSign x a envRegion time
+          logTrace envLogger meta -- trace:Signing:Meta
+          pure $! rq
 
-      logTrace envLogger meta -- trace:Signing:Meta
       logDebug envLogger rq -- debug:ClientRequest
       rs <- Client.Conduit.http rq envManager
 

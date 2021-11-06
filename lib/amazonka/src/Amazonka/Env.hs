@@ -45,7 +45,7 @@ data Env = Env
     envRetryCheck :: Int -> Client.HttpException -> Bool,
     envOverride :: Dual (Endo Service),
     envManager :: Client.Manager,
-    envAuth :: Auth
+    envAuth :: Maybe Auth
   }
   deriving stock (Generic)
 

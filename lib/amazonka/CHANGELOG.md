@@ -28,6 +28,8 @@ Released: **22nd October, 2021**, Compare: [1.6.1](https://github.com/brendanhay
 
 ### Fixed
 
+- It is now possible to make unsigned requests. Useful for [`sts:AssumeRoleWithWebIdentity`](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html)
+[\#707](https://github.com/brendanhay/amazonka/pull/707)
 - Fix trailing slash bug in gen model
 [\#528](https://github.com/brendanhay/amazonka/pull/528)
 - Close connections immediately (when we know that we can)

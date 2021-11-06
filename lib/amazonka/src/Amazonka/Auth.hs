@@ -259,6 +259,13 @@ data Credentials
     -- This assists in ensuring the DNS lookup terminates promptly if not
     -- running on EC2.
     Discover
+  | -- | Provide no credentials, and make unsigned requests.
+    --
+    -- This is useful for the STS
+    -- <https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html AssumeRoleWithWebIdentity>
+    -- operation, which needs to make an unsigned request to pass the
+    -- token from an identity provider.
+    NoCredentials
   deriving stock (Eq, Generic)
 
 instance ToLog Credentials where
@@ -277,6 +284,8 @@ instance ToLog Credentials where
       "FromContainer"
     Discover ->
       "Discover"
+    NoCredentials ->
+      "NoCredentials"
     where
       m (Just x) = "(Just " <> build x <> ")"
       m Nothing = "Nothing"
@@ -375,32 +384,34 @@ getAuth ::
   MonadIO m =>
   Client.Manager ->
   Credentials ->
-  m (Auth, Maybe Region)
+  m (Maybe Auth, Maybe Region)
 getAuth m =
   liftIO . \case
-    FromKeys a s -> pure (fromKeys a s, Nothing)
-    FromSession a s t -> pure (fromSession a s t, Nothing)
-    FromEnv a s t r -> fromEnvKeys a s t r
-    FromProfile n -> fromProfileName m n
-    FromFile n cred conf -> fromFilePath n cred conf
-    FromContainer -> fromContainer m
+    FromKeys a s -> pure (Just $ fromKeys a s, Nothing)
+    FromSession a s t -> pure (Just $ fromSession a s t, Nothing)
+    FromEnv a s t r -> first Just <$> fromEnvKeys a s t r
+    FromProfile n -> first Just <$> fromProfileName m n
+    FromFile n cred conf -> first Just <$> fromFilePath n cred conf
+    FromContainer -> first Just <$> fromContainer m
     Discover ->
-      -- Don't try and catch InvalidFileError, or InvalidIAMProfile,
-      -- let both errors propagate.
-      catching_ _MissingEnvError fromEnv $
-        -- proceed, missing env keys
-        catching _MissingFileError fromFile $ \f ->
-          -- proceed, missing credentials file
-          catching_ _MissingEnvError (fromContainer m) $ do
-            -- proceed, missing env key
-            p <- isEC2 m
+      fmap (first Just) $
+        -- Don't try and catch InvalidFileError, or InvalidIAMProfile,
+        -- let both errors propagate.
+        catching_ _MissingEnvError fromEnv $
+          -- proceed, missing env keys
+          catching _MissingFileError fromFile $ \f ->
+            -- proceed, missing credentials file
+            catching_ _MissingEnvError (fromContainer m) $ do
+              -- proceed, missing env key
+              p <- isEC2 m
 
-            unless p $
-              -- not an EC2 instance, rethrow the previous error.
-              throwingM _MissingFileError f
+              unless p $
+                -- not an EC2 instance, rethrow the previous error.
+                throwingM _MissingFileError f
 
-            -- proceed, check EC2 metadata for IAM information.
-            fromProfile m
+              -- proceed, check EC2 metadata for IAM information.
+              fromProfile m
+    NoCredentials -> pure (Nothing, Nothing)
 
 -- | Retrieve access key, secret key, and a session token from the default
 -- environment variables.

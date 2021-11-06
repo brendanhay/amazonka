@@ -37,6 +37,8 @@ perl -pi -e 's/Network\.AWS/Amazonka/g' `find . -type f -name '*.hs'`
 
 ### Fixed
 
+- It is now possible to make unsigned requests. Useful for [`sts:AssumeRoleWithWebIdentity`](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html)
+[\#708](https://github.com/brendanhay/amazonka/pull/707)
 - Fix trailing slash bug in gen model
 [\#528](https://github.com/brendanhay/amazonka/pull/528)
 - Close connections immediately (when we know that we can)

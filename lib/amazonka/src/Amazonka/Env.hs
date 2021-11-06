@@ -11,10 +11,15 @@
 module Amazonka.Env
   ( -- * Creating the Environment
     newEnv,
+    newEnvNoAuth,
     newEnvWith,
-    Env (..),
+    Env' (..),
+    Env,
+    EnvNoAuth,
+    envAuthMaybe,
 
     -- * Overriding Default Configuration
+    authenticate,
     override,
     configure,
 
@@ -39,15 +44,23 @@ import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Conduit as Client.Conduit
 
 -- | The environment containing the parameters required to make AWS requests.
-data Env = Env
+--
+-- This type tracks whether or not we have credentials at the type
+-- level, to avoid "presigning" requests when we lack auth
+-- information.
+data Env' withAuth = Env
   { envRegion :: Region,
     envLogger :: Logger,
     envRetryCheck :: Int -> Client.HttpException -> Bool,
     envOverride :: Dual (Endo Service),
     envManager :: Client.Manager,
-    envAuth :: Auth
+    envAuth :: withAuth Auth
   }
   deriving stock (Generic)
+
+type Env = Env' Identity
+
+type EnvNoAuth = Env' Proxy
 
 -- | Creates a new environment with a new 'Manager' without debug logging
 -- and uses 'getAuth' to expand/discover the supplied 'Credentials'.
@@ -74,26 +87,49 @@ newEnv ::
   m Env
 newEnv c =
   liftIO (Client.newManager Client.Conduit.tlsManagerSettings)
-    >>= newEnvWith c
+    >>= authenticate c . newEnvWith
+
+-- | Generate an environment without credentials, which may only make
+-- unsigned requests.
+--
+-- This is useful for the STS
+-- <https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html AssumeRoleWithWebIdentity>
+-- operation, which needs to make an unsigned request to pass the
+-- token from an identity provider.
+newEnvNoAuth :: MonadIO m => m EnvNoAuth
+newEnvNoAuth =
+  newEnvWith <$> liftIO (Client.newManager Client.Conduit.tlsManagerSettings)
+
+-- | Construct a default 'EnvNoAuth' from a HTTP 'Client.Manager'.
+newEnvWith :: Client.Manager -> EnvNoAuth
+newEnvWith m =
+  Env
+    { envRegion = NorthVirginia,
+      envLogger = \_ _ -> pure (),
+      envRetryCheck = retryConnectionFailure 3,
+      envOverride = mempty,
+      envManager = m,
+      envAuth = Proxy
+    }
 
 -- | /See:/ 'newEnv'
 --
--- The 'Maybe' 'Bool' parameter is used by the EC2 instance check. By passing a
--- value of 'Nothing', the check will be performed. 'Just' 'True' would cause
--- the check to be skipped and the host treated as an EC2 instance.
---
 -- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
-newEnvWith ::
+authenticate ::
   MonadIO m =>
   -- | Credential discovery mechanism.
   Credentials ->
-  -- | Preload the EC2 instance check.
-  Client.Manager ->
+  -- | Previous environment.
+  Env' a ->
   m Env
-newEnvWith c m = do
-  (a, fromMaybe NorthVirginia -> r) <- getAuth m c
+authenticate c Env{..} = do
+  (a, fromMaybe NorthVirginia -> r) <- getAuth envManager c
 
-  pure $ Env r (\_ _ -> pure ()) (retryConnectionFailure 3) mempty m a
+  pure $ Env {envRegion = r, envAuth = Identity a, ..}
+
+-- | Get "the" 'Auth' from an 'Env'', if we can.
+envAuthMaybe :: Foldable withAuth => Env' withAuth -> Maybe Auth
+envAuthMaybe = foldr (const . Just) Nothing . envAuth
 
 -- | Retry the subset of transport specific errors encompassing connection
 -- failure up to the specific number of times.

@@ -16,12 +16,17 @@ module Amazonka
     -- $usage
 
     -- * Authentication and Environment
-    Env.Env (..),
+    Env.Env'(..),
+    Env.Env,
+    Env.EnvNoAuth,
     Env.newEnv,
+    Env.newEnvNoAuth,
     Env.newEnvWith,
+    Env.envAuthMaybe,
 
     -- ** Service Configuration
     -- $service
+    Env.authenticate,
     Env.override,
     Env.configure,
     Env.within,
@@ -528,7 +533,7 @@ presign ::
 presign env time expires rq =
   Presign.presignWith
     (appEndo (getDual (Env.envOverride env)))
-    (Env.envAuth env)
+    (runIdentity $ Env.envAuth env)
     (Env.envRegion env)
     time
     expires

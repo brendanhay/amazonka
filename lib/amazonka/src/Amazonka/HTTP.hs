@@ -117,22 +117,25 @@ awaitRequest env@Env {..} w@Wait {..} x = do
 -- | The 'Service' is configured + unwrapped at this point.
 httpRequest ::
   ( MonadResource m,
-    AWSRequest a
+    AWSRequest a,
+    Foldable withAuth
   ) =>
-  Env ->
+  Env' withAuth ->
   Request a ->
   m (Either Error (ClientResponse (AWSResponse a)))
-httpRequest Env {..} x =
+httpRequest env@Env {..} x =
   liftResourceT (transResourceT (`Exception.catches` handlers) go)
   where
     go = do
       time <- liftIO Time.getCurrentTime
 
-      Signed meta rq <-
-        withAuth envAuth $ \a ->
-          return $! requestSign x a envRegion time
+      rq <- case envAuthMaybe env of
+        Nothing -> pure $! requestUnsigned x envRegion
+        Just auth -> withAuth auth $ \a -> do
+          let Signed meta rq = requestSign x a envRegion time
+          logTrace envLogger meta -- trace:Signing:Meta
+          pure $! rq
 
-      logTrace envLogger meta -- trace:Signing:Meta
       logDebug envLogger rq -- debug:ClientRequest
       rs <- Client.Conduit.http rq envManager
 

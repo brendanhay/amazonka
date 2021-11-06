@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.Route53RecoveryControlConfig
-import Test.AWS.Route53RecoveryControlConfig.Internal
+import Test.Amazonka.Route53RecoveryControlConfig
+import Test.Amazonka.Route53RecoveryControlConfig.Internal
 import Test.Tasty
 
 main :: IO ()

@@ -4,12 +4,12 @@ load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 haskell_library(
     name = "amazonka-sagemaker-runtime",
     srcs = [
-        "gen/Network/AWS/SageMakerRuntime.hs",
-        "gen/Network/AWS/SageMakerRuntime/InvokeEndpoint.hs",
-        "gen/Network/AWS/SageMakerRuntime/InvokeEndpointAsync.hs",
-        "gen/Network/AWS/SageMakerRuntime/Lens.hs",
-        "gen/Network/AWS/SageMakerRuntime/Types.hs",
-        "gen/Network/AWS/SageMakerRuntime/Waiters.hs",
+        "gen/Amazonka/SageMakerRuntime.hs",
+        "gen/Amazonka/SageMakerRuntime/InvokeEndpoint.hs",
+        "gen/Amazonka/SageMakerRuntime/InvokeEndpointAsync.hs",
+        "gen/Amazonka/SageMakerRuntime/Lens.hs",
+        "gen/Amazonka/SageMakerRuntime/Types.hs",
+        "gen/Amazonka/SageMakerRuntime/Waiters.hs",
     ],
     compiler_flags = [
         "-Wall",
@@ -32,9 +32,9 @@ haskell_test(
     name = "amazonka-sagemaker-runtime-test",
     srcs = [
         "test/Main.hs",
-        "test/Test/AWS/Gen/SageMakerRuntime.hs",
-        "test/Test/AWS/SageMakerRuntime.hs",
-        "test/Test/AWS/SageMakerRuntime/Internal.hs",
+        "test/Test/Amazonka/Gen/SageMakerRuntime.hs",
+        "test/Test/Amazonka/SageMakerRuntime.hs",
+        "test/Test/Amazonka/SageMakerRuntime/Internal.hs",
     ],
     compiler_flags = [
         "-Wall",

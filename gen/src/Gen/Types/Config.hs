@@ -184,7 +184,7 @@ instance ToJSON Library where
 
 -- FIXME: Remove explicit construction of getters, just use functions.
 libraryNS, typesNS, waitersNS, fixturesNS, lensNS :: Getter Library NS
-libraryNS = serviceAbbrev . to (mappend "Network.AWS" . mkNS)
+libraryNS = serviceAbbrev . to (mappend "Amazonka" . mkNS)
 typesNS = libraryNS . to (<> "Types")
 waitersNS = libraryNS . to (<> "Waiters")
 fixturesNS = serviceAbbrev . to (mappend "Test.AWS.Gen" . mkNS)

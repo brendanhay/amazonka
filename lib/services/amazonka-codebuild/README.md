@@ -25,7 +25,7 @@ de/serialisation into more palatable Haskell values.
 The provided lenses should be compatible with any of the major lens libraries
 [lens](http://hackage.haskell.org/package/lens) or [lens-family-core](http://hackage.haskell.org/package/lens-family-core).
 
-See [Network.AWS.CodeBuild](http://hackage.haskell.org/package/amazonka-codebuild/docs/Network-AWS-CodeBuild.html)
+See [Amazonka.CodeBuild](http://hackage.haskell.org/package/amazonka-codebuild/docs/Amazonka-CodeBuild.html)
 or [the AWS documentation](https://aws.amazon.com/documentation/) to get started.
 
 

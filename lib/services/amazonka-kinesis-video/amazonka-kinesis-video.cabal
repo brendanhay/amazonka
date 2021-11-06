@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.KinesisVideo.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.KinesisVideo.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.KinesisVideo" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.KinesisVideo" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,46 +45,46 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.KinesisVideo
-    Network.AWS.KinesisVideo.CreateSignalingChannel
-    Network.AWS.KinesisVideo.CreateStream
-    Network.AWS.KinesisVideo.DeleteSignalingChannel
-    Network.AWS.KinesisVideo.DeleteStream
-    Network.AWS.KinesisVideo.DescribeSignalingChannel
-    Network.AWS.KinesisVideo.DescribeStream
-    Network.AWS.KinesisVideo.GetDataEndpoint
-    Network.AWS.KinesisVideo.GetSignalingChannelEndpoint
-    Network.AWS.KinesisVideo.Lens
-    Network.AWS.KinesisVideo.ListSignalingChannels
-    Network.AWS.KinesisVideo.ListStreams
-    Network.AWS.KinesisVideo.ListTagsForResource
-    Network.AWS.KinesisVideo.ListTagsForStream
-    Network.AWS.KinesisVideo.TagResource
-    Network.AWS.KinesisVideo.TagStream
-    Network.AWS.KinesisVideo.Types
-    Network.AWS.KinesisVideo.Types.APIName
-    Network.AWS.KinesisVideo.Types.ChannelInfo
-    Network.AWS.KinesisVideo.Types.ChannelNameCondition
-    Network.AWS.KinesisVideo.Types.ChannelProtocol
-    Network.AWS.KinesisVideo.Types.ChannelRole
-    Network.AWS.KinesisVideo.Types.ChannelType
-    Network.AWS.KinesisVideo.Types.ComparisonOperator
-    Network.AWS.KinesisVideo.Types.ResourceEndpointListItem
-    Network.AWS.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration
-    Network.AWS.KinesisVideo.Types.SingleMasterConfiguration
-    Network.AWS.KinesisVideo.Types.StreamInfo
-    Network.AWS.KinesisVideo.Types.StreamNameCondition
-    Network.AWS.KinesisVideo.Types.StreamStatus
-    Network.AWS.KinesisVideo.Types.Tag
-    Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation
-    Network.AWS.KinesisVideo.UntagResource
-    Network.AWS.KinesisVideo.UntagStream
-    Network.AWS.KinesisVideo.UpdateDataRetention
-    Network.AWS.KinesisVideo.UpdateSignalingChannel
-    Network.AWS.KinesisVideo.UpdateStream
-    Network.AWS.KinesisVideo.Waiters
+    Amazonka.KinesisVideo
+    Amazonka.KinesisVideo.CreateSignalingChannel
+    Amazonka.KinesisVideo.CreateStream
+    Amazonka.KinesisVideo.DeleteSignalingChannel
+    Amazonka.KinesisVideo.DeleteStream
+    Amazonka.KinesisVideo.DescribeSignalingChannel
+    Amazonka.KinesisVideo.DescribeStream
+    Amazonka.KinesisVideo.GetDataEndpoint
+    Amazonka.KinesisVideo.GetSignalingChannelEndpoint
+    Amazonka.KinesisVideo.Lens
+    Amazonka.KinesisVideo.ListSignalingChannels
+    Amazonka.KinesisVideo.ListStreams
+    Amazonka.KinesisVideo.ListTagsForResource
+    Amazonka.KinesisVideo.ListTagsForStream
+    Amazonka.KinesisVideo.TagResource
+    Amazonka.KinesisVideo.TagStream
+    Amazonka.KinesisVideo.Types
+    Amazonka.KinesisVideo.Types.APIName
+    Amazonka.KinesisVideo.Types.ChannelInfo
+    Amazonka.KinesisVideo.Types.ChannelNameCondition
+    Amazonka.KinesisVideo.Types.ChannelProtocol
+    Amazonka.KinesisVideo.Types.ChannelRole
+    Amazonka.KinesisVideo.Types.ChannelType
+    Amazonka.KinesisVideo.Types.ComparisonOperator
+    Amazonka.KinesisVideo.Types.ResourceEndpointListItem
+    Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration
+    Amazonka.KinesisVideo.Types.SingleMasterConfiguration
+    Amazonka.KinesisVideo.Types.StreamInfo
+    Amazonka.KinesisVideo.Types.StreamNameCondition
+    Amazonka.KinesisVideo.Types.StreamStatus
+    Amazonka.KinesisVideo.Types.Tag
+    Amazonka.KinesisVideo.Types.UpdateDataRetentionOperation
+    Amazonka.KinesisVideo.UntagResource
+    Amazonka.KinesisVideo.UntagStream
+    Amazonka.KinesisVideo.UpdateDataRetention
+    Amazonka.KinesisVideo.UpdateSignalingChannel
+    Amazonka.KinesisVideo.UpdateStream
+    Amazonka.KinesisVideo.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -100,9 +100,9 @@ test-suite amazonka-kinesis-video-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.KinesisVideo
-    Test.AWS.KinesisVideo
-    Test.AWS.KinesisVideo.Internal
+    Test.Amazonka.Gen.KinesisVideo
+    Test.Amazonka.KinesisVideo
+    Test.Amazonka.KinesisVideo.Internal
 
   build-depends:
     , amazonka                ^>=2.0

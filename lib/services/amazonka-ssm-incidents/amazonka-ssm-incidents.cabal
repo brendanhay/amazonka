@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.SSMIncidents.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.SSMIncidents.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.SSMIncidents" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.SSMIncidents" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,76 +45,76 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.SSMIncidents
-    Network.AWS.SSMIncidents.CreateReplicationSet
-    Network.AWS.SSMIncidents.CreateResponsePlan
-    Network.AWS.SSMIncidents.CreateTimelineEvent
-    Network.AWS.SSMIncidents.DeleteIncidentRecord
-    Network.AWS.SSMIncidents.DeleteReplicationSet
-    Network.AWS.SSMIncidents.DeleteResourcePolicy
-    Network.AWS.SSMIncidents.DeleteResponsePlan
-    Network.AWS.SSMIncidents.DeleteTimelineEvent
-    Network.AWS.SSMIncidents.GetIncidentRecord
-    Network.AWS.SSMIncidents.GetReplicationSet
-    Network.AWS.SSMIncidents.GetResourcePolicies
-    Network.AWS.SSMIncidents.GetResponsePlan
-    Network.AWS.SSMIncidents.GetTimelineEvent
-    Network.AWS.SSMIncidents.Lens
-    Network.AWS.SSMIncidents.ListIncidentRecords
-    Network.AWS.SSMIncidents.ListRelatedItems
-    Network.AWS.SSMIncidents.ListReplicationSets
-    Network.AWS.SSMIncidents.ListResponsePlans
-    Network.AWS.SSMIncidents.ListTagsForResource
-    Network.AWS.SSMIncidents.ListTimelineEvents
-    Network.AWS.SSMIncidents.PutResourcePolicy
-    Network.AWS.SSMIncidents.StartIncident
-    Network.AWS.SSMIncidents.TagResource
-    Network.AWS.SSMIncidents.Types
-    Network.AWS.SSMIncidents.Types.Action
-    Network.AWS.SSMIncidents.Types.AddRegionAction
-    Network.AWS.SSMIncidents.Types.AttributeValueList
-    Network.AWS.SSMIncidents.Types.AutomationExecution
-    Network.AWS.SSMIncidents.Types.ChatChannel
-    Network.AWS.SSMIncidents.Types.Condition
-    Network.AWS.SSMIncidents.Types.DeleteRegionAction
-    Network.AWS.SSMIncidents.Types.EmptyChatChannel
-    Network.AWS.SSMIncidents.Types.EventSummary
-    Network.AWS.SSMIncidents.Types.Filter
-    Network.AWS.SSMIncidents.Types.IncidentRecord
-    Network.AWS.SSMIncidents.Types.IncidentRecordSource
-    Network.AWS.SSMIncidents.Types.IncidentRecordStatus
-    Network.AWS.SSMIncidents.Types.IncidentRecordSummary
-    Network.AWS.SSMIncidents.Types.IncidentTemplate
-    Network.AWS.SSMIncidents.Types.ItemIdentifier
-    Network.AWS.SSMIncidents.Types.ItemType
-    Network.AWS.SSMIncidents.Types.ItemValue
-    Network.AWS.SSMIncidents.Types.NotificationTargetItem
-    Network.AWS.SSMIncidents.Types.RegionInfo
-    Network.AWS.SSMIncidents.Types.RegionMapInputValue
-    Network.AWS.SSMIncidents.Types.RegionStatus
-    Network.AWS.SSMIncidents.Types.RelatedItem
-    Network.AWS.SSMIncidents.Types.RelatedItemsUpdate
-    Network.AWS.SSMIncidents.Types.ReplicationSet
-    Network.AWS.SSMIncidents.Types.ReplicationSetStatus
-    Network.AWS.SSMIncidents.Types.ResourcePolicy
-    Network.AWS.SSMIncidents.Types.ResponsePlanSummary
-    Network.AWS.SSMIncidents.Types.SortOrder
-    Network.AWS.SSMIncidents.Types.SsmAutomation
-    Network.AWS.SSMIncidents.Types.SsmTargetAccount
-    Network.AWS.SSMIncidents.Types.TimelineEvent
-    Network.AWS.SSMIncidents.Types.TimelineEventSort
-    Network.AWS.SSMIncidents.Types.TriggerDetails
-    Network.AWS.SSMIncidents.Types.UpdateReplicationSetAction
-    Network.AWS.SSMIncidents.UntagResource
-    Network.AWS.SSMIncidents.UpdateDeletionProtection
-    Network.AWS.SSMIncidents.UpdateIncidentRecord
-    Network.AWS.SSMIncidents.UpdateRelatedItems
-    Network.AWS.SSMIncidents.UpdateReplicationSet
-    Network.AWS.SSMIncidents.UpdateResponsePlan
-    Network.AWS.SSMIncidents.UpdateTimelineEvent
-    Network.AWS.SSMIncidents.Waiters
+    Amazonka.SSMIncidents
+    Amazonka.SSMIncidents.CreateReplicationSet
+    Amazonka.SSMIncidents.CreateResponsePlan
+    Amazonka.SSMIncidents.CreateTimelineEvent
+    Amazonka.SSMIncidents.DeleteIncidentRecord
+    Amazonka.SSMIncidents.DeleteReplicationSet
+    Amazonka.SSMIncidents.DeleteResourcePolicy
+    Amazonka.SSMIncidents.DeleteResponsePlan
+    Amazonka.SSMIncidents.DeleteTimelineEvent
+    Amazonka.SSMIncidents.GetIncidentRecord
+    Amazonka.SSMIncidents.GetReplicationSet
+    Amazonka.SSMIncidents.GetResourcePolicies
+    Amazonka.SSMIncidents.GetResponsePlan
+    Amazonka.SSMIncidents.GetTimelineEvent
+    Amazonka.SSMIncidents.Lens
+    Amazonka.SSMIncidents.ListIncidentRecords
+    Amazonka.SSMIncidents.ListRelatedItems
+    Amazonka.SSMIncidents.ListReplicationSets
+    Amazonka.SSMIncidents.ListResponsePlans
+    Amazonka.SSMIncidents.ListTagsForResource
+    Amazonka.SSMIncidents.ListTimelineEvents
+    Amazonka.SSMIncidents.PutResourcePolicy
+    Amazonka.SSMIncidents.StartIncident
+    Amazonka.SSMIncidents.TagResource
+    Amazonka.SSMIncidents.Types
+    Amazonka.SSMIncidents.Types.Action
+    Amazonka.SSMIncidents.Types.AddRegionAction
+    Amazonka.SSMIncidents.Types.AttributeValueList
+    Amazonka.SSMIncidents.Types.AutomationExecution
+    Amazonka.SSMIncidents.Types.ChatChannel
+    Amazonka.SSMIncidents.Types.Condition
+    Amazonka.SSMIncidents.Types.DeleteRegionAction
+    Amazonka.SSMIncidents.Types.EmptyChatChannel
+    Amazonka.SSMIncidents.Types.EventSummary
+    Amazonka.SSMIncidents.Types.Filter
+    Amazonka.SSMIncidents.Types.IncidentRecord
+    Amazonka.SSMIncidents.Types.IncidentRecordSource
+    Amazonka.SSMIncidents.Types.IncidentRecordStatus
+    Amazonka.SSMIncidents.Types.IncidentRecordSummary
+    Amazonka.SSMIncidents.Types.IncidentTemplate
+    Amazonka.SSMIncidents.Types.ItemIdentifier
+    Amazonka.SSMIncidents.Types.ItemType
+    Amazonka.SSMIncidents.Types.ItemValue
+    Amazonka.SSMIncidents.Types.NotificationTargetItem
+    Amazonka.SSMIncidents.Types.RegionInfo
+    Amazonka.SSMIncidents.Types.RegionMapInputValue
+    Amazonka.SSMIncidents.Types.RegionStatus
+    Amazonka.SSMIncidents.Types.RelatedItem
+    Amazonka.SSMIncidents.Types.RelatedItemsUpdate
+    Amazonka.SSMIncidents.Types.ReplicationSet
+    Amazonka.SSMIncidents.Types.ReplicationSetStatus
+    Amazonka.SSMIncidents.Types.ResourcePolicy
+    Amazonka.SSMIncidents.Types.ResponsePlanSummary
+    Amazonka.SSMIncidents.Types.SortOrder
+    Amazonka.SSMIncidents.Types.SsmAutomation
+    Amazonka.SSMIncidents.Types.SsmTargetAccount
+    Amazonka.SSMIncidents.Types.TimelineEvent
+    Amazonka.SSMIncidents.Types.TimelineEventSort
+    Amazonka.SSMIncidents.Types.TriggerDetails
+    Amazonka.SSMIncidents.Types.UpdateReplicationSetAction
+    Amazonka.SSMIncidents.UntagResource
+    Amazonka.SSMIncidents.UpdateDeletionProtection
+    Amazonka.SSMIncidents.UpdateIncidentRecord
+    Amazonka.SSMIncidents.UpdateRelatedItems
+    Amazonka.SSMIncidents.UpdateReplicationSet
+    Amazonka.SSMIncidents.UpdateResponsePlan
+    Amazonka.SSMIncidents.UpdateTimelineEvent
+    Amazonka.SSMIncidents.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -130,9 +130,9 @@ test-suite amazonka-ssm-incidents-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.SSMIncidents
-    Test.AWS.SSMIncidents
-    Test.AWS.SSMIncidents.Internal
+    Test.Amazonka.Gen.SSMIncidents
+    Test.Amazonka.SSMIncidents
+    Test.Amazonka.SSMIncidents.Internal
 
   build-depends:
     , amazonka                ^>=2.0

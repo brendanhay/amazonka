@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.ResourceGroupsTagging.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.ResourceGroupsTagging.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.ResourceGroupsTagging" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.ResourceGroupsTagging" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,29 +45,29 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.ResourceGroupsTagging
-    Network.AWS.ResourceGroupsTagging.DescribeReportCreation
-    Network.AWS.ResourceGroupsTagging.GetComplianceSummary
-    Network.AWS.ResourceGroupsTagging.GetResources
-    Network.AWS.ResourceGroupsTagging.GetTagKeys
-    Network.AWS.ResourceGroupsTagging.GetTagValues
-    Network.AWS.ResourceGroupsTagging.Lens
-    Network.AWS.ResourceGroupsTagging.StartReportCreation
-    Network.AWS.ResourceGroupsTagging.TagResources
-    Network.AWS.ResourceGroupsTagging.Types
-    Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails
-    Network.AWS.ResourceGroupsTagging.Types.FailureInfo
-    Network.AWS.ResourceGroupsTagging.Types.GroupByAttribute
-    Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode
-    Network.AWS.ResourceGroupsTagging.Types.ResourceTagMapping
-    Network.AWS.ResourceGroupsTagging.Types.Summary
-    Network.AWS.ResourceGroupsTagging.Types.Tag
-    Network.AWS.ResourceGroupsTagging.Types.TagFilter
-    Network.AWS.ResourceGroupsTagging.Types.TargetIdType
-    Network.AWS.ResourceGroupsTagging.UntagResources
-    Network.AWS.ResourceGroupsTagging.Waiters
+    Amazonka.ResourceGroupsTagging
+    Amazonka.ResourceGroupsTagging.DescribeReportCreation
+    Amazonka.ResourceGroupsTagging.GetComplianceSummary
+    Amazonka.ResourceGroupsTagging.GetResources
+    Amazonka.ResourceGroupsTagging.GetTagKeys
+    Amazonka.ResourceGroupsTagging.GetTagValues
+    Amazonka.ResourceGroupsTagging.Lens
+    Amazonka.ResourceGroupsTagging.StartReportCreation
+    Amazonka.ResourceGroupsTagging.TagResources
+    Amazonka.ResourceGroupsTagging.Types
+    Amazonka.ResourceGroupsTagging.Types.ComplianceDetails
+    Amazonka.ResourceGroupsTagging.Types.FailureInfo
+    Amazonka.ResourceGroupsTagging.Types.GroupByAttribute
+    Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode
+    Amazonka.ResourceGroupsTagging.Types.ResourceTagMapping
+    Amazonka.ResourceGroupsTagging.Types.Summary
+    Amazonka.ResourceGroupsTagging.Types.Tag
+    Amazonka.ResourceGroupsTagging.Types.TagFilter
+    Amazonka.ResourceGroupsTagging.Types.TargetIdType
+    Amazonka.ResourceGroupsTagging.UntagResources
+    Amazonka.ResourceGroupsTagging.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -83,9 +83,9 @@ test-suite amazonka-resourcegroupstagging-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.ResourceGroupsTagging
-    Test.AWS.ResourceGroupsTagging
-    Test.AWS.ResourceGroupsTagging.Internal
+    Test.Amazonka.Gen.ResourceGroupsTagging
+    Test.Amazonka.ResourceGroupsTagging
+    Test.Amazonka.ResourceGroupsTagging.Internal
 
   build-depends:
     , amazonka                        ^>=2.0

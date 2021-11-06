@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.S3Outposts.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.S3Outposts.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.S3Outposts" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.S3Outposts" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,19 +45,19 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.S3Outposts
-    Network.AWS.S3Outposts.CreateEndpoint
-    Network.AWS.S3Outposts.DeleteEndpoint
-    Network.AWS.S3Outposts.Lens
-    Network.AWS.S3Outposts.ListEndpoints
-    Network.AWS.S3Outposts.Types
-    Network.AWS.S3Outposts.Types.Endpoint
-    Network.AWS.S3Outposts.Types.EndpointAccessType
-    Network.AWS.S3Outposts.Types.EndpointStatus
-    Network.AWS.S3Outposts.Types.NetworkInterface
-    Network.AWS.S3Outposts.Waiters
+    Amazonka.S3Outposts
+    Amazonka.S3Outposts.CreateEndpoint
+    Amazonka.S3Outposts.DeleteEndpoint
+    Amazonka.S3Outposts.Lens
+    Amazonka.S3Outposts.ListEndpoints
+    Amazonka.S3Outposts.Types
+    Amazonka.S3Outposts.Types.Endpoint
+    Amazonka.S3Outposts.Types.EndpointAccessType
+    Amazonka.S3Outposts.Types.EndpointStatus
+    Amazonka.S3Outposts.Types.NetworkInterface
+    Amazonka.S3Outposts.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -73,9 +73,9 @@ test-suite amazonka-s3outposts-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.S3Outposts
-    Test.AWS.S3Outposts
-    Test.AWS.S3Outposts.Internal
+    Test.Amazonka.Gen.S3Outposts
+    Test.Amazonka.S3Outposts
+    Test.Amazonka.S3Outposts.Internal
 
   build-depends:
     , amazonka              ^>=2.0

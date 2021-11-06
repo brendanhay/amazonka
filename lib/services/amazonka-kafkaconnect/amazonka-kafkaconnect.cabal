@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.KafkaConnect.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.KafkaConnect.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.KafkaConnect" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.KafkaConnect" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,80 +45,80 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.KafkaConnect
-    Network.AWS.KafkaConnect.CreateConnector
-    Network.AWS.KafkaConnect.CreateCustomPlugin
-    Network.AWS.KafkaConnect.CreateWorkerConfiguration
-    Network.AWS.KafkaConnect.DeleteConnector
-    Network.AWS.KafkaConnect.DescribeConnector
-    Network.AWS.KafkaConnect.DescribeCustomPlugin
-    Network.AWS.KafkaConnect.DescribeWorkerConfiguration
-    Network.AWS.KafkaConnect.Lens
-    Network.AWS.KafkaConnect.ListConnectors
-    Network.AWS.KafkaConnect.ListCustomPlugins
-    Network.AWS.KafkaConnect.ListWorkerConfigurations
-    Network.AWS.KafkaConnect.Types
-    Network.AWS.KafkaConnect.Types.ApacheKafkaCluster
-    Network.AWS.KafkaConnect.Types.ApacheKafkaClusterDescription
-    Network.AWS.KafkaConnect.Types.AutoScaling
-    Network.AWS.KafkaConnect.Types.AutoScalingDescription
-    Network.AWS.KafkaConnect.Types.AutoScalingUpdate
-    Network.AWS.KafkaConnect.Types.Capacity
-    Network.AWS.KafkaConnect.Types.CapacityDescription
-    Network.AWS.KafkaConnect.Types.CapacityUpdate
-    Network.AWS.KafkaConnect.Types.CloudWatchLogsLogDelivery
-    Network.AWS.KafkaConnect.Types.CloudWatchLogsLogDeliveryDescription
-    Network.AWS.KafkaConnect.Types.ConnectorState
-    Network.AWS.KafkaConnect.Types.ConnectorSummary
-    Network.AWS.KafkaConnect.Types.CustomPlugin
-    Network.AWS.KafkaConnect.Types.CustomPluginContentType
-    Network.AWS.KafkaConnect.Types.CustomPluginDescription
-    Network.AWS.KafkaConnect.Types.CustomPluginFileDescription
-    Network.AWS.KafkaConnect.Types.CustomPluginLocation
-    Network.AWS.KafkaConnect.Types.CustomPluginLocationDescription
-    Network.AWS.KafkaConnect.Types.CustomPluginRevisionSummary
-    Network.AWS.KafkaConnect.Types.CustomPluginState
-    Network.AWS.KafkaConnect.Types.CustomPluginSummary
-    Network.AWS.KafkaConnect.Types.FirehoseLogDelivery
-    Network.AWS.KafkaConnect.Types.FirehoseLogDeliveryDescription
-    Network.AWS.KafkaConnect.Types.KafkaCluster
-    Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthentication
-    Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationDescription
-    Network.AWS.KafkaConnect.Types.KafkaClusterClientAuthenticationType
-    Network.AWS.KafkaConnect.Types.KafkaClusterDescription
-    Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransit
-    Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription
-    Network.AWS.KafkaConnect.Types.KafkaClusterEncryptionInTransitType
-    Network.AWS.KafkaConnect.Types.LogDelivery
-    Network.AWS.KafkaConnect.Types.LogDeliveryDescription
-    Network.AWS.KafkaConnect.Types.Plugin
-    Network.AWS.KafkaConnect.Types.PluginDescription
-    Network.AWS.KafkaConnect.Types.ProvisionedCapacity
-    Network.AWS.KafkaConnect.Types.ProvisionedCapacityDescription
-    Network.AWS.KafkaConnect.Types.ProvisionedCapacityUpdate
-    Network.AWS.KafkaConnect.Types.S3Location
-    Network.AWS.KafkaConnect.Types.S3LocationDescription
-    Network.AWS.KafkaConnect.Types.S3LogDelivery
-    Network.AWS.KafkaConnect.Types.S3LogDeliveryDescription
-    Network.AWS.KafkaConnect.Types.ScaleInPolicy
-    Network.AWS.KafkaConnect.Types.ScaleInPolicyDescription
-    Network.AWS.KafkaConnect.Types.ScaleInPolicyUpdate
-    Network.AWS.KafkaConnect.Types.ScaleOutPolicy
-    Network.AWS.KafkaConnect.Types.ScaleOutPolicyDescription
-    Network.AWS.KafkaConnect.Types.ScaleOutPolicyUpdate
-    Network.AWS.KafkaConnect.Types.Vpc
-    Network.AWS.KafkaConnect.Types.VpcDescription
-    Network.AWS.KafkaConnect.Types.WorkerConfiguration
-    Network.AWS.KafkaConnect.Types.WorkerConfigurationDescription
-    Network.AWS.KafkaConnect.Types.WorkerConfigurationRevisionDescription
-    Network.AWS.KafkaConnect.Types.WorkerConfigurationRevisionSummary
-    Network.AWS.KafkaConnect.Types.WorkerConfigurationSummary
-    Network.AWS.KafkaConnect.Types.WorkerLogDelivery
-    Network.AWS.KafkaConnect.Types.WorkerLogDeliveryDescription
-    Network.AWS.KafkaConnect.UpdateConnector
-    Network.AWS.KafkaConnect.Waiters
+    Amazonka.KafkaConnect
+    Amazonka.KafkaConnect.CreateConnector
+    Amazonka.KafkaConnect.CreateCustomPlugin
+    Amazonka.KafkaConnect.CreateWorkerConfiguration
+    Amazonka.KafkaConnect.DeleteConnector
+    Amazonka.KafkaConnect.DescribeConnector
+    Amazonka.KafkaConnect.DescribeCustomPlugin
+    Amazonka.KafkaConnect.DescribeWorkerConfiguration
+    Amazonka.KafkaConnect.Lens
+    Amazonka.KafkaConnect.ListConnectors
+    Amazonka.KafkaConnect.ListCustomPlugins
+    Amazonka.KafkaConnect.ListWorkerConfigurations
+    Amazonka.KafkaConnect.Types
+    Amazonka.KafkaConnect.Types.ApacheKafkaCluster
+    Amazonka.KafkaConnect.Types.ApacheKafkaClusterDescription
+    Amazonka.KafkaConnect.Types.AutoScaling
+    Amazonka.KafkaConnect.Types.AutoScalingDescription
+    Amazonka.KafkaConnect.Types.AutoScalingUpdate
+    Amazonka.KafkaConnect.Types.Capacity
+    Amazonka.KafkaConnect.Types.CapacityDescription
+    Amazonka.KafkaConnect.Types.CapacityUpdate
+    Amazonka.KafkaConnect.Types.CloudWatchLogsLogDelivery
+    Amazonka.KafkaConnect.Types.CloudWatchLogsLogDeliveryDescription
+    Amazonka.KafkaConnect.Types.ConnectorState
+    Amazonka.KafkaConnect.Types.ConnectorSummary
+    Amazonka.KafkaConnect.Types.CustomPlugin
+    Amazonka.KafkaConnect.Types.CustomPluginContentType
+    Amazonka.KafkaConnect.Types.CustomPluginDescription
+    Amazonka.KafkaConnect.Types.CustomPluginFileDescription
+    Amazonka.KafkaConnect.Types.CustomPluginLocation
+    Amazonka.KafkaConnect.Types.CustomPluginLocationDescription
+    Amazonka.KafkaConnect.Types.CustomPluginRevisionSummary
+    Amazonka.KafkaConnect.Types.CustomPluginState
+    Amazonka.KafkaConnect.Types.CustomPluginSummary
+    Amazonka.KafkaConnect.Types.FirehoseLogDelivery
+    Amazonka.KafkaConnect.Types.FirehoseLogDeliveryDescription
+    Amazonka.KafkaConnect.Types.KafkaCluster
+    Amazonka.KafkaConnect.Types.KafkaClusterClientAuthentication
+    Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationDescription
+    Amazonka.KafkaConnect.Types.KafkaClusterClientAuthenticationType
+    Amazonka.KafkaConnect.Types.KafkaClusterDescription
+    Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransit
+    Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitDescription
+    Amazonka.KafkaConnect.Types.KafkaClusterEncryptionInTransitType
+    Amazonka.KafkaConnect.Types.LogDelivery
+    Amazonka.KafkaConnect.Types.LogDeliveryDescription
+    Amazonka.KafkaConnect.Types.Plugin
+    Amazonka.KafkaConnect.Types.PluginDescription
+    Amazonka.KafkaConnect.Types.ProvisionedCapacity
+    Amazonka.KafkaConnect.Types.ProvisionedCapacityDescription
+    Amazonka.KafkaConnect.Types.ProvisionedCapacityUpdate
+    Amazonka.KafkaConnect.Types.S3Location
+    Amazonka.KafkaConnect.Types.S3LocationDescription
+    Amazonka.KafkaConnect.Types.S3LogDelivery
+    Amazonka.KafkaConnect.Types.S3LogDeliveryDescription
+    Amazonka.KafkaConnect.Types.ScaleInPolicy
+    Amazonka.KafkaConnect.Types.ScaleInPolicyDescription
+    Amazonka.KafkaConnect.Types.ScaleInPolicyUpdate
+    Amazonka.KafkaConnect.Types.ScaleOutPolicy
+    Amazonka.KafkaConnect.Types.ScaleOutPolicyDescription
+    Amazonka.KafkaConnect.Types.ScaleOutPolicyUpdate
+    Amazonka.KafkaConnect.Types.Vpc
+    Amazonka.KafkaConnect.Types.VpcDescription
+    Amazonka.KafkaConnect.Types.WorkerConfiguration
+    Amazonka.KafkaConnect.Types.WorkerConfigurationDescription
+    Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionDescription
+    Amazonka.KafkaConnect.Types.WorkerConfigurationRevisionSummary
+    Amazonka.KafkaConnect.Types.WorkerConfigurationSummary
+    Amazonka.KafkaConnect.Types.WorkerLogDelivery
+    Amazonka.KafkaConnect.Types.WorkerLogDeliveryDescription
+    Amazonka.KafkaConnect.UpdateConnector
+    Amazonka.KafkaConnect.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -134,9 +134,9 @@ test-suite amazonka-kafkaconnect-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.KafkaConnect
-    Test.AWS.KafkaConnect
-    Test.AWS.KafkaConnect.Internal
+    Test.Amazonka.Gen.KafkaConnect
+    Test.Amazonka.KafkaConnect
+    Test.Amazonka.KafkaConnect.Internal
 
   build-depends:
     , amazonka               ^>=2.0

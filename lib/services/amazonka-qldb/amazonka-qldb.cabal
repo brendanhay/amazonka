@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.QLDB.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.QLDB.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.QLDB" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.QLDB" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,47 +45,47 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.QLDB
-    Network.AWS.QLDB.CancelJournalKinesisStream
-    Network.AWS.QLDB.CreateLedger
-    Network.AWS.QLDB.DeleteLedger
-    Network.AWS.QLDB.DescribeJournalKinesisStream
-    Network.AWS.QLDB.DescribeJournalS3Export
-    Network.AWS.QLDB.DescribeLedger
-    Network.AWS.QLDB.ExportJournalToS3
-    Network.AWS.QLDB.GetBlock
-    Network.AWS.QLDB.GetDigest
-    Network.AWS.QLDB.GetRevision
-    Network.AWS.QLDB.Lens
-    Network.AWS.QLDB.ListJournalKinesisStreamsForLedger
-    Network.AWS.QLDB.ListJournalS3Exports
-    Network.AWS.QLDB.ListJournalS3ExportsForLedger
-    Network.AWS.QLDB.ListLedgers
-    Network.AWS.QLDB.ListTagsForResource
-    Network.AWS.QLDB.StreamJournalToKinesis
-    Network.AWS.QLDB.TagResource
-    Network.AWS.QLDB.Types
-    Network.AWS.QLDB.Types.EncryptionStatus
-    Network.AWS.QLDB.Types.ErrorCause
-    Network.AWS.QLDB.Types.ExportStatus
-    Network.AWS.QLDB.Types.JournalKinesisStreamDescription
-    Network.AWS.QLDB.Types.JournalS3ExportDescription
-    Network.AWS.QLDB.Types.KinesisConfiguration
-    Network.AWS.QLDB.Types.LedgerEncryptionDescription
-    Network.AWS.QLDB.Types.LedgerState
-    Network.AWS.QLDB.Types.LedgerSummary
-    Network.AWS.QLDB.Types.PermissionsMode
-    Network.AWS.QLDB.Types.S3EncryptionConfiguration
-    Network.AWS.QLDB.Types.S3ExportConfiguration
-    Network.AWS.QLDB.Types.S3ObjectEncryptionType
-    Network.AWS.QLDB.Types.StreamStatus
-    Network.AWS.QLDB.Types.ValueHolder
-    Network.AWS.QLDB.UntagResource
-    Network.AWS.QLDB.UpdateLedger
-    Network.AWS.QLDB.UpdateLedgerPermissionsMode
-    Network.AWS.QLDB.Waiters
+    Amazonka.QLDB
+    Amazonka.QLDB.CancelJournalKinesisStream
+    Amazonka.QLDB.CreateLedger
+    Amazonka.QLDB.DeleteLedger
+    Amazonka.QLDB.DescribeJournalKinesisStream
+    Amazonka.QLDB.DescribeJournalS3Export
+    Amazonka.QLDB.DescribeLedger
+    Amazonka.QLDB.ExportJournalToS3
+    Amazonka.QLDB.GetBlock
+    Amazonka.QLDB.GetDigest
+    Amazonka.QLDB.GetRevision
+    Amazonka.QLDB.Lens
+    Amazonka.QLDB.ListJournalKinesisStreamsForLedger
+    Amazonka.QLDB.ListJournalS3Exports
+    Amazonka.QLDB.ListJournalS3ExportsForLedger
+    Amazonka.QLDB.ListLedgers
+    Amazonka.QLDB.ListTagsForResource
+    Amazonka.QLDB.StreamJournalToKinesis
+    Amazonka.QLDB.TagResource
+    Amazonka.QLDB.Types
+    Amazonka.QLDB.Types.EncryptionStatus
+    Amazonka.QLDB.Types.ErrorCause
+    Amazonka.QLDB.Types.ExportStatus
+    Amazonka.QLDB.Types.JournalKinesisStreamDescription
+    Amazonka.QLDB.Types.JournalS3ExportDescription
+    Amazonka.QLDB.Types.KinesisConfiguration
+    Amazonka.QLDB.Types.LedgerEncryptionDescription
+    Amazonka.QLDB.Types.LedgerState
+    Amazonka.QLDB.Types.LedgerSummary
+    Amazonka.QLDB.Types.PermissionsMode
+    Amazonka.QLDB.Types.S3EncryptionConfiguration
+    Amazonka.QLDB.Types.S3ExportConfiguration
+    Amazonka.QLDB.Types.S3ObjectEncryptionType
+    Amazonka.QLDB.Types.StreamStatus
+    Amazonka.QLDB.Types.ValueHolder
+    Amazonka.QLDB.UntagResource
+    Amazonka.QLDB.UpdateLedger
+    Amazonka.QLDB.UpdateLedgerPermissionsMode
+    Amazonka.QLDB.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -101,9 +101,9 @@ test-suite amazonka-qldb-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.QLDB
-    Test.AWS.QLDB
-    Test.AWS.QLDB.Internal
+    Test.Amazonka.Gen.QLDB
+    Test.Amazonka.QLDB
+    Test.Amazonka.QLDB.Internal
 
   build-depends:
     , amazonka              ^>=2.0

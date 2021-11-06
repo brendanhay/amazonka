@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Batch.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Batch.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Batch" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Batch" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,95 +45,95 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Batch
-    Network.AWS.Batch.CancelJob
-    Network.AWS.Batch.CreateComputeEnvironment
-    Network.AWS.Batch.CreateJobQueue
-    Network.AWS.Batch.DeleteComputeEnvironment
-    Network.AWS.Batch.DeleteJobQueue
-    Network.AWS.Batch.DeregisterJobDefinition
-    Network.AWS.Batch.DescribeComputeEnvironments
-    Network.AWS.Batch.DescribeJobDefinitions
-    Network.AWS.Batch.DescribeJobQueues
-    Network.AWS.Batch.DescribeJobs
-    Network.AWS.Batch.Lens
-    Network.AWS.Batch.ListJobs
-    Network.AWS.Batch.ListTagsForResource
-    Network.AWS.Batch.RegisterJobDefinition
-    Network.AWS.Batch.SubmitJob
-    Network.AWS.Batch.TagResource
-    Network.AWS.Batch.TerminateJob
-    Network.AWS.Batch.Types
-    Network.AWS.Batch.Types.ArrayJobDependency
-    Network.AWS.Batch.Types.ArrayProperties
-    Network.AWS.Batch.Types.ArrayPropertiesDetail
-    Network.AWS.Batch.Types.ArrayPropertiesSummary
-    Network.AWS.Batch.Types.AssignPublicIp
-    Network.AWS.Batch.Types.AttemptContainerDetail
-    Network.AWS.Batch.Types.AttemptDetail
-    Network.AWS.Batch.Types.CEState
-    Network.AWS.Batch.Types.CEStatus
-    Network.AWS.Batch.Types.CEType
-    Network.AWS.Batch.Types.ComputeEnvironmentDetail
-    Network.AWS.Batch.Types.ComputeEnvironmentOrder
-    Network.AWS.Batch.Types.ComputeResource
-    Network.AWS.Batch.Types.ComputeResourceUpdate
-    Network.AWS.Batch.Types.ContainerDetail
-    Network.AWS.Batch.Types.ContainerOverrides
-    Network.AWS.Batch.Types.ContainerProperties
-    Network.AWS.Batch.Types.ContainerSummary
-    Network.AWS.Batch.Types.CRAllocationStrategy
-    Network.AWS.Batch.Types.CRType
-    Network.AWS.Batch.Types.Device
-    Network.AWS.Batch.Types.DeviceCgroupPermission
-    Network.AWS.Batch.Types.Ec2Configuration
-    Network.AWS.Batch.Types.EFSAuthorizationConfig
-    Network.AWS.Batch.Types.EFSAuthorizationConfigIAM
-    Network.AWS.Batch.Types.EFSTransitEncryption
-    Network.AWS.Batch.Types.EFSVolumeConfiguration
-    Network.AWS.Batch.Types.EvaluateOnExit
-    Network.AWS.Batch.Types.FargatePlatformConfiguration
-    Network.AWS.Batch.Types.Host
-    Network.AWS.Batch.Types.JobDefinition
-    Network.AWS.Batch.Types.JobDefinitionType
-    Network.AWS.Batch.Types.JobDependency
-    Network.AWS.Batch.Types.JobDetail
-    Network.AWS.Batch.Types.JobQueueDetail
-    Network.AWS.Batch.Types.JobStatus
-    Network.AWS.Batch.Types.JobSummary
-    Network.AWS.Batch.Types.JobTimeout
-    Network.AWS.Batch.Types.JQState
-    Network.AWS.Batch.Types.JQStatus
-    Network.AWS.Batch.Types.KeyValuePair
-    Network.AWS.Batch.Types.KeyValuesPair
-    Network.AWS.Batch.Types.LaunchTemplateSpecification
-    Network.AWS.Batch.Types.LinuxParameters
-    Network.AWS.Batch.Types.LogConfiguration
-    Network.AWS.Batch.Types.LogDriver
-    Network.AWS.Batch.Types.MountPoint
-    Network.AWS.Batch.Types.NetworkConfiguration
-    Network.AWS.Batch.Types.NetworkInterface
-    Network.AWS.Batch.Types.NodeDetails
-    Network.AWS.Batch.Types.NodeOverrides
-    Network.AWS.Batch.Types.NodeProperties
-    Network.AWS.Batch.Types.NodePropertiesSummary
-    Network.AWS.Batch.Types.NodePropertyOverride
-    Network.AWS.Batch.Types.NodeRangeProperty
-    Network.AWS.Batch.Types.PlatformCapability
-    Network.AWS.Batch.Types.ResourceRequirement
-    Network.AWS.Batch.Types.ResourceType
-    Network.AWS.Batch.Types.RetryAction
-    Network.AWS.Batch.Types.RetryStrategy
-    Network.AWS.Batch.Types.Secret
-    Network.AWS.Batch.Types.Tmpfs
-    Network.AWS.Batch.Types.Ulimit
-    Network.AWS.Batch.Types.Volume
-    Network.AWS.Batch.UntagResource
-    Network.AWS.Batch.UpdateComputeEnvironment
-    Network.AWS.Batch.UpdateJobQueue
-    Network.AWS.Batch.Waiters
+    Amazonka.Batch
+    Amazonka.Batch.CancelJob
+    Amazonka.Batch.CreateComputeEnvironment
+    Amazonka.Batch.CreateJobQueue
+    Amazonka.Batch.DeleteComputeEnvironment
+    Amazonka.Batch.DeleteJobQueue
+    Amazonka.Batch.DeregisterJobDefinition
+    Amazonka.Batch.DescribeComputeEnvironments
+    Amazonka.Batch.DescribeJobDefinitions
+    Amazonka.Batch.DescribeJobQueues
+    Amazonka.Batch.DescribeJobs
+    Amazonka.Batch.Lens
+    Amazonka.Batch.ListJobs
+    Amazonka.Batch.ListTagsForResource
+    Amazonka.Batch.RegisterJobDefinition
+    Amazonka.Batch.SubmitJob
+    Amazonka.Batch.TagResource
+    Amazonka.Batch.TerminateJob
+    Amazonka.Batch.Types
+    Amazonka.Batch.Types.ArrayJobDependency
+    Amazonka.Batch.Types.ArrayProperties
+    Amazonka.Batch.Types.ArrayPropertiesDetail
+    Amazonka.Batch.Types.ArrayPropertiesSummary
+    Amazonka.Batch.Types.AssignPublicIp
+    Amazonka.Batch.Types.AttemptContainerDetail
+    Amazonka.Batch.Types.AttemptDetail
+    Amazonka.Batch.Types.CEState
+    Amazonka.Batch.Types.CEStatus
+    Amazonka.Batch.Types.CEType
+    Amazonka.Batch.Types.ComputeEnvironmentDetail
+    Amazonka.Batch.Types.ComputeEnvironmentOrder
+    Amazonka.Batch.Types.ComputeResource
+    Amazonka.Batch.Types.ComputeResourceUpdate
+    Amazonka.Batch.Types.ContainerDetail
+    Amazonka.Batch.Types.ContainerOverrides
+    Amazonka.Batch.Types.ContainerProperties
+    Amazonka.Batch.Types.ContainerSummary
+    Amazonka.Batch.Types.CRAllocationStrategy
+    Amazonka.Batch.Types.CRType
+    Amazonka.Batch.Types.Device
+    Amazonka.Batch.Types.DeviceCgroupPermission
+    Amazonka.Batch.Types.Ec2Configuration
+    Amazonka.Batch.Types.EFSAuthorizationConfig
+    Amazonka.Batch.Types.EFSAuthorizationConfigIAM
+    Amazonka.Batch.Types.EFSTransitEncryption
+    Amazonka.Batch.Types.EFSVolumeConfiguration
+    Amazonka.Batch.Types.EvaluateOnExit
+    Amazonka.Batch.Types.FargatePlatformConfiguration
+    Amazonka.Batch.Types.Host
+    Amazonka.Batch.Types.JobDefinition
+    Amazonka.Batch.Types.JobDefinitionType
+    Amazonka.Batch.Types.JobDependency
+    Amazonka.Batch.Types.JobDetail
+    Amazonka.Batch.Types.JobQueueDetail
+    Amazonka.Batch.Types.JobStatus
+    Amazonka.Batch.Types.JobSummary
+    Amazonka.Batch.Types.JobTimeout
+    Amazonka.Batch.Types.JQState
+    Amazonka.Batch.Types.JQStatus
+    Amazonka.Batch.Types.KeyValuePair
+    Amazonka.Batch.Types.KeyValuesPair
+    Amazonka.Batch.Types.LaunchTemplateSpecification
+    Amazonka.Batch.Types.LinuxParameters
+    Amazonka.Batch.Types.LogConfiguration
+    Amazonka.Batch.Types.LogDriver
+    Amazonka.Batch.Types.MountPoint
+    Amazonka.Batch.Types.NetworkConfiguration
+    Amazonka.Batch.Types.NetworkInterface
+    Amazonka.Batch.Types.NodeDetails
+    Amazonka.Batch.Types.NodeOverrides
+    Amazonka.Batch.Types.NodeProperties
+    Amazonka.Batch.Types.NodePropertiesSummary
+    Amazonka.Batch.Types.NodePropertyOverride
+    Amazonka.Batch.Types.NodeRangeProperty
+    Amazonka.Batch.Types.PlatformCapability
+    Amazonka.Batch.Types.ResourceRequirement
+    Amazonka.Batch.Types.ResourceType
+    Amazonka.Batch.Types.RetryAction
+    Amazonka.Batch.Types.RetryStrategy
+    Amazonka.Batch.Types.Secret
+    Amazonka.Batch.Types.Tmpfs
+    Amazonka.Batch.Types.Ulimit
+    Amazonka.Batch.Types.Volume
+    Amazonka.Batch.UntagResource
+    Amazonka.Batch.UpdateComputeEnvironment
+    Amazonka.Batch.UpdateJobQueue
+    Amazonka.Batch.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -149,9 +149,9 @@ test-suite amazonka-batch-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Batch
-    Test.AWS.Batch.Internal
-    Test.AWS.Gen.Batch
+    Test.Amazonka.Batch
+    Test.Amazonka.Batch.Internal
+    Test.Amazonka.Gen.Batch
 
   build-depends:
     , amazonka              ^>=2.0

@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.LookoutMetrics.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.LookoutMetrics.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.LookoutMetrics" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.LookoutMetrics" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,81 +45,81 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.LookoutMetrics
-    Network.AWS.LookoutMetrics.ActivateAnomalyDetector
-    Network.AWS.LookoutMetrics.BackTestAnomalyDetector
-    Network.AWS.LookoutMetrics.CreateAlert
-    Network.AWS.LookoutMetrics.CreateAnomalyDetector
-    Network.AWS.LookoutMetrics.CreateMetricSet
-    Network.AWS.LookoutMetrics.DeleteAlert
-    Network.AWS.LookoutMetrics.DeleteAnomalyDetector
-    Network.AWS.LookoutMetrics.DescribeAlert
-    Network.AWS.LookoutMetrics.DescribeAnomalyDetectionExecutions
-    Network.AWS.LookoutMetrics.DescribeAnomalyDetector
-    Network.AWS.LookoutMetrics.DescribeMetricSet
-    Network.AWS.LookoutMetrics.GetAnomalyGroup
-    Network.AWS.LookoutMetrics.GetFeedback
-    Network.AWS.LookoutMetrics.GetSampleData
-    Network.AWS.LookoutMetrics.Lens
-    Network.AWS.LookoutMetrics.ListAlerts
-    Network.AWS.LookoutMetrics.ListAnomalyDetectors
-    Network.AWS.LookoutMetrics.ListAnomalyGroupSummaries
-    Network.AWS.LookoutMetrics.ListAnomalyGroupTimeSeries
-    Network.AWS.LookoutMetrics.ListMetricSets
-    Network.AWS.LookoutMetrics.ListTagsForResource
-    Network.AWS.LookoutMetrics.PutFeedback
-    Network.AWS.LookoutMetrics.TagResource
-    Network.AWS.LookoutMetrics.Types
-    Network.AWS.LookoutMetrics.Types.Action
-    Network.AWS.LookoutMetrics.Types.AggregationFunction
-    Network.AWS.LookoutMetrics.Types.Alert
-    Network.AWS.LookoutMetrics.Types.AlertStatus
-    Network.AWS.LookoutMetrics.Types.AlertSummary
-    Network.AWS.LookoutMetrics.Types.AlertType
-    Network.AWS.LookoutMetrics.Types.AnomalyDetectionTaskStatus
-    Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfig
-    Network.AWS.LookoutMetrics.Types.AnomalyDetectorConfigSummary
-    Network.AWS.LookoutMetrics.Types.AnomalyDetectorStatus
-    Network.AWS.LookoutMetrics.Types.AnomalyDetectorSummary
-    Network.AWS.LookoutMetrics.Types.AnomalyGroup
-    Network.AWS.LookoutMetrics.Types.AnomalyGroupStatistics
-    Network.AWS.LookoutMetrics.Types.AnomalyGroupSummary
-    Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeries
-    Network.AWS.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback
-    Network.AWS.LookoutMetrics.Types.AppFlowConfig
-    Network.AWS.LookoutMetrics.Types.CloudWatchConfig
-    Network.AWS.LookoutMetrics.Types.ContributionMatrix
-    Network.AWS.LookoutMetrics.Types.CSVFileCompression
-    Network.AWS.LookoutMetrics.Types.CsvFormatDescriptor
-    Network.AWS.LookoutMetrics.Types.DimensionContribution
-    Network.AWS.LookoutMetrics.Types.DimensionNameValue
-    Network.AWS.LookoutMetrics.Types.DimensionValueContribution
-    Network.AWS.LookoutMetrics.Types.ExecutionStatus
-    Network.AWS.LookoutMetrics.Types.FileFormatDescriptor
-    Network.AWS.LookoutMetrics.Types.Frequency
-    Network.AWS.LookoutMetrics.Types.ItemizedMetricStats
-    Network.AWS.LookoutMetrics.Types.JsonFileCompression
-    Network.AWS.LookoutMetrics.Types.JsonFormatDescriptor
-    Network.AWS.LookoutMetrics.Types.LambdaConfiguration
-    Network.AWS.LookoutMetrics.Types.Metric
-    Network.AWS.LookoutMetrics.Types.MetricLevelImpact
-    Network.AWS.LookoutMetrics.Types.MetricSetSummary
-    Network.AWS.LookoutMetrics.Types.MetricSource
-    Network.AWS.LookoutMetrics.Types.RDSSourceConfig
-    Network.AWS.LookoutMetrics.Types.RedshiftSourceConfig
-    Network.AWS.LookoutMetrics.Types.S3SourceConfig
-    Network.AWS.LookoutMetrics.Types.SampleDataS3SourceConfig
-    Network.AWS.LookoutMetrics.Types.SNSConfiguration
-    Network.AWS.LookoutMetrics.Types.TimeSeries
-    Network.AWS.LookoutMetrics.Types.TimeSeriesFeedback
-    Network.AWS.LookoutMetrics.Types.TimestampColumn
-    Network.AWS.LookoutMetrics.Types.VpcConfiguration
-    Network.AWS.LookoutMetrics.UntagResource
-    Network.AWS.LookoutMetrics.UpdateAnomalyDetector
-    Network.AWS.LookoutMetrics.UpdateMetricSet
-    Network.AWS.LookoutMetrics.Waiters
+    Amazonka.LookoutMetrics
+    Amazonka.LookoutMetrics.ActivateAnomalyDetector
+    Amazonka.LookoutMetrics.BackTestAnomalyDetector
+    Amazonka.LookoutMetrics.CreateAlert
+    Amazonka.LookoutMetrics.CreateAnomalyDetector
+    Amazonka.LookoutMetrics.CreateMetricSet
+    Amazonka.LookoutMetrics.DeleteAlert
+    Amazonka.LookoutMetrics.DeleteAnomalyDetector
+    Amazonka.LookoutMetrics.DescribeAlert
+    Amazonka.LookoutMetrics.DescribeAnomalyDetectionExecutions
+    Amazonka.LookoutMetrics.DescribeAnomalyDetector
+    Amazonka.LookoutMetrics.DescribeMetricSet
+    Amazonka.LookoutMetrics.GetAnomalyGroup
+    Amazonka.LookoutMetrics.GetFeedback
+    Amazonka.LookoutMetrics.GetSampleData
+    Amazonka.LookoutMetrics.Lens
+    Amazonka.LookoutMetrics.ListAlerts
+    Amazonka.LookoutMetrics.ListAnomalyDetectors
+    Amazonka.LookoutMetrics.ListAnomalyGroupSummaries
+    Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries
+    Amazonka.LookoutMetrics.ListMetricSets
+    Amazonka.LookoutMetrics.ListTagsForResource
+    Amazonka.LookoutMetrics.PutFeedback
+    Amazonka.LookoutMetrics.TagResource
+    Amazonka.LookoutMetrics.Types
+    Amazonka.LookoutMetrics.Types.Action
+    Amazonka.LookoutMetrics.Types.AggregationFunction
+    Amazonka.LookoutMetrics.Types.Alert
+    Amazonka.LookoutMetrics.Types.AlertStatus
+    Amazonka.LookoutMetrics.Types.AlertSummary
+    Amazonka.LookoutMetrics.Types.AlertType
+    Amazonka.LookoutMetrics.Types.AnomalyDetectionTaskStatus
+    Amazonka.LookoutMetrics.Types.AnomalyDetectorConfig
+    Amazonka.LookoutMetrics.Types.AnomalyDetectorConfigSummary
+    Amazonka.LookoutMetrics.Types.AnomalyDetectorStatus
+    Amazonka.LookoutMetrics.Types.AnomalyDetectorSummary
+    Amazonka.LookoutMetrics.Types.AnomalyGroup
+    Amazonka.LookoutMetrics.Types.AnomalyGroupStatistics
+    Amazonka.LookoutMetrics.Types.AnomalyGroupSummary
+    Amazonka.LookoutMetrics.Types.AnomalyGroupTimeSeries
+    Amazonka.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback
+    Amazonka.LookoutMetrics.Types.AppFlowConfig
+    Amazonka.LookoutMetrics.Types.CloudWatchConfig
+    Amazonka.LookoutMetrics.Types.ContributionMatrix
+    Amazonka.LookoutMetrics.Types.CSVFileCompression
+    Amazonka.LookoutMetrics.Types.CsvFormatDescriptor
+    Amazonka.LookoutMetrics.Types.DimensionContribution
+    Amazonka.LookoutMetrics.Types.DimensionNameValue
+    Amazonka.LookoutMetrics.Types.DimensionValueContribution
+    Amazonka.LookoutMetrics.Types.ExecutionStatus
+    Amazonka.LookoutMetrics.Types.FileFormatDescriptor
+    Amazonka.LookoutMetrics.Types.Frequency
+    Amazonka.LookoutMetrics.Types.ItemizedMetricStats
+    Amazonka.LookoutMetrics.Types.JsonFileCompression
+    Amazonka.LookoutMetrics.Types.JsonFormatDescriptor
+    Amazonka.LookoutMetrics.Types.LambdaConfiguration
+    Amazonka.LookoutMetrics.Types.Metric
+    Amazonka.LookoutMetrics.Types.MetricLevelImpact
+    Amazonka.LookoutMetrics.Types.MetricSetSummary
+    Amazonka.LookoutMetrics.Types.MetricSource
+    Amazonka.LookoutMetrics.Types.RDSSourceConfig
+    Amazonka.LookoutMetrics.Types.RedshiftSourceConfig
+    Amazonka.LookoutMetrics.Types.S3SourceConfig
+    Amazonka.LookoutMetrics.Types.SampleDataS3SourceConfig
+    Amazonka.LookoutMetrics.Types.SNSConfiguration
+    Amazonka.LookoutMetrics.Types.TimeSeries
+    Amazonka.LookoutMetrics.Types.TimeSeriesFeedback
+    Amazonka.LookoutMetrics.Types.TimestampColumn
+    Amazonka.LookoutMetrics.Types.VpcConfiguration
+    Amazonka.LookoutMetrics.UntagResource
+    Amazonka.LookoutMetrics.UpdateAnomalyDetector
+    Amazonka.LookoutMetrics.UpdateMetricSet
+    Amazonka.LookoutMetrics.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -135,9 +135,9 @@ test-suite amazonka-lookoutmetrics-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.LookoutMetrics
-    Test.AWS.LookoutMetrics
-    Test.AWS.LookoutMetrics.Internal
+    Test.Amazonka.Gen.LookoutMetrics
+    Test.Amazonka.LookoutMetrics
+    Test.Amazonka.LookoutMetrics.Internal
 
   build-depends:
     , amazonka                 ^>=2.0

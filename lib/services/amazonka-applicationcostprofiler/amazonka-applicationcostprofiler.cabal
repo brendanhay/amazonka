@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.ApplicationCostProfiler.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.ApplicationCostProfiler.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.ApplicationCostProfiler" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.ApplicationCostProfiler" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,24 +45,24 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.ApplicationCostProfiler
-    Network.AWS.ApplicationCostProfiler.DeleteReportDefinition
-    Network.AWS.ApplicationCostProfiler.GetReportDefinition
-    Network.AWS.ApplicationCostProfiler.ImportApplicationUsage
-    Network.AWS.ApplicationCostProfiler.Lens
-    Network.AWS.ApplicationCostProfiler.ListReportDefinitions
-    Network.AWS.ApplicationCostProfiler.PutReportDefinition
-    Network.AWS.ApplicationCostProfiler.Types
-    Network.AWS.ApplicationCostProfiler.Types.Format
-    Network.AWS.ApplicationCostProfiler.Types.ReportDefinition
-    Network.AWS.ApplicationCostProfiler.Types.ReportFrequency
-    Network.AWS.ApplicationCostProfiler.Types.S3BucketRegion
-    Network.AWS.ApplicationCostProfiler.Types.S3Location
-    Network.AWS.ApplicationCostProfiler.Types.SourceS3Location
-    Network.AWS.ApplicationCostProfiler.UpdateReportDefinition
-    Network.AWS.ApplicationCostProfiler.Waiters
+    Amazonka.ApplicationCostProfiler
+    Amazonka.ApplicationCostProfiler.DeleteReportDefinition
+    Amazonka.ApplicationCostProfiler.GetReportDefinition
+    Amazonka.ApplicationCostProfiler.ImportApplicationUsage
+    Amazonka.ApplicationCostProfiler.Lens
+    Amazonka.ApplicationCostProfiler.ListReportDefinitions
+    Amazonka.ApplicationCostProfiler.PutReportDefinition
+    Amazonka.ApplicationCostProfiler.Types
+    Amazonka.ApplicationCostProfiler.Types.Format
+    Amazonka.ApplicationCostProfiler.Types.ReportDefinition
+    Amazonka.ApplicationCostProfiler.Types.ReportFrequency
+    Amazonka.ApplicationCostProfiler.Types.S3BucketRegion
+    Amazonka.ApplicationCostProfiler.Types.S3Location
+    Amazonka.ApplicationCostProfiler.Types.SourceS3Location
+    Amazonka.ApplicationCostProfiler.UpdateReportDefinition
+    Amazonka.ApplicationCostProfiler.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -78,9 +78,9 @@ test-suite amazonka-applicationcostprofiler-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.ApplicationCostProfiler
-    Test.AWS.ApplicationCostProfiler.Internal
-    Test.AWS.Gen.ApplicationCostProfiler
+    Test.Amazonka.ApplicationCostProfiler
+    Test.Amazonka.ApplicationCostProfiler.Internal
+    Test.Amazonka.Gen.ApplicationCostProfiler
 
   build-depends:
     , amazonka                          ^>=2.0

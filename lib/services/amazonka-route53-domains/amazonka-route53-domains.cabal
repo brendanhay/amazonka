@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Route53Domains.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Route53Domains.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Route53Domains" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Route53Domains" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,57 +45,57 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Route53Domains
-    Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount
-    Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount
-    Network.AWS.Route53Domains.CheckDomainAvailability
-    Network.AWS.Route53Domains.CheckDomainTransferability
-    Network.AWS.Route53Domains.DeleteTagsForDomain
-    Network.AWS.Route53Domains.DisableDomainAutoRenew
-    Network.AWS.Route53Domains.DisableDomainTransferLock
-    Network.AWS.Route53Domains.EnableDomainAutoRenew
-    Network.AWS.Route53Domains.EnableDomainTransferLock
-    Network.AWS.Route53Domains.GetContactReachabilityStatus
-    Network.AWS.Route53Domains.GetDomainDetail
-    Network.AWS.Route53Domains.GetDomainSuggestions
-    Network.AWS.Route53Domains.GetOperationDetail
-    Network.AWS.Route53Domains.Lens
-    Network.AWS.Route53Domains.ListDomains
-    Network.AWS.Route53Domains.ListOperations
-    Network.AWS.Route53Domains.ListTagsForDomain
-    Network.AWS.Route53Domains.RegisterDomain
-    Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount
-    Network.AWS.Route53Domains.RenewDomain
-    Network.AWS.Route53Domains.ResendContactReachabilityEmail
-    Network.AWS.Route53Domains.RetrieveDomainAuthCode
-    Network.AWS.Route53Domains.TransferDomain
-    Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount
-    Network.AWS.Route53Domains.Types
-    Network.AWS.Route53Domains.Types.BillingRecord
-    Network.AWS.Route53Domains.Types.ContactDetail
-    Network.AWS.Route53Domains.Types.ContactType
-    Network.AWS.Route53Domains.Types.CountryCode
-    Network.AWS.Route53Domains.Types.DomainAvailability
-    Network.AWS.Route53Domains.Types.DomainSuggestion
-    Network.AWS.Route53Domains.Types.DomainSummary
-    Network.AWS.Route53Domains.Types.DomainTransferability
-    Network.AWS.Route53Domains.Types.ExtraParam
-    Network.AWS.Route53Domains.Types.ExtraParamName
-    Network.AWS.Route53Domains.Types.Nameserver
-    Network.AWS.Route53Domains.Types.OperationStatus
-    Network.AWS.Route53Domains.Types.OperationSummary
-    Network.AWS.Route53Domains.Types.OperationType
-    Network.AWS.Route53Domains.Types.ReachabilityStatus
-    Network.AWS.Route53Domains.Types.Tag
-    Network.AWS.Route53Domains.Types.Transferable
-    Network.AWS.Route53Domains.UpdateDomainContact
-    Network.AWS.Route53Domains.UpdateDomainContactPrivacy
-    Network.AWS.Route53Domains.UpdateDomainNameservers
-    Network.AWS.Route53Domains.UpdateTagsForDomain
-    Network.AWS.Route53Domains.ViewBilling
-    Network.AWS.Route53Domains.Waiters
+    Amazonka.Route53Domains
+    Amazonka.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount
+    Amazonka.Route53Domains.CancelDomainTransferToAnotherAwsAccount
+    Amazonka.Route53Domains.CheckDomainAvailability
+    Amazonka.Route53Domains.CheckDomainTransferability
+    Amazonka.Route53Domains.DeleteTagsForDomain
+    Amazonka.Route53Domains.DisableDomainAutoRenew
+    Amazonka.Route53Domains.DisableDomainTransferLock
+    Amazonka.Route53Domains.EnableDomainAutoRenew
+    Amazonka.Route53Domains.EnableDomainTransferLock
+    Amazonka.Route53Domains.GetContactReachabilityStatus
+    Amazonka.Route53Domains.GetDomainDetail
+    Amazonka.Route53Domains.GetDomainSuggestions
+    Amazonka.Route53Domains.GetOperationDetail
+    Amazonka.Route53Domains.Lens
+    Amazonka.Route53Domains.ListDomains
+    Amazonka.Route53Domains.ListOperations
+    Amazonka.Route53Domains.ListTagsForDomain
+    Amazonka.Route53Domains.RegisterDomain
+    Amazonka.Route53Domains.RejectDomainTransferFromAnotherAwsAccount
+    Amazonka.Route53Domains.RenewDomain
+    Amazonka.Route53Domains.ResendContactReachabilityEmail
+    Amazonka.Route53Domains.RetrieveDomainAuthCode
+    Amazonka.Route53Domains.TransferDomain
+    Amazonka.Route53Domains.TransferDomainToAnotherAwsAccount
+    Amazonka.Route53Domains.Types
+    Amazonka.Route53Domains.Types.BillingRecord
+    Amazonka.Route53Domains.Types.ContactDetail
+    Amazonka.Route53Domains.Types.ContactType
+    Amazonka.Route53Domains.Types.CountryCode
+    Amazonka.Route53Domains.Types.DomainAvailability
+    Amazonka.Route53Domains.Types.DomainSuggestion
+    Amazonka.Route53Domains.Types.DomainSummary
+    Amazonka.Route53Domains.Types.DomainTransferability
+    Amazonka.Route53Domains.Types.ExtraParam
+    Amazonka.Route53Domains.Types.ExtraParamName
+    Amazonka.Route53Domains.Types.Nameserver
+    Amazonka.Route53Domains.Types.OperationStatus
+    Amazonka.Route53Domains.Types.OperationSummary
+    Amazonka.Route53Domains.Types.OperationType
+    Amazonka.Route53Domains.Types.ReachabilityStatus
+    Amazonka.Route53Domains.Types.Tag
+    Amazonka.Route53Domains.Types.Transferable
+    Amazonka.Route53Domains.UpdateDomainContact
+    Amazonka.Route53Domains.UpdateDomainContactPrivacy
+    Amazonka.Route53Domains.UpdateDomainNameservers
+    Amazonka.Route53Domains.UpdateTagsForDomain
+    Amazonka.Route53Domains.ViewBilling
+    Amazonka.Route53Domains.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -111,9 +111,9 @@ test-suite amazonka-route53-domains-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Route53Domains
-    Test.AWS.Route53Domains
-    Test.AWS.Route53Domains.Internal
+    Test.Amazonka.Gen.Route53Domains
+    Test.Amazonka.Route53Domains
+    Test.Amazonka.Route53Domains.Internal
 
   build-depends:
     , amazonka                  ^>=2.0

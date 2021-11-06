@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.CertificateManager.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.CertificateManager.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.CertificateManager" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.CertificateManager" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,52 +45,52 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.CertificateManager
-    Network.AWS.CertificateManager.AddTagsToCertificate
-    Network.AWS.CertificateManager.DeleteCertificate
-    Network.AWS.CertificateManager.DescribeCertificate
-    Network.AWS.CertificateManager.ExportCertificate
-    Network.AWS.CertificateManager.GetAccountConfiguration
-    Network.AWS.CertificateManager.GetCertificate
-    Network.AWS.CertificateManager.ImportCertificate
-    Network.AWS.CertificateManager.Lens
-    Network.AWS.CertificateManager.ListCertificates
-    Network.AWS.CertificateManager.ListTagsForCertificate
-    Network.AWS.CertificateManager.PutAccountConfiguration
-    Network.AWS.CertificateManager.RemoveTagsFromCertificate
-    Network.AWS.CertificateManager.RenewCertificate
-    Network.AWS.CertificateManager.RequestCertificate
-    Network.AWS.CertificateManager.ResendValidationEmail
-    Network.AWS.CertificateManager.Types
-    Network.AWS.CertificateManager.Types.CertificateDetail
-    Network.AWS.CertificateManager.Types.CertificateOptions
-    Network.AWS.CertificateManager.Types.CertificateStatus
-    Network.AWS.CertificateManager.Types.CertificateSummary
-    Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference
-    Network.AWS.CertificateManager.Types.CertificateType
-    Network.AWS.CertificateManager.Types.DomainStatus
-    Network.AWS.CertificateManager.Types.DomainValidation
-    Network.AWS.CertificateManager.Types.DomainValidationOption
-    Network.AWS.CertificateManager.Types.ExpiryEventsConfiguration
-    Network.AWS.CertificateManager.Types.ExtendedKeyUsage
-    Network.AWS.CertificateManager.Types.ExtendedKeyUsageName
-    Network.AWS.CertificateManager.Types.FailureReason
-    Network.AWS.CertificateManager.Types.Filters
-    Network.AWS.CertificateManager.Types.KeyAlgorithm
-    Network.AWS.CertificateManager.Types.KeyUsage
-    Network.AWS.CertificateManager.Types.KeyUsageName
-    Network.AWS.CertificateManager.Types.RecordType
-    Network.AWS.CertificateManager.Types.RenewalEligibility
-    Network.AWS.CertificateManager.Types.RenewalStatus
-    Network.AWS.CertificateManager.Types.RenewalSummary
-    Network.AWS.CertificateManager.Types.ResourceRecord
-    Network.AWS.CertificateManager.Types.RevocationReason
-    Network.AWS.CertificateManager.Types.Tag
-    Network.AWS.CertificateManager.Types.ValidationMethod
-    Network.AWS.CertificateManager.UpdateCertificateOptions
-    Network.AWS.CertificateManager.Waiters
+    Amazonka.CertificateManager
+    Amazonka.CertificateManager.AddTagsToCertificate
+    Amazonka.CertificateManager.DeleteCertificate
+    Amazonka.CertificateManager.DescribeCertificate
+    Amazonka.CertificateManager.ExportCertificate
+    Amazonka.CertificateManager.GetAccountConfiguration
+    Amazonka.CertificateManager.GetCertificate
+    Amazonka.CertificateManager.ImportCertificate
+    Amazonka.CertificateManager.Lens
+    Amazonka.CertificateManager.ListCertificates
+    Amazonka.CertificateManager.ListTagsForCertificate
+    Amazonka.CertificateManager.PutAccountConfiguration
+    Amazonka.CertificateManager.RemoveTagsFromCertificate
+    Amazonka.CertificateManager.RenewCertificate
+    Amazonka.CertificateManager.RequestCertificate
+    Amazonka.CertificateManager.ResendValidationEmail
+    Amazonka.CertificateManager.Types
+    Amazonka.CertificateManager.Types.CertificateDetail
+    Amazonka.CertificateManager.Types.CertificateOptions
+    Amazonka.CertificateManager.Types.CertificateStatus
+    Amazonka.CertificateManager.Types.CertificateSummary
+    Amazonka.CertificateManager.Types.CertificateTransparencyLoggingPreference
+    Amazonka.CertificateManager.Types.CertificateType
+    Amazonka.CertificateManager.Types.DomainStatus
+    Amazonka.CertificateManager.Types.DomainValidation
+    Amazonka.CertificateManager.Types.DomainValidationOption
+    Amazonka.CertificateManager.Types.ExpiryEventsConfiguration
+    Amazonka.CertificateManager.Types.ExtendedKeyUsage
+    Amazonka.CertificateManager.Types.ExtendedKeyUsageName
+    Amazonka.CertificateManager.Types.FailureReason
+    Amazonka.CertificateManager.Types.Filters
+    Amazonka.CertificateManager.Types.KeyAlgorithm
+    Amazonka.CertificateManager.Types.KeyUsage
+    Amazonka.CertificateManager.Types.KeyUsageName
+    Amazonka.CertificateManager.Types.RecordType
+    Amazonka.CertificateManager.Types.RenewalEligibility
+    Amazonka.CertificateManager.Types.RenewalStatus
+    Amazonka.CertificateManager.Types.RenewalSummary
+    Amazonka.CertificateManager.Types.ResourceRecord
+    Amazonka.CertificateManager.Types.RevocationReason
+    Amazonka.CertificateManager.Types.Tag
+    Amazonka.CertificateManager.Types.ValidationMethod
+    Amazonka.CertificateManager.UpdateCertificateOptions
+    Amazonka.CertificateManager.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -106,9 +106,9 @@ test-suite amazonka-certificatemanager-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CertificateManager
-    Test.AWS.CertificateManager.Internal
-    Test.AWS.Gen.CertificateManager
+    Test.Amazonka.CertificateManager
+    Test.Amazonka.CertificateManager.Internal
+    Test.Amazonka.Gen.CertificateManager
 
   build-depends:
     , amazonka                     ^>=2.0

@@ -25,7 +25,7 @@ de/serialisation into more palatable Haskell values.
 The provided lenses should be compatible with any of the major lens libraries
 [lens](http://hackage.haskell.org/package/lens) or [lens-family-core](http://hackage.haskell.org/package/lens-family-core).
 
-See [Network.AWS.Route53Domains](http://hackage.haskell.org/package/amazonka-route53-domains/docs/Network-AWS-Route53Domains.html)
+See [Amazonka.Route53Domains](http://hackage.haskell.org/package/amazonka-route53-domains/docs/Amazonka-Route53Domains.html)
 or [the AWS documentation](https://aws.amazon.com/documentation/) to get started.
 
 

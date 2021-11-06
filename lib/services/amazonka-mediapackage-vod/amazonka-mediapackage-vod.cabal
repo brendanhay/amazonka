@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.MediaPackageVOD.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.MediaPackageVOD.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.MediaPackageVOD" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.MediaPackageVOD" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,55 +45,55 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.MediaPackageVOD
-    Network.AWS.MediaPackageVOD.ConfigureLogs
-    Network.AWS.MediaPackageVOD.CreateAsset
-    Network.AWS.MediaPackageVOD.CreatePackagingConfiguration
-    Network.AWS.MediaPackageVOD.CreatePackagingGroup
-    Network.AWS.MediaPackageVOD.DeleteAsset
-    Network.AWS.MediaPackageVOD.DeletePackagingConfiguration
-    Network.AWS.MediaPackageVOD.DeletePackagingGroup
-    Network.AWS.MediaPackageVOD.DescribeAsset
-    Network.AWS.MediaPackageVOD.DescribePackagingConfiguration
-    Network.AWS.MediaPackageVOD.DescribePackagingGroup
-    Network.AWS.MediaPackageVOD.Lens
-    Network.AWS.MediaPackageVOD.ListAssets
-    Network.AWS.MediaPackageVOD.ListPackagingConfigurations
-    Network.AWS.MediaPackageVOD.ListPackagingGroups
-    Network.AWS.MediaPackageVOD.ListTagsForResource
-    Network.AWS.MediaPackageVOD.TagResource
-    Network.AWS.MediaPackageVOD.Types
-    Network.AWS.MediaPackageVOD.Types.AdMarkers
-    Network.AWS.MediaPackageVOD.Types.AssetShallow
-    Network.AWS.MediaPackageVOD.Types.Authorization
-    Network.AWS.MediaPackageVOD.Types.CmafEncryption
-    Network.AWS.MediaPackageVOD.Types.CmafPackage
-    Network.AWS.MediaPackageVOD.Types.DashEncryption
-    Network.AWS.MediaPackageVOD.Types.DashManifest
-    Network.AWS.MediaPackageVOD.Types.DashPackage
-    Network.AWS.MediaPackageVOD.Types.EgressAccessLogs
-    Network.AWS.MediaPackageVOD.Types.EgressEndpoint
-    Network.AWS.MediaPackageVOD.Types.EncryptionMethod
-    Network.AWS.MediaPackageVOD.Types.HlsEncryption
-    Network.AWS.MediaPackageVOD.Types.HlsManifest
-    Network.AWS.MediaPackageVOD.Types.HlsPackage
-    Network.AWS.MediaPackageVOD.Types.ManifestLayout
-    Network.AWS.MediaPackageVOD.Types.MssEncryption
-    Network.AWS.MediaPackageVOD.Types.MssManifest
-    Network.AWS.MediaPackageVOD.Types.MssPackage
-    Network.AWS.MediaPackageVOD.Types.PackagingConfiguration
-    Network.AWS.MediaPackageVOD.Types.PackagingGroup
-    Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement
-    Network.AWS.MediaPackageVOD.Types.Profile
-    Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat
-    Network.AWS.MediaPackageVOD.Types.SpekeKeyProvider
-    Network.AWS.MediaPackageVOD.Types.StreamOrder
-    Network.AWS.MediaPackageVOD.Types.StreamSelection
-    Network.AWS.MediaPackageVOD.UntagResource
-    Network.AWS.MediaPackageVOD.UpdatePackagingGroup
-    Network.AWS.MediaPackageVOD.Waiters
+    Amazonka.MediaPackageVOD
+    Amazonka.MediaPackageVOD.ConfigureLogs
+    Amazonka.MediaPackageVOD.CreateAsset
+    Amazonka.MediaPackageVOD.CreatePackagingConfiguration
+    Amazonka.MediaPackageVOD.CreatePackagingGroup
+    Amazonka.MediaPackageVOD.DeleteAsset
+    Amazonka.MediaPackageVOD.DeletePackagingConfiguration
+    Amazonka.MediaPackageVOD.DeletePackagingGroup
+    Amazonka.MediaPackageVOD.DescribeAsset
+    Amazonka.MediaPackageVOD.DescribePackagingConfiguration
+    Amazonka.MediaPackageVOD.DescribePackagingGroup
+    Amazonka.MediaPackageVOD.Lens
+    Amazonka.MediaPackageVOD.ListAssets
+    Amazonka.MediaPackageVOD.ListPackagingConfigurations
+    Amazonka.MediaPackageVOD.ListPackagingGroups
+    Amazonka.MediaPackageVOD.ListTagsForResource
+    Amazonka.MediaPackageVOD.TagResource
+    Amazonka.MediaPackageVOD.Types
+    Amazonka.MediaPackageVOD.Types.AdMarkers
+    Amazonka.MediaPackageVOD.Types.AssetShallow
+    Amazonka.MediaPackageVOD.Types.Authorization
+    Amazonka.MediaPackageVOD.Types.CmafEncryption
+    Amazonka.MediaPackageVOD.Types.CmafPackage
+    Amazonka.MediaPackageVOD.Types.DashEncryption
+    Amazonka.MediaPackageVOD.Types.DashManifest
+    Amazonka.MediaPackageVOD.Types.DashPackage
+    Amazonka.MediaPackageVOD.Types.EgressAccessLogs
+    Amazonka.MediaPackageVOD.Types.EgressEndpoint
+    Amazonka.MediaPackageVOD.Types.EncryptionMethod
+    Amazonka.MediaPackageVOD.Types.HlsEncryption
+    Amazonka.MediaPackageVOD.Types.HlsManifest
+    Amazonka.MediaPackageVOD.Types.HlsPackage
+    Amazonka.MediaPackageVOD.Types.ManifestLayout
+    Amazonka.MediaPackageVOD.Types.MssEncryption
+    Amazonka.MediaPackageVOD.Types.MssManifest
+    Amazonka.MediaPackageVOD.Types.MssPackage
+    Amazonka.MediaPackageVOD.Types.PackagingConfiguration
+    Amazonka.MediaPackageVOD.Types.PackagingGroup
+    Amazonka.MediaPackageVOD.Types.PeriodTriggersElement
+    Amazonka.MediaPackageVOD.Types.Profile
+    Amazonka.MediaPackageVOD.Types.SegmentTemplateFormat
+    Amazonka.MediaPackageVOD.Types.SpekeKeyProvider
+    Amazonka.MediaPackageVOD.Types.StreamOrder
+    Amazonka.MediaPackageVOD.Types.StreamSelection
+    Amazonka.MediaPackageVOD.UntagResource
+    Amazonka.MediaPackageVOD.UpdatePackagingGroup
+    Amazonka.MediaPackageVOD.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -109,9 +109,9 @@ test-suite amazonka-mediapackage-vod-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.MediaPackageVOD
-    Test.AWS.MediaPackageVOD
-    Test.AWS.MediaPackageVOD.Internal
+    Test.Amazonka.Gen.MediaPackageVOD
+    Test.Amazonka.MediaPackageVOD
+    Test.Amazonka.MediaPackageVOD.Internal
 
   build-depends:
     , amazonka                   ^>=2.0

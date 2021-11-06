@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Proton.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Proton.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Proton" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Proton" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,92 +45,92 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Proton
-    Network.AWS.Proton.AcceptEnvironmentAccountConnection
-    Network.AWS.Proton.CancelEnvironmentDeployment
-    Network.AWS.Proton.CancelServiceInstanceDeployment
-    Network.AWS.Proton.CancelServicePipelineDeployment
-    Network.AWS.Proton.CreateEnvironment
-    Network.AWS.Proton.CreateEnvironmentAccountConnection
-    Network.AWS.Proton.CreateEnvironmentTemplate
-    Network.AWS.Proton.CreateEnvironmentTemplateVersion
-    Network.AWS.Proton.CreateService
-    Network.AWS.Proton.CreateServiceTemplate
-    Network.AWS.Proton.CreateServiceTemplateVersion
-    Network.AWS.Proton.DeleteEnvironment
-    Network.AWS.Proton.DeleteEnvironmentAccountConnection
-    Network.AWS.Proton.DeleteEnvironmentTemplate
-    Network.AWS.Proton.DeleteEnvironmentTemplateVersion
-    Network.AWS.Proton.DeleteService
-    Network.AWS.Proton.DeleteServiceTemplate
-    Network.AWS.Proton.DeleteServiceTemplateVersion
-    Network.AWS.Proton.GetAccountSettings
-    Network.AWS.Proton.GetEnvironment
-    Network.AWS.Proton.GetEnvironmentAccountConnection
-    Network.AWS.Proton.GetEnvironmentTemplate
-    Network.AWS.Proton.GetEnvironmentTemplateVersion
-    Network.AWS.Proton.GetService
-    Network.AWS.Proton.GetServiceInstance
-    Network.AWS.Proton.GetServiceTemplate
-    Network.AWS.Proton.GetServiceTemplateVersion
-    Network.AWS.Proton.Lens
-    Network.AWS.Proton.ListEnvironmentAccountConnections
-    Network.AWS.Proton.ListEnvironments
-    Network.AWS.Proton.ListEnvironmentTemplates
-    Network.AWS.Proton.ListEnvironmentTemplateVersions
-    Network.AWS.Proton.ListServiceInstances
-    Network.AWS.Proton.ListServices
-    Network.AWS.Proton.ListServiceTemplates
-    Network.AWS.Proton.ListServiceTemplateVersions
-    Network.AWS.Proton.ListTagsForResource
-    Network.AWS.Proton.RejectEnvironmentAccountConnection
-    Network.AWS.Proton.TagResource
-    Network.AWS.Proton.Types
-    Network.AWS.Proton.Types.AccountSettings
-    Network.AWS.Proton.Types.CompatibleEnvironmentTemplate
-    Network.AWS.Proton.Types.CompatibleEnvironmentTemplateInput
-    Network.AWS.Proton.Types.DeploymentStatus
-    Network.AWS.Proton.Types.DeploymentUpdateType
-    Network.AWS.Proton.Types.Environment
-    Network.AWS.Proton.Types.EnvironmentAccountConnection
-    Network.AWS.Proton.Types.EnvironmentAccountConnectionRequesterAccountType
-    Network.AWS.Proton.Types.EnvironmentAccountConnectionStatus
-    Network.AWS.Proton.Types.EnvironmentAccountConnectionSummary
-    Network.AWS.Proton.Types.EnvironmentSummary
-    Network.AWS.Proton.Types.EnvironmentTemplate
-    Network.AWS.Proton.Types.EnvironmentTemplateFilter
-    Network.AWS.Proton.Types.EnvironmentTemplateSummary
-    Network.AWS.Proton.Types.EnvironmentTemplateVersion
-    Network.AWS.Proton.Types.EnvironmentTemplateVersionSummary
-    Network.AWS.Proton.Types.Provisioning
-    Network.AWS.Proton.Types.S3ObjectSource
-    Network.AWS.Proton.Types.Service
-    Network.AWS.Proton.Types.ServiceInstance
-    Network.AWS.Proton.Types.ServiceInstanceSummary
-    Network.AWS.Proton.Types.ServicePipeline
-    Network.AWS.Proton.Types.ServiceStatus
-    Network.AWS.Proton.Types.ServiceSummary
-    Network.AWS.Proton.Types.ServiceTemplate
-    Network.AWS.Proton.Types.ServiceTemplateSummary
-    Network.AWS.Proton.Types.ServiceTemplateVersion
-    Network.AWS.Proton.Types.ServiceTemplateVersionSummary
-    Network.AWS.Proton.Types.Tag
-    Network.AWS.Proton.Types.TemplateVersionSourceInput
-    Network.AWS.Proton.Types.TemplateVersionStatus
-    Network.AWS.Proton.UntagResource
-    Network.AWS.Proton.UpdateAccountSettings
-    Network.AWS.Proton.UpdateEnvironment
-    Network.AWS.Proton.UpdateEnvironmentAccountConnection
-    Network.AWS.Proton.UpdateEnvironmentTemplate
-    Network.AWS.Proton.UpdateEnvironmentTemplateVersion
-    Network.AWS.Proton.UpdateService
-    Network.AWS.Proton.UpdateServiceInstance
-    Network.AWS.Proton.UpdateServicePipeline
-    Network.AWS.Proton.UpdateServiceTemplate
-    Network.AWS.Proton.UpdateServiceTemplateVersion
-    Network.AWS.Proton.Waiters
+    Amazonka.Proton
+    Amazonka.Proton.AcceptEnvironmentAccountConnection
+    Amazonka.Proton.CancelEnvironmentDeployment
+    Amazonka.Proton.CancelServiceInstanceDeployment
+    Amazonka.Proton.CancelServicePipelineDeployment
+    Amazonka.Proton.CreateEnvironment
+    Amazonka.Proton.CreateEnvironmentAccountConnection
+    Amazonka.Proton.CreateEnvironmentTemplate
+    Amazonka.Proton.CreateEnvironmentTemplateVersion
+    Amazonka.Proton.CreateService
+    Amazonka.Proton.CreateServiceTemplate
+    Amazonka.Proton.CreateServiceTemplateVersion
+    Amazonka.Proton.DeleteEnvironment
+    Amazonka.Proton.DeleteEnvironmentAccountConnection
+    Amazonka.Proton.DeleteEnvironmentTemplate
+    Amazonka.Proton.DeleteEnvironmentTemplateVersion
+    Amazonka.Proton.DeleteService
+    Amazonka.Proton.DeleteServiceTemplate
+    Amazonka.Proton.DeleteServiceTemplateVersion
+    Amazonka.Proton.GetAccountSettings
+    Amazonka.Proton.GetEnvironment
+    Amazonka.Proton.GetEnvironmentAccountConnection
+    Amazonka.Proton.GetEnvironmentTemplate
+    Amazonka.Proton.GetEnvironmentTemplateVersion
+    Amazonka.Proton.GetService
+    Amazonka.Proton.GetServiceInstance
+    Amazonka.Proton.GetServiceTemplate
+    Amazonka.Proton.GetServiceTemplateVersion
+    Amazonka.Proton.Lens
+    Amazonka.Proton.ListEnvironmentAccountConnections
+    Amazonka.Proton.ListEnvironments
+    Amazonka.Proton.ListEnvironmentTemplates
+    Amazonka.Proton.ListEnvironmentTemplateVersions
+    Amazonka.Proton.ListServiceInstances
+    Amazonka.Proton.ListServices
+    Amazonka.Proton.ListServiceTemplates
+    Amazonka.Proton.ListServiceTemplateVersions
+    Amazonka.Proton.ListTagsForResource
+    Amazonka.Proton.RejectEnvironmentAccountConnection
+    Amazonka.Proton.TagResource
+    Amazonka.Proton.Types
+    Amazonka.Proton.Types.AccountSettings
+    Amazonka.Proton.Types.CompatibleEnvironmentTemplate
+    Amazonka.Proton.Types.CompatibleEnvironmentTemplateInput
+    Amazonka.Proton.Types.DeploymentStatus
+    Amazonka.Proton.Types.DeploymentUpdateType
+    Amazonka.Proton.Types.Environment
+    Amazonka.Proton.Types.EnvironmentAccountConnection
+    Amazonka.Proton.Types.EnvironmentAccountConnectionRequesterAccountType
+    Amazonka.Proton.Types.EnvironmentAccountConnectionStatus
+    Amazonka.Proton.Types.EnvironmentAccountConnectionSummary
+    Amazonka.Proton.Types.EnvironmentSummary
+    Amazonka.Proton.Types.EnvironmentTemplate
+    Amazonka.Proton.Types.EnvironmentTemplateFilter
+    Amazonka.Proton.Types.EnvironmentTemplateSummary
+    Amazonka.Proton.Types.EnvironmentTemplateVersion
+    Amazonka.Proton.Types.EnvironmentTemplateVersionSummary
+    Amazonka.Proton.Types.Provisioning
+    Amazonka.Proton.Types.S3ObjectSource
+    Amazonka.Proton.Types.Service
+    Amazonka.Proton.Types.ServiceInstance
+    Amazonka.Proton.Types.ServiceInstanceSummary
+    Amazonka.Proton.Types.ServicePipeline
+    Amazonka.Proton.Types.ServiceStatus
+    Amazonka.Proton.Types.ServiceSummary
+    Amazonka.Proton.Types.ServiceTemplate
+    Amazonka.Proton.Types.ServiceTemplateSummary
+    Amazonka.Proton.Types.ServiceTemplateVersion
+    Amazonka.Proton.Types.ServiceTemplateVersionSummary
+    Amazonka.Proton.Types.Tag
+    Amazonka.Proton.Types.TemplateVersionSourceInput
+    Amazonka.Proton.Types.TemplateVersionStatus
+    Amazonka.Proton.UntagResource
+    Amazonka.Proton.UpdateAccountSettings
+    Amazonka.Proton.UpdateEnvironment
+    Amazonka.Proton.UpdateEnvironmentAccountConnection
+    Amazonka.Proton.UpdateEnvironmentTemplate
+    Amazonka.Proton.UpdateEnvironmentTemplateVersion
+    Amazonka.Proton.UpdateService
+    Amazonka.Proton.UpdateServiceInstance
+    Amazonka.Proton.UpdateServicePipeline
+    Amazonka.Proton.UpdateServiceTemplate
+    Amazonka.Proton.UpdateServiceTemplateVersion
+    Amazonka.Proton.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -146,9 +146,9 @@ test-suite amazonka-proton-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Proton
-    Test.AWS.Proton
-    Test.AWS.Proton.Internal
+    Test.Amazonka.Gen.Proton
+    Test.Amazonka.Proton
+    Test.Amazonka.Proton.Internal
 
   build-depends:
     , amazonka              ^>=2.0

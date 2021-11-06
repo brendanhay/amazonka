@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.ServerlessApplicationRepository
-import Test.AWS.ServerlessApplicationRepository.Internal
+import Test.Amazonka.ServerlessApplicationRepository
+import Test.Amazonka.ServerlessApplicationRepository.Internal
 import Test.Tasty
 
 main :: IO ()

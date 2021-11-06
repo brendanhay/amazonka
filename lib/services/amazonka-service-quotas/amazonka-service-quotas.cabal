@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.ServiceQuotas.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.ServiceQuotas.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.ServiceQuotas" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.ServiceQuotas" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,43 +45,43 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.ServiceQuotas
-    Network.AWS.ServiceQuotas.AssociateServiceQuotaTemplate
-    Network.AWS.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate
-    Network.AWS.ServiceQuotas.DisassociateServiceQuotaTemplate
-    Network.AWS.ServiceQuotas.GetAssociationForServiceQuotaTemplate
-    Network.AWS.ServiceQuotas.GetAWSDefaultServiceQuota
-    Network.AWS.ServiceQuotas.GetRequestedServiceQuotaChange
-    Network.AWS.ServiceQuotas.GetServiceQuota
-    Network.AWS.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate
-    Network.AWS.ServiceQuotas.Lens
-    Network.AWS.ServiceQuotas.ListAWSDefaultServiceQuotas
-    Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistory
-    Network.AWS.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota
-    Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate
-    Network.AWS.ServiceQuotas.ListServiceQuotas
-    Network.AWS.ServiceQuotas.ListServices
-    Network.AWS.ServiceQuotas.ListTagsForResource
-    Network.AWS.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate
-    Network.AWS.ServiceQuotas.RequestServiceQuotaIncrease
-    Network.AWS.ServiceQuotas.TagResource
-    Network.AWS.ServiceQuotas.Types
-    Network.AWS.ServiceQuotas.Types.ErrorCode
-    Network.AWS.ServiceQuotas.Types.ErrorReason
-    Network.AWS.ServiceQuotas.Types.MetricInfo
-    Network.AWS.ServiceQuotas.Types.PeriodUnit
-    Network.AWS.ServiceQuotas.Types.QuotaPeriod
-    Network.AWS.ServiceQuotas.Types.RequestedServiceQuotaChange
-    Network.AWS.ServiceQuotas.Types.RequestStatus
-    Network.AWS.ServiceQuotas.Types.ServiceInfo
-    Network.AWS.ServiceQuotas.Types.ServiceQuota
-    Network.AWS.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate
-    Network.AWS.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus
-    Network.AWS.ServiceQuotas.Types.Tag
-    Network.AWS.ServiceQuotas.UntagResource
-    Network.AWS.ServiceQuotas.Waiters
+    Amazonka.ServiceQuotas
+    Amazonka.ServiceQuotas.AssociateServiceQuotaTemplate
+    Amazonka.ServiceQuotas.DeleteServiceQuotaIncreaseRequestFromTemplate
+    Amazonka.ServiceQuotas.DisassociateServiceQuotaTemplate
+    Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate
+    Amazonka.ServiceQuotas.GetAWSDefaultServiceQuota
+    Amazonka.ServiceQuotas.GetRequestedServiceQuotaChange
+    Amazonka.ServiceQuotas.GetServiceQuota
+    Amazonka.ServiceQuotas.GetServiceQuotaIncreaseRequestFromTemplate
+    Amazonka.ServiceQuotas.Lens
+    Amazonka.ServiceQuotas.ListAWSDefaultServiceQuotas
+    Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistory
+    Amazonka.ServiceQuotas.ListRequestedServiceQuotaChangeHistoryByQuota
+    Amazonka.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate
+    Amazonka.ServiceQuotas.ListServiceQuotas
+    Amazonka.ServiceQuotas.ListServices
+    Amazonka.ServiceQuotas.ListTagsForResource
+    Amazonka.ServiceQuotas.PutServiceQuotaIncreaseRequestIntoTemplate
+    Amazonka.ServiceQuotas.RequestServiceQuotaIncrease
+    Amazonka.ServiceQuotas.TagResource
+    Amazonka.ServiceQuotas.Types
+    Amazonka.ServiceQuotas.Types.ErrorCode
+    Amazonka.ServiceQuotas.Types.ErrorReason
+    Amazonka.ServiceQuotas.Types.MetricInfo
+    Amazonka.ServiceQuotas.Types.PeriodUnit
+    Amazonka.ServiceQuotas.Types.QuotaPeriod
+    Amazonka.ServiceQuotas.Types.RequestedServiceQuotaChange
+    Amazonka.ServiceQuotas.Types.RequestStatus
+    Amazonka.ServiceQuotas.Types.ServiceInfo
+    Amazonka.ServiceQuotas.Types.ServiceQuota
+    Amazonka.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate
+    Amazonka.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus
+    Amazonka.ServiceQuotas.Types.Tag
+    Amazonka.ServiceQuotas.UntagResource
+    Amazonka.ServiceQuotas.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -97,9 +97,9 @@ test-suite amazonka-service-quotas-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.ServiceQuotas
-    Test.AWS.ServiceQuotas
-    Test.AWS.ServiceQuotas.Internal
+    Test.Amazonka.Gen.ServiceQuotas
+    Test.Amazonka.ServiceQuotas
+    Test.Amazonka.ServiceQuotas.Internal
 
   build-depends:
     , amazonka                 ^>=2.0

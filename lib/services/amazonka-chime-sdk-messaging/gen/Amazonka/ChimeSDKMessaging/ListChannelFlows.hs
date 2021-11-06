@@ -1,0 +1,186 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Amazonka.ChimeSDKMessaging.ListChannelFlows
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Returns a paginated lists of all the channel flows created under a
+-- single Chime. This is a developer API.
+module Amazonka.ChimeSDKMessaging.ListChannelFlows
+  ( -- * Creating a Request
+    ListChannelFlows (..),
+    newListChannelFlows,
+
+    -- * Request Lenses
+    listChannelFlows_nextToken,
+    listChannelFlows_maxResults,
+    listChannelFlows_appInstanceArn,
+
+    -- * Destructuring the Response
+    ListChannelFlowsResponse (..),
+    newListChannelFlowsResponse,
+
+    -- * Response Lenses
+    listChannelFlowsResponse_channelFlows,
+    listChannelFlowsResponse_nextToken,
+    listChannelFlowsResponse_httpStatus,
+  )
+where
+
+import Amazonka.ChimeSDKMessaging.Types
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+
+-- | /See:/ 'newListChannelFlows' smart constructor.
+data ListChannelFlows = ListChannelFlows'
+  { -- | The token passed by previous API calls until all requested channel flows
+    -- are returned.
+    nextToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The maximum number of channel flows that you want to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The ARN of the app instance.
+    appInstanceArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListChannelFlows' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listChannelFlows_nextToken' - The token passed by previous API calls until all requested channel flows
+-- are returned.
+--
+-- 'maxResults', 'listChannelFlows_maxResults' - The maximum number of channel flows that you want to return.
+--
+-- 'appInstanceArn', 'listChannelFlows_appInstanceArn' - The ARN of the app instance.
+newListChannelFlows ::
+  -- | 'appInstanceArn'
+  Prelude.Text ->
+  ListChannelFlows
+newListChannelFlows pAppInstanceArn_ =
+  ListChannelFlows'
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      appInstanceArn = pAppInstanceArn_
+    }
+
+-- | The token passed by previous API calls until all requested channel flows
+-- are returned.
+listChannelFlows_nextToken :: Lens.Lens' ListChannelFlows (Prelude.Maybe Prelude.Text)
+listChannelFlows_nextToken = Lens.lens (\ListChannelFlows' {nextToken} -> nextToken) (\s@ListChannelFlows' {} a -> s {nextToken = a} :: ListChannelFlows) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The maximum number of channel flows that you want to return.
+listChannelFlows_maxResults :: Lens.Lens' ListChannelFlows (Prelude.Maybe Prelude.Natural)
+listChannelFlows_maxResults = Lens.lens (\ListChannelFlows' {maxResults} -> maxResults) (\s@ListChannelFlows' {} a -> s {maxResults = a} :: ListChannelFlows)
+
+-- | The ARN of the app instance.
+listChannelFlows_appInstanceArn :: Lens.Lens' ListChannelFlows Prelude.Text
+listChannelFlows_appInstanceArn = Lens.lens (\ListChannelFlows' {appInstanceArn} -> appInstanceArn) (\s@ListChannelFlows' {} a -> s {appInstanceArn = a} :: ListChannelFlows)
+
+instance Core.AWSRequest ListChannelFlows where
+  type
+    AWSResponse ListChannelFlows =
+      ListChannelFlowsResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListChannelFlowsResponse'
+            Prelude.<$> (x Core..?> "ChannelFlows" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ListChannelFlows
+
+instance Prelude.NFData ListChannelFlows
+
+instance Core.ToHeaders ListChannelFlows where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath ListChannelFlows where
+  toPath = Prelude.const "/channel-flows"
+
+instance Core.ToQuery ListChannelFlows where
+  toQuery ListChannelFlows' {..} =
+    Prelude.mconcat
+      [ "next-token" Core.=: nextToken,
+        "max-results" Core.=: maxResults,
+        "app-instance-arn" Core.=: appInstanceArn
+      ]
+
+-- | /See:/ 'newListChannelFlowsResponse' smart constructor.
+data ListChannelFlowsResponse = ListChannelFlowsResponse'
+  { -- | The information about each channel flow.
+    channelFlows :: Prelude.Maybe [ChannelFlowSummary],
+    -- | The token passed by previous API calls until all requested channels are
+    -- returned.
+    nextToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListChannelFlowsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'channelFlows', 'listChannelFlowsResponse_channelFlows' - The information about each channel flow.
+--
+-- 'nextToken', 'listChannelFlowsResponse_nextToken' - The token passed by previous API calls until all requested channels are
+-- returned.
+--
+-- 'httpStatus', 'listChannelFlowsResponse_httpStatus' - The response's http status code.
+newListChannelFlowsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListChannelFlowsResponse
+newListChannelFlowsResponse pHttpStatus_ =
+  ListChannelFlowsResponse'
+    { channelFlows =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The information about each channel flow.
+listChannelFlowsResponse_channelFlows :: Lens.Lens' ListChannelFlowsResponse (Prelude.Maybe [ChannelFlowSummary])
+listChannelFlowsResponse_channelFlows = Lens.lens (\ListChannelFlowsResponse' {channelFlows} -> channelFlows) (\s@ListChannelFlowsResponse' {} a -> s {channelFlows = a} :: ListChannelFlowsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token passed by previous API calls until all requested channels are
+-- returned.
+listChannelFlowsResponse_nextToken :: Lens.Lens' ListChannelFlowsResponse (Prelude.Maybe Prelude.Text)
+listChannelFlowsResponse_nextToken = Lens.lens (\ListChannelFlowsResponse' {nextToken} -> nextToken) (\s@ListChannelFlowsResponse' {} a -> s {nextToken = a} :: ListChannelFlowsResponse) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The response's http status code.
+listChannelFlowsResponse_httpStatus :: Lens.Lens' ListChannelFlowsResponse Prelude.Int
+listChannelFlowsResponse_httpStatus = Lens.lens (\ListChannelFlowsResponse' {httpStatus} -> httpStatus) (\s@ListChannelFlowsResponse' {} a -> s {httpStatus = a} :: ListChannelFlowsResponse)
+
+instance Prelude.NFData ListChannelFlowsResponse

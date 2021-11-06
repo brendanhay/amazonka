@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Braket.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Braket.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Braket" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Braket" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,30 +45,30 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Braket
-    Network.AWS.Braket.CancelQuantumTask
-    Network.AWS.Braket.CreateQuantumTask
-    Network.AWS.Braket.GetDevice
-    Network.AWS.Braket.GetQuantumTask
-    Network.AWS.Braket.Lens
-    Network.AWS.Braket.ListTagsForResource
-    Network.AWS.Braket.SearchDevices
-    Network.AWS.Braket.SearchQuantumTasks
-    Network.AWS.Braket.TagResource
-    Network.AWS.Braket.Types
-    Network.AWS.Braket.Types.CancellationStatus
-    Network.AWS.Braket.Types.DeviceStatus
-    Network.AWS.Braket.Types.DeviceSummary
-    Network.AWS.Braket.Types.DeviceType
-    Network.AWS.Braket.Types.QuantumTaskStatus
-    Network.AWS.Braket.Types.QuantumTaskSummary
-    Network.AWS.Braket.Types.SearchDevicesFilter
-    Network.AWS.Braket.Types.SearchQuantumTasksFilter
-    Network.AWS.Braket.Types.SearchQuantumTasksFilterOperator
-    Network.AWS.Braket.UntagResource
-    Network.AWS.Braket.Waiters
+    Amazonka.Braket
+    Amazonka.Braket.CancelQuantumTask
+    Amazonka.Braket.CreateQuantumTask
+    Amazonka.Braket.GetDevice
+    Amazonka.Braket.GetQuantumTask
+    Amazonka.Braket.Lens
+    Amazonka.Braket.ListTagsForResource
+    Amazonka.Braket.SearchDevices
+    Amazonka.Braket.SearchQuantumTasks
+    Amazonka.Braket.TagResource
+    Amazonka.Braket.Types
+    Amazonka.Braket.Types.CancellationStatus
+    Amazonka.Braket.Types.DeviceStatus
+    Amazonka.Braket.Types.DeviceSummary
+    Amazonka.Braket.Types.DeviceType
+    Amazonka.Braket.Types.QuantumTaskStatus
+    Amazonka.Braket.Types.QuantumTaskSummary
+    Amazonka.Braket.Types.SearchDevicesFilter
+    Amazonka.Braket.Types.SearchQuantumTasksFilter
+    Amazonka.Braket.Types.SearchQuantumTasksFilterOperator
+    Amazonka.Braket.UntagResource
+    Amazonka.Braket.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -84,9 +84,9 @@ test-suite amazonka-braket-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Braket
-    Test.AWS.Braket.Internal
-    Test.AWS.Gen.Braket
+    Test.Amazonka.Braket
+    Test.Amazonka.Braket.Internal
+    Test.Amazonka.Gen.Braket
 
   build-depends:
     , amazonka              ^>=2.0

@@ -1,0 +1,149 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Amazonka.FMS.Types.RemediationAction
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Amazonka.FMS.Types.RemediationAction where
+
+import qualified Amazonka.Core as Core
+import Amazonka.FMS.Types.EC2AssociateRouteTableAction
+import Amazonka.FMS.Types.EC2CopyRouteTableAction
+import Amazonka.FMS.Types.EC2CreateRouteAction
+import Amazonka.FMS.Types.EC2CreateRouteTableAction
+import Amazonka.FMS.Types.EC2DeleteRouteAction
+import Amazonka.FMS.Types.EC2ReplaceRouteAction
+import Amazonka.FMS.Types.EC2ReplaceRouteTableAssociationAction
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+
+-- | Information about an individual action you can take to remediate a
+-- violation.
+--
+-- /See:/ 'newRemediationAction' smart constructor.
+data RemediationAction = RemediationAction'
+  { -- | Information about the CreateRoute action in the Amazon EC2 API.
+    eC2CreateRouteAction :: Prelude.Maybe EC2CreateRouteAction,
+    -- | Information about the CopyRouteTable action in the Amazon EC2 API.
+    eC2CopyRouteTableAction :: Prelude.Maybe EC2CopyRouteTableAction,
+    -- | Information about the ReplaceRouteTableAssociation action in the Amazon
+    -- EC2 API.
+    eC2ReplaceRouteTableAssociationAction :: Prelude.Maybe EC2ReplaceRouteTableAssociationAction,
+    -- | Information about the AssociateRouteTable action in the Amazon EC2 API.
+    eC2AssociateRouteTableAction :: Prelude.Maybe EC2AssociateRouteTableAction,
+    -- | Information about the ReplaceRoute action in the Amazon EC2 API.
+    eC2ReplaceRouteAction :: Prelude.Maybe EC2ReplaceRouteAction,
+    -- | Information about the DeleteRoute action in the Amazon EC2 API.
+    eC2DeleteRouteAction :: Prelude.Maybe EC2DeleteRouteAction,
+    -- | A description of a remediation action.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Information about the CreateRouteTable action in the Amazon EC2 API.
+    eC2CreateRouteTableAction :: Prelude.Maybe EC2CreateRouteTableAction
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'RemediationAction' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'eC2CreateRouteAction', 'remediationAction_eC2CreateRouteAction' - Information about the CreateRoute action in the Amazon EC2 API.
+--
+-- 'eC2CopyRouteTableAction', 'remediationAction_eC2CopyRouteTableAction' - Information about the CopyRouteTable action in the Amazon EC2 API.
+--
+-- 'eC2ReplaceRouteTableAssociationAction', 'remediationAction_eC2ReplaceRouteTableAssociationAction' - Information about the ReplaceRouteTableAssociation action in the Amazon
+-- EC2 API.
+--
+-- 'eC2AssociateRouteTableAction', 'remediationAction_eC2AssociateRouteTableAction' - Information about the AssociateRouteTable action in the Amazon EC2 API.
+--
+-- 'eC2ReplaceRouteAction', 'remediationAction_eC2ReplaceRouteAction' - Information about the ReplaceRoute action in the Amazon EC2 API.
+--
+-- 'eC2DeleteRouteAction', 'remediationAction_eC2DeleteRouteAction' - Information about the DeleteRoute action in the Amazon EC2 API.
+--
+-- 'description', 'remediationAction_description' - A description of a remediation action.
+--
+-- 'eC2CreateRouteTableAction', 'remediationAction_eC2CreateRouteTableAction' - Information about the CreateRouteTable action in the Amazon EC2 API.
+newRemediationAction ::
+  RemediationAction
+newRemediationAction =
+  RemediationAction'
+    { eC2CreateRouteAction =
+        Prelude.Nothing,
+      eC2CopyRouteTableAction = Prelude.Nothing,
+      eC2ReplaceRouteTableAssociationAction =
+        Prelude.Nothing,
+      eC2AssociateRouteTableAction = Prelude.Nothing,
+      eC2ReplaceRouteAction = Prelude.Nothing,
+      eC2DeleteRouteAction = Prelude.Nothing,
+      description = Prelude.Nothing,
+      eC2CreateRouteTableAction = Prelude.Nothing
+    }
+
+-- | Information about the CreateRoute action in the Amazon EC2 API.
+remediationAction_eC2CreateRouteAction :: Lens.Lens' RemediationAction (Prelude.Maybe EC2CreateRouteAction)
+remediationAction_eC2CreateRouteAction = Lens.lens (\RemediationAction' {eC2CreateRouteAction} -> eC2CreateRouteAction) (\s@RemediationAction' {} a -> s {eC2CreateRouteAction = a} :: RemediationAction)
+
+-- | Information about the CopyRouteTable action in the Amazon EC2 API.
+remediationAction_eC2CopyRouteTableAction :: Lens.Lens' RemediationAction (Prelude.Maybe EC2CopyRouteTableAction)
+remediationAction_eC2CopyRouteTableAction = Lens.lens (\RemediationAction' {eC2CopyRouteTableAction} -> eC2CopyRouteTableAction) (\s@RemediationAction' {} a -> s {eC2CopyRouteTableAction = a} :: RemediationAction)
+
+-- | Information about the ReplaceRouteTableAssociation action in the Amazon
+-- EC2 API.
+remediationAction_eC2ReplaceRouteTableAssociationAction :: Lens.Lens' RemediationAction (Prelude.Maybe EC2ReplaceRouteTableAssociationAction)
+remediationAction_eC2ReplaceRouteTableAssociationAction = Lens.lens (\RemediationAction' {eC2ReplaceRouteTableAssociationAction} -> eC2ReplaceRouteTableAssociationAction) (\s@RemediationAction' {} a -> s {eC2ReplaceRouteTableAssociationAction = a} :: RemediationAction)
+
+-- | Information about the AssociateRouteTable action in the Amazon EC2 API.
+remediationAction_eC2AssociateRouteTableAction :: Lens.Lens' RemediationAction (Prelude.Maybe EC2AssociateRouteTableAction)
+remediationAction_eC2AssociateRouteTableAction = Lens.lens (\RemediationAction' {eC2AssociateRouteTableAction} -> eC2AssociateRouteTableAction) (\s@RemediationAction' {} a -> s {eC2AssociateRouteTableAction = a} :: RemediationAction)
+
+-- | Information about the ReplaceRoute action in the Amazon EC2 API.
+remediationAction_eC2ReplaceRouteAction :: Lens.Lens' RemediationAction (Prelude.Maybe EC2ReplaceRouteAction)
+remediationAction_eC2ReplaceRouteAction = Lens.lens (\RemediationAction' {eC2ReplaceRouteAction} -> eC2ReplaceRouteAction) (\s@RemediationAction' {} a -> s {eC2ReplaceRouteAction = a} :: RemediationAction)
+
+-- | Information about the DeleteRoute action in the Amazon EC2 API.
+remediationAction_eC2DeleteRouteAction :: Lens.Lens' RemediationAction (Prelude.Maybe EC2DeleteRouteAction)
+remediationAction_eC2DeleteRouteAction = Lens.lens (\RemediationAction' {eC2DeleteRouteAction} -> eC2DeleteRouteAction) (\s@RemediationAction' {} a -> s {eC2DeleteRouteAction = a} :: RemediationAction)
+
+-- | A description of a remediation action.
+remediationAction_description :: Lens.Lens' RemediationAction (Prelude.Maybe Prelude.Text)
+remediationAction_description = Lens.lens (\RemediationAction' {description} -> description) (\s@RemediationAction' {} a -> s {description = a} :: RemediationAction)
+
+-- | Information about the CreateRouteTable action in the Amazon EC2 API.
+remediationAction_eC2CreateRouteTableAction :: Lens.Lens' RemediationAction (Prelude.Maybe EC2CreateRouteTableAction)
+remediationAction_eC2CreateRouteTableAction = Lens.lens (\RemediationAction' {eC2CreateRouteTableAction} -> eC2CreateRouteTableAction) (\s@RemediationAction' {} a -> s {eC2CreateRouteTableAction = a} :: RemediationAction)
+
+instance Core.FromJSON RemediationAction where
+  parseJSON =
+    Core.withObject
+      "RemediationAction"
+      ( \x ->
+          RemediationAction'
+            Prelude.<$> (x Core..:? "EC2CreateRouteAction")
+            Prelude.<*> (x Core..:? "EC2CopyRouteTableAction")
+            Prelude.<*> (x Core..:? "EC2ReplaceRouteTableAssociationAction")
+            Prelude.<*> (x Core..:? "EC2AssociateRouteTableAction")
+            Prelude.<*> (x Core..:? "EC2ReplaceRouteAction")
+            Prelude.<*> (x Core..:? "EC2DeleteRouteAction")
+            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "EC2CreateRouteTableAction")
+      )
+
+instance Prelude.Hashable RemediationAction
+
+instance Prelude.NFData RemediationAction

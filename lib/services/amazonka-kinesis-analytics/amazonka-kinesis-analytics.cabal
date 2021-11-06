@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.KinesisAnalytics.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.KinesisAnalytics.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.KinesisAnalytics" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.KinesisAnalytics" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,88 +45,88 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.KinesisAnalytics
-    Network.AWS.KinesisAnalytics.AddApplicationCloudWatchLoggingOption
-    Network.AWS.KinesisAnalytics.AddApplicationInput
-    Network.AWS.KinesisAnalytics.AddApplicationInputProcessingConfiguration
-    Network.AWS.KinesisAnalytics.AddApplicationOutput
-    Network.AWS.KinesisAnalytics.AddApplicationReferenceDataSource
-    Network.AWS.KinesisAnalytics.CreateApplication
-    Network.AWS.KinesisAnalytics.DeleteApplication
-    Network.AWS.KinesisAnalytics.DeleteApplicationCloudWatchLoggingOption
-    Network.AWS.KinesisAnalytics.DeleteApplicationInputProcessingConfiguration
-    Network.AWS.KinesisAnalytics.DeleteApplicationOutput
-    Network.AWS.KinesisAnalytics.DeleteApplicationReferenceDataSource
-    Network.AWS.KinesisAnalytics.DescribeApplication
-    Network.AWS.KinesisAnalytics.DiscoverInputSchema
-    Network.AWS.KinesisAnalytics.Lens
-    Network.AWS.KinesisAnalytics.ListApplications
-    Network.AWS.KinesisAnalytics.ListTagsForResource
-    Network.AWS.KinesisAnalytics.StartApplication
-    Network.AWS.KinesisAnalytics.StopApplication
-    Network.AWS.KinesisAnalytics.TagResource
-    Network.AWS.KinesisAnalytics.Types
-    Network.AWS.KinesisAnalytics.Types.ApplicationDetail
-    Network.AWS.KinesisAnalytics.Types.ApplicationStatus
-    Network.AWS.KinesisAnalytics.Types.ApplicationSummary
-    Network.AWS.KinesisAnalytics.Types.ApplicationUpdate
-    Network.AWS.KinesisAnalytics.Types.CloudWatchLoggingOption
-    Network.AWS.KinesisAnalytics.Types.CloudWatchLoggingOptionDescription
-    Network.AWS.KinesisAnalytics.Types.CloudWatchLoggingOptionUpdate
-    Network.AWS.KinesisAnalytics.Types.CSVMappingParameters
-    Network.AWS.KinesisAnalytics.Types.DestinationSchema
-    Network.AWS.KinesisAnalytics.Types.Input
-    Network.AWS.KinesisAnalytics.Types.InputConfiguration
-    Network.AWS.KinesisAnalytics.Types.InputDescription
-    Network.AWS.KinesisAnalytics.Types.InputLambdaProcessor
-    Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription
-    Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorUpdate
-    Network.AWS.KinesisAnalytics.Types.InputParallelism
-    Network.AWS.KinesisAnalytics.Types.InputParallelismUpdate
-    Network.AWS.KinesisAnalytics.Types.InputProcessingConfiguration
-    Network.AWS.KinesisAnalytics.Types.InputProcessingConfigurationDescription
-    Network.AWS.KinesisAnalytics.Types.InputProcessingConfigurationUpdate
-    Network.AWS.KinesisAnalytics.Types.InputSchemaUpdate
-    Network.AWS.KinesisAnalytics.Types.InputStartingPosition
-    Network.AWS.KinesisAnalytics.Types.InputStartingPositionConfiguration
-    Network.AWS.KinesisAnalytics.Types.InputUpdate
-    Network.AWS.KinesisAnalytics.Types.JSONMappingParameters
-    Network.AWS.KinesisAnalytics.Types.KinesisFirehoseInput
-    Network.AWS.KinesisAnalytics.Types.KinesisFirehoseInputDescription
-    Network.AWS.KinesisAnalytics.Types.KinesisFirehoseInputUpdate
-    Network.AWS.KinesisAnalytics.Types.KinesisFirehoseOutput
-    Network.AWS.KinesisAnalytics.Types.KinesisFirehoseOutputDescription
-    Network.AWS.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate
-    Network.AWS.KinesisAnalytics.Types.KinesisStreamsInput
-    Network.AWS.KinesisAnalytics.Types.KinesisStreamsInputDescription
-    Network.AWS.KinesisAnalytics.Types.KinesisStreamsInputUpdate
-    Network.AWS.KinesisAnalytics.Types.KinesisStreamsOutput
-    Network.AWS.KinesisAnalytics.Types.KinesisStreamsOutputDescription
-    Network.AWS.KinesisAnalytics.Types.KinesisStreamsOutputUpdate
-    Network.AWS.KinesisAnalytics.Types.LambdaOutput
-    Network.AWS.KinesisAnalytics.Types.LambdaOutputDescription
-    Network.AWS.KinesisAnalytics.Types.LambdaOutputUpdate
-    Network.AWS.KinesisAnalytics.Types.MappingParameters
-    Network.AWS.KinesisAnalytics.Types.Output
-    Network.AWS.KinesisAnalytics.Types.OutputDescription
-    Network.AWS.KinesisAnalytics.Types.OutputUpdate
-    Network.AWS.KinesisAnalytics.Types.RecordColumn
-    Network.AWS.KinesisAnalytics.Types.RecordFormat
-    Network.AWS.KinesisAnalytics.Types.RecordFormatType
-    Network.AWS.KinesisAnalytics.Types.ReferenceDataSource
-    Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription
-    Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceUpdate
-    Network.AWS.KinesisAnalytics.Types.S3Configuration
-    Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSource
-    Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription
-    Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceUpdate
-    Network.AWS.KinesisAnalytics.Types.SourceSchema
-    Network.AWS.KinesisAnalytics.Types.Tag
-    Network.AWS.KinesisAnalytics.UntagResource
-    Network.AWS.KinesisAnalytics.UpdateApplication
-    Network.AWS.KinesisAnalytics.Waiters
+    Amazonka.KinesisAnalytics
+    Amazonka.KinesisAnalytics.AddApplicationCloudWatchLoggingOption
+    Amazonka.KinesisAnalytics.AddApplicationInput
+    Amazonka.KinesisAnalytics.AddApplicationInputProcessingConfiguration
+    Amazonka.KinesisAnalytics.AddApplicationOutput
+    Amazonka.KinesisAnalytics.AddApplicationReferenceDataSource
+    Amazonka.KinesisAnalytics.CreateApplication
+    Amazonka.KinesisAnalytics.DeleteApplication
+    Amazonka.KinesisAnalytics.DeleteApplicationCloudWatchLoggingOption
+    Amazonka.KinesisAnalytics.DeleteApplicationInputProcessingConfiguration
+    Amazonka.KinesisAnalytics.DeleteApplicationOutput
+    Amazonka.KinesisAnalytics.DeleteApplicationReferenceDataSource
+    Amazonka.KinesisAnalytics.DescribeApplication
+    Amazonka.KinesisAnalytics.DiscoverInputSchema
+    Amazonka.KinesisAnalytics.Lens
+    Amazonka.KinesisAnalytics.ListApplications
+    Amazonka.KinesisAnalytics.ListTagsForResource
+    Amazonka.KinesisAnalytics.StartApplication
+    Amazonka.KinesisAnalytics.StopApplication
+    Amazonka.KinesisAnalytics.TagResource
+    Amazonka.KinesisAnalytics.Types
+    Amazonka.KinesisAnalytics.Types.ApplicationDetail
+    Amazonka.KinesisAnalytics.Types.ApplicationStatus
+    Amazonka.KinesisAnalytics.Types.ApplicationSummary
+    Amazonka.KinesisAnalytics.Types.ApplicationUpdate
+    Amazonka.KinesisAnalytics.Types.CloudWatchLoggingOption
+    Amazonka.KinesisAnalytics.Types.CloudWatchLoggingOptionDescription
+    Amazonka.KinesisAnalytics.Types.CloudWatchLoggingOptionUpdate
+    Amazonka.KinesisAnalytics.Types.CSVMappingParameters
+    Amazonka.KinesisAnalytics.Types.DestinationSchema
+    Amazonka.KinesisAnalytics.Types.Input
+    Amazonka.KinesisAnalytics.Types.InputConfiguration
+    Amazonka.KinesisAnalytics.Types.InputDescription
+    Amazonka.KinesisAnalytics.Types.InputLambdaProcessor
+    Amazonka.KinesisAnalytics.Types.InputLambdaProcessorDescription
+    Amazonka.KinesisAnalytics.Types.InputLambdaProcessorUpdate
+    Amazonka.KinesisAnalytics.Types.InputParallelism
+    Amazonka.KinesisAnalytics.Types.InputParallelismUpdate
+    Amazonka.KinesisAnalytics.Types.InputProcessingConfiguration
+    Amazonka.KinesisAnalytics.Types.InputProcessingConfigurationDescription
+    Amazonka.KinesisAnalytics.Types.InputProcessingConfigurationUpdate
+    Amazonka.KinesisAnalytics.Types.InputSchemaUpdate
+    Amazonka.KinesisAnalytics.Types.InputStartingPosition
+    Amazonka.KinesisAnalytics.Types.InputStartingPositionConfiguration
+    Amazonka.KinesisAnalytics.Types.InputUpdate
+    Amazonka.KinesisAnalytics.Types.JSONMappingParameters
+    Amazonka.KinesisAnalytics.Types.KinesisFirehoseInput
+    Amazonka.KinesisAnalytics.Types.KinesisFirehoseInputDescription
+    Amazonka.KinesisAnalytics.Types.KinesisFirehoseInputUpdate
+    Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutput
+    Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputDescription
+    Amazonka.KinesisAnalytics.Types.KinesisFirehoseOutputUpdate
+    Amazonka.KinesisAnalytics.Types.KinesisStreamsInput
+    Amazonka.KinesisAnalytics.Types.KinesisStreamsInputDescription
+    Amazonka.KinesisAnalytics.Types.KinesisStreamsInputUpdate
+    Amazonka.KinesisAnalytics.Types.KinesisStreamsOutput
+    Amazonka.KinesisAnalytics.Types.KinesisStreamsOutputDescription
+    Amazonka.KinesisAnalytics.Types.KinesisStreamsOutputUpdate
+    Amazonka.KinesisAnalytics.Types.LambdaOutput
+    Amazonka.KinesisAnalytics.Types.LambdaOutputDescription
+    Amazonka.KinesisAnalytics.Types.LambdaOutputUpdate
+    Amazonka.KinesisAnalytics.Types.MappingParameters
+    Amazonka.KinesisAnalytics.Types.Output
+    Amazonka.KinesisAnalytics.Types.OutputDescription
+    Amazonka.KinesisAnalytics.Types.OutputUpdate
+    Amazonka.KinesisAnalytics.Types.RecordColumn
+    Amazonka.KinesisAnalytics.Types.RecordFormat
+    Amazonka.KinesisAnalytics.Types.RecordFormatType
+    Amazonka.KinesisAnalytics.Types.ReferenceDataSource
+    Amazonka.KinesisAnalytics.Types.ReferenceDataSourceDescription
+    Amazonka.KinesisAnalytics.Types.ReferenceDataSourceUpdate
+    Amazonka.KinesisAnalytics.Types.S3Configuration
+    Amazonka.KinesisAnalytics.Types.S3ReferenceDataSource
+    Amazonka.KinesisAnalytics.Types.S3ReferenceDataSourceDescription
+    Amazonka.KinesisAnalytics.Types.S3ReferenceDataSourceUpdate
+    Amazonka.KinesisAnalytics.Types.SourceSchema
+    Amazonka.KinesisAnalytics.Types.Tag
+    Amazonka.KinesisAnalytics.UntagResource
+    Amazonka.KinesisAnalytics.UpdateApplication
+    Amazonka.KinesisAnalytics.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -142,9 +142,9 @@ test-suite amazonka-kinesis-analytics-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.KinesisAnalytics
-    Test.AWS.KinesisAnalytics
-    Test.AWS.KinesisAnalytics.Internal
+    Test.Amazonka.Gen.KinesisAnalytics
+    Test.Amazonka.KinesisAnalytics
+    Test.Amazonka.KinesisAnalytics.Internal
 
   build-depends:
     , amazonka                    ^>=2.0

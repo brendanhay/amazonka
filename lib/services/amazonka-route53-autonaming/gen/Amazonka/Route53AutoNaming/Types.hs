@@ -1,0 +1,564 @@
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Amazonka.Route53AutoNaming.Types
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Amazonka.Route53AutoNaming.Types
+  ( -- * Service Configuration
+    defaultService,
+
+    -- * Errors
+    _ResourceLimitExceeded,
+    _InvalidInput,
+    _NamespaceAlreadyExists,
+    _NamespaceNotFound,
+    _ServiceAlreadyExists,
+    _ResourceInUse,
+    _TooManyTagsException,
+    _CustomHealthNotFound,
+    _RequestLimitExceeded,
+    _InstanceNotFound,
+    _DuplicateRequest,
+    _ServiceNotFound,
+    _OperationNotFound,
+    _ResourceNotFoundException,
+
+    -- * CustomHealthStatus
+    CustomHealthStatus (..),
+
+    -- * FilterCondition
+    FilterCondition (..),
+
+    -- * HealthCheckType
+    HealthCheckType (..),
+
+    -- * HealthStatus
+    HealthStatus (..),
+
+    -- * HealthStatusFilter
+    HealthStatusFilter (..),
+
+    -- * NamespaceFilterName
+    NamespaceFilterName (..),
+
+    -- * NamespaceType
+    NamespaceType (..),
+
+    -- * OperationFilterName
+    OperationFilterName (..),
+
+    -- * OperationStatus
+    OperationStatus (..),
+
+    -- * OperationTargetType
+    OperationTargetType (..),
+
+    -- * OperationType
+    OperationType (..),
+
+    -- * RecordType
+    RecordType (..),
+
+    -- * RoutingPolicy
+    RoutingPolicy (..),
+
+    -- * ServiceFilterName
+    ServiceFilterName (..),
+
+    -- * ServiceType
+    ServiceType (..),
+
+    -- * ServiceTypeOption
+    ServiceTypeOption (..),
+
+    -- * DnsConfig
+    DnsConfig (..),
+    newDnsConfig,
+    dnsConfig_routingPolicy,
+    dnsConfig_namespaceId,
+    dnsConfig_dnsRecords,
+
+    -- * DnsConfigChange
+    DnsConfigChange (..),
+    newDnsConfigChange,
+    dnsConfigChange_dnsRecords,
+
+    -- * DnsProperties
+    DnsProperties (..),
+    newDnsProperties,
+    dnsProperties_hostedZoneId,
+    dnsProperties_soa,
+
+    -- * DnsRecord
+    DnsRecord (..),
+    newDnsRecord,
+    dnsRecord_type,
+    dnsRecord_ttl,
+
+    -- * HealthCheckConfig
+    HealthCheckConfig (..),
+    newHealthCheckConfig,
+    healthCheckConfig_failureThreshold,
+    healthCheckConfig_resourcePath,
+    healthCheckConfig_type,
+
+    -- * HealthCheckCustomConfig
+    HealthCheckCustomConfig (..),
+    newHealthCheckCustomConfig,
+    healthCheckCustomConfig_failureThreshold,
+
+    -- * HttpInstanceSummary
+    HttpInstanceSummary (..),
+    newHttpInstanceSummary,
+    httpInstanceSummary_instanceId,
+    httpInstanceSummary_namespaceName,
+    httpInstanceSummary_attributes,
+    httpInstanceSummary_serviceName,
+    httpInstanceSummary_healthStatus,
+
+    -- * HttpNamespaceChange
+    HttpNamespaceChange (..),
+    newHttpNamespaceChange,
+    httpNamespaceChange_description,
+
+    -- * HttpProperties
+    HttpProperties (..),
+    newHttpProperties,
+    httpProperties_httpName,
+
+    -- * Instance
+    Instance (..),
+    newInstance,
+    instance_creatorRequestId,
+    instance_attributes,
+    instance_id,
+
+    -- * InstanceSummary
+    InstanceSummary (..),
+    newInstanceSummary,
+    instanceSummary_attributes,
+    instanceSummary_id,
+
+    -- * Namespace
+    Namespace (..),
+    newNamespace,
+    namespace_arn,
+    namespace_creatorRequestId,
+    namespace_createDate,
+    namespace_serviceCount,
+    namespace_name,
+    namespace_id,
+    namespace_type,
+    namespace_description,
+    namespace_properties,
+
+    -- * NamespaceFilter
+    NamespaceFilter (..),
+    newNamespaceFilter,
+    namespaceFilter_condition,
+    namespaceFilter_name,
+    namespaceFilter_values,
+
+    -- * NamespaceProperties
+    NamespaceProperties (..),
+    newNamespaceProperties,
+    namespaceProperties_dnsProperties,
+    namespaceProperties_httpProperties,
+
+    -- * NamespaceSummary
+    NamespaceSummary (..),
+    newNamespaceSummary,
+    namespaceSummary_arn,
+    namespaceSummary_createDate,
+    namespaceSummary_serviceCount,
+    namespaceSummary_name,
+    namespaceSummary_id,
+    namespaceSummary_type,
+    namespaceSummary_description,
+    namespaceSummary_properties,
+
+    -- * Operation
+    Operation (..),
+    newOperation,
+    operation_status,
+    operation_updateDate,
+    operation_createDate,
+    operation_targets,
+    operation_errorCode,
+    operation_id,
+    operation_type,
+    operation_errorMessage,
+
+    -- * OperationFilter
+    OperationFilter (..),
+    newOperationFilter,
+    operationFilter_condition,
+    operationFilter_name,
+    operationFilter_values,
+
+    -- * OperationSummary
+    OperationSummary (..),
+    newOperationSummary,
+    operationSummary_status,
+    operationSummary_id,
+
+    -- * PrivateDnsNamespaceChange
+    PrivateDnsNamespaceChange (..),
+    newPrivateDnsNamespaceChange,
+    privateDnsNamespaceChange_description,
+    privateDnsNamespaceChange_properties,
+
+    -- * PrivateDnsNamespaceProperties
+    PrivateDnsNamespaceProperties (..),
+    newPrivateDnsNamespaceProperties,
+    privateDnsNamespaceProperties_dnsProperties,
+
+    -- * PrivateDnsNamespacePropertiesChange
+    PrivateDnsNamespacePropertiesChange (..),
+    newPrivateDnsNamespacePropertiesChange,
+    privateDnsNamespacePropertiesChange_dnsProperties,
+
+    -- * PrivateDnsPropertiesMutable
+    PrivateDnsPropertiesMutable (..),
+    newPrivateDnsPropertiesMutable,
+    privateDnsPropertiesMutable_soa,
+
+    -- * PrivateDnsPropertiesMutableChange
+    PrivateDnsPropertiesMutableChange (..),
+    newPrivateDnsPropertiesMutableChange,
+    privateDnsPropertiesMutableChange_soa,
+
+    -- * PublicDnsNamespaceChange
+    PublicDnsNamespaceChange (..),
+    newPublicDnsNamespaceChange,
+    publicDnsNamespaceChange_description,
+    publicDnsNamespaceChange_properties,
+
+    -- * PublicDnsNamespaceProperties
+    PublicDnsNamespaceProperties (..),
+    newPublicDnsNamespaceProperties,
+    publicDnsNamespaceProperties_dnsProperties,
+
+    -- * PublicDnsNamespacePropertiesChange
+    PublicDnsNamespacePropertiesChange (..),
+    newPublicDnsNamespacePropertiesChange,
+    publicDnsNamespacePropertiesChange_dnsProperties,
+
+    -- * PublicDnsPropertiesMutable
+    PublicDnsPropertiesMutable (..),
+    newPublicDnsPropertiesMutable,
+    publicDnsPropertiesMutable_soa,
+
+    -- * PublicDnsPropertiesMutableChange
+    PublicDnsPropertiesMutableChange (..),
+    newPublicDnsPropertiesMutableChange,
+    publicDnsPropertiesMutableChange_soa,
+
+    -- * SOA
+    SOA (..),
+    newSOA,
+    soa_ttl,
+
+    -- * SOAChange
+    SOAChange (..),
+    newSOAChange,
+    sOAChange_ttl,
+
+    -- * ServiceChange
+    ServiceChange (..),
+    newServiceChange,
+    serviceChange_healthCheckConfig,
+    serviceChange_dnsConfig,
+    serviceChange_description,
+
+    -- * ServiceFilter
+    ServiceFilter (..),
+    newServiceFilter,
+    serviceFilter_condition,
+    serviceFilter_name,
+    serviceFilter_values,
+
+    -- * ServiceInfo
+    ServiceInfo (..),
+    newServiceInfo,
+    serviceInfo_instanceCount,
+    serviceInfo_arn,
+    serviceInfo_healthCheckConfig,
+    serviceInfo_creatorRequestId,
+    serviceInfo_createDate,
+    serviceInfo_healthCheckCustomConfig,
+    serviceInfo_namespaceId,
+    serviceInfo_name,
+    serviceInfo_id,
+    serviceInfo_type,
+    serviceInfo_dnsConfig,
+    serviceInfo_description,
+
+    -- * ServiceSummary
+    ServiceSummary (..),
+    newServiceSummary,
+    serviceSummary_instanceCount,
+    serviceSummary_arn,
+    serviceSummary_healthCheckConfig,
+    serviceSummary_createDate,
+    serviceSummary_healthCheckCustomConfig,
+    serviceSummary_name,
+    serviceSummary_id,
+    serviceSummary_type,
+    serviceSummary_dnsConfig,
+    serviceSummary_description,
+
+    -- * Tag
+    Tag (..),
+    newTag,
+    tag_key,
+    tag_value,
+  )
+where
+
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.Route53AutoNaming.Types.CustomHealthStatus
+import Amazonka.Route53AutoNaming.Types.DnsConfig
+import Amazonka.Route53AutoNaming.Types.DnsConfigChange
+import Amazonka.Route53AutoNaming.Types.DnsProperties
+import Amazonka.Route53AutoNaming.Types.DnsRecord
+import Amazonka.Route53AutoNaming.Types.FilterCondition
+import Amazonka.Route53AutoNaming.Types.HealthCheckConfig
+import Amazonka.Route53AutoNaming.Types.HealthCheckCustomConfig
+import Amazonka.Route53AutoNaming.Types.HealthCheckType
+import Amazonka.Route53AutoNaming.Types.HealthStatus
+import Amazonka.Route53AutoNaming.Types.HealthStatusFilter
+import Amazonka.Route53AutoNaming.Types.HttpInstanceSummary
+import Amazonka.Route53AutoNaming.Types.HttpNamespaceChange
+import Amazonka.Route53AutoNaming.Types.HttpProperties
+import Amazonka.Route53AutoNaming.Types.Instance
+import Amazonka.Route53AutoNaming.Types.InstanceSummary
+import Amazonka.Route53AutoNaming.Types.Namespace
+import Amazonka.Route53AutoNaming.Types.NamespaceFilter
+import Amazonka.Route53AutoNaming.Types.NamespaceFilterName
+import Amazonka.Route53AutoNaming.Types.NamespaceProperties
+import Amazonka.Route53AutoNaming.Types.NamespaceSummary
+import Amazonka.Route53AutoNaming.Types.NamespaceType
+import Amazonka.Route53AutoNaming.Types.Operation
+import Amazonka.Route53AutoNaming.Types.OperationFilter
+import Amazonka.Route53AutoNaming.Types.OperationFilterName
+import Amazonka.Route53AutoNaming.Types.OperationStatus
+import Amazonka.Route53AutoNaming.Types.OperationSummary
+import Amazonka.Route53AutoNaming.Types.OperationTargetType
+import Amazonka.Route53AutoNaming.Types.OperationType
+import Amazonka.Route53AutoNaming.Types.PrivateDnsNamespaceChange
+import Amazonka.Route53AutoNaming.Types.PrivateDnsNamespaceProperties
+import Amazonka.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange
+import Amazonka.Route53AutoNaming.Types.PrivateDnsPropertiesMutable
+import Amazonka.Route53AutoNaming.Types.PrivateDnsPropertiesMutableChange
+import Amazonka.Route53AutoNaming.Types.PublicDnsNamespaceChange
+import Amazonka.Route53AutoNaming.Types.PublicDnsNamespaceProperties
+import Amazonka.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange
+import Amazonka.Route53AutoNaming.Types.PublicDnsPropertiesMutable
+import Amazonka.Route53AutoNaming.Types.PublicDnsPropertiesMutableChange
+import Amazonka.Route53AutoNaming.Types.RecordType
+import Amazonka.Route53AutoNaming.Types.RoutingPolicy
+import Amazonka.Route53AutoNaming.Types.SOA
+import Amazonka.Route53AutoNaming.Types.SOAChange
+import Amazonka.Route53AutoNaming.Types.ServiceChange
+import Amazonka.Route53AutoNaming.Types.ServiceFilter
+import Amazonka.Route53AutoNaming.Types.ServiceFilterName
+import Amazonka.Route53AutoNaming.Types.ServiceInfo
+import Amazonka.Route53AutoNaming.Types.ServiceSummary
+import Amazonka.Route53AutoNaming.Types.ServiceType
+import Amazonka.Route53AutoNaming.Types.ServiceTypeOption
+import Amazonka.Route53AutoNaming.Types.Tag
+import qualified Amazonka.Sign.V4 as Sign
+
+-- | API version @2017-03-14@ of the Amazon Cloud Map SDK configuration.
+defaultService :: Core.Service
+defaultService =
+  Core.Service
+    { Core._serviceAbbrev =
+        "Route53AutoNaming",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "servicediscovery",
+      Core._serviceSigningName = "servicediscovery",
+      Core._serviceVersion = "2017-03-14",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Prelude.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError =
+        Core.parseJSONError "Route53AutoNaming",
+      Core._serviceRetry = retry
+    }
+  where
+    retry =
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
+        }
+    check e
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Prelude.otherwise = Prelude.Nothing
+
+-- | The resource can\'t be created because you\'ve reached the quota on the
+-- number of resources.
+_ResourceLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceLimitExceeded =
+  Core._MatchServiceError
+    defaultService
+    "ResourceLimitExceeded"
+
+-- | One or more specified values aren\'t valid. For example, a required
+-- value might be missing, a numeric value might be outside the allowed
+-- range, or a string value might exceed length constraints.
+_InvalidInput :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInput =
+  Core._MatchServiceError
+    defaultService
+    "InvalidInput"
+
+-- | The namespace that you\'re trying to create already exists.
+_NamespaceAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NamespaceAlreadyExists =
+  Core._MatchServiceError
+    defaultService
+    "NamespaceAlreadyExists"
+
+-- | No namespace exists with the specified ID.
+_NamespaceNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NamespaceNotFound =
+  Core._MatchServiceError
+    defaultService
+    "NamespaceNotFound"
+
+-- | The service can\'t be created because a service with the same name
+-- already exists.
+_ServiceAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceAlreadyExists =
+  Core._MatchServiceError
+    defaultService
+    "ServiceAlreadyExists"
+
+-- | The specified resource can\'t be deleted because it contains other
+-- resources. For example, you can\'t delete a service that contains any
+-- instances.
+_ResourceInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUse =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUse"
+
+-- | The list of tags on the resource is over the quota. The maximum number
+-- of tags that can be applied to a resource is 50.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTagsException"
+
+-- | The health check for the instance that\'s specified by @ServiceId@ and
+-- @InstanceId@ isn\'t a custom health check.
+_CustomHealthNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CustomHealthNotFound =
+  Core._MatchServiceError
+    defaultService
+    "CustomHealthNotFound"
+
+-- | The operation can\'t be completed because you\'ve reached the quota for
+-- the number of requests. For more information, see
+-- <https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html Cloud Map API request throttling quota>
+-- in the /Cloud Map Developer Guide/.
+_RequestLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RequestLimitExceeded =
+  Core._MatchServiceError
+    defaultService
+    "RequestLimitExceeded"
+
+-- | No instance exists with the specified ID, or the instance was recently
+-- registered, and information about the instance hasn\'t propagated yet.
+_InstanceNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InstanceNotFound =
+  Core._MatchServiceError
+    defaultService
+    "InstanceNotFound"
+
+-- | The operation is already in progress.
+_DuplicateRequest :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateRequest =
+  Core._MatchServiceError
+    defaultService
+    "DuplicateRequest"
+
+-- | No service exists with the specified ID.
+_ServiceNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceNotFound =
+  Core._MatchServiceError
+    defaultService
+    "ServiceNotFound"
+
+-- | No operation exists with the specified ID.
+_OperationNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationNotFound =
+  Core._MatchServiceError
+    defaultService
+    "OperationNotFound"
+
+-- | The operation can\'t be completed because the resource was not found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"

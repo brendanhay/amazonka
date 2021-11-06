@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.CloudSearch.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.CloudSearch.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.CloudSearch" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.CloudSearch" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,76 +45,76 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.CloudSearch
-    Network.AWS.CloudSearch.BuildSuggesters
-    Network.AWS.CloudSearch.CreateDomain
-    Network.AWS.CloudSearch.DefineAnalysisScheme
-    Network.AWS.CloudSearch.DefineExpression
-    Network.AWS.CloudSearch.DefineIndexField
-    Network.AWS.CloudSearch.DefineSuggester
-    Network.AWS.CloudSearch.DeleteAnalysisScheme
-    Network.AWS.CloudSearch.DeleteDomain
-    Network.AWS.CloudSearch.DeleteExpression
-    Network.AWS.CloudSearch.DeleteIndexField
-    Network.AWS.CloudSearch.DeleteSuggester
-    Network.AWS.CloudSearch.DescribeAnalysisSchemes
-    Network.AWS.CloudSearch.DescribeAvailabilityOptions
-    Network.AWS.CloudSearch.DescribeDomainEndpointOptions
-    Network.AWS.CloudSearch.DescribeDomains
-    Network.AWS.CloudSearch.DescribeExpressions
-    Network.AWS.CloudSearch.DescribeIndexFields
-    Network.AWS.CloudSearch.DescribeScalingParameters
-    Network.AWS.CloudSearch.DescribeServiceAccessPolicies
-    Network.AWS.CloudSearch.DescribeSuggesters
-    Network.AWS.CloudSearch.IndexDocuments
-    Network.AWS.CloudSearch.Lens
-    Network.AWS.CloudSearch.ListDomainNames
-    Network.AWS.CloudSearch.Types
-    Network.AWS.CloudSearch.Types.AccessPoliciesStatus
-    Network.AWS.CloudSearch.Types.AlgorithmicStemming
-    Network.AWS.CloudSearch.Types.AnalysisOptions
-    Network.AWS.CloudSearch.Types.AnalysisScheme
-    Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage
-    Network.AWS.CloudSearch.Types.AnalysisSchemeStatus
-    Network.AWS.CloudSearch.Types.AvailabilityOptionsStatus
-    Network.AWS.CloudSearch.Types.DateArrayOptions
-    Network.AWS.CloudSearch.Types.DateOptions
-    Network.AWS.CloudSearch.Types.DocumentSuggesterOptions
-    Network.AWS.CloudSearch.Types.DomainEndpointOptions
-    Network.AWS.CloudSearch.Types.DomainEndpointOptionsStatus
-    Network.AWS.CloudSearch.Types.DomainStatus
-    Network.AWS.CloudSearch.Types.DoubleArrayOptions
-    Network.AWS.CloudSearch.Types.DoubleOptions
-    Network.AWS.CloudSearch.Types.Expression
-    Network.AWS.CloudSearch.Types.ExpressionStatus
-    Network.AWS.CloudSearch.Types.IndexField
-    Network.AWS.CloudSearch.Types.IndexFieldStatus
-    Network.AWS.CloudSearch.Types.IndexFieldType
-    Network.AWS.CloudSearch.Types.IntArrayOptions
-    Network.AWS.CloudSearch.Types.IntOptions
-    Network.AWS.CloudSearch.Types.LatLonOptions
-    Network.AWS.CloudSearch.Types.Limits
-    Network.AWS.CloudSearch.Types.LiteralArrayOptions
-    Network.AWS.CloudSearch.Types.LiteralOptions
-    Network.AWS.CloudSearch.Types.OptionState
-    Network.AWS.CloudSearch.Types.OptionStatus
-    Network.AWS.CloudSearch.Types.PartitionInstanceType
-    Network.AWS.CloudSearch.Types.ScalingParameters
-    Network.AWS.CloudSearch.Types.ScalingParametersStatus
-    Network.AWS.CloudSearch.Types.ServiceEndpoint
-    Network.AWS.CloudSearch.Types.Suggester
-    Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching
-    Network.AWS.CloudSearch.Types.SuggesterStatus
-    Network.AWS.CloudSearch.Types.TextArrayOptions
-    Network.AWS.CloudSearch.Types.TextOptions
-    Network.AWS.CloudSearch.Types.TLSSecurityPolicy
-    Network.AWS.CloudSearch.UpdateAvailabilityOptions
-    Network.AWS.CloudSearch.UpdateDomainEndpointOptions
-    Network.AWS.CloudSearch.UpdateScalingParameters
-    Network.AWS.CloudSearch.UpdateServiceAccessPolicies
-    Network.AWS.CloudSearch.Waiters
+    Amazonka.CloudSearch
+    Amazonka.CloudSearch.BuildSuggesters
+    Amazonka.CloudSearch.CreateDomain
+    Amazonka.CloudSearch.DefineAnalysisScheme
+    Amazonka.CloudSearch.DefineExpression
+    Amazonka.CloudSearch.DefineIndexField
+    Amazonka.CloudSearch.DefineSuggester
+    Amazonka.CloudSearch.DeleteAnalysisScheme
+    Amazonka.CloudSearch.DeleteDomain
+    Amazonka.CloudSearch.DeleteExpression
+    Amazonka.CloudSearch.DeleteIndexField
+    Amazonka.CloudSearch.DeleteSuggester
+    Amazonka.CloudSearch.DescribeAnalysisSchemes
+    Amazonka.CloudSearch.DescribeAvailabilityOptions
+    Amazonka.CloudSearch.DescribeDomainEndpointOptions
+    Amazonka.CloudSearch.DescribeDomains
+    Amazonka.CloudSearch.DescribeExpressions
+    Amazonka.CloudSearch.DescribeIndexFields
+    Amazonka.CloudSearch.DescribeScalingParameters
+    Amazonka.CloudSearch.DescribeServiceAccessPolicies
+    Amazonka.CloudSearch.DescribeSuggesters
+    Amazonka.CloudSearch.IndexDocuments
+    Amazonka.CloudSearch.Lens
+    Amazonka.CloudSearch.ListDomainNames
+    Amazonka.CloudSearch.Types
+    Amazonka.CloudSearch.Types.AccessPoliciesStatus
+    Amazonka.CloudSearch.Types.AlgorithmicStemming
+    Amazonka.CloudSearch.Types.AnalysisOptions
+    Amazonka.CloudSearch.Types.AnalysisScheme
+    Amazonka.CloudSearch.Types.AnalysisSchemeLanguage
+    Amazonka.CloudSearch.Types.AnalysisSchemeStatus
+    Amazonka.CloudSearch.Types.AvailabilityOptionsStatus
+    Amazonka.CloudSearch.Types.DateArrayOptions
+    Amazonka.CloudSearch.Types.DateOptions
+    Amazonka.CloudSearch.Types.DocumentSuggesterOptions
+    Amazonka.CloudSearch.Types.DomainEndpointOptions
+    Amazonka.CloudSearch.Types.DomainEndpointOptionsStatus
+    Amazonka.CloudSearch.Types.DomainStatus
+    Amazonka.CloudSearch.Types.DoubleArrayOptions
+    Amazonka.CloudSearch.Types.DoubleOptions
+    Amazonka.CloudSearch.Types.Expression
+    Amazonka.CloudSearch.Types.ExpressionStatus
+    Amazonka.CloudSearch.Types.IndexField
+    Amazonka.CloudSearch.Types.IndexFieldStatus
+    Amazonka.CloudSearch.Types.IndexFieldType
+    Amazonka.CloudSearch.Types.IntArrayOptions
+    Amazonka.CloudSearch.Types.IntOptions
+    Amazonka.CloudSearch.Types.LatLonOptions
+    Amazonka.CloudSearch.Types.Limits
+    Amazonka.CloudSearch.Types.LiteralArrayOptions
+    Amazonka.CloudSearch.Types.LiteralOptions
+    Amazonka.CloudSearch.Types.OptionState
+    Amazonka.CloudSearch.Types.OptionStatus
+    Amazonka.CloudSearch.Types.PartitionInstanceType
+    Amazonka.CloudSearch.Types.ScalingParameters
+    Amazonka.CloudSearch.Types.ScalingParametersStatus
+    Amazonka.CloudSearch.Types.ServiceEndpoint
+    Amazonka.CloudSearch.Types.Suggester
+    Amazonka.CloudSearch.Types.SuggesterFuzzyMatching
+    Amazonka.CloudSearch.Types.SuggesterStatus
+    Amazonka.CloudSearch.Types.TextArrayOptions
+    Amazonka.CloudSearch.Types.TextOptions
+    Amazonka.CloudSearch.Types.TLSSecurityPolicy
+    Amazonka.CloudSearch.UpdateAvailabilityOptions
+    Amazonka.CloudSearch.UpdateDomainEndpointOptions
+    Amazonka.CloudSearch.UpdateScalingParameters
+    Amazonka.CloudSearch.UpdateServiceAccessPolicies
+    Amazonka.CloudSearch.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -130,9 +130,9 @@ test-suite amazonka-cloudsearch-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CloudSearch
-    Test.AWS.CloudSearch.Internal
-    Test.AWS.Gen.CloudSearch
+    Test.Amazonka.CloudSearch
+    Test.Amazonka.CloudSearch.Internal
+    Test.Amazonka.Gen.CloudSearch
 
   build-depends:
     , amazonka              ^>=2.0

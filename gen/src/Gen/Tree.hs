@@ -74,19 +74,16 @@ populate d Templates {..} l = (d :/) . dir lib <$> layout
           dir
             "gen"
             [ dir
-                "Network"
-                [ dir
-                    "AWS"
-                    [ dir svc $
-                        [ dir "Types" $
-                            mapMaybe shape (l ^.. shapes . each),
-                          mod (l ^. typesNS) (typeImports l) typesTemplate,
-                          mod (l ^. waitersNS) (waiterImports l) waitersTemplate,
-                          mod (l ^. lensNS) (lensImports l) lensTemplate
-                        ]
-                          ++ map op (l ^.. operations . each),
-                      mod (l ^. libraryNS) mempty tocTemplate
+                "Amazonka"
+                [ dir svc $
+                    [ dir "Types" $
+                        mapMaybe shape (l ^.. shapes . each),
+                      mod (l ^. typesNS) (typeImports l) typesTemplate,
+                      mod (l ^. waitersNS) (waiterImports l) waitersTemplate,
+                      mod (l ^. lensNS) (lensImports l) lensTemplate
                     ]
+                      ++ map op (l ^.. operations . each),
+                  mod (l ^. libraryNS) mempty tocTemplate
                 ]
             ],
           dir
@@ -95,18 +92,18 @@ populate d Templates {..} l = (d :/) . dir lib <$> layout
               dir
                 "Test"
                 [ dir
-                    "AWS"
+                    "Amazonka"
                     [ touch (l ^. serviceAbbrev <> ".hs") testNamespaceTemplate $
                         fromPairs
                           [ "moduleName"
-                              .= ("Test.AWS." <> l ^. serviceAbbrev)
+                              .= ("Test.Amazonka." <> l ^. serviceAbbrev)
                           ],
                       dir
                         svc
                         [ touch "Internal.hs" testInternalTemplate $
                             fromPairs
                               [ "moduleName"
-                                  .= ("Test.AWS." <> l ^. serviceAbbrev <> ".Internal")
+                                  .= ("Test.Amazonka." <> l ^. serviceAbbrev <> ".Internal")
                               ]
                         ],
                       dir

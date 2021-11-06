@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.CostAndUsageReport.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.CostAndUsageReport.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.CostAndUsageReport" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.CostAndUsageReport" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,24 +45,24 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.CostAndUsageReport
-    Network.AWS.CostAndUsageReport.DeleteReportDefinition
-    Network.AWS.CostAndUsageReport.DescribeReportDefinitions
-    Network.AWS.CostAndUsageReport.Lens
-    Network.AWS.CostAndUsageReport.ModifyReportDefinition
-    Network.AWS.CostAndUsageReport.PutReportDefinition
-    Network.AWS.CostAndUsageReport.Types
-    Network.AWS.CostAndUsageReport.Types.AdditionalArtifact
-    Network.AWS.CostAndUsageReport.Types.AWSRegion
-    Network.AWS.CostAndUsageReport.Types.CompressionFormat
-    Network.AWS.CostAndUsageReport.Types.ReportDefinition
-    Network.AWS.CostAndUsageReport.Types.ReportFormat
-    Network.AWS.CostAndUsageReport.Types.ReportVersioning
-    Network.AWS.CostAndUsageReport.Types.SchemaElement
-    Network.AWS.CostAndUsageReport.Types.TimeUnit
-    Network.AWS.CostAndUsageReport.Waiters
+    Amazonka.CostAndUsageReport
+    Amazonka.CostAndUsageReport.DeleteReportDefinition
+    Amazonka.CostAndUsageReport.DescribeReportDefinitions
+    Amazonka.CostAndUsageReport.Lens
+    Amazonka.CostAndUsageReport.ModifyReportDefinition
+    Amazonka.CostAndUsageReport.PutReportDefinition
+    Amazonka.CostAndUsageReport.Types
+    Amazonka.CostAndUsageReport.Types.AdditionalArtifact
+    Amazonka.CostAndUsageReport.Types.AWSRegion
+    Amazonka.CostAndUsageReport.Types.CompressionFormat
+    Amazonka.CostAndUsageReport.Types.ReportDefinition
+    Amazonka.CostAndUsageReport.Types.ReportFormat
+    Amazonka.CostAndUsageReport.Types.ReportVersioning
+    Amazonka.CostAndUsageReport.Types.SchemaElement
+    Amazonka.CostAndUsageReport.Types.TimeUnit
+    Amazonka.CostAndUsageReport.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -78,9 +78,9 @@ test-suite amazonka-cur-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CostAndUsageReport
-    Test.AWS.CostAndUsageReport.Internal
-    Test.AWS.Gen.CostAndUsageReport
+    Test.Amazonka.CostAndUsageReport
+    Test.Amazonka.CostAndUsageReport.Internal
+    Test.Amazonka.Gen.CostAndUsageReport
 
   build-depends:
     , amazonka              ^>=2.0

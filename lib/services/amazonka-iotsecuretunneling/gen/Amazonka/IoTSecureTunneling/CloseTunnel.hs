@@ -1,0 +1,163 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Amazonka.IoTSecureTunneling.CloseTunnel
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Closes a tunnel identified by the unique tunnel id. When a @CloseTunnel@
+-- request is received, we close the WebSocket connections between the
+-- client and proxy server so no data can be transmitted.
+module Amazonka.IoTSecureTunneling.CloseTunnel
+  ( -- * Creating a Request
+    CloseTunnel (..),
+    newCloseTunnel,
+
+    -- * Request Lenses
+    closeTunnel_delete,
+    closeTunnel_tunnelId,
+
+    -- * Destructuring the Response
+    CloseTunnelResponse (..),
+    newCloseTunnelResponse,
+
+    -- * Response Lenses
+    closeTunnelResponse_httpStatus,
+  )
+where
+
+import qualified Amazonka.Core as Core
+import Amazonka.IoTSecureTunneling.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+
+-- | /See:/ 'newCloseTunnel' smart constructor.
+data CloseTunnel = CloseTunnel'
+  { -- | When set to true, AWS IoT Secure Tunneling deletes the tunnel data
+    -- immediately.
+    delete' :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the tunnel to close.
+    tunnelId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'CloseTunnel' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'delete'', 'closeTunnel_delete' - When set to true, AWS IoT Secure Tunneling deletes the tunnel data
+-- immediately.
+--
+-- 'tunnelId', 'closeTunnel_tunnelId' - The ID of the tunnel to close.
+newCloseTunnel ::
+  -- | 'tunnelId'
+  Prelude.Text ->
+  CloseTunnel
+newCloseTunnel pTunnelId_ =
+  CloseTunnel'
+    { delete' = Prelude.Nothing,
+      tunnelId = pTunnelId_
+    }
+
+-- | When set to true, AWS IoT Secure Tunneling deletes the tunnel data
+-- immediately.
+closeTunnel_delete :: Lens.Lens' CloseTunnel (Prelude.Maybe Prelude.Bool)
+closeTunnel_delete = Lens.lens (\CloseTunnel' {delete'} -> delete') (\s@CloseTunnel' {} a -> s {delete' = a} :: CloseTunnel)
+
+-- | The ID of the tunnel to close.
+closeTunnel_tunnelId :: Lens.Lens' CloseTunnel Prelude.Text
+closeTunnel_tunnelId = Lens.lens (\CloseTunnel' {tunnelId} -> tunnelId) (\s@CloseTunnel' {} a -> s {tunnelId = a} :: CloseTunnel)
+
+instance Core.AWSRequest CloseTunnel where
+  type AWSResponse CloseTunnel = CloseTunnelResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          CloseTunnelResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable CloseTunnel
+
+instance Prelude.NFData CloseTunnel
+
+instance Core.ToHeaders CloseTunnel where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "IoTSecuredTunneling.CloseTunnel" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON CloseTunnel where
+  toJSON CloseTunnel' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("delete" Core..=) Prelude.<$> delete',
+            Prelude.Just ("tunnelId" Core..= tunnelId)
+          ]
+      )
+
+instance Core.ToPath CloseTunnel where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery CloseTunnel where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newCloseTunnelResponse' smart constructor.
+data CloseTunnelResponse = CloseTunnelResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'CloseTunnelResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'closeTunnelResponse_httpStatus' - The response's http status code.
+newCloseTunnelResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CloseTunnelResponse
+newCloseTunnelResponse pHttpStatus_ =
+  CloseTunnelResponse' {httpStatus = pHttpStatus_}
+
+-- | The response's http status code.
+closeTunnelResponse_httpStatus :: Lens.Lens' CloseTunnelResponse Prelude.Int
+closeTunnelResponse_httpStatus = Lens.lens (\CloseTunnelResponse' {httpStatus} -> httpStatus) (\s@CloseTunnelResponse' {} a -> s {httpStatus = a} :: CloseTunnelResponse)
+
+instance Prelude.NFData CloseTunnelResponse

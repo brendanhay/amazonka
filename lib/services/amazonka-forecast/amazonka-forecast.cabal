@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Forecast.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Forecast.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Forecast" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Forecast" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,91 +45,91 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Forecast
-    Network.AWS.Forecast.CreateDataset
-    Network.AWS.Forecast.CreateDatasetGroup
-    Network.AWS.Forecast.CreateDatasetImportJob
-    Network.AWS.Forecast.CreateForecast
-    Network.AWS.Forecast.CreateForecastExportJob
-    Network.AWS.Forecast.CreatePredictor
-    Network.AWS.Forecast.CreatePredictorBacktestExportJob
-    Network.AWS.Forecast.DeleteDataset
-    Network.AWS.Forecast.DeleteDatasetGroup
-    Network.AWS.Forecast.DeleteDatasetImportJob
-    Network.AWS.Forecast.DeleteForecast
-    Network.AWS.Forecast.DeleteForecastExportJob
-    Network.AWS.Forecast.DeletePredictor
-    Network.AWS.Forecast.DeletePredictorBacktestExportJob
-    Network.AWS.Forecast.DeleteResourceTree
-    Network.AWS.Forecast.DescribeDataset
-    Network.AWS.Forecast.DescribeDatasetGroup
-    Network.AWS.Forecast.DescribeDatasetImportJob
-    Network.AWS.Forecast.DescribeForecast
-    Network.AWS.Forecast.DescribeForecastExportJob
-    Network.AWS.Forecast.DescribePredictor
-    Network.AWS.Forecast.DescribePredictorBacktestExportJob
-    Network.AWS.Forecast.GetAccuracyMetrics
-    Network.AWS.Forecast.Lens
-    Network.AWS.Forecast.ListDatasetGroups
-    Network.AWS.Forecast.ListDatasetImportJobs
-    Network.AWS.Forecast.ListDatasets
-    Network.AWS.Forecast.ListForecastExportJobs
-    Network.AWS.Forecast.ListForecasts
-    Network.AWS.Forecast.ListPredictorBacktestExportJobs
-    Network.AWS.Forecast.ListPredictors
-    Network.AWS.Forecast.ListTagsForResource
-    Network.AWS.Forecast.StopResource
-    Network.AWS.Forecast.TagResource
-    Network.AWS.Forecast.Types
-    Network.AWS.Forecast.Types.AttributeType
-    Network.AWS.Forecast.Types.AutoMLOverrideStrategy
-    Network.AWS.Forecast.Types.CategoricalParameterRange
-    Network.AWS.Forecast.Types.ContinuousParameterRange
-    Network.AWS.Forecast.Types.DataDestination
-    Network.AWS.Forecast.Types.DatasetGroupSummary
-    Network.AWS.Forecast.Types.DatasetImportJobSummary
-    Network.AWS.Forecast.Types.DatasetSummary
-    Network.AWS.Forecast.Types.DatasetType
-    Network.AWS.Forecast.Types.DataSource
-    Network.AWS.Forecast.Types.Domain
-    Network.AWS.Forecast.Types.EncryptionConfig
-    Network.AWS.Forecast.Types.ErrorMetric
-    Network.AWS.Forecast.Types.EvaluationParameters
-    Network.AWS.Forecast.Types.EvaluationResult
-    Network.AWS.Forecast.Types.EvaluationType
-    Network.AWS.Forecast.Types.Featurization
-    Network.AWS.Forecast.Types.FeaturizationConfig
-    Network.AWS.Forecast.Types.FeaturizationMethod
-    Network.AWS.Forecast.Types.FeaturizationMethodName
-    Network.AWS.Forecast.Types.Filter
-    Network.AWS.Forecast.Types.FilterConditionString
-    Network.AWS.Forecast.Types.ForecastExportJobSummary
-    Network.AWS.Forecast.Types.ForecastSummary
-    Network.AWS.Forecast.Types.HyperParameterTuningJobConfig
-    Network.AWS.Forecast.Types.InputDataConfig
-    Network.AWS.Forecast.Types.IntegerParameterRange
-    Network.AWS.Forecast.Types.Metrics
-    Network.AWS.Forecast.Types.OptimizationMetric
-    Network.AWS.Forecast.Types.ParameterRanges
-    Network.AWS.Forecast.Types.PredictorBacktestExportJobSummary
-    Network.AWS.Forecast.Types.PredictorExecution
-    Network.AWS.Forecast.Types.PredictorExecutionDetails
-    Network.AWS.Forecast.Types.PredictorSummary
-    Network.AWS.Forecast.Types.S3Config
-    Network.AWS.Forecast.Types.ScalingType
-    Network.AWS.Forecast.Types.Schema
-    Network.AWS.Forecast.Types.SchemaAttribute
-    Network.AWS.Forecast.Types.Statistics
-    Network.AWS.Forecast.Types.SupplementaryFeature
-    Network.AWS.Forecast.Types.Tag
-    Network.AWS.Forecast.Types.TestWindowSummary
-    Network.AWS.Forecast.Types.WeightedQuantileLoss
-    Network.AWS.Forecast.Types.WindowSummary
-    Network.AWS.Forecast.UntagResource
-    Network.AWS.Forecast.UpdateDatasetGroup
-    Network.AWS.Forecast.Waiters
+    Amazonka.Forecast
+    Amazonka.Forecast.CreateDataset
+    Amazonka.Forecast.CreateDatasetGroup
+    Amazonka.Forecast.CreateDatasetImportJob
+    Amazonka.Forecast.CreateForecast
+    Amazonka.Forecast.CreateForecastExportJob
+    Amazonka.Forecast.CreatePredictor
+    Amazonka.Forecast.CreatePredictorBacktestExportJob
+    Amazonka.Forecast.DeleteDataset
+    Amazonka.Forecast.DeleteDatasetGroup
+    Amazonka.Forecast.DeleteDatasetImportJob
+    Amazonka.Forecast.DeleteForecast
+    Amazonka.Forecast.DeleteForecastExportJob
+    Amazonka.Forecast.DeletePredictor
+    Amazonka.Forecast.DeletePredictorBacktestExportJob
+    Amazonka.Forecast.DeleteResourceTree
+    Amazonka.Forecast.DescribeDataset
+    Amazonka.Forecast.DescribeDatasetGroup
+    Amazonka.Forecast.DescribeDatasetImportJob
+    Amazonka.Forecast.DescribeForecast
+    Amazonka.Forecast.DescribeForecastExportJob
+    Amazonka.Forecast.DescribePredictor
+    Amazonka.Forecast.DescribePredictorBacktestExportJob
+    Amazonka.Forecast.GetAccuracyMetrics
+    Amazonka.Forecast.Lens
+    Amazonka.Forecast.ListDatasetGroups
+    Amazonka.Forecast.ListDatasetImportJobs
+    Amazonka.Forecast.ListDatasets
+    Amazonka.Forecast.ListForecastExportJobs
+    Amazonka.Forecast.ListForecasts
+    Amazonka.Forecast.ListPredictorBacktestExportJobs
+    Amazonka.Forecast.ListPredictors
+    Amazonka.Forecast.ListTagsForResource
+    Amazonka.Forecast.StopResource
+    Amazonka.Forecast.TagResource
+    Amazonka.Forecast.Types
+    Amazonka.Forecast.Types.AttributeType
+    Amazonka.Forecast.Types.AutoMLOverrideStrategy
+    Amazonka.Forecast.Types.CategoricalParameterRange
+    Amazonka.Forecast.Types.ContinuousParameterRange
+    Amazonka.Forecast.Types.DataDestination
+    Amazonka.Forecast.Types.DatasetGroupSummary
+    Amazonka.Forecast.Types.DatasetImportJobSummary
+    Amazonka.Forecast.Types.DatasetSummary
+    Amazonka.Forecast.Types.DatasetType
+    Amazonka.Forecast.Types.DataSource
+    Amazonka.Forecast.Types.Domain
+    Amazonka.Forecast.Types.EncryptionConfig
+    Amazonka.Forecast.Types.ErrorMetric
+    Amazonka.Forecast.Types.EvaluationParameters
+    Amazonka.Forecast.Types.EvaluationResult
+    Amazonka.Forecast.Types.EvaluationType
+    Amazonka.Forecast.Types.Featurization
+    Amazonka.Forecast.Types.FeaturizationConfig
+    Amazonka.Forecast.Types.FeaturizationMethod
+    Amazonka.Forecast.Types.FeaturizationMethodName
+    Amazonka.Forecast.Types.Filter
+    Amazonka.Forecast.Types.FilterConditionString
+    Amazonka.Forecast.Types.ForecastExportJobSummary
+    Amazonka.Forecast.Types.ForecastSummary
+    Amazonka.Forecast.Types.HyperParameterTuningJobConfig
+    Amazonka.Forecast.Types.InputDataConfig
+    Amazonka.Forecast.Types.IntegerParameterRange
+    Amazonka.Forecast.Types.Metrics
+    Amazonka.Forecast.Types.OptimizationMetric
+    Amazonka.Forecast.Types.ParameterRanges
+    Amazonka.Forecast.Types.PredictorBacktestExportJobSummary
+    Amazonka.Forecast.Types.PredictorExecution
+    Amazonka.Forecast.Types.PredictorExecutionDetails
+    Amazonka.Forecast.Types.PredictorSummary
+    Amazonka.Forecast.Types.S3Config
+    Amazonka.Forecast.Types.ScalingType
+    Amazonka.Forecast.Types.Schema
+    Amazonka.Forecast.Types.SchemaAttribute
+    Amazonka.Forecast.Types.Statistics
+    Amazonka.Forecast.Types.SupplementaryFeature
+    Amazonka.Forecast.Types.Tag
+    Amazonka.Forecast.Types.TestWindowSummary
+    Amazonka.Forecast.Types.WeightedQuantileLoss
+    Amazonka.Forecast.Types.WindowSummary
+    Amazonka.Forecast.UntagResource
+    Amazonka.Forecast.UpdateDatasetGroup
+    Amazonka.Forecast.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -145,9 +145,9 @@ test-suite amazonka-forecast-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Forecast
-    Test.AWS.Forecast.Internal
-    Test.AWS.Gen.Forecast
+    Test.Amazonka.Forecast
+    Test.Amazonka.Forecast.Internal
+    Test.Amazonka.Gen.Forecast
 
   build-depends:
     , amazonka              ^>=2.0

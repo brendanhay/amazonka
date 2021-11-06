@@ -4,7 +4,7 @@
         "text"
     ],
     "typeModules": [
-        "Network.AWS.Route53.Internal"
+        "Amazonka.Route53.Internal"
     ],
     "typeOverrides": {
         "ListHostedZonesResponse": {

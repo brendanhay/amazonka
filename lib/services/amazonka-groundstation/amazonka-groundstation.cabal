@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.GroundStation.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.GroundStation.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.GroundStation" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.GroundStation" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,82 +45,82 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.GroundStation
-    Network.AWS.GroundStation.CancelContact
-    Network.AWS.GroundStation.CreateConfig
-    Network.AWS.GroundStation.CreateDataflowEndpointGroup
-    Network.AWS.GroundStation.CreateMissionProfile
-    Network.AWS.GroundStation.DeleteConfig
-    Network.AWS.GroundStation.DeleteDataflowEndpointGroup
-    Network.AWS.GroundStation.DeleteMissionProfile
-    Network.AWS.GroundStation.DescribeContact
-    Network.AWS.GroundStation.GetConfig
-    Network.AWS.GroundStation.GetDataflowEndpointGroup
-    Network.AWS.GroundStation.GetMinuteUsage
-    Network.AWS.GroundStation.GetMissionProfile
-    Network.AWS.GroundStation.GetSatellite
-    Network.AWS.GroundStation.Lens
-    Network.AWS.GroundStation.ListConfigs
-    Network.AWS.GroundStation.ListContacts
-    Network.AWS.GroundStation.ListDataflowEndpointGroups
-    Network.AWS.GroundStation.ListGroundStations
-    Network.AWS.GroundStation.ListMissionProfiles
-    Network.AWS.GroundStation.ListSatellites
-    Network.AWS.GroundStation.ListTagsForResource
-    Network.AWS.GroundStation.ReserveContact
-    Network.AWS.GroundStation.TagResource
-    Network.AWS.GroundStation.Types
-    Network.AWS.GroundStation.Types.AngleUnits
-    Network.AWS.GroundStation.Types.AntennaDemodDecodeDetails
-    Network.AWS.GroundStation.Types.AntennaDownlinkConfig
-    Network.AWS.GroundStation.Types.AntennaDownlinkDemodDecodeConfig
-    Network.AWS.GroundStation.Types.AntennaUplinkConfig
-    Network.AWS.GroundStation.Types.BandwidthUnits
-    Network.AWS.GroundStation.Types.ConfigCapabilityType
-    Network.AWS.GroundStation.Types.ConfigDetails
-    Network.AWS.GroundStation.Types.ConfigIdResponse
-    Network.AWS.GroundStation.Types.ConfigListItem
-    Network.AWS.GroundStation.Types.ConfigTypeData
-    Network.AWS.GroundStation.Types.ContactData
-    Network.AWS.GroundStation.Types.ContactIdResponse
-    Network.AWS.GroundStation.Types.ContactStatus
-    Network.AWS.GroundStation.Types.Criticality
-    Network.AWS.GroundStation.Types.DataflowDetail
-    Network.AWS.GroundStation.Types.DataflowEndpoint
-    Network.AWS.GroundStation.Types.DataflowEndpointConfig
-    Network.AWS.GroundStation.Types.DataflowEndpointGroupIdResponse
-    Network.AWS.GroundStation.Types.DataflowEndpointListItem
-    Network.AWS.GroundStation.Types.DecodeConfig
-    Network.AWS.GroundStation.Types.DemodulationConfig
-    Network.AWS.GroundStation.Types.Destination
-    Network.AWS.GroundStation.Types.Eirp
-    Network.AWS.GroundStation.Types.EirpUnits
-    Network.AWS.GroundStation.Types.Elevation
-    Network.AWS.GroundStation.Types.EndpointDetails
-    Network.AWS.GroundStation.Types.EndpointStatus
-    Network.AWS.GroundStation.Types.Frequency
-    Network.AWS.GroundStation.Types.FrequencyBandwidth
-    Network.AWS.GroundStation.Types.FrequencyUnits
-    Network.AWS.GroundStation.Types.GroundStationData
-    Network.AWS.GroundStation.Types.MissionProfileIdResponse
-    Network.AWS.GroundStation.Types.MissionProfileListItem
-    Network.AWS.GroundStation.Types.Polarization
-    Network.AWS.GroundStation.Types.S3RecordingConfig
-    Network.AWS.GroundStation.Types.S3RecordingDetails
-    Network.AWS.GroundStation.Types.SatelliteListItem
-    Network.AWS.GroundStation.Types.SecurityDetails
-    Network.AWS.GroundStation.Types.SocketAddress
-    Network.AWS.GroundStation.Types.Source
-    Network.AWS.GroundStation.Types.SpectrumConfig
-    Network.AWS.GroundStation.Types.TrackingConfig
-    Network.AWS.GroundStation.Types.UplinkEchoConfig
-    Network.AWS.GroundStation.Types.UplinkSpectrumConfig
-    Network.AWS.GroundStation.UntagResource
-    Network.AWS.GroundStation.UpdateConfig
-    Network.AWS.GroundStation.UpdateMissionProfile
-    Network.AWS.GroundStation.Waiters
+    Amazonka.GroundStation
+    Amazonka.GroundStation.CancelContact
+    Amazonka.GroundStation.CreateConfig
+    Amazonka.GroundStation.CreateDataflowEndpointGroup
+    Amazonka.GroundStation.CreateMissionProfile
+    Amazonka.GroundStation.DeleteConfig
+    Amazonka.GroundStation.DeleteDataflowEndpointGroup
+    Amazonka.GroundStation.DeleteMissionProfile
+    Amazonka.GroundStation.DescribeContact
+    Amazonka.GroundStation.GetConfig
+    Amazonka.GroundStation.GetDataflowEndpointGroup
+    Amazonka.GroundStation.GetMinuteUsage
+    Amazonka.GroundStation.GetMissionProfile
+    Amazonka.GroundStation.GetSatellite
+    Amazonka.GroundStation.Lens
+    Amazonka.GroundStation.ListConfigs
+    Amazonka.GroundStation.ListContacts
+    Amazonka.GroundStation.ListDataflowEndpointGroups
+    Amazonka.GroundStation.ListGroundStations
+    Amazonka.GroundStation.ListMissionProfiles
+    Amazonka.GroundStation.ListSatellites
+    Amazonka.GroundStation.ListTagsForResource
+    Amazonka.GroundStation.ReserveContact
+    Amazonka.GroundStation.TagResource
+    Amazonka.GroundStation.Types
+    Amazonka.GroundStation.Types.AngleUnits
+    Amazonka.GroundStation.Types.AntennaDemodDecodeDetails
+    Amazonka.GroundStation.Types.AntennaDownlinkConfig
+    Amazonka.GroundStation.Types.AntennaDownlinkDemodDecodeConfig
+    Amazonka.GroundStation.Types.AntennaUplinkConfig
+    Amazonka.GroundStation.Types.BandwidthUnits
+    Amazonka.GroundStation.Types.ConfigCapabilityType
+    Amazonka.GroundStation.Types.ConfigDetails
+    Amazonka.GroundStation.Types.ConfigIdResponse
+    Amazonka.GroundStation.Types.ConfigListItem
+    Amazonka.GroundStation.Types.ConfigTypeData
+    Amazonka.GroundStation.Types.ContactData
+    Amazonka.GroundStation.Types.ContactIdResponse
+    Amazonka.GroundStation.Types.ContactStatus
+    Amazonka.GroundStation.Types.Criticality
+    Amazonka.GroundStation.Types.DataflowDetail
+    Amazonka.GroundStation.Types.DataflowEndpoint
+    Amazonka.GroundStation.Types.DataflowEndpointConfig
+    Amazonka.GroundStation.Types.DataflowEndpointGroupIdResponse
+    Amazonka.GroundStation.Types.DataflowEndpointListItem
+    Amazonka.GroundStation.Types.DecodeConfig
+    Amazonka.GroundStation.Types.DemodulationConfig
+    Amazonka.GroundStation.Types.Destination
+    Amazonka.GroundStation.Types.Eirp
+    Amazonka.GroundStation.Types.EirpUnits
+    Amazonka.GroundStation.Types.Elevation
+    Amazonka.GroundStation.Types.EndpointDetails
+    Amazonka.GroundStation.Types.EndpointStatus
+    Amazonka.GroundStation.Types.Frequency
+    Amazonka.GroundStation.Types.FrequencyBandwidth
+    Amazonka.GroundStation.Types.FrequencyUnits
+    Amazonka.GroundStation.Types.GroundStationData
+    Amazonka.GroundStation.Types.MissionProfileIdResponse
+    Amazonka.GroundStation.Types.MissionProfileListItem
+    Amazonka.GroundStation.Types.Polarization
+    Amazonka.GroundStation.Types.S3RecordingConfig
+    Amazonka.GroundStation.Types.S3RecordingDetails
+    Amazonka.GroundStation.Types.SatelliteListItem
+    Amazonka.GroundStation.Types.SecurityDetails
+    Amazonka.GroundStation.Types.SocketAddress
+    Amazonka.GroundStation.Types.Source
+    Amazonka.GroundStation.Types.SpectrumConfig
+    Amazonka.GroundStation.Types.TrackingConfig
+    Amazonka.GroundStation.Types.UplinkEchoConfig
+    Amazonka.GroundStation.Types.UplinkSpectrumConfig
+    Amazonka.GroundStation.UntagResource
+    Amazonka.GroundStation.UpdateConfig
+    Amazonka.GroundStation.UpdateMissionProfile
+    Amazonka.GroundStation.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -136,9 +136,9 @@ test-suite amazonka-groundstation-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.GroundStation
-    Test.AWS.GroundStation
-    Test.AWS.GroundStation.Internal
+    Test.Amazonka.Gen.GroundStation
+    Test.Amazonka.GroundStation
+    Test.Amazonka.GroundStation.Internal
 
   build-depends:
     , amazonka                ^>=2.0

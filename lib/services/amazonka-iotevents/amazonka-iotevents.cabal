@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.IoTEvents.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.IoTEvents.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.IoTEvents" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.IoTEvents" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,109 +45,109 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.IoTEvents
-    Network.AWS.IoTEvents.CreateAlarmModel
-    Network.AWS.IoTEvents.CreateDetectorModel
-    Network.AWS.IoTEvents.CreateInput
-    Network.AWS.IoTEvents.DeleteAlarmModel
-    Network.AWS.IoTEvents.DeleteDetectorModel
-    Network.AWS.IoTEvents.DeleteInput
-    Network.AWS.IoTEvents.DescribeAlarmModel
-    Network.AWS.IoTEvents.DescribeDetectorModel
-    Network.AWS.IoTEvents.DescribeDetectorModelAnalysis
-    Network.AWS.IoTEvents.DescribeInput
-    Network.AWS.IoTEvents.DescribeLoggingOptions
-    Network.AWS.IoTEvents.GetDetectorModelAnalysisResults
-    Network.AWS.IoTEvents.Lens
-    Network.AWS.IoTEvents.ListAlarmModels
-    Network.AWS.IoTEvents.ListAlarmModelVersions
-    Network.AWS.IoTEvents.ListDetectorModels
-    Network.AWS.IoTEvents.ListDetectorModelVersions
-    Network.AWS.IoTEvents.ListInputRoutings
-    Network.AWS.IoTEvents.ListInputs
-    Network.AWS.IoTEvents.ListTagsForResource
-    Network.AWS.IoTEvents.PutLoggingOptions
-    Network.AWS.IoTEvents.StartDetectorModelAnalysis
-    Network.AWS.IoTEvents.TagResource
-    Network.AWS.IoTEvents.Types
-    Network.AWS.IoTEvents.Types.AcknowledgeFlow
-    Network.AWS.IoTEvents.Types.Action
-    Network.AWS.IoTEvents.Types.AlarmAction
-    Network.AWS.IoTEvents.Types.AlarmCapabilities
-    Network.AWS.IoTEvents.Types.AlarmEventActions
-    Network.AWS.IoTEvents.Types.AlarmModelSummary
-    Network.AWS.IoTEvents.Types.AlarmModelVersionStatus
-    Network.AWS.IoTEvents.Types.AlarmModelVersionSummary
-    Network.AWS.IoTEvents.Types.AlarmNotification
-    Network.AWS.IoTEvents.Types.AlarmRule
-    Network.AWS.IoTEvents.Types.AnalysisResult
-    Network.AWS.IoTEvents.Types.AnalysisResultLevel
-    Network.AWS.IoTEvents.Types.AnalysisResultLocation
-    Network.AWS.IoTEvents.Types.AnalysisStatus
-    Network.AWS.IoTEvents.Types.AssetPropertyTimestamp
-    Network.AWS.IoTEvents.Types.AssetPropertyValue
-    Network.AWS.IoTEvents.Types.AssetPropertyVariant
-    Network.AWS.IoTEvents.Types.Attribute
-    Network.AWS.IoTEvents.Types.ClearTimerAction
-    Network.AWS.IoTEvents.Types.ComparisonOperator
-    Network.AWS.IoTEvents.Types.DetectorDebugOption
-    Network.AWS.IoTEvents.Types.DetectorModel
-    Network.AWS.IoTEvents.Types.DetectorModelConfiguration
-    Network.AWS.IoTEvents.Types.DetectorModelDefinition
-    Network.AWS.IoTEvents.Types.DetectorModelSummary
-    Network.AWS.IoTEvents.Types.DetectorModelVersionStatus
-    Network.AWS.IoTEvents.Types.DetectorModelVersionSummary
-    Network.AWS.IoTEvents.Types.DynamoDBAction
-    Network.AWS.IoTEvents.Types.DynamoDBv2Action
-    Network.AWS.IoTEvents.Types.EmailConfiguration
-    Network.AWS.IoTEvents.Types.EmailContent
-    Network.AWS.IoTEvents.Types.EmailRecipients
-    Network.AWS.IoTEvents.Types.EvaluationMethod
-    Network.AWS.IoTEvents.Types.Event
-    Network.AWS.IoTEvents.Types.FirehoseAction
-    Network.AWS.IoTEvents.Types.InitializationConfiguration
-    Network.AWS.IoTEvents.Types.Input
-    Network.AWS.IoTEvents.Types.InputConfiguration
-    Network.AWS.IoTEvents.Types.InputDefinition
-    Network.AWS.IoTEvents.Types.InputIdentifier
-    Network.AWS.IoTEvents.Types.InputStatus
-    Network.AWS.IoTEvents.Types.InputSummary
-    Network.AWS.IoTEvents.Types.IotEventsAction
-    Network.AWS.IoTEvents.Types.IotEventsInputIdentifier
-    Network.AWS.IoTEvents.Types.IotSiteWiseAction
-    Network.AWS.IoTEvents.Types.IotSiteWiseAssetModelPropertyIdentifier
-    Network.AWS.IoTEvents.Types.IotSiteWiseInputIdentifier
-    Network.AWS.IoTEvents.Types.IotTopicPublishAction
-    Network.AWS.IoTEvents.Types.LambdaAction
-    Network.AWS.IoTEvents.Types.LoggingLevel
-    Network.AWS.IoTEvents.Types.LoggingOptions
-    Network.AWS.IoTEvents.Types.NotificationAction
-    Network.AWS.IoTEvents.Types.NotificationTargetActions
-    Network.AWS.IoTEvents.Types.OnEnterLifecycle
-    Network.AWS.IoTEvents.Types.OnExitLifecycle
-    Network.AWS.IoTEvents.Types.OnInputLifecycle
-    Network.AWS.IoTEvents.Types.Payload
-    Network.AWS.IoTEvents.Types.PayloadType
-    Network.AWS.IoTEvents.Types.RecipientDetail
-    Network.AWS.IoTEvents.Types.ResetTimerAction
-    Network.AWS.IoTEvents.Types.RoutedResource
-    Network.AWS.IoTEvents.Types.SetTimerAction
-    Network.AWS.IoTEvents.Types.SetVariableAction
-    Network.AWS.IoTEvents.Types.SimpleRule
-    Network.AWS.IoTEvents.Types.SMSConfiguration
-    Network.AWS.IoTEvents.Types.SNSTopicPublishAction
-    Network.AWS.IoTEvents.Types.SqsAction
-    Network.AWS.IoTEvents.Types.SSOIdentity
-    Network.AWS.IoTEvents.Types.State
-    Network.AWS.IoTEvents.Types.Tag
-    Network.AWS.IoTEvents.Types.TransitionEvent
-    Network.AWS.IoTEvents.UntagResource
-    Network.AWS.IoTEvents.UpdateAlarmModel
-    Network.AWS.IoTEvents.UpdateDetectorModel
-    Network.AWS.IoTEvents.UpdateInput
-    Network.AWS.IoTEvents.Waiters
+    Amazonka.IoTEvents
+    Amazonka.IoTEvents.CreateAlarmModel
+    Amazonka.IoTEvents.CreateDetectorModel
+    Amazonka.IoTEvents.CreateInput
+    Amazonka.IoTEvents.DeleteAlarmModel
+    Amazonka.IoTEvents.DeleteDetectorModel
+    Amazonka.IoTEvents.DeleteInput
+    Amazonka.IoTEvents.DescribeAlarmModel
+    Amazonka.IoTEvents.DescribeDetectorModel
+    Amazonka.IoTEvents.DescribeDetectorModelAnalysis
+    Amazonka.IoTEvents.DescribeInput
+    Amazonka.IoTEvents.DescribeLoggingOptions
+    Amazonka.IoTEvents.GetDetectorModelAnalysisResults
+    Amazonka.IoTEvents.Lens
+    Amazonka.IoTEvents.ListAlarmModels
+    Amazonka.IoTEvents.ListAlarmModelVersions
+    Amazonka.IoTEvents.ListDetectorModels
+    Amazonka.IoTEvents.ListDetectorModelVersions
+    Amazonka.IoTEvents.ListInputRoutings
+    Amazonka.IoTEvents.ListInputs
+    Amazonka.IoTEvents.ListTagsForResource
+    Amazonka.IoTEvents.PutLoggingOptions
+    Amazonka.IoTEvents.StartDetectorModelAnalysis
+    Amazonka.IoTEvents.TagResource
+    Amazonka.IoTEvents.Types
+    Amazonka.IoTEvents.Types.AcknowledgeFlow
+    Amazonka.IoTEvents.Types.Action
+    Amazonka.IoTEvents.Types.AlarmAction
+    Amazonka.IoTEvents.Types.AlarmCapabilities
+    Amazonka.IoTEvents.Types.AlarmEventActions
+    Amazonka.IoTEvents.Types.AlarmModelSummary
+    Amazonka.IoTEvents.Types.AlarmModelVersionStatus
+    Amazonka.IoTEvents.Types.AlarmModelVersionSummary
+    Amazonka.IoTEvents.Types.AlarmNotification
+    Amazonka.IoTEvents.Types.AlarmRule
+    Amazonka.IoTEvents.Types.AnalysisResult
+    Amazonka.IoTEvents.Types.AnalysisResultLevel
+    Amazonka.IoTEvents.Types.AnalysisResultLocation
+    Amazonka.IoTEvents.Types.AnalysisStatus
+    Amazonka.IoTEvents.Types.AssetPropertyTimestamp
+    Amazonka.IoTEvents.Types.AssetPropertyValue
+    Amazonka.IoTEvents.Types.AssetPropertyVariant
+    Amazonka.IoTEvents.Types.Attribute
+    Amazonka.IoTEvents.Types.ClearTimerAction
+    Amazonka.IoTEvents.Types.ComparisonOperator
+    Amazonka.IoTEvents.Types.DetectorDebugOption
+    Amazonka.IoTEvents.Types.DetectorModel
+    Amazonka.IoTEvents.Types.DetectorModelConfiguration
+    Amazonka.IoTEvents.Types.DetectorModelDefinition
+    Amazonka.IoTEvents.Types.DetectorModelSummary
+    Amazonka.IoTEvents.Types.DetectorModelVersionStatus
+    Amazonka.IoTEvents.Types.DetectorModelVersionSummary
+    Amazonka.IoTEvents.Types.DynamoDBAction
+    Amazonka.IoTEvents.Types.DynamoDBv2Action
+    Amazonka.IoTEvents.Types.EmailConfiguration
+    Amazonka.IoTEvents.Types.EmailContent
+    Amazonka.IoTEvents.Types.EmailRecipients
+    Amazonka.IoTEvents.Types.EvaluationMethod
+    Amazonka.IoTEvents.Types.Event
+    Amazonka.IoTEvents.Types.FirehoseAction
+    Amazonka.IoTEvents.Types.InitializationConfiguration
+    Amazonka.IoTEvents.Types.Input
+    Amazonka.IoTEvents.Types.InputConfiguration
+    Amazonka.IoTEvents.Types.InputDefinition
+    Amazonka.IoTEvents.Types.InputIdentifier
+    Amazonka.IoTEvents.Types.InputStatus
+    Amazonka.IoTEvents.Types.InputSummary
+    Amazonka.IoTEvents.Types.IotEventsAction
+    Amazonka.IoTEvents.Types.IotEventsInputIdentifier
+    Amazonka.IoTEvents.Types.IotSiteWiseAction
+    Amazonka.IoTEvents.Types.IotSiteWiseAssetModelPropertyIdentifier
+    Amazonka.IoTEvents.Types.IotSiteWiseInputIdentifier
+    Amazonka.IoTEvents.Types.IotTopicPublishAction
+    Amazonka.IoTEvents.Types.LambdaAction
+    Amazonka.IoTEvents.Types.LoggingLevel
+    Amazonka.IoTEvents.Types.LoggingOptions
+    Amazonka.IoTEvents.Types.NotificationAction
+    Amazonka.IoTEvents.Types.NotificationTargetActions
+    Amazonka.IoTEvents.Types.OnEnterLifecycle
+    Amazonka.IoTEvents.Types.OnExitLifecycle
+    Amazonka.IoTEvents.Types.OnInputLifecycle
+    Amazonka.IoTEvents.Types.Payload
+    Amazonka.IoTEvents.Types.PayloadType
+    Amazonka.IoTEvents.Types.RecipientDetail
+    Amazonka.IoTEvents.Types.ResetTimerAction
+    Amazonka.IoTEvents.Types.RoutedResource
+    Amazonka.IoTEvents.Types.SetTimerAction
+    Amazonka.IoTEvents.Types.SetVariableAction
+    Amazonka.IoTEvents.Types.SimpleRule
+    Amazonka.IoTEvents.Types.SMSConfiguration
+    Amazonka.IoTEvents.Types.SNSTopicPublishAction
+    Amazonka.IoTEvents.Types.SqsAction
+    Amazonka.IoTEvents.Types.SSOIdentity
+    Amazonka.IoTEvents.Types.State
+    Amazonka.IoTEvents.Types.Tag
+    Amazonka.IoTEvents.Types.TransitionEvent
+    Amazonka.IoTEvents.UntagResource
+    Amazonka.IoTEvents.UpdateAlarmModel
+    Amazonka.IoTEvents.UpdateDetectorModel
+    Amazonka.IoTEvents.UpdateInput
+    Amazonka.IoTEvents.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -163,9 +163,9 @@ test-suite amazonka-iotevents-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.IoTEvents
-    Test.AWS.IoTEvents
-    Test.AWS.IoTEvents.Internal
+    Test.Amazonka.Gen.IoTEvents
+    Test.Amazonka.IoTEvents
+    Test.Amazonka.IoTEvents.Internal
 
   build-depends:
     , amazonka              ^>=2.0

@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.CloudWatchEvents
-import Test.AWS.CloudWatchEvents.Internal
+import Test.Amazonka.CloudWatchEvents
+import Test.Amazonka.CloudWatchEvents.Internal
 import Test.Tasty
 
 main :: IO ()

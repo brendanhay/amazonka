@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.FMS.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.FMS.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.FMS" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.FMS" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,99 +45,99 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.FMS
-    Network.AWS.FMS.AssociateAdminAccount
-    Network.AWS.FMS.DeleteAppsList
-    Network.AWS.FMS.DeleteNotificationChannel
-    Network.AWS.FMS.DeletePolicy
-    Network.AWS.FMS.DeleteProtocolsList
-    Network.AWS.FMS.DisassociateAdminAccount
-    Network.AWS.FMS.GetAdminAccount
-    Network.AWS.FMS.GetAppsList
-    Network.AWS.FMS.GetComplianceDetail
-    Network.AWS.FMS.GetNotificationChannel
-    Network.AWS.FMS.GetPolicy
-    Network.AWS.FMS.GetProtectionStatus
-    Network.AWS.FMS.GetProtocolsList
-    Network.AWS.FMS.GetViolationDetails
-    Network.AWS.FMS.Lens
-    Network.AWS.FMS.ListAppsLists
-    Network.AWS.FMS.ListComplianceStatus
-    Network.AWS.FMS.ListMemberAccounts
-    Network.AWS.FMS.ListPolicies
-    Network.AWS.FMS.ListProtocolsLists
-    Network.AWS.FMS.ListTagsForResource
-    Network.AWS.FMS.PutAppsList
-    Network.AWS.FMS.PutNotificationChannel
-    Network.AWS.FMS.PutPolicy
-    Network.AWS.FMS.PutProtocolsList
-    Network.AWS.FMS.TagResource
-    Network.AWS.FMS.Types
-    Network.AWS.FMS.Types.AccountRoleStatus
-    Network.AWS.FMS.Types.ActionTarget
-    Network.AWS.FMS.Types.App
-    Network.AWS.FMS.Types.AppsListData
-    Network.AWS.FMS.Types.AppsListDataSummary
-    Network.AWS.FMS.Types.AwsEc2InstanceViolation
-    Network.AWS.FMS.Types.AwsEc2NetworkInterfaceViolation
-    Network.AWS.FMS.Types.AwsVPCSecurityGroupViolation
-    Network.AWS.FMS.Types.ComplianceViolator
-    Network.AWS.FMS.Types.CustomerPolicyScopeIdType
-    Network.AWS.FMS.Types.DependentServiceName
-    Network.AWS.FMS.Types.DestinationType
-    Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation
-    Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation
-    Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation
-    Network.AWS.FMS.Types.EC2AssociateRouteTableAction
-    Network.AWS.FMS.Types.EC2CopyRouteTableAction
-    Network.AWS.FMS.Types.EC2CreateRouteAction
-    Network.AWS.FMS.Types.EC2CreateRouteTableAction
-    Network.AWS.FMS.Types.EC2DeleteRouteAction
-    Network.AWS.FMS.Types.EC2ReplaceRouteAction
-    Network.AWS.FMS.Types.EC2ReplaceRouteTableAssociationAction
-    Network.AWS.FMS.Types.EvaluationResult
-    Network.AWS.FMS.Types.ExpectedRoute
-    Network.AWS.FMS.Types.NetworkFirewallBlackHoleRouteDetectedViolation
-    Network.AWS.FMS.Types.NetworkFirewallInternetTrafficNotInspectedViolation
-    Network.AWS.FMS.Types.NetworkFirewallInvalidRouteConfigurationViolation
-    Network.AWS.FMS.Types.NetworkFirewallMissingExpectedRoutesViolation
-    Network.AWS.FMS.Types.NetworkFirewallMissingExpectedRTViolation
-    Network.AWS.FMS.Types.NetworkFirewallMissingFirewallViolation
-    Network.AWS.FMS.Types.NetworkFirewallMissingSubnetViolation
-    Network.AWS.FMS.Types.NetworkFirewallPolicyDescription
-    Network.AWS.FMS.Types.NetworkFirewallPolicyModifiedViolation
-    Network.AWS.FMS.Types.NetworkFirewallUnexpectedFirewallRoutesViolation
-    Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation
-    Network.AWS.FMS.Types.PartialMatch
-    Network.AWS.FMS.Types.Policy
-    Network.AWS.FMS.Types.PolicyComplianceDetail
-    Network.AWS.FMS.Types.PolicyComplianceStatus
-    Network.AWS.FMS.Types.PolicyComplianceStatusType
-    Network.AWS.FMS.Types.PolicySummary
-    Network.AWS.FMS.Types.PossibleRemediationAction
-    Network.AWS.FMS.Types.PossibleRemediationActions
-    Network.AWS.FMS.Types.ProtocolsListData
-    Network.AWS.FMS.Types.ProtocolsListDataSummary
-    Network.AWS.FMS.Types.RemediationAction
-    Network.AWS.FMS.Types.RemediationActionType
-    Network.AWS.FMS.Types.RemediationActionWithOrder
-    Network.AWS.FMS.Types.ResourceTag
-    Network.AWS.FMS.Types.ResourceViolation
-    Network.AWS.FMS.Types.Route
-    Network.AWS.FMS.Types.SecurityGroupRemediationAction
-    Network.AWS.FMS.Types.SecurityGroupRuleDescription
-    Network.AWS.FMS.Types.SecurityServicePolicyData
-    Network.AWS.FMS.Types.SecurityServiceType
-    Network.AWS.FMS.Types.StatefulRuleGroup
-    Network.AWS.FMS.Types.StatelessRuleGroup
-    Network.AWS.FMS.Types.Tag
-    Network.AWS.FMS.Types.TargetType
-    Network.AWS.FMS.Types.ViolationDetail
-    Network.AWS.FMS.Types.ViolationReason
-    Network.AWS.FMS.UntagResource
-    Network.AWS.FMS.Waiters
+    Amazonka.FMS
+    Amazonka.FMS.AssociateAdminAccount
+    Amazonka.FMS.DeleteAppsList
+    Amazonka.FMS.DeleteNotificationChannel
+    Amazonka.FMS.DeletePolicy
+    Amazonka.FMS.DeleteProtocolsList
+    Amazonka.FMS.DisassociateAdminAccount
+    Amazonka.FMS.GetAdminAccount
+    Amazonka.FMS.GetAppsList
+    Amazonka.FMS.GetComplianceDetail
+    Amazonka.FMS.GetNotificationChannel
+    Amazonka.FMS.GetPolicy
+    Amazonka.FMS.GetProtectionStatus
+    Amazonka.FMS.GetProtocolsList
+    Amazonka.FMS.GetViolationDetails
+    Amazonka.FMS.Lens
+    Amazonka.FMS.ListAppsLists
+    Amazonka.FMS.ListComplianceStatus
+    Amazonka.FMS.ListMemberAccounts
+    Amazonka.FMS.ListPolicies
+    Amazonka.FMS.ListProtocolsLists
+    Amazonka.FMS.ListTagsForResource
+    Amazonka.FMS.PutAppsList
+    Amazonka.FMS.PutNotificationChannel
+    Amazonka.FMS.PutPolicy
+    Amazonka.FMS.PutProtocolsList
+    Amazonka.FMS.TagResource
+    Amazonka.FMS.Types
+    Amazonka.FMS.Types.AccountRoleStatus
+    Amazonka.FMS.Types.ActionTarget
+    Amazonka.FMS.Types.App
+    Amazonka.FMS.Types.AppsListData
+    Amazonka.FMS.Types.AppsListDataSummary
+    Amazonka.FMS.Types.AwsEc2InstanceViolation
+    Amazonka.FMS.Types.AwsEc2NetworkInterfaceViolation
+    Amazonka.FMS.Types.AwsVPCSecurityGroupViolation
+    Amazonka.FMS.Types.ComplianceViolator
+    Amazonka.FMS.Types.CustomerPolicyScopeIdType
+    Amazonka.FMS.Types.DependentServiceName
+    Amazonka.FMS.Types.DestinationType
+    Amazonka.FMS.Types.DnsDuplicateRuleGroupViolation
+    Amazonka.FMS.Types.DnsRuleGroupLimitExceededViolation
+    Amazonka.FMS.Types.DnsRuleGroupPriorityConflictViolation
+    Amazonka.FMS.Types.EC2AssociateRouteTableAction
+    Amazonka.FMS.Types.EC2CopyRouteTableAction
+    Amazonka.FMS.Types.EC2CreateRouteAction
+    Amazonka.FMS.Types.EC2CreateRouteTableAction
+    Amazonka.FMS.Types.EC2DeleteRouteAction
+    Amazonka.FMS.Types.EC2ReplaceRouteAction
+    Amazonka.FMS.Types.EC2ReplaceRouteTableAssociationAction
+    Amazonka.FMS.Types.EvaluationResult
+    Amazonka.FMS.Types.ExpectedRoute
+    Amazonka.FMS.Types.NetworkFirewallBlackHoleRouteDetectedViolation
+    Amazonka.FMS.Types.NetworkFirewallInternetTrafficNotInspectedViolation
+    Amazonka.FMS.Types.NetworkFirewallInvalidRouteConfigurationViolation
+    Amazonka.FMS.Types.NetworkFirewallMissingExpectedRoutesViolation
+    Amazonka.FMS.Types.NetworkFirewallMissingExpectedRTViolation
+    Amazonka.FMS.Types.NetworkFirewallMissingFirewallViolation
+    Amazonka.FMS.Types.NetworkFirewallMissingSubnetViolation
+    Amazonka.FMS.Types.NetworkFirewallPolicyDescription
+    Amazonka.FMS.Types.NetworkFirewallPolicyModifiedViolation
+    Amazonka.FMS.Types.NetworkFirewallUnexpectedFirewallRoutesViolation
+    Amazonka.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation
+    Amazonka.FMS.Types.PartialMatch
+    Amazonka.FMS.Types.Policy
+    Amazonka.FMS.Types.PolicyComplianceDetail
+    Amazonka.FMS.Types.PolicyComplianceStatus
+    Amazonka.FMS.Types.PolicyComplianceStatusType
+    Amazonka.FMS.Types.PolicySummary
+    Amazonka.FMS.Types.PossibleRemediationAction
+    Amazonka.FMS.Types.PossibleRemediationActions
+    Amazonka.FMS.Types.ProtocolsListData
+    Amazonka.FMS.Types.ProtocolsListDataSummary
+    Amazonka.FMS.Types.RemediationAction
+    Amazonka.FMS.Types.RemediationActionType
+    Amazonka.FMS.Types.RemediationActionWithOrder
+    Amazonka.FMS.Types.ResourceTag
+    Amazonka.FMS.Types.ResourceViolation
+    Amazonka.FMS.Types.Route
+    Amazonka.FMS.Types.SecurityGroupRemediationAction
+    Amazonka.FMS.Types.SecurityGroupRuleDescription
+    Amazonka.FMS.Types.SecurityServicePolicyData
+    Amazonka.FMS.Types.SecurityServiceType
+    Amazonka.FMS.Types.StatefulRuleGroup
+    Amazonka.FMS.Types.StatelessRuleGroup
+    Amazonka.FMS.Types.Tag
+    Amazonka.FMS.Types.TargetType
+    Amazonka.FMS.Types.ViolationDetail
+    Amazonka.FMS.Types.ViolationReason
+    Amazonka.FMS.UntagResource
+    Amazonka.FMS.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -153,9 +153,9 @@ test-suite amazonka-fms-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.FMS
-    Test.AWS.FMS.Internal
-    Test.AWS.Gen.FMS
+    Test.Amazonka.FMS
+    Test.Amazonka.FMS.Internal
+    Test.Amazonka.Gen.FMS
 
   build-depends:
     , amazonka              ^>=2.0

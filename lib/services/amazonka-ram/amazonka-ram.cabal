@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.RAM.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.RAM.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.RAM" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.RAM" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,53 +45,53 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.RAM
-    Network.AWS.RAM.AcceptResourceShareInvitation
-    Network.AWS.RAM.AssociateResourceShare
-    Network.AWS.RAM.AssociateResourceSharePermission
-    Network.AWS.RAM.CreateResourceShare
-    Network.AWS.RAM.DeleteResourceShare
-    Network.AWS.RAM.DisassociateResourceShare
-    Network.AWS.RAM.DisassociateResourceSharePermission
-    Network.AWS.RAM.EnableSharingWithAwsOrganization
-    Network.AWS.RAM.GetPermission
-    Network.AWS.RAM.GetResourcePolicies
-    Network.AWS.RAM.GetResourceShareAssociations
-    Network.AWS.RAM.GetResourceShareInvitations
-    Network.AWS.RAM.GetResourceShares
-    Network.AWS.RAM.Lens
-    Network.AWS.RAM.ListPendingInvitationResources
-    Network.AWS.RAM.ListPermissions
-    Network.AWS.RAM.ListPrincipals
-    Network.AWS.RAM.ListResources
-    Network.AWS.RAM.ListResourceSharePermissions
-    Network.AWS.RAM.ListResourceTypes
-    Network.AWS.RAM.PromoteResourceShareCreatedFromPolicy
-    Network.AWS.RAM.RejectResourceShareInvitation
-    Network.AWS.RAM.TagResource
-    Network.AWS.RAM.Types
-    Network.AWS.RAM.Types.Principal
-    Network.AWS.RAM.Types.Resource
-    Network.AWS.RAM.Types.ResourceOwner
-    Network.AWS.RAM.Types.ResourceShare
-    Network.AWS.RAM.Types.ResourceShareAssociation
-    Network.AWS.RAM.Types.ResourceShareAssociationStatus
-    Network.AWS.RAM.Types.ResourceShareAssociationType
-    Network.AWS.RAM.Types.ResourceShareFeatureSet
-    Network.AWS.RAM.Types.ResourceShareInvitation
-    Network.AWS.RAM.Types.ResourceShareInvitationStatus
-    Network.AWS.RAM.Types.ResourceSharePermissionDetail
-    Network.AWS.RAM.Types.ResourceSharePermissionSummary
-    Network.AWS.RAM.Types.ResourceShareStatus
-    Network.AWS.RAM.Types.ResourceStatus
-    Network.AWS.RAM.Types.ServiceNameAndResourceType
-    Network.AWS.RAM.Types.Tag
-    Network.AWS.RAM.Types.TagFilter
-    Network.AWS.RAM.UntagResource
-    Network.AWS.RAM.UpdateResourceShare
-    Network.AWS.RAM.Waiters
+    Amazonka.RAM
+    Amazonka.RAM.AcceptResourceShareInvitation
+    Amazonka.RAM.AssociateResourceShare
+    Amazonka.RAM.AssociateResourceSharePermission
+    Amazonka.RAM.CreateResourceShare
+    Amazonka.RAM.DeleteResourceShare
+    Amazonka.RAM.DisassociateResourceShare
+    Amazonka.RAM.DisassociateResourceSharePermission
+    Amazonka.RAM.EnableSharingWithAwsOrganization
+    Amazonka.RAM.GetPermission
+    Amazonka.RAM.GetResourcePolicies
+    Amazonka.RAM.GetResourceShareAssociations
+    Amazonka.RAM.GetResourceShareInvitations
+    Amazonka.RAM.GetResourceShares
+    Amazonka.RAM.Lens
+    Amazonka.RAM.ListPendingInvitationResources
+    Amazonka.RAM.ListPermissions
+    Amazonka.RAM.ListPrincipals
+    Amazonka.RAM.ListResources
+    Amazonka.RAM.ListResourceSharePermissions
+    Amazonka.RAM.ListResourceTypes
+    Amazonka.RAM.PromoteResourceShareCreatedFromPolicy
+    Amazonka.RAM.RejectResourceShareInvitation
+    Amazonka.RAM.TagResource
+    Amazonka.RAM.Types
+    Amazonka.RAM.Types.Principal
+    Amazonka.RAM.Types.Resource
+    Amazonka.RAM.Types.ResourceOwner
+    Amazonka.RAM.Types.ResourceShare
+    Amazonka.RAM.Types.ResourceShareAssociation
+    Amazonka.RAM.Types.ResourceShareAssociationStatus
+    Amazonka.RAM.Types.ResourceShareAssociationType
+    Amazonka.RAM.Types.ResourceShareFeatureSet
+    Amazonka.RAM.Types.ResourceShareInvitation
+    Amazonka.RAM.Types.ResourceShareInvitationStatus
+    Amazonka.RAM.Types.ResourceSharePermissionDetail
+    Amazonka.RAM.Types.ResourceSharePermissionSummary
+    Amazonka.RAM.Types.ResourceShareStatus
+    Amazonka.RAM.Types.ResourceStatus
+    Amazonka.RAM.Types.ServiceNameAndResourceType
+    Amazonka.RAM.Types.Tag
+    Amazonka.RAM.Types.TagFilter
+    Amazonka.RAM.UntagResource
+    Amazonka.RAM.UpdateResourceShare
+    Amazonka.RAM.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -107,9 +107,9 @@ test-suite amazonka-ram-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.RAM
-    Test.AWS.RAM
-    Test.AWS.RAM.Internal
+    Test.Amazonka.Gen.RAM
+    Test.Amazonka.RAM
+    Test.Amazonka.RAM.Internal
 
   build-depends:
     , amazonka              ^>=2.0

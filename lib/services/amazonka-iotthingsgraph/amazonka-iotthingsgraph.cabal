@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.IoTThingsGraph.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.IoTThingsGraph.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.IoTThingsGraph" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.IoTThingsGraph" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,78 +45,78 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.IoTThingsGraph
-    Network.AWS.IoTThingsGraph.AssociateEntityToThing
-    Network.AWS.IoTThingsGraph.CreateFlowTemplate
-    Network.AWS.IoTThingsGraph.CreateSystemInstance
-    Network.AWS.IoTThingsGraph.CreateSystemTemplate
-    Network.AWS.IoTThingsGraph.DeleteFlowTemplate
-    Network.AWS.IoTThingsGraph.DeleteNamespace
-    Network.AWS.IoTThingsGraph.DeleteSystemInstance
-    Network.AWS.IoTThingsGraph.DeleteSystemTemplate
-    Network.AWS.IoTThingsGraph.DeploySystemInstance
-    Network.AWS.IoTThingsGraph.DeprecateFlowTemplate
-    Network.AWS.IoTThingsGraph.DeprecateSystemTemplate
-    Network.AWS.IoTThingsGraph.DescribeNamespace
-    Network.AWS.IoTThingsGraph.DissociateEntityFromThing
-    Network.AWS.IoTThingsGraph.GetEntities
-    Network.AWS.IoTThingsGraph.GetFlowTemplate
-    Network.AWS.IoTThingsGraph.GetFlowTemplateRevisions
-    Network.AWS.IoTThingsGraph.GetNamespaceDeletionStatus
-    Network.AWS.IoTThingsGraph.GetSystemInstance
-    Network.AWS.IoTThingsGraph.GetSystemTemplate
-    Network.AWS.IoTThingsGraph.GetSystemTemplateRevisions
-    Network.AWS.IoTThingsGraph.GetUploadStatus
-    Network.AWS.IoTThingsGraph.Lens
-    Network.AWS.IoTThingsGraph.ListFlowExecutionMessages
-    Network.AWS.IoTThingsGraph.ListTagsForResource
-    Network.AWS.IoTThingsGraph.SearchEntities
-    Network.AWS.IoTThingsGraph.SearchFlowExecutions
-    Network.AWS.IoTThingsGraph.SearchFlowTemplates
-    Network.AWS.IoTThingsGraph.SearchSystemInstances
-    Network.AWS.IoTThingsGraph.SearchSystemTemplates
-    Network.AWS.IoTThingsGraph.SearchThings
-    Network.AWS.IoTThingsGraph.TagResource
-    Network.AWS.IoTThingsGraph.Types
-    Network.AWS.IoTThingsGraph.Types.DefinitionDocument
-    Network.AWS.IoTThingsGraph.Types.DefinitionLanguage
-    Network.AWS.IoTThingsGraph.Types.DependencyRevision
-    Network.AWS.IoTThingsGraph.Types.DeploymentTarget
-    Network.AWS.IoTThingsGraph.Types.EntityDescription
-    Network.AWS.IoTThingsGraph.Types.EntityFilter
-    Network.AWS.IoTThingsGraph.Types.EntityFilterName
-    Network.AWS.IoTThingsGraph.Types.EntityType
-    Network.AWS.IoTThingsGraph.Types.FlowExecutionEventType
-    Network.AWS.IoTThingsGraph.Types.FlowExecutionMessage
-    Network.AWS.IoTThingsGraph.Types.FlowExecutionStatus
-    Network.AWS.IoTThingsGraph.Types.FlowExecutionSummary
-    Network.AWS.IoTThingsGraph.Types.FlowTemplateDescription
-    Network.AWS.IoTThingsGraph.Types.FlowTemplateFilter
-    Network.AWS.IoTThingsGraph.Types.FlowTemplateFilterName
-    Network.AWS.IoTThingsGraph.Types.FlowTemplateSummary
-    Network.AWS.IoTThingsGraph.Types.MetricsConfiguration
-    Network.AWS.IoTThingsGraph.Types.NamespaceDeletionStatus
-    Network.AWS.IoTThingsGraph.Types.NamespaceDeletionStatusErrorCodes
-    Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus
-    Network.AWS.IoTThingsGraph.Types.SystemInstanceDescription
-    Network.AWS.IoTThingsGraph.Types.SystemInstanceFilter
-    Network.AWS.IoTThingsGraph.Types.SystemInstanceFilterName
-    Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary
-    Network.AWS.IoTThingsGraph.Types.SystemTemplateDescription
-    Network.AWS.IoTThingsGraph.Types.SystemTemplateFilter
-    Network.AWS.IoTThingsGraph.Types.SystemTemplateFilterName
-    Network.AWS.IoTThingsGraph.Types.SystemTemplateSummary
-    Network.AWS.IoTThingsGraph.Types.Tag
-    Network.AWS.IoTThingsGraph.Types.Thing
-    Network.AWS.IoTThingsGraph.Types.UploadStatus
-    Network.AWS.IoTThingsGraph.UndeploySystemInstance
-    Network.AWS.IoTThingsGraph.UntagResource
-    Network.AWS.IoTThingsGraph.UpdateFlowTemplate
-    Network.AWS.IoTThingsGraph.UpdateSystemTemplate
-    Network.AWS.IoTThingsGraph.UploadEntityDefinitions
-    Network.AWS.IoTThingsGraph.Waiters
+    Amazonka.IoTThingsGraph
+    Amazonka.IoTThingsGraph.AssociateEntityToThing
+    Amazonka.IoTThingsGraph.CreateFlowTemplate
+    Amazonka.IoTThingsGraph.CreateSystemInstance
+    Amazonka.IoTThingsGraph.CreateSystemTemplate
+    Amazonka.IoTThingsGraph.DeleteFlowTemplate
+    Amazonka.IoTThingsGraph.DeleteNamespace
+    Amazonka.IoTThingsGraph.DeleteSystemInstance
+    Amazonka.IoTThingsGraph.DeleteSystemTemplate
+    Amazonka.IoTThingsGraph.DeploySystemInstance
+    Amazonka.IoTThingsGraph.DeprecateFlowTemplate
+    Amazonka.IoTThingsGraph.DeprecateSystemTemplate
+    Amazonka.IoTThingsGraph.DescribeNamespace
+    Amazonka.IoTThingsGraph.DissociateEntityFromThing
+    Amazonka.IoTThingsGraph.GetEntities
+    Amazonka.IoTThingsGraph.GetFlowTemplate
+    Amazonka.IoTThingsGraph.GetFlowTemplateRevisions
+    Amazonka.IoTThingsGraph.GetNamespaceDeletionStatus
+    Amazonka.IoTThingsGraph.GetSystemInstance
+    Amazonka.IoTThingsGraph.GetSystemTemplate
+    Amazonka.IoTThingsGraph.GetSystemTemplateRevisions
+    Amazonka.IoTThingsGraph.GetUploadStatus
+    Amazonka.IoTThingsGraph.Lens
+    Amazonka.IoTThingsGraph.ListFlowExecutionMessages
+    Amazonka.IoTThingsGraph.ListTagsForResource
+    Amazonka.IoTThingsGraph.SearchEntities
+    Amazonka.IoTThingsGraph.SearchFlowExecutions
+    Amazonka.IoTThingsGraph.SearchFlowTemplates
+    Amazonka.IoTThingsGraph.SearchSystemInstances
+    Amazonka.IoTThingsGraph.SearchSystemTemplates
+    Amazonka.IoTThingsGraph.SearchThings
+    Amazonka.IoTThingsGraph.TagResource
+    Amazonka.IoTThingsGraph.Types
+    Amazonka.IoTThingsGraph.Types.DefinitionDocument
+    Amazonka.IoTThingsGraph.Types.DefinitionLanguage
+    Amazonka.IoTThingsGraph.Types.DependencyRevision
+    Amazonka.IoTThingsGraph.Types.DeploymentTarget
+    Amazonka.IoTThingsGraph.Types.EntityDescription
+    Amazonka.IoTThingsGraph.Types.EntityFilter
+    Amazonka.IoTThingsGraph.Types.EntityFilterName
+    Amazonka.IoTThingsGraph.Types.EntityType
+    Amazonka.IoTThingsGraph.Types.FlowExecutionEventType
+    Amazonka.IoTThingsGraph.Types.FlowExecutionMessage
+    Amazonka.IoTThingsGraph.Types.FlowExecutionStatus
+    Amazonka.IoTThingsGraph.Types.FlowExecutionSummary
+    Amazonka.IoTThingsGraph.Types.FlowTemplateDescription
+    Amazonka.IoTThingsGraph.Types.FlowTemplateFilter
+    Amazonka.IoTThingsGraph.Types.FlowTemplateFilterName
+    Amazonka.IoTThingsGraph.Types.FlowTemplateSummary
+    Amazonka.IoTThingsGraph.Types.MetricsConfiguration
+    Amazonka.IoTThingsGraph.Types.NamespaceDeletionStatus
+    Amazonka.IoTThingsGraph.Types.NamespaceDeletionStatusErrorCodes
+    Amazonka.IoTThingsGraph.Types.SystemInstanceDeploymentStatus
+    Amazonka.IoTThingsGraph.Types.SystemInstanceDescription
+    Amazonka.IoTThingsGraph.Types.SystemInstanceFilter
+    Amazonka.IoTThingsGraph.Types.SystemInstanceFilterName
+    Amazonka.IoTThingsGraph.Types.SystemInstanceSummary
+    Amazonka.IoTThingsGraph.Types.SystemTemplateDescription
+    Amazonka.IoTThingsGraph.Types.SystemTemplateFilter
+    Amazonka.IoTThingsGraph.Types.SystemTemplateFilterName
+    Amazonka.IoTThingsGraph.Types.SystemTemplateSummary
+    Amazonka.IoTThingsGraph.Types.Tag
+    Amazonka.IoTThingsGraph.Types.Thing
+    Amazonka.IoTThingsGraph.Types.UploadStatus
+    Amazonka.IoTThingsGraph.UndeploySystemInstance
+    Amazonka.IoTThingsGraph.UntagResource
+    Amazonka.IoTThingsGraph.UpdateFlowTemplate
+    Amazonka.IoTThingsGraph.UpdateSystemTemplate
+    Amazonka.IoTThingsGraph.UploadEntityDefinitions
+    Amazonka.IoTThingsGraph.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -132,9 +132,9 @@ test-suite amazonka-iotthingsgraph-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.IoTThingsGraph
-    Test.AWS.IoTThingsGraph
-    Test.AWS.IoTThingsGraph.Internal
+    Test.Amazonka.Gen.IoTThingsGraph
+    Test.Amazonka.IoTThingsGraph
+    Test.Amazonka.IoTThingsGraph.Internal
 
   build-depends:
     , amazonka                 ^>=2.0

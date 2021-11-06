@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.SSMContacts
-import Test.AWS.SSMContacts.Internal
+import Test.Amazonka.SSMContacts
+import Test.Amazonka.SSMContacts.Internal
 import Test.Tasty
 
 main :: IO ()

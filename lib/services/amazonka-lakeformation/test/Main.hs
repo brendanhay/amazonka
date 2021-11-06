@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.LakeFormation
-import Test.AWS.LakeFormation.Internal
+import Test.Amazonka.LakeFormation
+import Test.Amazonka.LakeFormation.Internal
 import Test.Tasty
 
 main :: IO ()

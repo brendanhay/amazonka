@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.OpsWorks
-import Test.AWS.OpsWorks.Internal
+import Test.Amazonka.OpsWorks
+import Test.Amazonka.OpsWorks.Internal
 import Test.Tasty
 
 main :: IO ()

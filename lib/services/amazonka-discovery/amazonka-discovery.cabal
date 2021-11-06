@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Discovery.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Discovery.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Discovery" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Discovery" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,62 +45,62 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Discovery
-    Network.AWS.Discovery.AssociateConfigurationItemsToApplication
-    Network.AWS.Discovery.BatchDeleteImportData
-    Network.AWS.Discovery.CreateApplication
-    Network.AWS.Discovery.CreateTags
-    Network.AWS.Discovery.DeleteApplications
-    Network.AWS.Discovery.DeleteTags
-    Network.AWS.Discovery.DescribeAgents
-    Network.AWS.Discovery.DescribeConfigurations
-    Network.AWS.Discovery.DescribeContinuousExports
-    Network.AWS.Discovery.DescribeExportTasks
-    Network.AWS.Discovery.DescribeImportTasks
-    Network.AWS.Discovery.DescribeTags
-    Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication
-    Network.AWS.Discovery.GetDiscoverySummary
-    Network.AWS.Discovery.Lens
-    Network.AWS.Discovery.ListConfigurations
-    Network.AWS.Discovery.ListServerNeighbors
-    Network.AWS.Discovery.StartContinuousExport
-    Network.AWS.Discovery.StartDataCollectionByAgentIds
-    Network.AWS.Discovery.StartExportTask
-    Network.AWS.Discovery.StartImportTask
-    Network.AWS.Discovery.StopContinuousExport
-    Network.AWS.Discovery.StopDataCollectionByAgentIds
-    Network.AWS.Discovery.Types
-    Network.AWS.Discovery.Types.AgentConfigurationStatus
-    Network.AWS.Discovery.Types.AgentInfo
-    Network.AWS.Discovery.Types.AgentNetworkInfo
-    Network.AWS.Discovery.Types.AgentStatus
-    Network.AWS.Discovery.Types.BatchDeleteImportDataError
-    Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode
-    Network.AWS.Discovery.Types.ConfigurationItemType
-    Network.AWS.Discovery.Types.ConfigurationTag
-    Network.AWS.Discovery.Types.ContinuousExportDescription
-    Network.AWS.Discovery.Types.ContinuousExportStatus
-    Network.AWS.Discovery.Types.CustomerAgentInfo
-    Network.AWS.Discovery.Types.CustomerConnectorInfo
-    Network.AWS.Discovery.Types.DataSource
-    Network.AWS.Discovery.Types.ExportDataFormat
-    Network.AWS.Discovery.Types.ExportFilter
-    Network.AWS.Discovery.Types.ExportInfo
-    Network.AWS.Discovery.Types.ExportStatus
-    Network.AWS.Discovery.Types.Filter
-    Network.AWS.Discovery.Types.ImportStatus
-    Network.AWS.Discovery.Types.ImportTask
-    Network.AWS.Discovery.Types.ImportTaskFilter
-    Network.AWS.Discovery.Types.ImportTaskFilterName
-    Network.AWS.Discovery.Types.NeighborConnectionDetail
-    Network.AWS.Discovery.Types.OrderByElement
-    Network.AWS.Discovery.Types.OrderString
-    Network.AWS.Discovery.Types.Tag
-    Network.AWS.Discovery.Types.TagFilter
-    Network.AWS.Discovery.UpdateApplication
-    Network.AWS.Discovery.Waiters
+    Amazonka.Discovery
+    Amazonka.Discovery.AssociateConfigurationItemsToApplication
+    Amazonka.Discovery.BatchDeleteImportData
+    Amazonka.Discovery.CreateApplication
+    Amazonka.Discovery.CreateTags
+    Amazonka.Discovery.DeleteApplications
+    Amazonka.Discovery.DeleteTags
+    Amazonka.Discovery.DescribeAgents
+    Amazonka.Discovery.DescribeConfigurations
+    Amazonka.Discovery.DescribeContinuousExports
+    Amazonka.Discovery.DescribeExportTasks
+    Amazonka.Discovery.DescribeImportTasks
+    Amazonka.Discovery.DescribeTags
+    Amazonka.Discovery.DisassociateConfigurationItemsFromApplication
+    Amazonka.Discovery.GetDiscoverySummary
+    Amazonka.Discovery.Lens
+    Amazonka.Discovery.ListConfigurations
+    Amazonka.Discovery.ListServerNeighbors
+    Amazonka.Discovery.StartContinuousExport
+    Amazonka.Discovery.StartDataCollectionByAgentIds
+    Amazonka.Discovery.StartExportTask
+    Amazonka.Discovery.StartImportTask
+    Amazonka.Discovery.StopContinuousExport
+    Amazonka.Discovery.StopDataCollectionByAgentIds
+    Amazonka.Discovery.Types
+    Amazonka.Discovery.Types.AgentConfigurationStatus
+    Amazonka.Discovery.Types.AgentInfo
+    Amazonka.Discovery.Types.AgentNetworkInfo
+    Amazonka.Discovery.Types.AgentStatus
+    Amazonka.Discovery.Types.BatchDeleteImportDataError
+    Amazonka.Discovery.Types.BatchDeleteImportDataErrorCode
+    Amazonka.Discovery.Types.ConfigurationItemType
+    Amazonka.Discovery.Types.ConfigurationTag
+    Amazonka.Discovery.Types.ContinuousExportDescription
+    Amazonka.Discovery.Types.ContinuousExportStatus
+    Amazonka.Discovery.Types.CustomerAgentInfo
+    Amazonka.Discovery.Types.CustomerConnectorInfo
+    Amazonka.Discovery.Types.DataSource
+    Amazonka.Discovery.Types.ExportDataFormat
+    Amazonka.Discovery.Types.ExportFilter
+    Amazonka.Discovery.Types.ExportInfo
+    Amazonka.Discovery.Types.ExportStatus
+    Amazonka.Discovery.Types.Filter
+    Amazonka.Discovery.Types.ImportStatus
+    Amazonka.Discovery.Types.ImportTask
+    Amazonka.Discovery.Types.ImportTaskFilter
+    Amazonka.Discovery.Types.ImportTaskFilterName
+    Amazonka.Discovery.Types.NeighborConnectionDetail
+    Amazonka.Discovery.Types.OrderByElement
+    Amazonka.Discovery.Types.OrderString
+    Amazonka.Discovery.Types.Tag
+    Amazonka.Discovery.Types.TagFilter
+    Amazonka.Discovery.UpdateApplication
+    Amazonka.Discovery.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -116,9 +116,9 @@ test-suite amazonka-discovery-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Discovery
-    Test.AWS.Discovery.Internal
-    Test.AWS.Gen.Discovery
+    Test.Amazonka.Discovery
+    Test.Amazonka.Discovery.Internal
+    Test.Amazonka.Gen.Discovery
 
   build-depends:
     , amazonka              ^>=2.0

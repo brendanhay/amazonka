@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.IdentityStore.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.IdentityStore.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.IdentityStore" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.IdentityStore" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,19 +45,19 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.IdentityStore
-    Network.AWS.IdentityStore.DescribeGroup
-    Network.AWS.IdentityStore.DescribeUser
-    Network.AWS.IdentityStore.Lens
-    Network.AWS.IdentityStore.ListGroups
-    Network.AWS.IdentityStore.ListUsers
-    Network.AWS.IdentityStore.Types
-    Network.AWS.IdentityStore.Types.Filter
-    Network.AWS.IdentityStore.Types.Group
-    Network.AWS.IdentityStore.Types.User
-    Network.AWS.IdentityStore.Waiters
+    Amazonka.IdentityStore
+    Amazonka.IdentityStore.DescribeGroup
+    Amazonka.IdentityStore.DescribeUser
+    Amazonka.IdentityStore.Lens
+    Amazonka.IdentityStore.ListGroups
+    Amazonka.IdentityStore.ListUsers
+    Amazonka.IdentityStore.Types
+    Amazonka.IdentityStore.Types.Filter
+    Amazonka.IdentityStore.Types.Group
+    Amazonka.IdentityStore.Types.User
+    Amazonka.IdentityStore.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -73,9 +73,9 @@ test-suite amazonka-identitystore-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.IdentityStore
-    Test.AWS.IdentityStore
-    Test.AWS.IdentityStore.Internal
+    Test.Amazonka.Gen.IdentityStore
+    Test.Amazonka.IdentityStore
+    Test.Amazonka.IdentityStore.Internal
 
   build-depends:
     , amazonka                ^>=2.0

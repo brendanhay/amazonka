@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.WorkLink.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.WorkLink.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.WorkLink" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.WorkLink" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,55 +45,55 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.WorkLink
-    Network.AWS.WorkLink.AssociateDomain
-    Network.AWS.WorkLink.AssociateWebsiteAuthorizationProvider
-    Network.AWS.WorkLink.AssociateWebsiteCertificateAuthority
-    Network.AWS.WorkLink.CreateFleet
-    Network.AWS.WorkLink.DeleteFleet
-    Network.AWS.WorkLink.DescribeAuditStreamConfiguration
-    Network.AWS.WorkLink.DescribeCompanyNetworkConfiguration
-    Network.AWS.WorkLink.DescribeDevice
-    Network.AWS.WorkLink.DescribeDevicePolicyConfiguration
-    Network.AWS.WorkLink.DescribeDomain
-    Network.AWS.WorkLink.DescribeFleetMetadata
-    Network.AWS.WorkLink.DescribeIdentityProviderConfiguration
-    Network.AWS.WorkLink.DescribeWebsiteCertificateAuthority
-    Network.AWS.WorkLink.DisassociateDomain
-    Network.AWS.WorkLink.DisassociateWebsiteAuthorizationProvider
-    Network.AWS.WorkLink.DisassociateWebsiteCertificateAuthority
-    Network.AWS.WorkLink.Lens
-    Network.AWS.WorkLink.ListDevices
-    Network.AWS.WorkLink.ListDomains
-    Network.AWS.WorkLink.ListFleets
-    Network.AWS.WorkLink.ListTagsForResource
-    Network.AWS.WorkLink.ListWebsiteAuthorizationProviders
-    Network.AWS.WorkLink.ListWebsiteCertificateAuthorities
-    Network.AWS.WorkLink.RestoreDomainAccess
-    Network.AWS.WorkLink.RevokeDomainAccess
-    Network.AWS.WorkLink.SignOutUser
-    Network.AWS.WorkLink.TagResource
-    Network.AWS.WorkLink.Types
-    Network.AWS.WorkLink.Types.AuthorizationProviderType
-    Network.AWS.WorkLink.Types.DeviceStatus
-    Network.AWS.WorkLink.Types.DeviceSummary
-    Network.AWS.WorkLink.Types.DomainStatus
-    Network.AWS.WorkLink.Types.DomainSummary
-    Network.AWS.WorkLink.Types.FleetStatus
-    Network.AWS.WorkLink.Types.FleetSummary
-    Network.AWS.WorkLink.Types.IdentityProviderType
-    Network.AWS.WorkLink.Types.WebsiteAuthorizationProviderSummary
-    Network.AWS.WorkLink.Types.WebsiteCaSummary
-    Network.AWS.WorkLink.UntagResource
-    Network.AWS.WorkLink.UpdateAuditStreamConfiguration
-    Network.AWS.WorkLink.UpdateCompanyNetworkConfiguration
-    Network.AWS.WorkLink.UpdateDevicePolicyConfiguration
-    Network.AWS.WorkLink.UpdateDomainMetadata
-    Network.AWS.WorkLink.UpdateFleetMetadata
-    Network.AWS.WorkLink.UpdateIdentityProviderConfiguration
-    Network.AWS.WorkLink.Waiters
+    Amazonka.WorkLink
+    Amazonka.WorkLink.AssociateDomain
+    Amazonka.WorkLink.AssociateWebsiteAuthorizationProvider
+    Amazonka.WorkLink.AssociateWebsiteCertificateAuthority
+    Amazonka.WorkLink.CreateFleet
+    Amazonka.WorkLink.DeleteFleet
+    Amazonka.WorkLink.DescribeAuditStreamConfiguration
+    Amazonka.WorkLink.DescribeCompanyNetworkConfiguration
+    Amazonka.WorkLink.DescribeDevice
+    Amazonka.WorkLink.DescribeDevicePolicyConfiguration
+    Amazonka.WorkLink.DescribeDomain
+    Amazonka.WorkLink.DescribeFleetMetadata
+    Amazonka.WorkLink.DescribeIdentityProviderConfiguration
+    Amazonka.WorkLink.DescribeWebsiteCertificateAuthority
+    Amazonka.WorkLink.DisassociateDomain
+    Amazonka.WorkLink.DisassociateWebsiteAuthorizationProvider
+    Amazonka.WorkLink.DisassociateWebsiteCertificateAuthority
+    Amazonka.WorkLink.Lens
+    Amazonka.WorkLink.ListDevices
+    Amazonka.WorkLink.ListDomains
+    Amazonka.WorkLink.ListFleets
+    Amazonka.WorkLink.ListTagsForResource
+    Amazonka.WorkLink.ListWebsiteAuthorizationProviders
+    Amazonka.WorkLink.ListWebsiteCertificateAuthorities
+    Amazonka.WorkLink.RestoreDomainAccess
+    Amazonka.WorkLink.RevokeDomainAccess
+    Amazonka.WorkLink.SignOutUser
+    Amazonka.WorkLink.TagResource
+    Amazonka.WorkLink.Types
+    Amazonka.WorkLink.Types.AuthorizationProviderType
+    Amazonka.WorkLink.Types.DeviceStatus
+    Amazonka.WorkLink.Types.DeviceSummary
+    Amazonka.WorkLink.Types.DomainStatus
+    Amazonka.WorkLink.Types.DomainSummary
+    Amazonka.WorkLink.Types.FleetStatus
+    Amazonka.WorkLink.Types.FleetSummary
+    Amazonka.WorkLink.Types.IdentityProviderType
+    Amazonka.WorkLink.Types.WebsiteAuthorizationProviderSummary
+    Amazonka.WorkLink.Types.WebsiteCaSummary
+    Amazonka.WorkLink.UntagResource
+    Amazonka.WorkLink.UpdateAuditStreamConfiguration
+    Amazonka.WorkLink.UpdateCompanyNetworkConfiguration
+    Amazonka.WorkLink.UpdateDevicePolicyConfiguration
+    Amazonka.WorkLink.UpdateDomainMetadata
+    Amazonka.WorkLink.UpdateFleetMetadata
+    Amazonka.WorkLink.UpdateIdentityProviderConfiguration
+    Amazonka.WorkLink.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -109,9 +109,9 @@ test-suite amazonka-worklink-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.WorkLink
-    Test.AWS.WorkLink
-    Test.AWS.WorkLink.Internal
+    Test.Amazonka.Gen.WorkLink
+    Test.Amazonka.WorkLink
+    Test.Amazonka.WorkLink.Internal
 
   build-depends:
     , amazonka              ^>=2.0

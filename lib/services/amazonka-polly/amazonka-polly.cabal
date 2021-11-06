@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Polly.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Polly.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Polly" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Polly" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,34 +45,34 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Polly
-    Network.AWS.Polly.DeleteLexicon
-    Network.AWS.Polly.DescribeVoices
-    Network.AWS.Polly.GetLexicon
-    Network.AWS.Polly.GetSpeechSynthesisTask
-    Network.AWS.Polly.Lens
-    Network.AWS.Polly.ListLexicons
-    Network.AWS.Polly.ListSpeechSynthesisTasks
-    Network.AWS.Polly.PutLexicon
-    Network.AWS.Polly.StartSpeechSynthesisTask
-    Network.AWS.Polly.SynthesizeSpeech
-    Network.AWS.Polly.Types
-    Network.AWS.Polly.Types.Engine
-    Network.AWS.Polly.Types.Gender
-    Network.AWS.Polly.Types.LanguageCode
-    Network.AWS.Polly.Types.Lexicon
-    Network.AWS.Polly.Types.LexiconAttributes
-    Network.AWS.Polly.Types.LexiconDescription
-    Network.AWS.Polly.Types.OutputFormat
-    Network.AWS.Polly.Types.SpeechMarkType
-    Network.AWS.Polly.Types.SynthesisTask
-    Network.AWS.Polly.Types.TaskStatus
-    Network.AWS.Polly.Types.TextType
-    Network.AWS.Polly.Types.Voice
-    Network.AWS.Polly.Types.VoiceId
-    Network.AWS.Polly.Waiters
+    Amazonka.Polly
+    Amazonka.Polly.DeleteLexicon
+    Amazonka.Polly.DescribeVoices
+    Amazonka.Polly.GetLexicon
+    Amazonka.Polly.GetSpeechSynthesisTask
+    Amazonka.Polly.Lens
+    Amazonka.Polly.ListLexicons
+    Amazonka.Polly.ListSpeechSynthesisTasks
+    Amazonka.Polly.PutLexicon
+    Amazonka.Polly.StartSpeechSynthesisTask
+    Amazonka.Polly.SynthesizeSpeech
+    Amazonka.Polly.Types
+    Amazonka.Polly.Types.Engine
+    Amazonka.Polly.Types.Gender
+    Amazonka.Polly.Types.LanguageCode
+    Amazonka.Polly.Types.Lexicon
+    Amazonka.Polly.Types.LexiconAttributes
+    Amazonka.Polly.Types.LexiconDescription
+    Amazonka.Polly.Types.OutputFormat
+    Amazonka.Polly.Types.SpeechMarkType
+    Amazonka.Polly.Types.SynthesisTask
+    Amazonka.Polly.Types.TaskStatus
+    Amazonka.Polly.Types.TextType
+    Amazonka.Polly.Types.Voice
+    Amazonka.Polly.Types.VoiceId
+    Amazonka.Polly.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -88,9 +88,9 @@ test-suite amazonka-polly-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Polly
-    Test.AWS.Polly
-    Test.AWS.Polly.Internal
+    Test.Amazonka.Gen.Polly
+    Test.Amazonka.Polly
+    Test.Amazonka.Polly.Internal
 
   build-depends:
     , amazonka              ^>=2.0

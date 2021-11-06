@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.FinSpaceData.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.FinSpaceData.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.FinSpaceData" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.FinSpaceData" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,24 +45,24 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.FinSpaceData
-    Network.AWS.FinSpaceData.CreateChangeset
-    Network.AWS.FinSpaceData.GetProgrammaticAccessCredentials
-    Network.AWS.FinSpaceData.GetWorkingLocation
-    Network.AWS.FinSpaceData.Lens
-    Network.AWS.FinSpaceData.Types
-    Network.AWS.FinSpaceData.Types.ChangesetInfo
-    Network.AWS.FinSpaceData.Types.ChangesetStatus
-    Network.AWS.FinSpaceData.Types.ChangeType
-    Network.AWS.FinSpaceData.Types.Credentials
-    Network.AWS.FinSpaceData.Types.ErrorCategory
-    Network.AWS.FinSpaceData.Types.ErrorInfo
-    Network.AWS.FinSpaceData.Types.FormatType
-    Network.AWS.FinSpaceData.Types.LocationType
-    Network.AWS.FinSpaceData.Types.SourceType
-    Network.AWS.FinSpaceData.Waiters
+    Amazonka.FinSpaceData
+    Amazonka.FinSpaceData.CreateChangeset
+    Amazonka.FinSpaceData.GetProgrammaticAccessCredentials
+    Amazonka.FinSpaceData.GetWorkingLocation
+    Amazonka.FinSpaceData.Lens
+    Amazonka.FinSpaceData.Types
+    Amazonka.FinSpaceData.Types.ChangesetInfo
+    Amazonka.FinSpaceData.Types.ChangesetStatus
+    Amazonka.FinSpaceData.Types.ChangeType
+    Amazonka.FinSpaceData.Types.Credentials
+    Amazonka.FinSpaceData.Types.ErrorCategory
+    Amazonka.FinSpaceData.Types.ErrorInfo
+    Amazonka.FinSpaceData.Types.FormatType
+    Amazonka.FinSpaceData.Types.LocationType
+    Amazonka.FinSpaceData.Types.SourceType
+    Amazonka.FinSpaceData.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -78,9 +78,9 @@ test-suite amazonka-finspace-data-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.FinSpaceData
-    Test.AWS.FinSpaceData.Internal
-    Test.AWS.Gen.FinSpaceData
+    Test.Amazonka.FinSpaceData
+    Test.Amazonka.FinSpaceData.Internal
+    Test.Amazonka.Gen.FinSpaceData
 
   build-depends:
     , amazonka                ^>=2.0

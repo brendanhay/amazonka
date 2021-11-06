@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.AppStream.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.AppStream.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.AppStream" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.AppStream" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,114 +45,114 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.AppStream
-    Network.AWS.AppStream.AssociateFleet
-    Network.AWS.AppStream.BatchAssociateUserStack
-    Network.AWS.AppStream.BatchDisassociateUserStack
-    Network.AWS.AppStream.CopyImage
-    Network.AWS.AppStream.CreateDirectoryConfig
-    Network.AWS.AppStream.CreateFleet
-    Network.AWS.AppStream.CreateImageBuilder
-    Network.AWS.AppStream.CreateImageBuilderStreamingURL
-    Network.AWS.AppStream.CreateStack
-    Network.AWS.AppStream.CreateStreamingURL
-    Network.AWS.AppStream.CreateUpdatedImage
-    Network.AWS.AppStream.CreateUsageReportSubscription
-    Network.AWS.AppStream.CreateUser
-    Network.AWS.AppStream.DeleteDirectoryConfig
-    Network.AWS.AppStream.DeleteFleet
-    Network.AWS.AppStream.DeleteImage
-    Network.AWS.AppStream.DeleteImageBuilder
-    Network.AWS.AppStream.DeleteImagePermissions
-    Network.AWS.AppStream.DeleteStack
-    Network.AWS.AppStream.DeleteUsageReportSubscription
-    Network.AWS.AppStream.DeleteUser
-    Network.AWS.AppStream.DescribeDirectoryConfigs
-    Network.AWS.AppStream.DescribeFleets
-    Network.AWS.AppStream.DescribeImageBuilders
-    Network.AWS.AppStream.DescribeImagePermissions
-    Network.AWS.AppStream.DescribeImages
-    Network.AWS.AppStream.DescribeSessions
-    Network.AWS.AppStream.DescribeStacks
-    Network.AWS.AppStream.DescribeUsageReportSubscriptions
-    Network.AWS.AppStream.DescribeUsers
-    Network.AWS.AppStream.DescribeUserStackAssociations
-    Network.AWS.AppStream.DisableUser
-    Network.AWS.AppStream.DisassociateFleet
-    Network.AWS.AppStream.EnableUser
-    Network.AWS.AppStream.ExpireSession
-    Network.AWS.AppStream.Lens
-    Network.AWS.AppStream.ListAssociatedFleets
-    Network.AWS.AppStream.ListAssociatedStacks
-    Network.AWS.AppStream.ListTagsForResource
-    Network.AWS.AppStream.StartFleet
-    Network.AWS.AppStream.StartImageBuilder
-    Network.AWS.AppStream.StopFleet
-    Network.AWS.AppStream.StopImageBuilder
-    Network.AWS.AppStream.TagResource
-    Network.AWS.AppStream.Types
-    Network.AWS.AppStream.Types.AccessEndpoint
-    Network.AWS.AppStream.Types.AccessEndpointType
-    Network.AWS.AppStream.Types.Action
-    Network.AWS.AppStream.Types.Application
-    Network.AWS.AppStream.Types.ApplicationSettings
-    Network.AWS.AppStream.Types.ApplicationSettingsResponse
-    Network.AWS.AppStream.Types.AuthenticationType
-    Network.AWS.AppStream.Types.ComputeCapacity
-    Network.AWS.AppStream.Types.ComputeCapacityStatus
-    Network.AWS.AppStream.Types.DirectoryConfig
-    Network.AWS.AppStream.Types.DomainJoinInfo
-    Network.AWS.AppStream.Types.Fleet
-    Network.AWS.AppStream.Types.FleetAttribute
-    Network.AWS.AppStream.Types.FleetError
-    Network.AWS.AppStream.Types.FleetErrorCode
-    Network.AWS.AppStream.Types.FleetState
-    Network.AWS.AppStream.Types.FleetType
-    Network.AWS.AppStream.Types.Image
-    Network.AWS.AppStream.Types.ImageBuilder
-    Network.AWS.AppStream.Types.ImageBuilderState
-    Network.AWS.AppStream.Types.ImageBuilderStateChangeReason
-    Network.AWS.AppStream.Types.ImageBuilderStateChangeReasonCode
-    Network.AWS.AppStream.Types.ImagePermissions
-    Network.AWS.AppStream.Types.ImageState
-    Network.AWS.AppStream.Types.ImageStateChangeReason
-    Network.AWS.AppStream.Types.ImageStateChangeReasonCode
-    Network.AWS.AppStream.Types.LastReportGenerationExecutionError
-    Network.AWS.AppStream.Types.MessageAction
-    Network.AWS.AppStream.Types.NetworkAccessConfiguration
-    Network.AWS.AppStream.Types.Permission
-    Network.AWS.AppStream.Types.PlatformType
-    Network.AWS.AppStream.Types.ResourceError
-    Network.AWS.AppStream.Types.ServiceAccountCredentials
-    Network.AWS.AppStream.Types.Session
-    Network.AWS.AppStream.Types.SessionConnectionState
-    Network.AWS.AppStream.Types.SessionState
-    Network.AWS.AppStream.Types.SharedImagePermissions
-    Network.AWS.AppStream.Types.Stack
-    Network.AWS.AppStream.Types.StackAttribute
-    Network.AWS.AppStream.Types.StackError
-    Network.AWS.AppStream.Types.StackErrorCode
-    Network.AWS.AppStream.Types.StorageConnector
-    Network.AWS.AppStream.Types.StorageConnectorType
-    Network.AWS.AppStream.Types.StreamView
-    Network.AWS.AppStream.Types.UsageReportExecutionErrorCode
-    Network.AWS.AppStream.Types.UsageReportSchedule
-    Network.AWS.AppStream.Types.UsageReportSubscription
-    Network.AWS.AppStream.Types.User
-    Network.AWS.AppStream.Types.UserSetting
-    Network.AWS.AppStream.Types.UserStackAssociation
-    Network.AWS.AppStream.Types.UserStackAssociationError
-    Network.AWS.AppStream.Types.UserStackAssociationErrorCode
-    Network.AWS.AppStream.Types.VisibilityType
-    Network.AWS.AppStream.Types.VpcConfig
-    Network.AWS.AppStream.UntagResource
-    Network.AWS.AppStream.UpdateDirectoryConfig
-    Network.AWS.AppStream.UpdateFleet
-    Network.AWS.AppStream.UpdateImagePermissions
-    Network.AWS.AppStream.UpdateStack
-    Network.AWS.AppStream.Waiters
+    Amazonka.AppStream
+    Amazonka.AppStream.AssociateFleet
+    Amazonka.AppStream.BatchAssociateUserStack
+    Amazonka.AppStream.BatchDisassociateUserStack
+    Amazonka.AppStream.CopyImage
+    Amazonka.AppStream.CreateDirectoryConfig
+    Amazonka.AppStream.CreateFleet
+    Amazonka.AppStream.CreateImageBuilder
+    Amazonka.AppStream.CreateImageBuilderStreamingURL
+    Amazonka.AppStream.CreateStack
+    Amazonka.AppStream.CreateStreamingURL
+    Amazonka.AppStream.CreateUpdatedImage
+    Amazonka.AppStream.CreateUsageReportSubscription
+    Amazonka.AppStream.CreateUser
+    Amazonka.AppStream.DeleteDirectoryConfig
+    Amazonka.AppStream.DeleteFleet
+    Amazonka.AppStream.DeleteImage
+    Amazonka.AppStream.DeleteImageBuilder
+    Amazonka.AppStream.DeleteImagePermissions
+    Amazonka.AppStream.DeleteStack
+    Amazonka.AppStream.DeleteUsageReportSubscription
+    Amazonka.AppStream.DeleteUser
+    Amazonka.AppStream.DescribeDirectoryConfigs
+    Amazonka.AppStream.DescribeFleets
+    Amazonka.AppStream.DescribeImageBuilders
+    Amazonka.AppStream.DescribeImagePermissions
+    Amazonka.AppStream.DescribeImages
+    Amazonka.AppStream.DescribeSessions
+    Amazonka.AppStream.DescribeStacks
+    Amazonka.AppStream.DescribeUsageReportSubscriptions
+    Amazonka.AppStream.DescribeUsers
+    Amazonka.AppStream.DescribeUserStackAssociations
+    Amazonka.AppStream.DisableUser
+    Amazonka.AppStream.DisassociateFleet
+    Amazonka.AppStream.EnableUser
+    Amazonka.AppStream.ExpireSession
+    Amazonka.AppStream.Lens
+    Amazonka.AppStream.ListAssociatedFleets
+    Amazonka.AppStream.ListAssociatedStacks
+    Amazonka.AppStream.ListTagsForResource
+    Amazonka.AppStream.StartFleet
+    Amazonka.AppStream.StartImageBuilder
+    Amazonka.AppStream.StopFleet
+    Amazonka.AppStream.StopImageBuilder
+    Amazonka.AppStream.TagResource
+    Amazonka.AppStream.Types
+    Amazonka.AppStream.Types.AccessEndpoint
+    Amazonka.AppStream.Types.AccessEndpointType
+    Amazonka.AppStream.Types.Action
+    Amazonka.AppStream.Types.Application
+    Amazonka.AppStream.Types.ApplicationSettings
+    Amazonka.AppStream.Types.ApplicationSettingsResponse
+    Amazonka.AppStream.Types.AuthenticationType
+    Amazonka.AppStream.Types.ComputeCapacity
+    Amazonka.AppStream.Types.ComputeCapacityStatus
+    Amazonka.AppStream.Types.DirectoryConfig
+    Amazonka.AppStream.Types.DomainJoinInfo
+    Amazonka.AppStream.Types.Fleet
+    Amazonka.AppStream.Types.FleetAttribute
+    Amazonka.AppStream.Types.FleetError
+    Amazonka.AppStream.Types.FleetErrorCode
+    Amazonka.AppStream.Types.FleetState
+    Amazonka.AppStream.Types.FleetType
+    Amazonka.AppStream.Types.Image
+    Amazonka.AppStream.Types.ImageBuilder
+    Amazonka.AppStream.Types.ImageBuilderState
+    Amazonka.AppStream.Types.ImageBuilderStateChangeReason
+    Amazonka.AppStream.Types.ImageBuilderStateChangeReasonCode
+    Amazonka.AppStream.Types.ImagePermissions
+    Amazonka.AppStream.Types.ImageState
+    Amazonka.AppStream.Types.ImageStateChangeReason
+    Amazonka.AppStream.Types.ImageStateChangeReasonCode
+    Amazonka.AppStream.Types.LastReportGenerationExecutionError
+    Amazonka.AppStream.Types.MessageAction
+    Amazonka.AppStream.Types.NetworkAccessConfiguration
+    Amazonka.AppStream.Types.Permission
+    Amazonka.AppStream.Types.PlatformType
+    Amazonka.AppStream.Types.ResourceError
+    Amazonka.AppStream.Types.ServiceAccountCredentials
+    Amazonka.AppStream.Types.Session
+    Amazonka.AppStream.Types.SessionConnectionState
+    Amazonka.AppStream.Types.SessionState
+    Amazonka.AppStream.Types.SharedImagePermissions
+    Amazonka.AppStream.Types.Stack
+    Amazonka.AppStream.Types.StackAttribute
+    Amazonka.AppStream.Types.StackError
+    Amazonka.AppStream.Types.StackErrorCode
+    Amazonka.AppStream.Types.StorageConnector
+    Amazonka.AppStream.Types.StorageConnectorType
+    Amazonka.AppStream.Types.StreamView
+    Amazonka.AppStream.Types.UsageReportExecutionErrorCode
+    Amazonka.AppStream.Types.UsageReportSchedule
+    Amazonka.AppStream.Types.UsageReportSubscription
+    Amazonka.AppStream.Types.User
+    Amazonka.AppStream.Types.UserSetting
+    Amazonka.AppStream.Types.UserStackAssociation
+    Amazonka.AppStream.Types.UserStackAssociationError
+    Amazonka.AppStream.Types.UserStackAssociationErrorCode
+    Amazonka.AppStream.Types.VisibilityType
+    Amazonka.AppStream.Types.VpcConfig
+    Amazonka.AppStream.UntagResource
+    Amazonka.AppStream.UpdateDirectoryConfig
+    Amazonka.AppStream.UpdateFleet
+    Amazonka.AppStream.UpdateImagePermissions
+    Amazonka.AppStream.UpdateStack
+    Amazonka.AppStream.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -168,9 +168,9 @@ test-suite amazonka-appstream-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.AppStream
-    Test.AWS.AppStream.Internal
-    Test.AWS.Gen.AppStream
+    Test.Amazonka.AppStream
+    Test.Amazonka.AppStream.Internal
+    Test.Amazonka.Gen.AppStream
 
   build-depends:
     , amazonka              ^>=2.0

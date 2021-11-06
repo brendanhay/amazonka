@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.ChimeSDKMessaging.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.ChimeSDKMessaging.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.ChimeSDKMessaging" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.ChimeSDKMessaging" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,91 +45,91 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.ChimeSDKMessaging
-    Network.AWS.ChimeSDKMessaging.AssociateChannelFlow
-    Network.AWS.ChimeSDKMessaging.BatchCreateChannelMembership
-    Network.AWS.ChimeSDKMessaging.ChannelFlowCallback
-    Network.AWS.ChimeSDKMessaging.CreateChannel
-    Network.AWS.ChimeSDKMessaging.CreateChannelBan
-    Network.AWS.ChimeSDKMessaging.CreateChannelFlow
-    Network.AWS.ChimeSDKMessaging.CreateChannelMembership
-    Network.AWS.ChimeSDKMessaging.CreateChannelModerator
-    Network.AWS.ChimeSDKMessaging.DeleteChannel
-    Network.AWS.ChimeSDKMessaging.DeleteChannelBan
-    Network.AWS.ChimeSDKMessaging.DeleteChannelFlow
-    Network.AWS.ChimeSDKMessaging.DeleteChannelMembership
-    Network.AWS.ChimeSDKMessaging.DeleteChannelMessage
-    Network.AWS.ChimeSDKMessaging.DeleteChannelModerator
-    Network.AWS.ChimeSDKMessaging.DescribeChannel
-    Network.AWS.ChimeSDKMessaging.DescribeChannelBan
-    Network.AWS.ChimeSDKMessaging.DescribeChannelFlow
-    Network.AWS.ChimeSDKMessaging.DescribeChannelMembership
-    Network.AWS.ChimeSDKMessaging.DescribeChannelMembershipForAppInstanceUser
-    Network.AWS.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser
-    Network.AWS.ChimeSDKMessaging.DescribeChannelModerator
-    Network.AWS.ChimeSDKMessaging.DisassociateChannelFlow
-    Network.AWS.ChimeSDKMessaging.GetChannelMessage
-    Network.AWS.ChimeSDKMessaging.GetChannelMessageStatus
-    Network.AWS.ChimeSDKMessaging.GetMessagingSessionEndpoint
-    Network.AWS.ChimeSDKMessaging.Lens
-    Network.AWS.ChimeSDKMessaging.ListChannelBans
-    Network.AWS.ChimeSDKMessaging.ListChannelFlows
-    Network.AWS.ChimeSDKMessaging.ListChannelMemberships
-    Network.AWS.ChimeSDKMessaging.ListChannelMembershipsForAppInstanceUser
-    Network.AWS.ChimeSDKMessaging.ListChannelMessages
-    Network.AWS.ChimeSDKMessaging.ListChannelModerators
-    Network.AWS.ChimeSDKMessaging.ListChannels
-    Network.AWS.ChimeSDKMessaging.ListChannelsAssociatedWithChannelFlow
-    Network.AWS.ChimeSDKMessaging.ListChannelsModeratedByAppInstanceUser
-    Network.AWS.ChimeSDKMessaging.ListTagsForResource
-    Network.AWS.ChimeSDKMessaging.RedactChannelMessage
-    Network.AWS.ChimeSDKMessaging.SendChannelMessage
-    Network.AWS.ChimeSDKMessaging.TagResource
-    Network.AWS.ChimeSDKMessaging.Types
-    Network.AWS.ChimeSDKMessaging.Types.AppInstanceUserMembershipSummary
-    Network.AWS.ChimeSDKMessaging.Types.BatchChannelMemberships
-    Network.AWS.ChimeSDKMessaging.Types.BatchCreateChannelMembershipError
-    Network.AWS.ChimeSDKMessaging.Types.Channel
-    Network.AWS.ChimeSDKMessaging.Types.ChannelAssociatedWithFlowSummary
-    Network.AWS.ChimeSDKMessaging.Types.ChannelBan
-    Network.AWS.ChimeSDKMessaging.Types.ChannelBanSummary
-    Network.AWS.ChimeSDKMessaging.Types.ChannelFlow
-    Network.AWS.ChimeSDKMessaging.Types.ChannelFlowSummary
-    Network.AWS.ChimeSDKMessaging.Types.ChannelMembership
-    Network.AWS.ChimeSDKMessaging.Types.ChannelMembershipForAppInstanceUserSummary
-    Network.AWS.ChimeSDKMessaging.Types.ChannelMembershipSummary
-    Network.AWS.ChimeSDKMessaging.Types.ChannelMembershipType
-    Network.AWS.ChimeSDKMessaging.Types.ChannelMessage
-    Network.AWS.ChimeSDKMessaging.Types.ChannelMessageCallback
-    Network.AWS.ChimeSDKMessaging.Types.ChannelMessagePersistenceType
-    Network.AWS.ChimeSDKMessaging.Types.ChannelMessageStatus
-    Network.AWS.ChimeSDKMessaging.Types.ChannelMessageStatusStructure
-    Network.AWS.ChimeSDKMessaging.Types.ChannelMessageSummary
-    Network.AWS.ChimeSDKMessaging.Types.ChannelMessageType
-    Network.AWS.ChimeSDKMessaging.Types.ChannelMode
-    Network.AWS.ChimeSDKMessaging.Types.ChannelModeratedByAppInstanceUserSummary
-    Network.AWS.ChimeSDKMessaging.Types.ChannelModerator
-    Network.AWS.ChimeSDKMessaging.Types.ChannelModeratorSummary
-    Network.AWS.ChimeSDKMessaging.Types.ChannelPrivacy
-    Network.AWS.ChimeSDKMessaging.Types.ChannelSummary
-    Network.AWS.ChimeSDKMessaging.Types.ErrorCode
-    Network.AWS.ChimeSDKMessaging.Types.FallbackAction
-    Network.AWS.ChimeSDKMessaging.Types.Identity
-    Network.AWS.ChimeSDKMessaging.Types.InvocationType
-    Network.AWS.ChimeSDKMessaging.Types.LambdaConfiguration
-    Network.AWS.ChimeSDKMessaging.Types.MessagingSessionEndpoint
-    Network.AWS.ChimeSDKMessaging.Types.Processor
-    Network.AWS.ChimeSDKMessaging.Types.ProcessorConfiguration
-    Network.AWS.ChimeSDKMessaging.Types.SortOrder
-    Network.AWS.ChimeSDKMessaging.Types.Tag
-    Network.AWS.ChimeSDKMessaging.UntagResource
-    Network.AWS.ChimeSDKMessaging.UpdateChannel
-    Network.AWS.ChimeSDKMessaging.UpdateChannelFlow
-    Network.AWS.ChimeSDKMessaging.UpdateChannelMessage
-    Network.AWS.ChimeSDKMessaging.UpdateChannelReadMarker
-    Network.AWS.ChimeSDKMessaging.Waiters
+    Amazonka.ChimeSDKMessaging
+    Amazonka.ChimeSDKMessaging.AssociateChannelFlow
+    Amazonka.ChimeSDKMessaging.BatchCreateChannelMembership
+    Amazonka.ChimeSDKMessaging.ChannelFlowCallback
+    Amazonka.ChimeSDKMessaging.CreateChannel
+    Amazonka.ChimeSDKMessaging.CreateChannelBan
+    Amazonka.ChimeSDKMessaging.CreateChannelFlow
+    Amazonka.ChimeSDKMessaging.CreateChannelMembership
+    Amazonka.ChimeSDKMessaging.CreateChannelModerator
+    Amazonka.ChimeSDKMessaging.DeleteChannel
+    Amazonka.ChimeSDKMessaging.DeleteChannelBan
+    Amazonka.ChimeSDKMessaging.DeleteChannelFlow
+    Amazonka.ChimeSDKMessaging.DeleteChannelMembership
+    Amazonka.ChimeSDKMessaging.DeleteChannelMessage
+    Amazonka.ChimeSDKMessaging.DeleteChannelModerator
+    Amazonka.ChimeSDKMessaging.DescribeChannel
+    Amazonka.ChimeSDKMessaging.DescribeChannelBan
+    Amazonka.ChimeSDKMessaging.DescribeChannelFlow
+    Amazonka.ChimeSDKMessaging.DescribeChannelMembership
+    Amazonka.ChimeSDKMessaging.DescribeChannelMembershipForAppInstanceUser
+    Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser
+    Amazonka.ChimeSDKMessaging.DescribeChannelModerator
+    Amazonka.ChimeSDKMessaging.DisassociateChannelFlow
+    Amazonka.ChimeSDKMessaging.GetChannelMessage
+    Amazonka.ChimeSDKMessaging.GetChannelMessageStatus
+    Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint
+    Amazonka.ChimeSDKMessaging.Lens
+    Amazonka.ChimeSDKMessaging.ListChannelBans
+    Amazonka.ChimeSDKMessaging.ListChannelFlows
+    Amazonka.ChimeSDKMessaging.ListChannelMemberships
+    Amazonka.ChimeSDKMessaging.ListChannelMembershipsForAppInstanceUser
+    Amazonka.ChimeSDKMessaging.ListChannelMessages
+    Amazonka.ChimeSDKMessaging.ListChannelModerators
+    Amazonka.ChimeSDKMessaging.ListChannels
+    Amazonka.ChimeSDKMessaging.ListChannelsAssociatedWithChannelFlow
+    Amazonka.ChimeSDKMessaging.ListChannelsModeratedByAppInstanceUser
+    Amazonka.ChimeSDKMessaging.ListTagsForResource
+    Amazonka.ChimeSDKMessaging.RedactChannelMessage
+    Amazonka.ChimeSDKMessaging.SendChannelMessage
+    Amazonka.ChimeSDKMessaging.TagResource
+    Amazonka.ChimeSDKMessaging.Types
+    Amazonka.ChimeSDKMessaging.Types.AppInstanceUserMembershipSummary
+    Amazonka.ChimeSDKMessaging.Types.BatchChannelMemberships
+    Amazonka.ChimeSDKMessaging.Types.BatchCreateChannelMembershipError
+    Amazonka.ChimeSDKMessaging.Types.Channel
+    Amazonka.ChimeSDKMessaging.Types.ChannelAssociatedWithFlowSummary
+    Amazonka.ChimeSDKMessaging.Types.ChannelBan
+    Amazonka.ChimeSDKMessaging.Types.ChannelBanSummary
+    Amazonka.ChimeSDKMessaging.Types.ChannelFlow
+    Amazonka.ChimeSDKMessaging.Types.ChannelFlowSummary
+    Amazonka.ChimeSDKMessaging.Types.ChannelMembership
+    Amazonka.ChimeSDKMessaging.Types.ChannelMembershipForAppInstanceUserSummary
+    Amazonka.ChimeSDKMessaging.Types.ChannelMembershipSummary
+    Amazonka.ChimeSDKMessaging.Types.ChannelMembershipType
+    Amazonka.ChimeSDKMessaging.Types.ChannelMessage
+    Amazonka.ChimeSDKMessaging.Types.ChannelMessageCallback
+    Amazonka.ChimeSDKMessaging.Types.ChannelMessagePersistenceType
+    Amazonka.ChimeSDKMessaging.Types.ChannelMessageStatus
+    Amazonka.ChimeSDKMessaging.Types.ChannelMessageStatusStructure
+    Amazonka.ChimeSDKMessaging.Types.ChannelMessageSummary
+    Amazonka.ChimeSDKMessaging.Types.ChannelMessageType
+    Amazonka.ChimeSDKMessaging.Types.ChannelMode
+    Amazonka.ChimeSDKMessaging.Types.ChannelModeratedByAppInstanceUserSummary
+    Amazonka.ChimeSDKMessaging.Types.ChannelModerator
+    Amazonka.ChimeSDKMessaging.Types.ChannelModeratorSummary
+    Amazonka.ChimeSDKMessaging.Types.ChannelPrivacy
+    Amazonka.ChimeSDKMessaging.Types.ChannelSummary
+    Amazonka.ChimeSDKMessaging.Types.ErrorCode
+    Amazonka.ChimeSDKMessaging.Types.FallbackAction
+    Amazonka.ChimeSDKMessaging.Types.Identity
+    Amazonka.ChimeSDKMessaging.Types.InvocationType
+    Amazonka.ChimeSDKMessaging.Types.LambdaConfiguration
+    Amazonka.ChimeSDKMessaging.Types.MessagingSessionEndpoint
+    Amazonka.ChimeSDKMessaging.Types.Processor
+    Amazonka.ChimeSDKMessaging.Types.ProcessorConfiguration
+    Amazonka.ChimeSDKMessaging.Types.SortOrder
+    Amazonka.ChimeSDKMessaging.Types.Tag
+    Amazonka.ChimeSDKMessaging.UntagResource
+    Amazonka.ChimeSDKMessaging.UpdateChannel
+    Amazonka.ChimeSDKMessaging.UpdateChannelFlow
+    Amazonka.ChimeSDKMessaging.UpdateChannelMessage
+    Amazonka.ChimeSDKMessaging.UpdateChannelReadMarker
+    Amazonka.ChimeSDKMessaging.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -145,9 +145,9 @@ test-suite amazonka-chime-sdk-messaging-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.ChimeSDKMessaging
-    Test.AWS.ChimeSDKMessaging.Internal
-    Test.AWS.Gen.ChimeSDKMessaging
+    Test.Amazonka.ChimeSDKMessaging
+    Test.Amazonka.ChimeSDKMessaging.Internal
+    Test.Amazonka.Gen.ChimeSDKMessaging
 
   build-depends:
     , amazonka                      ^>=2.0

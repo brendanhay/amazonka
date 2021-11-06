@@ -33,12 +33,12 @@ library
     -fwarn-incomplete-record-updates
 
   exposed-modules:
-    Test.AWS.Assert
-    Test.AWS.Diff
-    Test.AWS.Fixture
-    Test.AWS.Orphans
-    Test.AWS.Prelude
-    Test.AWS.TH
+    Test.Amazonka.Assert
+    Test.Amazonka.Diff
+    Test.Amazonka.Fixture
+    Test.Amazonka.Orphans
+    Test.Amazonka.Prelude
+    Test.Amazonka.TH
 
   build-depends:
     , aeson                 >=1.3

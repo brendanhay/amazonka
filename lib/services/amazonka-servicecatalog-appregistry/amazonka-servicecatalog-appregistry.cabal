@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.ServiceCatalogAppRegistry.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.ServiceCatalogAppRegistry.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.ServiceCatalogAppRegistry" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.ServiceCatalogAppRegistry" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,45 +45,45 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.ServiceCatalogAppRegistry
-    Network.AWS.ServiceCatalogAppRegistry.AssociateAttributeGroup
-    Network.AWS.ServiceCatalogAppRegistry.AssociateResource
-    Network.AWS.ServiceCatalogAppRegistry.CreateApplication
-    Network.AWS.ServiceCatalogAppRegistry.CreateAttributeGroup
-    Network.AWS.ServiceCatalogAppRegistry.DeleteApplication
-    Network.AWS.ServiceCatalogAppRegistry.DeleteAttributeGroup
-    Network.AWS.ServiceCatalogAppRegistry.DisassociateAttributeGroup
-    Network.AWS.ServiceCatalogAppRegistry.DisassociateResource
-    Network.AWS.ServiceCatalogAppRegistry.GetApplication
-    Network.AWS.ServiceCatalogAppRegistry.GetAssociatedResource
-    Network.AWS.ServiceCatalogAppRegistry.GetAttributeGroup
-    Network.AWS.ServiceCatalogAppRegistry.Lens
-    Network.AWS.ServiceCatalogAppRegistry.ListApplications
-    Network.AWS.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups
-    Network.AWS.ServiceCatalogAppRegistry.ListAssociatedResources
-    Network.AWS.ServiceCatalogAppRegistry.ListAttributeGroups
-    Network.AWS.ServiceCatalogAppRegistry.ListTagsForResource
-    Network.AWS.ServiceCatalogAppRegistry.SyncResource
-    Network.AWS.ServiceCatalogAppRegistry.TagResource
-    Network.AWS.ServiceCatalogAppRegistry.Types
-    Network.AWS.ServiceCatalogAppRegistry.Types.Application
-    Network.AWS.ServiceCatalogAppRegistry.Types.ApplicationSummary
-    Network.AWS.ServiceCatalogAppRegistry.Types.AttributeGroup
-    Network.AWS.ServiceCatalogAppRegistry.Types.AttributeGroupSummary
-    Network.AWS.ServiceCatalogAppRegistry.Types.Integrations
-    Network.AWS.ServiceCatalogAppRegistry.Types.Resource
-    Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroup
-    Network.AWS.ServiceCatalogAppRegistry.Types.ResourceGroupState
-    Network.AWS.ServiceCatalogAppRegistry.Types.ResourceInfo
-    Network.AWS.ServiceCatalogAppRegistry.Types.ResourceIntegrations
-    Network.AWS.ServiceCatalogAppRegistry.Types.ResourceType
-    Network.AWS.ServiceCatalogAppRegistry.Types.SyncAction
-    Network.AWS.ServiceCatalogAppRegistry.UntagResource
-    Network.AWS.ServiceCatalogAppRegistry.UpdateApplication
-    Network.AWS.ServiceCatalogAppRegistry.UpdateAttributeGroup
-    Network.AWS.ServiceCatalogAppRegistry.Waiters
+    Amazonka.ServiceCatalogAppRegistry
+    Amazonka.ServiceCatalogAppRegistry.AssociateAttributeGroup
+    Amazonka.ServiceCatalogAppRegistry.AssociateResource
+    Amazonka.ServiceCatalogAppRegistry.CreateApplication
+    Amazonka.ServiceCatalogAppRegistry.CreateAttributeGroup
+    Amazonka.ServiceCatalogAppRegistry.DeleteApplication
+    Amazonka.ServiceCatalogAppRegistry.DeleteAttributeGroup
+    Amazonka.ServiceCatalogAppRegistry.DisassociateAttributeGroup
+    Amazonka.ServiceCatalogAppRegistry.DisassociateResource
+    Amazonka.ServiceCatalogAppRegistry.GetApplication
+    Amazonka.ServiceCatalogAppRegistry.GetAssociatedResource
+    Amazonka.ServiceCatalogAppRegistry.GetAttributeGroup
+    Amazonka.ServiceCatalogAppRegistry.Lens
+    Amazonka.ServiceCatalogAppRegistry.ListApplications
+    Amazonka.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups
+    Amazonka.ServiceCatalogAppRegistry.ListAssociatedResources
+    Amazonka.ServiceCatalogAppRegistry.ListAttributeGroups
+    Amazonka.ServiceCatalogAppRegistry.ListTagsForResource
+    Amazonka.ServiceCatalogAppRegistry.SyncResource
+    Amazonka.ServiceCatalogAppRegistry.TagResource
+    Amazonka.ServiceCatalogAppRegistry.Types
+    Amazonka.ServiceCatalogAppRegistry.Types.Application
+    Amazonka.ServiceCatalogAppRegistry.Types.ApplicationSummary
+    Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroup
+    Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroupSummary
+    Amazonka.ServiceCatalogAppRegistry.Types.Integrations
+    Amazonka.ServiceCatalogAppRegistry.Types.Resource
+    Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroup
+    Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroupState
+    Amazonka.ServiceCatalogAppRegistry.Types.ResourceInfo
+    Amazonka.ServiceCatalogAppRegistry.Types.ResourceIntegrations
+    Amazonka.ServiceCatalogAppRegistry.Types.ResourceType
+    Amazonka.ServiceCatalogAppRegistry.Types.SyncAction
+    Amazonka.ServiceCatalogAppRegistry.UntagResource
+    Amazonka.ServiceCatalogAppRegistry.UpdateApplication
+    Amazonka.ServiceCatalogAppRegistry.UpdateAttributeGroup
+    Amazonka.ServiceCatalogAppRegistry.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -99,9 +99,9 @@ test-suite amazonka-servicecatalog-appregistry-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.ServiceCatalogAppRegistry
-    Test.AWS.ServiceCatalogAppRegistry
-    Test.AWS.ServiceCatalogAppRegistry.Internal
+    Test.Amazonka.Gen.ServiceCatalogAppRegistry
+    Test.Amazonka.ServiceCatalogAppRegistry
+    Test.Amazonka.ServiceCatalogAppRegistry.Internal
 
   build-depends:
     , amazonka                             ^>=2.0

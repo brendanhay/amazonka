@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.AutoScalingPlans.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.AutoScalingPlans.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.AutoScalingPlans" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.AutoScalingPlans" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,43 +45,43 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.AutoScalingPlans
-    Network.AWS.AutoScalingPlans.CreateScalingPlan
-    Network.AWS.AutoScalingPlans.DeleteScalingPlan
-    Network.AWS.AutoScalingPlans.DescribeScalingPlanResources
-    Network.AWS.AutoScalingPlans.DescribeScalingPlans
-    Network.AWS.AutoScalingPlans.GetScalingPlanResourceForecastData
-    Network.AWS.AutoScalingPlans.Lens
-    Network.AWS.AutoScalingPlans.Types
-    Network.AWS.AutoScalingPlans.Types.ApplicationSource
-    Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification
-    Network.AWS.AutoScalingPlans.Types.CustomizedScalingMetricSpecification
-    Network.AWS.AutoScalingPlans.Types.Datapoint
-    Network.AWS.AutoScalingPlans.Types.ForecastDataType
-    Network.AWS.AutoScalingPlans.Types.LoadMetricType
-    Network.AWS.AutoScalingPlans.Types.MetricDimension
-    Network.AWS.AutoScalingPlans.Types.MetricStatistic
-    Network.AWS.AutoScalingPlans.Types.PolicyType
-    Network.AWS.AutoScalingPlans.Types.PredefinedLoadMetricSpecification
-    Network.AWS.AutoScalingPlans.Types.PredefinedScalingMetricSpecification
-    Network.AWS.AutoScalingPlans.Types.PredictiveScalingMaxCapacityBehavior
-    Network.AWS.AutoScalingPlans.Types.PredictiveScalingMode
-    Network.AWS.AutoScalingPlans.Types.ScalableDimension
-    Network.AWS.AutoScalingPlans.Types.ScalingInstruction
-    Network.AWS.AutoScalingPlans.Types.ScalingMetricType
-    Network.AWS.AutoScalingPlans.Types.ScalingPlan
-    Network.AWS.AutoScalingPlans.Types.ScalingPlanResource
-    Network.AWS.AutoScalingPlans.Types.ScalingPlanStatusCode
-    Network.AWS.AutoScalingPlans.Types.ScalingPolicy
-    Network.AWS.AutoScalingPlans.Types.ScalingPolicyUpdateBehavior
-    Network.AWS.AutoScalingPlans.Types.ScalingStatusCode
-    Network.AWS.AutoScalingPlans.Types.ServiceNamespace
-    Network.AWS.AutoScalingPlans.Types.TagFilter
-    Network.AWS.AutoScalingPlans.Types.TargetTrackingConfiguration
-    Network.AWS.AutoScalingPlans.UpdateScalingPlan
-    Network.AWS.AutoScalingPlans.Waiters
+    Amazonka.AutoScalingPlans
+    Amazonka.AutoScalingPlans.CreateScalingPlan
+    Amazonka.AutoScalingPlans.DeleteScalingPlan
+    Amazonka.AutoScalingPlans.DescribeScalingPlanResources
+    Amazonka.AutoScalingPlans.DescribeScalingPlans
+    Amazonka.AutoScalingPlans.GetScalingPlanResourceForecastData
+    Amazonka.AutoScalingPlans.Lens
+    Amazonka.AutoScalingPlans.Types
+    Amazonka.AutoScalingPlans.Types.ApplicationSource
+    Amazonka.AutoScalingPlans.Types.CustomizedLoadMetricSpecification
+    Amazonka.AutoScalingPlans.Types.CustomizedScalingMetricSpecification
+    Amazonka.AutoScalingPlans.Types.Datapoint
+    Amazonka.AutoScalingPlans.Types.ForecastDataType
+    Amazonka.AutoScalingPlans.Types.LoadMetricType
+    Amazonka.AutoScalingPlans.Types.MetricDimension
+    Amazonka.AutoScalingPlans.Types.MetricStatistic
+    Amazonka.AutoScalingPlans.Types.PolicyType
+    Amazonka.AutoScalingPlans.Types.PredefinedLoadMetricSpecification
+    Amazonka.AutoScalingPlans.Types.PredefinedScalingMetricSpecification
+    Amazonka.AutoScalingPlans.Types.PredictiveScalingMaxCapacityBehavior
+    Amazonka.AutoScalingPlans.Types.PredictiveScalingMode
+    Amazonka.AutoScalingPlans.Types.ScalableDimension
+    Amazonka.AutoScalingPlans.Types.ScalingInstruction
+    Amazonka.AutoScalingPlans.Types.ScalingMetricType
+    Amazonka.AutoScalingPlans.Types.ScalingPlan
+    Amazonka.AutoScalingPlans.Types.ScalingPlanResource
+    Amazonka.AutoScalingPlans.Types.ScalingPlanStatusCode
+    Amazonka.AutoScalingPlans.Types.ScalingPolicy
+    Amazonka.AutoScalingPlans.Types.ScalingPolicyUpdateBehavior
+    Amazonka.AutoScalingPlans.Types.ScalingStatusCode
+    Amazonka.AutoScalingPlans.Types.ServiceNamespace
+    Amazonka.AutoScalingPlans.Types.TagFilter
+    Amazonka.AutoScalingPlans.Types.TargetTrackingConfiguration
+    Amazonka.AutoScalingPlans.UpdateScalingPlan
+    Amazonka.AutoScalingPlans.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -97,9 +97,9 @@ test-suite amazonka-autoscaling-plans-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.AutoScalingPlans
-    Test.AWS.AutoScalingPlans.Internal
-    Test.AWS.Gen.AutoScalingPlans
+    Test.Amazonka.AutoScalingPlans
+    Test.Amazonka.AutoScalingPlans.Internal
+    Test.Amazonka.Gen.AutoScalingPlans
 
   build-depends:
     , amazonka                    ^>=2.0

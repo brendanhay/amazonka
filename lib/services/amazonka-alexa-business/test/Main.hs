@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.AlexaBusiness
-import Test.AWS.AlexaBusiness.Internal
+import Test.Amazonka.AlexaBusiness
+import Test.Amazonka.AlexaBusiness.Internal
 import Test.Tasty
 
 main :: IO ()

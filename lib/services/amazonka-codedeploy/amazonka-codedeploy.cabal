@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.CodeDeploy.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.CodeDeploy.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.CodeDeploy" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.CodeDeploy" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,139 +45,139 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.CodeDeploy
-    Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
-    Network.AWS.CodeDeploy.BatchGetApplicationRevisions
-    Network.AWS.CodeDeploy.BatchGetApplications
-    Network.AWS.CodeDeploy.BatchGetDeploymentGroups
-    Network.AWS.CodeDeploy.BatchGetDeployments
-    Network.AWS.CodeDeploy.BatchGetDeploymentTargets
-    Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
-    Network.AWS.CodeDeploy.ContinueDeployment
-    Network.AWS.CodeDeploy.CreateApplication
-    Network.AWS.CodeDeploy.CreateDeployment
-    Network.AWS.CodeDeploy.CreateDeploymentConfig
-    Network.AWS.CodeDeploy.CreateDeploymentGroup
-    Network.AWS.CodeDeploy.DeleteApplication
-    Network.AWS.CodeDeploy.DeleteDeploymentConfig
-    Network.AWS.CodeDeploy.DeleteDeploymentGroup
-    Network.AWS.CodeDeploy.DeleteGitHubAccountToken
-    Network.AWS.CodeDeploy.DeleteResourcesByExternalId
-    Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
-    Network.AWS.CodeDeploy.GetApplication
-    Network.AWS.CodeDeploy.GetApplicationRevision
-    Network.AWS.CodeDeploy.GetDeployment
-    Network.AWS.CodeDeploy.GetDeploymentConfig
-    Network.AWS.CodeDeploy.GetDeploymentGroup
-    Network.AWS.CodeDeploy.GetDeploymentTarget
-    Network.AWS.CodeDeploy.GetOnPremisesInstance
-    Network.AWS.CodeDeploy.Lens
-    Network.AWS.CodeDeploy.ListApplicationRevisions
-    Network.AWS.CodeDeploy.ListApplications
-    Network.AWS.CodeDeploy.ListDeploymentConfigs
-    Network.AWS.CodeDeploy.ListDeploymentGroups
-    Network.AWS.CodeDeploy.ListDeployments
-    Network.AWS.CodeDeploy.ListDeploymentTargets
-    Network.AWS.CodeDeploy.ListGitHubAccountTokenNames
-    Network.AWS.CodeDeploy.ListOnPremisesInstances
-    Network.AWS.CodeDeploy.ListTagsForResource
-    Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus
-    Network.AWS.CodeDeploy.RegisterApplicationRevision
-    Network.AWS.CodeDeploy.RegisterOnPremisesInstance
-    Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
-    Network.AWS.CodeDeploy.StopDeployment
-    Network.AWS.CodeDeploy.TagResource
-    Network.AWS.CodeDeploy.Types
-    Network.AWS.CodeDeploy.Types.Alarm
-    Network.AWS.CodeDeploy.Types.AlarmConfiguration
-    Network.AWS.CodeDeploy.Types.ApplicationInfo
-    Network.AWS.CodeDeploy.Types.ApplicationRevisionSortBy
-    Network.AWS.CodeDeploy.Types.AppSpecContent
-    Network.AWS.CodeDeploy.Types.AutoRollbackConfiguration
-    Network.AWS.CodeDeploy.Types.AutoRollbackEvent
-    Network.AWS.CodeDeploy.Types.AutoScalingGroup
-    Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration
-    Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption
-    Network.AWS.CodeDeploy.Types.BundleType
-    Network.AWS.CodeDeploy.Types.CloudFormationTarget
-    Network.AWS.CodeDeploy.Types.ComputePlatform
-    Network.AWS.CodeDeploy.Types.DeployErrorCode
-    Network.AWS.CodeDeploy.Types.DeploymentConfigInfo
-    Network.AWS.CodeDeploy.Types.DeploymentCreator
-    Network.AWS.CodeDeploy.Types.DeploymentGroupInfo
-    Network.AWS.CodeDeploy.Types.DeploymentInfo
-    Network.AWS.CodeDeploy.Types.DeploymentOption
-    Network.AWS.CodeDeploy.Types.DeploymentOverview
-    Network.AWS.CodeDeploy.Types.DeploymentReadyAction
-    Network.AWS.CodeDeploy.Types.DeploymentReadyOption
-    Network.AWS.CodeDeploy.Types.DeploymentStatus
-    Network.AWS.CodeDeploy.Types.DeploymentStyle
-    Network.AWS.CodeDeploy.Types.DeploymentTarget
-    Network.AWS.CodeDeploy.Types.DeploymentTargetType
-    Network.AWS.CodeDeploy.Types.DeploymentType
-    Network.AWS.CodeDeploy.Types.DeploymentWaitType
-    Network.AWS.CodeDeploy.Types.Diagnostics
-    Network.AWS.CodeDeploy.Types.EC2TagFilter
-    Network.AWS.CodeDeploy.Types.EC2TagFilterType
-    Network.AWS.CodeDeploy.Types.EC2TagSet
-    Network.AWS.CodeDeploy.Types.ECSService
-    Network.AWS.CodeDeploy.Types.ECSTarget
-    Network.AWS.CodeDeploy.Types.ECSTaskSet
-    Network.AWS.CodeDeploy.Types.ELBInfo
-    Network.AWS.CodeDeploy.Types.ErrorInformation
-    Network.AWS.CodeDeploy.Types.FileExistsBehavior
-    Network.AWS.CodeDeploy.Types.GenericRevisionInfo
-    Network.AWS.CodeDeploy.Types.GitHubLocation
-    Network.AWS.CodeDeploy.Types.GreenFleetProvisioningAction
-    Network.AWS.CodeDeploy.Types.GreenFleetProvisioningOption
-    Network.AWS.CodeDeploy.Types.InstanceAction
-    Network.AWS.CodeDeploy.Types.InstanceInfo
-    Network.AWS.CodeDeploy.Types.InstanceTarget
-    Network.AWS.CodeDeploy.Types.LambdaFunctionInfo
-    Network.AWS.CodeDeploy.Types.LambdaTarget
-    Network.AWS.CodeDeploy.Types.LastDeploymentInfo
-    Network.AWS.CodeDeploy.Types.LifecycleErrorCode
-    Network.AWS.CodeDeploy.Types.LifecycleEvent
-    Network.AWS.CodeDeploy.Types.LifecycleEventStatus
-    Network.AWS.CodeDeploy.Types.ListStateFilterAction
-    Network.AWS.CodeDeploy.Types.LoadBalancerInfo
-    Network.AWS.CodeDeploy.Types.MinimumHealthyHosts
-    Network.AWS.CodeDeploy.Types.MinimumHealthyHostsType
-    Network.AWS.CodeDeploy.Types.OnPremisesTagSet
-    Network.AWS.CodeDeploy.Types.OutdatedInstancesStrategy
-    Network.AWS.CodeDeploy.Types.RawString
-    Network.AWS.CodeDeploy.Types.RegistrationStatus
-    Network.AWS.CodeDeploy.Types.RelatedDeployments
-    Network.AWS.CodeDeploy.Types.RevisionInfo
-    Network.AWS.CodeDeploy.Types.RevisionLocation
-    Network.AWS.CodeDeploy.Types.RevisionLocationType
-    Network.AWS.CodeDeploy.Types.RollbackInfo
-    Network.AWS.CodeDeploy.Types.S3Location
-    Network.AWS.CodeDeploy.Types.SortOrder
-    Network.AWS.CodeDeploy.Types.StopStatus
-    Network.AWS.CodeDeploy.Types.Tag
-    Network.AWS.CodeDeploy.Types.TagFilter
-    Network.AWS.CodeDeploy.Types.TagFilterType
-    Network.AWS.CodeDeploy.Types.TargetFilterName
-    Network.AWS.CodeDeploy.Types.TargetGroupInfo
-    Network.AWS.CodeDeploy.Types.TargetGroupPairInfo
-    Network.AWS.CodeDeploy.Types.TargetInstances
-    Network.AWS.CodeDeploy.Types.TargetLabel
-    Network.AWS.CodeDeploy.Types.TargetStatus
-    Network.AWS.CodeDeploy.Types.TimeBasedCanary
-    Network.AWS.CodeDeploy.Types.TimeBasedLinear
-    Network.AWS.CodeDeploy.Types.TimeRange
-    Network.AWS.CodeDeploy.Types.TrafficRoute
-    Network.AWS.CodeDeploy.Types.TrafficRoutingConfig
-    Network.AWS.CodeDeploy.Types.TrafficRoutingType
-    Network.AWS.CodeDeploy.Types.TriggerConfig
-    Network.AWS.CodeDeploy.Types.TriggerEventType
-    Network.AWS.CodeDeploy.UntagResource
-    Network.AWS.CodeDeploy.UpdateApplication
-    Network.AWS.CodeDeploy.UpdateDeploymentGroup
-    Network.AWS.CodeDeploy.Waiters
+    Amazonka.CodeDeploy
+    Amazonka.CodeDeploy.AddTagsToOnPremisesInstances
+    Amazonka.CodeDeploy.BatchGetApplicationRevisions
+    Amazonka.CodeDeploy.BatchGetApplications
+    Amazonka.CodeDeploy.BatchGetDeploymentGroups
+    Amazonka.CodeDeploy.BatchGetDeployments
+    Amazonka.CodeDeploy.BatchGetDeploymentTargets
+    Amazonka.CodeDeploy.BatchGetOnPremisesInstances
+    Amazonka.CodeDeploy.ContinueDeployment
+    Amazonka.CodeDeploy.CreateApplication
+    Amazonka.CodeDeploy.CreateDeployment
+    Amazonka.CodeDeploy.CreateDeploymentConfig
+    Amazonka.CodeDeploy.CreateDeploymentGroup
+    Amazonka.CodeDeploy.DeleteApplication
+    Amazonka.CodeDeploy.DeleteDeploymentConfig
+    Amazonka.CodeDeploy.DeleteDeploymentGroup
+    Amazonka.CodeDeploy.DeleteGitHubAccountToken
+    Amazonka.CodeDeploy.DeleteResourcesByExternalId
+    Amazonka.CodeDeploy.DeregisterOnPremisesInstance
+    Amazonka.CodeDeploy.GetApplication
+    Amazonka.CodeDeploy.GetApplicationRevision
+    Amazonka.CodeDeploy.GetDeployment
+    Amazonka.CodeDeploy.GetDeploymentConfig
+    Amazonka.CodeDeploy.GetDeploymentGroup
+    Amazonka.CodeDeploy.GetDeploymentTarget
+    Amazonka.CodeDeploy.GetOnPremisesInstance
+    Amazonka.CodeDeploy.Lens
+    Amazonka.CodeDeploy.ListApplicationRevisions
+    Amazonka.CodeDeploy.ListApplications
+    Amazonka.CodeDeploy.ListDeploymentConfigs
+    Amazonka.CodeDeploy.ListDeploymentGroups
+    Amazonka.CodeDeploy.ListDeployments
+    Amazonka.CodeDeploy.ListDeploymentTargets
+    Amazonka.CodeDeploy.ListGitHubAccountTokenNames
+    Amazonka.CodeDeploy.ListOnPremisesInstances
+    Amazonka.CodeDeploy.ListTagsForResource
+    Amazonka.CodeDeploy.PutLifecycleEventHookExecutionStatus
+    Amazonka.CodeDeploy.RegisterApplicationRevision
+    Amazonka.CodeDeploy.RegisterOnPremisesInstance
+    Amazonka.CodeDeploy.RemoveTagsFromOnPremisesInstances
+    Amazonka.CodeDeploy.StopDeployment
+    Amazonka.CodeDeploy.TagResource
+    Amazonka.CodeDeploy.Types
+    Amazonka.CodeDeploy.Types.Alarm
+    Amazonka.CodeDeploy.Types.AlarmConfiguration
+    Amazonka.CodeDeploy.Types.ApplicationInfo
+    Amazonka.CodeDeploy.Types.ApplicationRevisionSortBy
+    Amazonka.CodeDeploy.Types.AppSpecContent
+    Amazonka.CodeDeploy.Types.AutoRollbackConfiguration
+    Amazonka.CodeDeploy.Types.AutoRollbackEvent
+    Amazonka.CodeDeploy.Types.AutoScalingGroup
+    Amazonka.CodeDeploy.Types.BlueGreenDeploymentConfiguration
+    Amazonka.CodeDeploy.Types.BlueInstanceTerminationOption
+    Amazonka.CodeDeploy.Types.BundleType
+    Amazonka.CodeDeploy.Types.CloudFormationTarget
+    Amazonka.CodeDeploy.Types.ComputePlatform
+    Amazonka.CodeDeploy.Types.DeployErrorCode
+    Amazonka.CodeDeploy.Types.DeploymentConfigInfo
+    Amazonka.CodeDeploy.Types.DeploymentCreator
+    Amazonka.CodeDeploy.Types.DeploymentGroupInfo
+    Amazonka.CodeDeploy.Types.DeploymentInfo
+    Amazonka.CodeDeploy.Types.DeploymentOption
+    Amazonka.CodeDeploy.Types.DeploymentOverview
+    Amazonka.CodeDeploy.Types.DeploymentReadyAction
+    Amazonka.CodeDeploy.Types.DeploymentReadyOption
+    Amazonka.CodeDeploy.Types.DeploymentStatus
+    Amazonka.CodeDeploy.Types.DeploymentStyle
+    Amazonka.CodeDeploy.Types.DeploymentTarget
+    Amazonka.CodeDeploy.Types.DeploymentTargetType
+    Amazonka.CodeDeploy.Types.DeploymentType
+    Amazonka.CodeDeploy.Types.DeploymentWaitType
+    Amazonka.CodeDeploy.Types.Diagnostics
+    Amazonka.CodeDeploy.Types.EC2TagFilter
+    Amazonka.CodeDeploy.Types.EC2TagFilterType
+    Amazonka.CodeDeploy.Types.EC2TagSet
+    Amazonka.CodeDeploy.Types.ECSService
+    Amazonka.CodeDeploy.Types.ECSTarget
+    Amazonka.CodeDeploy.Types.ECSTaskSet
+    Amazonka.CodeDeploy.Types.ELBInfo
+    Amazonka.CodeDeploy.Types.ErrorInformation
+    Amazonka.CodeDeploy.Types.FileExistsBehavior
+    Amazonka.CodeDeploy.Types.GenericRevisionInfo
+    Amazonka.CodeDeploy.Types.GitHubLocation
+    Amazonka.CodeDeploy.Types.GreenFleetProvisioningAction
+    Amazonka.CodeDeploy.Types.GreenFleetProvisioningOption
+    Amazonka.CodeDeploy.Types.InstanceAction
+    Amazonka.CodeDeploy.Types.InstanceInfo
+    Amazonka.CodeDeploy.Types.InstanceTarget
+    Amazonka.CodeDeploy.Types.LambdaFunctionInfo
+    Amazonka.CodeDeploy.Types.LambdaTarget
+    Amazonka.CodeDeploy.Types.LastDeploymentInfo
+    Amazonka.CodeDeploy.Types.LifecycleErrorCode
+    Amazonka.CodeDeploy.Types.LifecycleEvent
+    Amazonka.CodeDeploy.Types.LifecycleEventStatus
+    Amazonka.CodeDeploy.Types.ListStateFilterAction
+    Amazonka.CodeDeploy.Types.LoadBalancerInfo
+    Amazonka.CodeDeploy.Types.MinimumHealthyHosts
+    Amazonka.CodeDeploy.Types.MinimumHealthyHostsType
+    Amazonka.CodeDeploy.Types.OnPremisesTagSet
+    Amazonka.CodeDeploy.Types.OutdatedInstancesStrategy
+    Amazonka.CodeDeploy.Types.RawString
+    Amazonka.CodeDeploy.Types.RegistrationStatus
+    Amazonka.CodeDeploy.Types.RelatedDeployments
+    Amazonka.CodeDeploy.Types.RevisionInfo
+    Amazonka.CodeDeploy.Types.RevisionLocation
+    Amazonka.CodeDeploy.Types.RevisionLocationType
+    Amazonka.CodeDeploy.Types.RollbackInfo
+    Amazonka.CodeDeploy.Types.S3Location
+    Amazonka.CodeDeploy.Types.SortOrder
+    Amazonka.CodeDeploy.Types.StopStatus
+    Amazonka.CodeDeploy.Types.Tag
+    Amazonka.CodeDeploy.Types.TagFilter
+    Amazonka.CodeDeploy.Types.TagFilterType
+    Amazonka.CodeDeploy.Types.TargetFilterName
+    Amazonka.CodeDeploy.Types.TargetGroupInfo
+    Amazonka.CodeDeploy.Types.TargetGroupPairInfo
+    Amazonka.CodeDeploy.Types.TargetInstances
+    Amazonka.CodeDeploy.Types.TargetLabel
+    Amazonka.CodeDeploy.Types.TargetStatus
+    Amazonka.CodeDeploy.Types.TimeBasedCanary
+    Amazonka.CodeDeploy.Types.TimeBasedLinear
+    Amazonka.CodeDeploy.Types.TimeRange
+    Amazonka.CodeDeploy.Types.TrafficRoute
+    Amazonka.CodeDeploy.Types.TrafficRoutingConfig
+    Amazonka.CodeDeploy.Types.TrafficRoutingType
+    Amazonka.CodeDeploy.Types.TriggerConfig
+    Amazonka.CodeDeploy.Types.TriggerEventType
+    Amazonka.CodeDeploy.UntagResource
+    Amazonka.CodeDeploy.UpdateApplication
+    Amazonka.CodeDeploy.UpdateDeploymentGroup
+    Amazonka.CodeDeploy.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -193,9 +193,9 @@ test-suite amazonka-codedeploy-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CodeDeploy
-    Test.AWS.CodeDeploy.Internal
-    Test.AWS.Gen.CodeDeploy
+    Test.Amazonka.CodeDeploy
+    Test.Amazonka.CodeDeploy.Internal
+    Test.Amazonka.Gen.CodeDeploy
 
   build-depends:
     , amazonka              ^>=2.0

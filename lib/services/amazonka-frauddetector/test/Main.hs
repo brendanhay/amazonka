@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.FraudDetector
-import Test.AWS.FraudDetector.Internal
+import Test.Amazonka.FraudDetector
+import Test.Amazonka.FraudDetector.Internal
 import Test.Tasty
 
 main :: IO ()

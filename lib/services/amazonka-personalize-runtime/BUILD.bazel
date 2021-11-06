@@ -4,13 +4,13 @@ load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 haskell_library(
     name = "amazonka-personalize-runtime",
     srcs = [
-        "gen/Network/AWS/PersonalizeRuntime.hs",
-        "gen/Network/AWS/PersonalizeRuntime/GetPersonalizedRanking.hs",
-        "gen/Network/AWS/PersonalizeRuntime/GetRecommendations.hs",
-        "gen/Network/AWS/PersonalizeRuntime/Lens.hs",
-        "gen/Network/AWS/PersonalizeRuntime/Types.hs",
-        "gen/Network/AWS/PersonalizeRuntime/Types/PredictedItem.hs",
-        "gen/Network/AWS/PersonalizeRuntime/Waiters.hs",
+        "gen/Amazonka/PersonalizeRuntime.hs",
+        "gen/Amazonka/PersonalizeRuntime/GetPersonalizedRanking.hs",
+        "gen/Amazonka/PersonalizeRuntime/GetRecommendations.hs",
+        "gen/Amazonka/PersonalizeRuntime/Lens.hs",
+        "gen/Amazonka/PersonalizeRuntime/Types.hs",
+        "gen/Amazonka/PersonalizeRuntime/Types/PredictedItem.hs",
+        "gen/Amazonka/PersonalizeRuntime/Waiters.hs",
     ],
     compiler_flags = [
         "-DVERSION_amazonka_personalize_runtime=\"2.0\"",
@@ -33,9 +33,9 @@ haskell_test(
     name = "amazonka-personalize-runtime-test",
     srcs = [
         "test/Main.hs",
-        "test/Test/AWS/Gen/PersonalizeRuntime.hs",
-        "test/Test/AWS/PersonalizeRuntime.hs",
-        "test/Test/AWS/PersonalizeRuntime/Internal.hs",
+        "test/Test/Amazonka/Gen/PersonalizeRuntime.hs",
+        "test/Test/Amazonka/PersonalizeRuntime.hs",
+        "test/Test/Amazonka/PersonalizeRuntime/Internal.hs",
     ],
     compiler_flags = [
         "-DVERSION_amazonka_personalize_runtime=\"2.0\"",

@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.DocumentDB
-import Test.AWS.DocumentDB.Internal
+import Test.Amazonka.DocumentDB
+import Test.Amazonka.DocumentDB.Internal
 import Test.Tasty
 
 main :: IO ()

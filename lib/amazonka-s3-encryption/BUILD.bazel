@@ -4,13 +4,13 @@ load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 haskell_library(
     name = "amazonka-s3-encryption",
     srcs = [
-        "src/Network/AWS/S3/Encryption.hs",
-        "src/Network/AWS/S3/Encryption/Body.hs",
-        "src/Network/AWS/S3/Encryption/Decrypt.hs",
-        "src/Network/AWS/S3/Encryption/Encrypt.hs",
-        "src/Network/AWS/S3/Encryption/Envelope.hs",
-        "src/Network/AWS/S3/Encryption/Instructions.hs",
-        "src/Network/AWS/S3/Encryption/Types.hs",
+        "src/Amazonka/S3/Encryption.hs",
+        "src/Amazonka/S3/Encryption/Body.hs",
+        "src/Amazonka/S3/Encryption/Decrypt.hs",
+        "src/Amazonka/S3/Encryption/Encrypt.hs",
+        "src/Amazonka/S3/Encryption/Envelope.hs",
+        "src/Amazonka/S3/Encryption/Instructions.hs",
+        "src/Amazonka/S3/Encryption/Types.hs",
     ],
     compiler_flags = [
         "-XNoImplicitPrelude",
@@ -72,7 +72,7 @@ haskell_test(
     name = "amazonka-s3-encryption-test",
     srcs = [
         "test/Main.hs",
-        "test/Test/AWS/S3/Encryption/Envelope.hs",
+        "test/Test/Amazonka/S3/Encryption/Envelope.hs",
     ],
     compiler_flags = [
         "-Wall",

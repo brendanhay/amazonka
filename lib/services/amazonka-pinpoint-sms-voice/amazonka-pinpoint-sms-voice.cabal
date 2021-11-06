@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.PinpointSMSVoice.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.PinpointSMSVoice.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.PinpointSMSVoice" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.PinpointSMSVoice" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,29 +45,29 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.PinpointSMSVoice
-    Network.AWS.PinpointSMSVoice.CreateConfigurationSet
-    Network.AWS.PinpointSMSVoice.CreateConfigurationSetEventDestination
-    Network.AWS.PinpointSMSVoice.DeleteConfigurationSet
-    Network.AWS.PinpointSMSVoice.DeleteConfigurationSetEventDestination
-    Network.AWS.PinpointSMSVoice.GetConfigurationSetEventDestinations
-    Network.AWS.PinpointSMSVoice.Lens
-    Network.AWS.PinpointSMSVoice.SendVoiceMessage
-    Network.AWS.PinpointSMSVoice.Types
-    Network.AWS.PinpointSMSVoice.Types.CallInstructionsMessageType
-    Network.AWS.PinpointSMSVoice.Types.CloudWatchLogsDestination
-    Network.AWS.PinpointSMSVoice.Types.EventDestination
-    Network.AWS.PinpointSMSVoice.Types.EventDestinationDefinition
-    Network.AWS.PinpointSMSVoice.Types.EventType
-    Network.AWS.PinpointSMSVoice.Types.KinesisFirehoseDestination
-    Network.AWS.PinpointSMSVoice.Types.PlainTextMessageType
-    Network.AWS.PinpointSMSVoice.Types.SnsDestination
-    Network.AWS.PinpointSMSVoice.Types.SSMLMessageType
-    Network.AWS.PinpointSMSVoice.Types.VoiceMessageContent
-    Network.AWS.PinpointSMSVoice.UpdateConfigurationSetEventDestination
-    Network.AWS.PinpointSMSVoice.Waiters
+    Amazonka.PinpointSMSVoice
+    Amazonka.PinpointSMSVoice.CreateConfigurationSet
+    Amazonka.PinpointSMSVoice.CreateConfigurationSetEventDestination
+    Amazonka.PinpointSMSVoice.DeleteConfigurationSet
+    Amazonka.PinpointSMSVoice.DeleteConfigurationSetEventDestination
+    Amazonka.PinpointSMSVoice.GetConfigurationSetEventDestinations
+    Amazonka.PinpointSMSVoice.Lens
+    Amazonka.PinpointSMSVoice.SendVoiceMessage
+    Amazonka.PinpointSMSVoice.Types
+    Amazonka.PinpointSMSVoice.Types.CallInstructionsMessageType
+    Amazonka.PinpointSMSVoice.Types.CloudWatchLogsDestination
+    Amazonka.PinpointSMSVoice.Types.EventDestination
+    Amazonka.PinpointSMSVoice.Types.EventDestinationDefinition
+    Amazonka.PinpointSMSVoice.Types.EventType
+    Amazonka.PinpointSMSVoice.Types.KinesisFirehoseDestination
+    Amazonka.PinpointSMSVoice.Types.PlainTextMessageType
+    Amazonka.PinpointSMSVoice.Types.SnsDestination
+    Amazonka.PinpointSMSVoice.Types.SSMLMessageType
+    Amazonka.PinpointSMSVoice.Types.VoiceMessageContent
+    Amazonka.PinpointSMSVoice.UpdateConfigurationSetEventDestination
+    Amazonka.PinpointSMSVoice.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -83,9 +83,9 @@ test-suite amazonka-pinpoint-sms-voice-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.PinpointSMSVoice
-    Test.AWS.PinpointSMSVoice
-    Test.AWS.PinpointSMSVoice.Internal
+    Test.Amazonka.Gen.PinpointSMSVoice
+    Test.Amazonka.PinpointSMSVoice
+    Test.Amazonka.PinpointSMSVoice.Internal
 
   build-depends:
     , amazonka                     ^>=2.0

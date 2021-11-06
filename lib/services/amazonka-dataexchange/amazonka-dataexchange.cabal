@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.DataExchange.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.DataExchange.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.DataExchange" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.DataExchange" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,83 +45,83 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.DataExchange
-    Network.AWS.DataExchange.CancelJob
-    Network.AWS.DataExchange.CreateDataSet
-    Network.AWS.DataExchange.CreateEventAction
-    Network.AWS.DataExchange.CreateJob
-    Network.AWS.DataExchange.CreateRevision
-    Network.AWS.DataExchange.DeleteAsset
-    Network.AWS.DataExchange.DeleteDataSet
-    Network.AWS.DataExchange.DeleteEventAction
-    Network.AWS.DataExchange.DeleteRevision
-    Network.AWS.DataExchange.GetAsset
-    Network.AWS.DataExchange.GetDataSet
-    Network.AWS.DataExchange.GetEventAction
-    Network.AWS.DataExchange.GetJob
-    Network.AWS.DataExchange.GetRevision
-    Network.AWS.DataExchange.Lens
-    Network.AWS.DataExchange.ListDataSetRevisions
-    Network.AWS.DataExchange.ListDataSets
-    Network.AWS.DataExchange.ListEventActions
-    Network.AWS.DataExchange.ListJobs
-    Network.AWS.DataExchange.ListRevisionAssets
-    Network.AWS.DataExchange.ListTagsForResource
-    Network.AWS.DataExchange.StartJob
-    Network.AWS.DataExchange.TagResource
-    Network.AWS.DataExchange.Types
-    Network.AWS.DataExchange.Types.Action
-    Network.AWS.DataExchange.Types.AssetDestinationEntry
-    Network.AWS.DataExchange.Types.AssetDetails
-    Network.AWS.DataExchange.Types.AssetEntry
-    Network.AWS.DataExchange.Types.AssetSourceEntry
-    Network.AWS.DataExchange.Types.AssetType
-    Network.AWS.DataExchange.Types.AutoExportRevisionDestinationEntry
-    Network.AWS.DataExchange.Types.AutoExportRevisionToS3RequestDetails
-    Network.AWS.DataExchange.Types.Code
-    Network.AWS.DataExchange.Types.DataSetEntry
-    Network.AWS.DataExchange.Types.Details
-    Network.AWS.DataExchange.Types.Event
-    Network.AWS.DataExchange.Types.EventActionEntry
-    Network.AWS.DataExchange.Types.ExportAssetsToS3RequestDetails
-    Network.AWS.DataExchange.Types.ExportAssetsToS3ResponseDetails
-    Network.AWS.DataExchange.Types.ExportAssetToSignedUrlRequestDetails
-    Network.AWS.DataExchange.Types.ExportAssetToSignedUrlResponseDetails
-    Network.AWS.DataExchange.Types.ExportRevisionsToS3RequestDetails
-    Network.AWS.DataExchange.Types.ExportRevisionsToS3ResponseDetails
-    Network.AWS.DataExchange.Types.ExportServerSideEncryption
-    Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails
-    Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails
-    Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails
-    Network.AWS.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails
-    Network.AWS.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails
-    Network.AWS.DataExchange.Types.ImportAssetsFromS3RequestDetails
-    Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails
-    Network.AWS.DataExchange.Types.JobEntry
-    Network.AWS.DataExchange.Types.JobError
-    Network.AWS.DataExchange.Types.JobErrorLimitName
-    Network.AWS.DataExchange.Types.JobErrorResourceTypes
-    Network.AWS.DataExchange.Types.Origin
-    Network.AWS.DataExchange.Types.OriginDetails
-    Network.AWS.DataExchange.Types.RedshiftDataShareAsset
-    Network.AWS.DataExchange.Types.RedshiftDataShareAssetSourceEntry
-    Network.AWS.DataExchange.Types.RequestDetails
-    Network.AWS.DataExchange.Types.ResponseDetails
-    Network.AWS.DataExchange.Types.RevisionDestinationEntry
-    Network.AWS.DataExchange.Types.RevisionEntry
-    Network.AWS.DataExchange.Types.RevisionPublished
-    Network.AWS.DataExchange.Types.S3SnapshotAsset
-    Network.AWS.DataExchange.Types.ServerSideEncryptionTypes
-    Network.AWS.DataExchange.Types.State
-    Network.AWS.DataExchange.Types.Type
-    Network.AWS.DataExchange.UntagResource
-    Network.AWS.DataExchange.UpdateAsset
-    Network.AWS.DataExchange.UpdateDataSet
-    Network.AWS.DataExchange.UpdateEventAction
-    Network.AWS.DataExchange.UpdateRevision
-    Network.AWS.DataExchange.Waiters
+    Amazonka.DataExchange
+    Amazonka.DataExchange.CancelJob
+    Amazonka.DataExchange.CreateDataSet
+    Amazonka.DataExchange.CreateEventAction
+    Amazonka.DataExchange.CreateJob
+    Amazonka.DataExchange.CreateRevision
+    Amazonka.DataExchange.DeleteAsset
+    Amazonka.DataExchange.DeleteDataSet
+    Amazonka.DataExchange.DeleteEventAction
+    Amazonka.DataExchange.DeleteRevision
+    Amazonka.DataExchange.GetAsset
+    Amazonka.DataExchange.GetDataSet
+    Amazonka.DataExchange.GetEventAction
+    Amazonka.DataExchange.GetJob
+    Amazonka.DataExchange.GetRevision
+    Amazonka.DataExchange.Lens
+    Amazonka.DataExchange.ListDataSetRevisions
+    Amazonka.DataExchange.ListDataSets
+    Amazonka.DataExchange.ListEventActions
+    Amazonka.DataExchange.ListJobs
+    Amazonka.DataExchange.ListRevisionAssets
+    Amazonka.DataExchange.ListTagsForResource
+    Amazonka.DataExchange.StartJob
+    Amazonka.DataExchange.TagResource
+    Amazonka.DataExchange.Types
+    Amazonka.DataExchange.Types.Action
+    Amazonka.DataExchange.Types.AssetDestinationEntry
+    Amazonka.DataExchange.Types.AssetDetails
+    Amazonka.DataExchange.Types.AssetEntry
+    Amazonka.DataExchange.Types.AssetSourceEntry
+    Amazonka.DataExchange.Types.AssetType
+    Amazonka.DataExchange.Types.AutoExportRevisionDestinationEntry
+    Amazonka.DataExchange.Types.AutoExportRevisionToS3RequestDetails
+    Amazonka.DataExchange.Types.Code
+    Amazonka.DataExchange.Types.DataSetEntry
+    Amazonka.DataExchange.Types.Details
+    Amazonka.DataExchange.Types.Event
+    Amazonka.DataExchange.Types.EventActionEntry
+    Amazonka.DataExchange.Types.ExportAssetsToS3RequestDetails
+    Amazonka.DataExchange.Types.ExportAssetsToS3ResponseDetails
+    Amazonka.DataExchange.Types.ExportAssetToSignedUrlRequestDetails
+    Amazonka.DataExchange.Types.ExportAssetToSignedUrlResponseDetails
+    Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails
+    Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails
+    Amazonka.DataExchange.Types.ExportServerSideEncryption
+    Amazonka.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails
+    Amazonka.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails
+    Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails
+    Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails
+    Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails
+    Amazonka.DataExchange.Types.ImportAssetsFromS3RequestDetails
+    Amazonka.DataExchange.Types.ImportAssetsFromS3ResponseDetails
+    Amazonka.DataExchange.Types.JobEntry
+    Amazonka.DataExchange.Types.JobError
+    Amazonka.DataExchange.Types.JobErrorLimitName
+    Amazonka.DataExchange.Types.JobErrorResourceTypes
+    Amazonka.DataExchange.Types.Origin
+    Amazonka.DataExchange.Types.OriginDetails
+    Amazonka.DataExchange.Types.RedshiftDataShareAsset
+    Amazonka.DataExchange.Types.RedshiftDataShareAssetSourceEntry
+    Amazonka.DataExchange.Types.RequestDetails
+    Amazonka.DataExchange.Types.ResponseDetails
+    Amazonka.DataExchange.Types.RevisionDestinationEntry
+    Amazonka.DataExchange.Types.RevisionEntry
+    Amazonka.DataExchange.Types.RevisionPublished
+    Amazonka.DataExchange.Types.S3SnapshotAsset
+    Amazonka.DataExchange.Types.ServerSideEncryptionTypes
+    Amazonka.DataExchange.Types.State
+    Amazonka.DataExchange.Types.Type
+    Amazonka.DataExchange.UntagResource
+    Amazonka.DataExchange.UpdateAsset
+    Amazonka.DataExchange.UpdateDataSet
+    Amazonka.DataExchange.UpdateEventAction
+    Amazonka.DataExchange.UpdateRevision
+    Amazonka.DataExchange.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -137,9 +137,9 @@ test-suite amazonka-dataexchange-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.DataExchange
-    Test.AWS.DataExchange.Internal
-    Test.AWS.Gen.DataExchange
+    Test.Amazonka.DataExchange
+    Test.Amazonka.DataExchange.Internal
+    Test.Amazonka.Gen.DataExchange
 
   build-depends:
     , amazonka               ^>=2.0

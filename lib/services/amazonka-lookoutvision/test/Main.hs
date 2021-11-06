@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.LookoutVision
-import Test.AWS.LookoutVision.Internal
+import Test.Amazonka.LookoutVision
+import Test.Amazonka.LookoutVision.Internal
 import Test.Tasty
 
 main :: IO ()

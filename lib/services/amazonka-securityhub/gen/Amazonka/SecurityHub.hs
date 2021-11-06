@@ -1,0 +1,2095 @@
+{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+-- |
+-- Module      : Amazonka.SecurityHub
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Derived from API version @2018-10-26@ of the AWS service descriptions, licensed under Apache 2.0.
+--
+-- Security Hub provides you with a comprehensive view of the security
+-- state of your Amazon Web Services environment and resources. It also
+-- provides you with the readiness status of your environment based on
+-- controls from supported security standards. Security Hub collects
+-- security data from Amazon Web Services accounts, services, and
+-- integrated third-party products and helps you analyze security trends in
+-- your environment to identify the highest priority security issues. For
+-- more information about Security Hub, see the /Security
+-- Hub<https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html User Guide>/
+-- .
+--
+-- When you use operations in the Security Hub API, the requests are
+-- executed only in the Amazon Web Services Region that is currently active
+-- or in the specific Amazon Web Services Region that you specify in your
+-- request. Any configuration or settings change that results from the
+-- operation is applied only to that Region. To make the same change in
+-- other Regions, execute the same command for each Region to apply the
+-- change to.
+--
+-- For example, if your Region is set to @us-west-2@, when you use
+-- @CreateMembers@ to add a member account to Security Hub, the association
+-- of the member account with the administrator account is created only in
+-- the @us-west-2@ Region. Security Hub must be enabled for the member
+-- account in the same Region that the invitation was sent from.
+--
+-- The following throttling limits apply to using Security Hub API
+-- operations.
+--
+-- -   @BatchEnableStandards@ - @RateLimit@ of 1 request per second,
+--     @BurstLimit@ of 1 request per second.
+--
+-- -   @GetFindings@ - @RateLimit@ of 3 requests per second. @BurstLimit@
+--     of 6 requests per second.
+--
+-- -   @UpdateFindings@ - @RateLimit@ of 1 request per second. @BurstLimit@
+--     of 5 requests per second.
+--
+-- -   @UpdateStandardsControl@ - @RateLimit@ of 1 request per second,
+--     @BurstLimit@ of 5 requests per second.
+--
+-- -   All other operations - @RateLimit@ of 10 requests per second.
+--     @BurstLimit@ of 30 requests per second.
+module Amazonka.SecurityHub
+  ( -- * Service Configuration
+    defaultService,
+
+    -- * Errors
+    -- $errors
+
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** InvalidAccessException
+    _InvalidAccessException,
+
+    -- ** InvalidInputException
+    _InvalidInputException,
+
+    -- ** InternalException
+    _InternalException,
+
+    -- ** ResourceConflictException
+    _ResourceConflictException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- * Waiters
+    -- $waiters
+
+    -- * Operations
+    -- $operations
+
+    -- ** EnableOrganizationAdminAccount
+    EnableOrganizationAdminAccount (EnableOrganizationAdminAccount'),
+    newEnableOrganizationAdminAccount,
+    EnableOrganizationAdminAccountResponse (EnableOrganizationAdminAccountResponse'),
+    newEnableOrganizationAdminAccountResponse,
+
+    -- ** GetAdministratorAccount
+    GetAdministratorAccount (GetAdministratorAccount'),
+    newGetAdministratorAccount,
+    GetAdministratorAccountResponse (GetAdministratorAccountResponse'),
+    newGetAdministratorAccountResponse,
+
+    -- ** ListOrganizationAdminAccounts (Paginated)
+    ListOrganizationAdminAccounts (ListOrganizationAdminAccounts'),
+    newListOrganizationAdminAccounts,
+    ListOrganizationAdminAccountsResponse (ListOrganizationAdminAccountsResponse'),
+    newListOrganizationAdminAccountsResponse,
+
+    -- ** CreateInsight
+    CreateInsight (CreateInsight'),
+    newCreateInsight,
+    CreateInsightResponse (CreateInsightResponse'),
+    newCreateInsightResponse,
+
+    -- ** AcceptAdministratorInvitation
+    AcceptAdministratorInvitation (AcceptAdministratorInvitation'),
+    newAcceptAdministratorInvitation,
+    AcceptAdministratorInvitationResponse (AcceptAdministratorInvitationResponse'),
+    newAcceptAdministratorInvitationResponse,
+
+    -- ** DeleteMembers
+    DeleteMembers (DeleteMembers'),
+    newDeleteMembers,
+    DeleteMembersResponse (DeleteMembersResponse'),
+    newDeleteMembersResponse,
+
+    -- ** DescribeHub
+    DescribeHub (DescribeHub'),
+    newDescribeHub,
+    DescribeHubResponse (DescribeHubResponse'),
+    newDescribeHubResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** GetInsightResults
+    GetInsightResults (GetInsightResults'),
+    newGetInsightResults,
+    GetInsightResultsResponse (GetInsightResultsResponse'),
+    newGetInsightResultsResponse,
+
+    -- ** EnableImportFindingsForProduct
+    EnableImportFindingsForProduct (EnableImportFindingsForProduct'),
+    newEnableImportFindingsForProduct,
+    EnableImportFindingsForProductResponse (EnableImportFindingsForProductResponse'),
+    newEnableImportFindingsForProductResponse,
+
+    -- ** DescribeStandards (Paginated)
+    DescribeStandards (DescribeStandards'),
+    newDescribeStandards,
+    DescribeStandardsResponse (DescribeStandardsResponse'),
+    newDescribeStandardsResponse,
+
+    -- ** DescribeProducts (Paginated)
+    DescribeProducts (DescribeProducts'),
+    newDescribeProducts,
+    DescribeProductsResponse (DescribeProductsResponse'),
+    newDescribeProductsResponse,
+
+    -- ** DeleteFindingAggregator
+    DeleteFindingAggregator (DeleteFindingAggregator'),
+    newDeleteFindingAggregator,
+    DeleteFindingAggregatorResponse (DeleteFindingAggregatorResponse'),
+    newDeleteFindingAggregatorResponse,
+
+    -- ** UpdateFindingAggregator
+    UpdateFindingAggregator (UpdateFindingAggregator'),
+    newUpdateFindingAggregator,
+    UpdateFindingAggregatorResponse (UpdateFindingAggregatorResponse'),
+    newUpdateFindingAggregatorResponse,
+
+    -- ** ListInvitations (Paginated)
+    ListInvitations (ListInvitations'),
+    newListInvitations,
+    ListInvitationsResponse (ListInvitationsResponse'),
+    newListInvitationsResponse,
+
+    -- ** DeleteInvitations
+    DeleteInvitations (DeleteInvitations'),
+    newDeleteInvitations,
+    DeleteInvitationsResponse (DeleteInvitationsResponse'),
+    newDeleteInvitationsResponse,
+
+    -- ** GetEnabledStandards (Paginated)
+    GetEnabledStandards (GetEnabledStandards'),
+    newGetEnabledStandards,
+    GetEnabledStandardsResponse (GetEnabledStandardsResponse'),
+    newGetEnabledStandardsResponse,
+
+    -- ** DeclineInvitations
+    DeclineInvitations (DeclineInvitations'),
+    newDeclineInvitations,
+    DeclineInvitationsResponse (DeclineInvitationsResponse'),
+    newDeclineInvitationsResponse,
+
+    -- ** UpdateActionTarget
+    UpdateActionTarget (UpdateActionTarget'),
+    newUpdateActionTarget,
+    UpdateActionTargetResponse (UpdateActionTargetResponse'),
+    newUpdateActionTargetResponse,
+
+    -- ** DeleteActionTarget
+    DeleteActionTarget (DeleteActionTarget'),
+    newDeleteActionTarget,
+    DeleteActionTargetResponse (DeleteActionTargetResponse'),
+    newDeleteActionTargetResponse,
+
+    -- ** UpdateStandardsControl
+    UpdateStandardsControl (UpdateStandardsControl'),
+    newUpdateStandardsControl,
+    UpdateStandardsControlResponse (UpdateStandardsControlResponse'),
+    newUpdateStandardsControlResponse,
+
+    -- ** DescribeOrganizationConfiguration
+    DescribeOrganizationConfiguration (DescribeOrganizationConfiguration'),
+    newDescribeOrganizationConfiguration,
+    DescribeOrganizationConfigurationResponse (DescribeOrganizationConfigurationResponse'),
+    newDescribeOrganizationConfigurationResponse,
+
+    -- ** DescribeActionTargets (Paginated)
+    DescribeActionTargets (DescribeActionTargets'),
+    newDescribeActionTargets,
+    DescribeActionTargetsResponse (DescribeActionTargetsResponse'),
+    newDescribeActionTargetsResponse,
+
+    -- ** DisassociateMembers
+    DisassociateMembers (DisassociateMembers'),
+    newDisassociateMembers,
+    DisassociateMembersResponse (DisassociateMembersResponse'),
+    newDisassociateMembersResponse,
+
+    -- ** ListEnabledProductsForImport (Paginated)
+    ListEnabledProductsForImport (ListEnabledProductsForImport'),
+    newListEnabledProductsForImport,
+    ListEnabledProductsForImportResponse (ListEnabledProductsForImportResponse'),
+    newListEnabledProductsForImportResponse,
+
+    -- ** DescribeStandardsControls (Paginated)
+    DescribeStandardsControls (DescribeStandardsControls'),
+    newDescribeStandardsControls,
+    DescribeStandardsControlsResponse (DescribeStandardsControlsResponse'),
+    newDescribeStandardsControlsResponse,
+
+    -- ** ListMembers (Paginated)
+    ListMembers (ListMembers'),
+    newListMembers,
+    ListMembersResponse (ListMembersResponse'),
+    newListMembersResponse,
+
+    -- ** CreateMembers
+    CreateMembers (CreateMembers'),
+    newCreateMembers,
+    CreateMembersResponse (CreateMembersResponse'),
+    newCreateMembersResponse,
+
+    -- ** BatchImportFindings
+    BatchImportFindings (BatchImportFindings'),
+    newBatchImportFindings,
+    BatchImportFindingsResponse (BatchImportFindingsResponse'),
+    newBatchImportFindingsResponse,
+
+    -- ** GetInvitationsCount
+    GetInvitationsCount (GetInvitationsCount'),
+    newGetInvitationsCount,
+    GetInvitationsCountResponse (GetInvitationsCountResponse'),
+    newGetInvitationsCountResponse,
+
+    -- ** DeleteInsight
+    DeleteInsight (DeleteInsight'),
+    newDeleteInsight,
+    DeleteInsightResponse (DeleteInsightResponse'),
+    newDeleteInsightResponse,
+
+    -- ** UpdateInsight
+    UpdateInsight (UpdateInsight'),
+    newUpdateInsight,
+    UpdateInsightResponse (UpdateInsightResponse'),
+    newUpdateInsightResponse,
+
+    -- ** DisableImportFindingsForProduct
+    DisableImportFindingsForProduct (DisableImportFindingsForProduct'),
+    newDisableImportFindingsForProduct,
+    DisableImportFindingsForProductResponse (DisableImportFindingsForProductResponse'),
+    newDisableImportFindingsForProductResponse,
+
+    -- ** UpdateFindings
+    UpdateFindings (UpdateFindings'),
+    newUpdateFindings,
+    UpdateFindingsResponse (UpdateFindingsResponse'),
+    newUpdateFindingsResponse,
+
+    -- ** UpdateOrganizationConfiguration
+    UpdateOrganizationConfiguration (UpdateOrganizationConfiguration'),
+    newUpdateOrganizationConfiguration,
+    UpdateOrganizationConfigurationResponse (UpdateOrganizationConfigurationResponse'),
+    newUpdateOrganizationConfigurationResponse,
+
+    -- ** GetFindingAggregator
+    GetFindingAggregator (GetFindingAggregator'),
+    newGetFindingAggregator,
+    GetFindingAggregatorResponse (GetFindingAggregatorResponse'),
+    newGetFindingAggregatorResponse,
+
+    -- ** InviteMembers
+    InviteMembers (InviteMembers'),
+    newInviteMembers,
+    InviteMembersResponse (InviteMembersResponse'),
+    newInviteMembersResponse,
+
+    -- ** GetMembers
+    GetMembers (GetMembers'),
+    newGetMembers,
+    GetMembersResponse (GetMembersResponse'),
+    newGetMembersResponse,
+
+    -- ** DisableSecurityHub
+    DisableSecurityHub (DisableSecurityHub'),
+    newDisableSecurityHub,
+    DisableSecurityHubResponse (DisableSecurityHubResponse'),
+    newDisableSecurityHubResponse,
+
+    -- ** ListFindingAggregators (Paginated)
+    ListFindingAggregators (ListFindingAggregators'),
+    newListFindingAggregators,
+    ListFindingAggregatorsResponse (ListFindingAggregatorsResponse'),
+    newListFindingAggregatorsResponse,
+
+    -- ** BatchEnableStandards
+    BatchEnableStandards (BatchEnableStandards'),
+    newBatchEnableStandards,
+    BatchEnableStandardsResponse (BatchEnableStandardsResponse'),
+    newBatchEnableStandardsResponse,
+
+    -- ** CreateFindingAggregator
+    CreateFindingAggregator (CreateFindingAggregator'),
+    newCreateFindingAggregator,
+    CreateFindingAggregatorResponse (CreateFindingAggregatorResponse'),
+    newCreateFindingAggregatorResponse,
+
+    -- ** BatchDisableStandards
+    BatchDisableStandards (BatchDisableStandards'),
+    newBatchDisableStandards,
+    BatchDisableStandardsResponse (BatchDisableStandardsResponse'),
+    newBatchDisableStandardsResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** EnableSecurityHub
+    EnableSecurityHub (EnableSecurityHub'),
+    newEnableSecurityHub,
+    EnableSecurityHubResponse (EnableSecurityHubResponse'),
+    newEnableSecurityHubResponse,
+
+    -- ** UpdateSecurityHubConfiguration
+    UpdateSecurityHubConfiguration (UpdateSecurityHubConfiguration'),
+    newUpdateSecurityHubConfiguration,
+    UpdateSecurityHubConfigurationResponse (UpdateSecurityHubConfigurationResponse'),
+    newUpdateSecurityHubConfigurationResponse,
+
+    -- ** GetFindings (Paginated)
+    GetFindings (GetFindings'),
+    newGetFindings,
+    GetFindingsResponse (GetFindingsResponse'),
+    newGetFindingsResponse,
+
+    -- ** GetInsights (Paginated)
+    GetInsights (GetInsights'),
+    newGetInsights,
+    GetInsightsResponse (GetInsightsResponse'),
+    newGetInsightsResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** BatchUpdateFindings
+    BatchUpdateFindings (BatchUpdateFindings'),
+    newBatchUpdateFindings,
+    BatchUpdateFindingsResponse (BatchUpdateFindingsResponse'),
+    newBatchUpdateFindingsResponse,
+
+    -- ** CreateActionTarget
+    CreateActionTarget (CreateActionTarget'),
+    newCreateActionTarget,
+    CreateActionTargetResponse (CreateActionTargetResponse'),
+    newCreateActionTargetResponse,
+
+    -- ** DisassociateFromAdministratorAccount
+    DisassociateFromAdministratorAccount (DisassociateFromAdministratorAccount'),
+    newDisassociateFromAdministratorAccount,
+    DisassociateFromAdministratorAccountResponse (DisassociateFromAdministratorAccountResponse'),
+    newDisassociateFromAdministratorAccountResponse,
+
+    -- ** DisableOrganizationAdminAccount
+    DisableOrganizationAdminAccount (DisableOrganizationAdminAccount'),
+    newDisableOrganizationAdminAccount,
+    DisableOrganizationAdminAccountResponse (DisableOrganizationAdminAccountResponse'),
+    newDisableOrganizationAdminAccountResponse,
+
+    -- * Types
+
+    -- ** AdminStatus
+    AdminStatus (..),
+
+    -- ** AwsIamAccessKeyStatus
+    AwsIamAccessKeyStatus (..),
+
+    -- ** AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+    AwsS3BucketNotificationConfigurationS3KeyFilterRuleName (..),
+
+    -- ** ComplianceStatus
+    ComplianceStatus (..),
+
+    -- ** ControlStatus
+    ControlStatus (..),
+
+    -- ** DateRangeUnit
+    DateRangeUnit (..),
+
+    -- ** IntegrationType
+    IntegrationType (..),
+
+    -- ** MalwareState
+    MalwareState (..),
+
+    -- ** MalwareType
+    MalwareType (..),
+
+    -- ** MapFilterComparison
+    MapFilterComparison (..),
+
+    -- ** NetworkDirection
+    NetworkDirection (..),
+
+    -- ** Partition
+    Partition (..),
+
+    -- ** RecordState
+    RecordState (..),
+
+    -- ** SeverityLabel
+    SeverityLabel (..),
+
+    -- ** SeverityRating
+    SeverityRating (..),
+
+    -- ** SortOrder
+    SortOrder (..),
+
+    -- ** StandardsStatus
+    StandardsStatus (..),
+
+    -- ** StringFilterComparison
+    StringFilterComparison (..),
+
+    -- ** ThreatIntelIndicatorCategory
+    ThreatIntelIndicatorCategory (..),
+
+    -- ** ThreatIntelIndicatorType
+    ThreatIntelIndicatorType (..),
+
+    -- ** VerificationState
+    VerificationState (..),
+
+    -- ** WorkflowState
+    WorkflowState (..),
+
+    -- ** WorkflowStatus
+    WorkflowStatus (..),
+
+    -- ** AccountDetails
+    AccountDetails (AccountDetails'),
+    newAccountDetails,
+
+    -- ** Action
+    Action (Action'),
+    newAction,
+
+    -- ** ActionLocalIpDetails
+    ActionLocalIpDetails (ActionLocalIpDetails'),
+    newActionLocalIpDetails,
+
+    -- ** ActionLocalPortDetails
+    ActionLocalPortDetails (ActionLocalPortDetails'),
+    newActionLocalPortDetails,
+
+    -- ** ActionRemoteIpDetails
+    ActionRemoteIpDetails (ActionRemoteIpDetails'),
+    newActionRemoteIpDetails,
+
+    -- ** ActionRemotePortDetails
+    ActionRemotePortDetails (ActionRemotePortDetails'),
+    newActionRemotePortDetails,
+
+    -- ** ActionTarget
+    ActionTarget (ActionTarget'),
+    newActionTarget,
+
+    -- ** Adjustment
+    Adjustment (Adjustment'),
+    newAdjustment,
+
+    -- ** AdminAccount
+    AdminAccount (AdminAccount'),
+    newAdminAccount,
+
+    -- ** AvailabilityZone
+    AvailabilityZone (AvailabilityZone'),
+    newAvailabilityZone,
+
+    -- ** AwsApiCallAction
+    AwsApiCallAction (AwsApiCallAction'),
+    newAwsApiCallAction,
+
+    -- ** AwsApiCallActionDomainDetails
+    AwsApiCallActionDomainDetails (AwsApiCallActionDomainDetails'),
+    newAwsApiCallActionDomainDetails,
+
+    -- ** AwsApiGatewayAccessLogSettings
+    AwsApiGatewayAccessLogSettings (AwsApiGatewayAccessLogSettings'),
+    newAwsApiGatewayAccessLogSettings,
+
+    -- ** AwsApiGatewayCanarySettings
+    AwsApiGatewayCanarySettings (AwsApiGatewayCanarySettings'),
+    newAwsApiGatewayCanarySettings,
+
+    -- ** AwsApiGatewayEndpointConfiguration
+    AwsApiGatewayEndpointConfiguration (AwsApiGatewayEndpointConfiguration'),
+    newAwsApiGatewayEndpointConfiguration,
+
+    -- ** AwsApiGatewayMethodSettings
+    AwsApiGatewayMethodSettings (AwsApiGatewayMethodSettings'),
+    newAwsApiGatewayMethodSettings,
+
+    -- ** AwsApiGatewayRestApiDetails
+    AwsApiGatewayRestApiDetails (AwsApiGatewayRestApiDetails'),
+    newAwsApiGatewayRestApiDetails,
+
+    -- ** AwsApiGatewayStageDetails
+    AwsApiGatewayStageDetails (AwsApiGatewayStageDetails'),
+    newAwsApiGatewayStageDetails,
+
+    -- ** AwsApiGatewayV2ApiDetails
+    AwsApiGatewayV2ApiDetails (AwsApiGatewayV2ApiDetails'),
+    newAwsApiGatewayV2ApiDetails,
+
+    -- ** AwsApiGatewayV2RouteSettings
+    AwsApiGatewayV2RouteSettings (AwsApiGatewayV2RouteSettings'),
+    newAwsApiGatewayV2RouteSettings,
+
+    -- ** AwsApiGatewayV2StageDetails
+    AwsApiGatewayV2StageDetails (AwsApiGatewayV2StageDetails'),
+    newAwsApiGatewayV2StageDetails,
+
+    -- ** AwsAutoScalingAutoScalingGroupDetails
+    AwsAutoScalingAutoScalingGroupDetails (AwsAutoScalingAutoScalingGroupDetails'),
+    newAwsAutoScalingAutoScalingGroupDetails,
+
+    -- ** AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails
+    AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails (AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails'),
+    newAwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails,
+
+    -- ** AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails
+    AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails (AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails'),
+    newAwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails,
+
+    -- ** AwsAutoScalingLaunchConfigurationDetails
+    AwsAutoScalingLaunchConfigurationDetails (AwsAutoScalingLaunchConfigurationDetails'),
+    newAwsAutoScalingLaunchConfigurationDetails,
+
+    -- ** AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails
+    AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails (AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails'),
+    newAwsAutoScalingLaunchConfigurationInstanceMonitoringDetails,
+
+    -- ** AwsCertificateManagerCertificateDetails
+    AwsCertificateManagerCertificateDetails (AwsCertificateManagerCertificateDetails'),
+    newAwsCertificateManagerCertificateDetails,
+
+    -- ** AwsCertificateManagerCertificateDomainValidationOption
+    AwsCertificateManagerCertificateDomainValidationOption (AwsCertificateManagerCertificateDomainValidationOption'),
+    newAwsCertificateManagerCertificateDomainValidationOption,
+
+    -- ** AwsCertificateManagerCertificateExtendedKeyUsage
+    AwsCertificateManagerCertificateExtendedKeyUsage (AwsCertificateManagerCertificateExtendedKeyUsage'),
+    newAwsCertificateManagerCertificateExtendedKeyUsage,
+
+    -- ** AwsCertificateManagerCertificateKeyUsage
+    AwsCertificateManagerCertificateKeyUsage (AwsCertificateManagerCertificateKeyUsage'),
+    newAwsCertificateManagerCertificateKeyUsage,
+
+    -- ** AwsCertificateManagerCertificateOptions
+    AwsCertificateManagerCertificateOptions (AwsCertificateManagerCertificateOptions'),
+    newAwsCertificateManagerCertificateOptions,
+
+    -- ** AwsCertificateManagerCertificateRenewalSummary
+    AwsCertificateManagerCertificateRenewalSummary (AwsCertificateManagerCertificateRenewalSummary'),
+    newAwsCertificateManagerCertificateRenewalSummary,
+
+    -- ** AwsCertificateManagerCertificateResourceRecord
+    AwsCertificateManagerCertificateResourceRecord (AwsCertificateManagerCertificateResourceRecord'),
+    newAwsCertificateManagerCertificateResourceRecord,
+
+    -- ** AwsCloudFrontDistributionCacheBehavior
+    AwsCloudFrontDistributionCacheBehavior (AwsCloudFrontDistributionCacheBehavior'),
+    newAwsCloudFrontDistributionCacheBehavior,
+
+    -- ** AwsCloudFrontDistributionCacheBehaviors
+    AwsCloudFrontDistributionCacheBehaviors (AwsCloudFrontDistributionCacheBehaviors'),
+    newAwsCloudFrontDistributionCacheBehaviors,
+
+    -- ** AwsCloudFrontDistributionDefaultCacheBehavior
+    AwsCloudFrontDistributionDefaultCacheBehavior (AwsCloudFrontDistributionDefaultCacheBehavior'),
+    newAwsCloudFrontDistributionDefaultCacheBehavior,
+
+    -- ** AwsCloudFrontDistributionDetails
+    AwsCloudFrontDistributionDetails (AwsCloudFrontDistributionDetails'),
+    newAwsCloudFrontDistributionDetails,
+
+    -- ** AwsCloudFrontDistributionLogging
+    AwsCloudFrontDistributionLogging (AwsCloudFrontDistributionLogging'),
+    newAwsCloudFrontDistributionLogging,
+
+    -- ** AwsCloudFrontDistributionOriginGroup
+    AwsCloudFrontDistributionOriginGroup (AwsCloudFrontDistributionOriginGroup'),
+    newAwsCloudFrontDistributionOriginGroup,
+
+    -- ** AwsCloudFrontDistributionOriginGroupFailover
+    AwsCloudFrontDistributionOriginGroupFailover (AwsCloudFrontDistributionOriginGroupFailover'),
+    newAwsCloudFrontDistributionOriginGroupFailover,
+
+    -- ** AwsCloudFrontDistributionOriginGroupFailoverStatusCodes
+    AwsCloudFrontDistributionOriginGroupFailoverStatusCodes (AwsCloudFrontDistributionOriginGroupFailoverStatusCodes'),
+    newAwsCloudFrontDistributionOriginGroupFailoverStatusCodes,
+
+    -- ** AwsCloudFrontDistributionOriginGroups
+    AwsCloudFrontDistributionOriginGroups (AwsCloudFrontDistributionOriginGroups'),
+    newAwsCloudFrontDistributionOriginGroups,
+
+    -- ** AwsCloudFrontDistributionOriginItem
+    AwsCloudFrontDistributionOriginItem (AwsCloudFrontDistributionOriginItem'),
+    newAwsCloudFrontDistributionOriginItem,
+
+    -- ** AwsCloudFrontDistributionOriginS3OriginConfig
+    AwsCloudFrontDistributionOriginS3OriginConfig (AwsCloudFrontDistributionOriginS3OriginConfig'),
+    newAwsCloudFrontDistributionOriginS3OriginConfig,
+
+    -- ** AwsCloudFrontDistributionOrigins
+    AwsCloudFrontDistributionOrigins (AwsCloudFrontDistributionOrigins'),
+    newAwsCloudFrontDistributionOrigins,
+
+    -- ** AwsCloudFrontDistributionViewerCertificate
+    AwsCloudFrontDistributionViewerCertificate (AwsCloudFrontDistributionViewerCertificate'),
+    newAwsCloudFrontDistributionViewerCertificate,
+
+    -- ** AwsCloudTrailTrailDetails
+    AwsCloudTrailTrailDetails (AwsCloudTrailTrailDetails'),
+    newAwsCloudTrailTrailDetails,
+
+    -- ** AwsCodeBuildProjectArtifactsDetails
+    AwsCodeBuildProjectArtifactsDetails (AwsCodeBuildProjectArtifactsDetails'),
+    newAwsCodeBuildProjectArtifactsDetails,
+
+    -- ** AwsCodeBuildProjectDetails
+    AwsCodeBuildProjectDetails (AwsCodeBuildProjectDetails'),
+    newAwsCodeBuildProjectDetails,
+
+    -- ** AwsCodeBuildProjectEnvironment
+    AwsCodeBuildProjectEnvironment (AwsCodeBuildProjectEnvironment'),
+    newAwsCodeBuildProjectEnvironment,
+
+    -- ** AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails
+    AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails (AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails'),
+    newAwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails,
+
+    -- ** AwsCodeBuildProjectEnvironmentRegistryCredential
+    AwsCodeBuildProjectEnvironmentRegistryCredential (AwsCodeBuildProjectEnvironmentRegistryCredential'),
+    newAwsCodeBuildProjectEnvironmentRegistryCredential,
+
+    -- ** AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails
+    AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails (AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails'),
+    newAwsCodeBuildProjectLogsConfigCloudWatchLogsDetails,
+
+    -- ** AwsCodeBuildProjectLogsConfigDetails
+    AwsCodeBuildProjectLogsConfigDetails (AwsCodeBuildProjectLogsConfigDetails'),
+    newAwsCodeBuildProjectLogsConfigDetails,
+
+    -- ** AwsCodeBuildProjectLogsConfigS3LogsDetails
+    AwsCodeBuildProjectLogsConfigS3LogsDetails (AwsCodeBuildProjectLogsConfigS3LogsDetails'),
+    newAwsCodeBuildProjectLogsConfigS3LogsDetails,
+
+    -- ** AwsCodeBuildProjectSource
+    AwsCodeBuildProjectSource (AwsCodeBuildProjectSource'),
+    newAwsCodeBuildProjectSource,
+
+    -- ** AwsCodeBuildProjectVpcConfig
+    AwsCodeBuildProjectVpcConfig (AwsCodeBuildProjectVpcConfig'),
+    newAwsCodeBuildProjectVpcConfig,
+
+    -- ** AwsCorsConfiguration
+    AwsCorsConfiguration (AwsCorsConfiguration'),
+    newAwsCorsConfiguration,
+
+    -- ** AwsDynamoDbTableAttributeDefinition
+    AwsDynamoDbTableAttributeDefinition (AwsDynamoDbTableAttributeDefinition'),
+    newAwsDynamoDbTableAttributeDefinition,
+
+    -- ** AwsDynamoDbTableBillingModeSummary
+    AwsDynamoDbTableBillingModeSummary (AwsDynamoDbTableBillingModeSummary'),
+    newAwsDynamoDbTableBillingModeSummary,
+
+    -- ** AwsDynamoDbTableDetails
+    AwsDynamoDbTableDetails (AwsDynamoDbTableDetails'),
+    newAwsDynamoDbTableDetails,
+
+    -- ** AwsDynamoDbTableGlobalSecondaryIndex
+    AwsDynamoDbTableGlobalSecondaryIndex (AwsDynamoDbTableGlobalSecondaryIndex'),
+    newAwsDynamoDbTableGlobalSecondaryIndex,
+
+    -- ** AwsDynamoDbTableKeySchema
+    AwsDynamoDbTableKeySchema (AwsDynamoDbTableKeySchema'),
+    newAwsDynamoDbTableKeySchema,
+
+    -- ** AwsDynamoDbTableLocalSecondaryIndex
+    AwsDynamoDbTableLocalSecondaryIndex (AwsDynamoDbTableLocalSecondaryIndex'),
+    newAwsDynamoDbTableLocalSecondaryIndex,
+
+    -- ** AwsDynamoDbTableProjection
+    AwsDynamoDbTableProjection (AwsDynamoDbTableProjection'),
+    newAwsDynamoDbTableProjection,
+
+    -- ** AwsDynamoDbTableProvisionedThroughput
+    AwsDynamoDbTableProvisionedThroughput (AwsDynamoDbTableProvisionedThroughput'),
+    newAwsDynamoDbTableProvisionedThroughput,
+
+    -- ** AwsDynamoDbTableProvisionedThroughputOverride
+    AwsDynamoDbTableProvisionedThroughputOverride (AwsDynamoDbTableProvisionedThroughputOverride'),
+    newAwsDynamoDbTableProvisionedThroughputOverride,
+
+    -- ** AwsDynamoDbTableReplica
+    AwsDynamoDbTableReplica (AwsDynamoDbTableReplica'),
+    newAwsDynamoDbTableReplica,
+
+    -- ** AwsDynamoDbTableReplicaGlobalSecondaryIndex
+    AwsDynamoDbTableReplicaGlobalSecondaryIndex (AwsDynamoDbTableReplicaGlobalSecondaryIndex'),
+    newAwsDynamoDbTableReplicaGlobalSecondaryIndex,
+
+    -- ** AwsDynamoDbTableRestoreSummary
+    AwsDynamoDbTableRestoreSummary (AwsDynamoDbTableRestoreSummary'),
+    newAwsDynamoDbTableRestoreSummary,
+
+    -- ** AwsDynamoDbTableSseDescription
+    AwsDynamoDbTableSseDescription (AwsDynamoDbTableSseDescription'),
+    newAwsDynamoDbTableSseDescription,
+
+    -- ** AwsDynamoDbTableStreamSpecification
+    AwsDynamoDbTableStreamSpecification (AwsDynamoDbTableStreamSpecification'),
+    newAwsDynamoDbTableStreamSpecification,
+
+    -- ** AwsEc2EipDetails
+    AwsEc2EipDetails (AwsEc2EipDetails'),
+    newAwsEc2EipDetails,
+
+    -- ** AwsEc2InstanceDetails
+    AwsEc2InstanceDetails (AwsEc2InstanceDetails'),
+    newAwsEc2InstanceDetails,
+
+    -- ** AwsEc2InstanceNetworkInterfacesDetails
+    AwsEc2InstanceNetworkInterfacesDetails (AwsEc2InstanceNetworkInterfacesDetails'),
+    newAwsEc2InstanceNetworkInterfacesDetails,
+
+    -- ** AwsEc2NetworkAclAssociation
+    AwsEc2NetworkAclAssociation (AwsEc2NetworkAclAssociation'),
+    newAwsEc2NetworkAclAssociation,
+
+    -- ** AwsEc2NetworkAclDetails
+    AwsEc2NetworkAclDetails (AwsEc2NetworkAclDetails'),
+    newAwsEc2NetworkAclDetails,
+
+    -- ** AwsEc2NetworkAclEntry
+    AwsEc2NetworkAclEntry (AwsEc2NetworkAclEntry'),
+    newAwsEc2NetworkAclEntry,
+
+    -- ** AwsEc2NetworkInterfaceAttachment
+    AwsEc2NetworkInterfaceAttachment (AwsEc2NetworkInterfaceAttachment'),
+    newAwsEc2NetworkInterfaceAttachment,
+
+    -- ** AwsEc2NetworkInterfaceDetails
+    AwsEc2NetworkInterfaceDetails (AwsEc2NetworkInterfaceDetails'),
+    newAwsEc2NetworkInterfaceDetails,
+
+    -- ** AwsEc2NetworkInterfaceIpV6AddressDetail
+    AwsEc2NetworkInterfaceIpV6AddressDetail (AwsEc2NetworkInterfaceIpV6AddressDetail'),
+    newAwsEc2NetworkInterfaceIpV6AddressDetail,
+
+    -- ** AwsEc2NetworkInterfacePrivateIpAddressDetail
+    AwsEc2NetworkInterfacePrivateIpAddressDetail (AwsEc2NetworkInterfacePrivateIpAddressDetail'),
+    newAwsEc2NetworkInterfacePrivateIpAddressDetail,
+
+    -- ** AwsEc2NetworkInterfaceSecurityGroup
+    AwsEc2NetworkInterfaceSecurityGroup (AwsEc2NetworkInterfaceSecurityGroup'),
+    newAwsEc2NetworkInterfaceSecurityGroup,
+
+    -- ** AwsEc2SecurityGroupDetails
+    AwsEc2SecurityGroupDetails (AwsEc2SecurityGroupDetails'),
+    newAwsEc2SecurityGroupDetails,
+
+    -- ** AwsEc2SecurityGroupIpPermission
+    AwsEc2SecurityGroupIpPermission (AwsEc2SecurityGroupIpPermission'),
+    newAwsEc2SecurityGroupIpPermission,
+
+    -- ** AwsEc2SecurityGroupIpRange
+    AwsEc2SecurityGroupIpRange (AwsEc2SecurityGroupIpRange'),
+    newAwsEc2SecurityGroupIpRange,
+
+    -- ** AwsEc2SecurityGroupIpv6Range
+    AwsEc2SecurityGroupIpv6Range (AwsEc2SecurityGroupIpv6Range'),
+    newAwsEc2SecurityGroupIpv6Range,
+
+    -- ** AwsEc2SecurityGroupPrefixListId
+    AwsEc2SecurityGroupPrefixListId (AwsEc2SecurityGroupPrefixListId'),
+    newAwsEc2SecurityGroupPrefixListId,
+
+    -- ** AwsEc2SecurityGroupUserIdGroupPair
+    AwsEc2SecurityGroupUserIdGroupPair (AwsEc2SecurityGroupUserIdGroupPair'),
+    newAwsEc2SecurityGroupUserIdGroupPair,
+
+    -- ** AwsEc2SubnetDetails
+    AwsEc2SubnetDetails (AwsEc2SubnetDetails'),
+    newAwsEc2SubnetDetails,
+
+    -- ** AwsEc2VolumeAttachment
+    AwsEc2VolumeAttachment (AwsEc2VolumeAttachment'),
+    newAwsEc2VolumeAttachment,
+
+    -- ** AwsEc2VolumeDetails
+    AwsEc2VolumeDetails (AwsEc2VolumeDetails'),
+    newAwsEc2VolumeDetails,
+
+    -- ** AwsEc2VpcDetails
+    AwsEc2VpcDetails (AwsEc2VpcDetails'),
+    newAwsEc2VpcDetails,
+
+    -- ** AwsEc2VpcEndpointServiceDetails
+    AwsEc2VpcEndpointServiceDetails (AwsEc2VpcEndpointServiceDetails'),
+    newAwsEc2VpcEndpointServiceDetails,
+
+    -- ** AwsEc2VpcEndpointServiceServiceTypeDetails
+    AwsEc2VpcEndpointServiceServiceTypeDetails (AwsEc2VpcEndpointServiceServiceTypeDetails'),
+    newAwsEc2VpcEndpointServiceServiceTypeDetails,
+
+    -- ** AwsEc2VpnConnectionDetails
+    AwsEc2VpnConnectionDetails (AwsEc2VpnConnectionDetails'),
+    newAwsEc2VpnConnectionDetails,
+
+    -- ** AwsEc2VpnConnectionOptionsDetails
+    AwsEc2VpnConnectionOptionsDetails (AwsEc2VpnConnectionOptionsDetails'),
+    newAwsEc2VpnConnectionOptionsDetails,
+
+    -- ** AwsEc2VpnConnectionOptionsTunnelOptionsDetails
+    AwsEc2VpnConnectionOptionsTunnelOptionsDetails (AwsEc2VpnConnectionOptionsTunnelOptionsDetails'),
+    newAwsEc2VpnConnectionOptionsTunnelOptionsDetails,
+
+    -- ** AwsEc2VpnConnectionRoutesDetails
+    AwsEc2VpnConnectionRoutesDetails (AwsEc2VpnConnectionRoutesDetails'),
+    newAwsEc2VpnConnectionRoutesDetails,
+
+    -- ** AwsEc2VpnConnectionVgwTelemetryDetails
+    AwsEc2VpnConnectionVgwTelemetryDetails (AwsEc2VpnConnectionVgwTelemetryDetails'),
+    newAwsEc2VpnConnectionVgwTelemetryDetails,
+
+    -- ** AwsEcrContainerImageDetails
+    AwsEcrContainerImageDetails (AwsEcrContainerImageDetails'),
+    newAwsEcrContainerImageDetails,
+
+    -- ** AwsEcrRepositoryDetails
+    AwsEcrRepositoryDetails (AwsEcrRepositoryDetails'),
+    newAwsEcrRepositoryDetails,
+
+    -- ** AwsEcrRepositoryImageScanningConfigurationDetails
+    AwsEcrRepositoryImageScanningConfigurationDetails (AwsEcrRepositoryImageScanningConfigurationDetails'),
+    newAwsEcrRepositoryImageScanningConfigurationDetails,
+
+    -- ** AwsEcrRepositoryLifecyclePolicyDetails
+    AwsEcrRepositoryLifecyclePolicyDetails (AwsEcrRepositoryLifecyclePolicyDetails'),
+    newAwsEcrRepositoryLifecyclePolicyDetails,
+
+    -- ** AwsEcsClusterClusterSettingsDetails
+    AwsEcsClusterClusterSettingsDetails (AwsEcsClusterClusterSettingsDetails'),
+    newAwsEcsClusterClusterSettingsDetails,
+
+    -- ** AwsEcsClusterConfigurationDetails
+    AwsEcsClusterConfigurationDetails (AwsEcsClusterConfigurationDetails'),
+    newAwsEcsClusterConfigurationDetails,
+
+    -- ** AwsEcsClusterConfigurationExecuteCommandConfigurationDetails
+    AwsEcsClusterConfigurationExecuteCommandConfigurationDetails (AwsEcsClusterConfigurationExecuteCommandConfigurationDetails'),
+    newAwsEcsClusterConfigurationExecuteCommandConfigurationDetails,
+
+    -- ** AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails
+    AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails (AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails'),
+    newAwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails,
+
+    -- ** AwsEcsClusterDefaultCapacityProviderStrategyDetails
+    AwsEcsClusterDefaultCapacityProviderStrategyDetails (AwsEcsClusterDefaultCapacityProviderStrategyDetails'),
+    newAwsEcsClusterDefaultCapacityProviderStrategyDetails,
+
+    -- ** AwsEcsClusterDetails
+    AwsEcsClusterDetails (AwsEcsClusterDetails'),
+    newAwsEcsClusterDetails,
+
+    -- ** AwsEcsServiceCapacityProviderStrategyDetails
+    AwsEcsServiceCapacityProviderStrategyDetails (AwsEcsServiceCapacityProviderStrategyDetails'),
+    newAwsEcsServiceCapacityProviderStrategyDetails,
+
+    -- ** AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails
+    AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails (AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails'),
+    newAwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails,
+
+    -- ** AwsEcsServiceDeploymentConfigurationDetails
+    AwsEcsServiceDeploymentConfigurationDetails (AwsEcsServiceDeploymentConfigurationDetails'),
+    newAwsEcsServiceDeploymentConfigurationDetails,
+
+    -- ** AwsEcsServiceDeploymentControllerDetails
+    AwsEcsServiceDeploymentControllerDetails (AwsEcsServiceDeploymentControllerDetails'),
+    newAwsEcsServiceDeploymentControllerDetails,
+
+    -- ** AwsEcsServiceDetails
+    AwsEcsServiceDetails (AwsEcsServiceDetails'),
+    newAwsEcsServiceDetails,
+
+    -- ** AwsEcsServiceLoadBalancersDetails
+    AwsEcsServiceLoadBalancersDetails (AwsEcsServiceLoadBalancersDetails'),
+    newAwsEcsServiceLoadBalancersDetails,
+
+    -- ** AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails
+    AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails (AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails'),
+    newAwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails,
+
+    -- ** AwsEcsServiceNetworkConfigurationDetails
+    AwsEcsServiceNetworkConfigurationDetails (AwsEcsServiceNetworkConfigurationDetails'),
+    newAwsEcsServiceNetworkConfigurationDetails,
+
+    -- ** AwsEcsServicePlacementConstraintsDetails
+    AwsEcsServicePlacementConstraintsDetails (AwsEcsServicePlacementConstraintsDetails'),
+    newAwsEcsServicePlacementConstraintsDetails,
+
+    -- ** AwsEcsServicePlacementStrategiesDetails
+    AwsEcsServicePlacementStrategiesDetails (AwsEcsServicePlacementStrategiesDetails'),
+    newAwsEcsServicePlacementStrategiesDetails,
+
+    -- ** AwsEcsServiceServiceRegistriesDetails
+    AwsEcsServiceServiceRegistriesDetails (AwsEcsServiceServiceRegistriesDetails'),
+    newAwsEcsServiceServiceRegistriesDetails,
+
+    -- ** AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails
+    AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails (AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails'),
+    newAwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails,
+
+    -- ** AwsEcsTaskDefinitionContainerDefinitionsDetails
+    AwsEcsTaskDefinitionContainerDefinitionsDetails (AwsEcsTaskDefinitionContainerDefinitionsDetails'),
+    newAwsEcsTaskDefinitionContainerDefinitionsDetails,
+
+    -- ** AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails
+    AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails (AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails'),
+    newAwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails,
+
+    -- ** AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails
+    AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails (AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails'),
+    newAwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails,
+
+    -- ** AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+    AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails (AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails'),
+    newAwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails,
+
+    -- ** AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails
+    AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails (AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails'),
+    newAwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails,
+
+    -- ** AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails
+    AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails (AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails'),
+    newAwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails,
+
+    -- ** AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+    AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails (AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails'),
+    newAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails,
+
+    -- ** AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+    AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails (AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails'),
+    newAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails,
+
+    -- ** AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails
+    AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails (AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails'),
+    newAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails,
+
+    -- ** AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails
+    AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails (AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails'),
+    newAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails,
+
+    -- ** AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails
+    AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails (AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails'),
+    newAwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails,
+
+    -- ** AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails
+    AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails (AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails'),
+    newAwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails,
+
+    -- ** AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails
+    AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails (AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails'),
+    newAwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails,
+
+    -- ** AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails
+    AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails (AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails'),
+    newAwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails,
+
+    -- ** AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails
+    AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails (AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails'),
+    newAwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails,
+
+    -- ** AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails
+    AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails (AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails'),
+    newAwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails,
+
+    -- ** AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails
+    AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails (AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails'),
+    newAwsEcsTaskDefinitionContainerDefinitionsSecretsDetails,
+
+    -- ** AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails
+    AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails (AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails'),
+    newAwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails,
+
+    -- ** AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+    AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails (AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails'),
+    newAwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails,
+
+    -- ** AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails
+    AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails (AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails'),
+    newAwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails,
+
+    -- ** AwsEcsTaskDefinitionDetails
+    AwsEcsTaskDefinitionDetails (AwsEcsTaskDefinitionDetails'),
+    newAwsEcsTaskDefinitionDetails,
+
+    -- ** AwsEcsTaskDefinitionInferenceAcceleratorsDetails
+    AwsEcsTaskDefinitionInferenceAcceleratorsDetails (AwsEcsTaskDefinitionInferenceAcceleratorsDetails'),
+    newAwsEcsTaskDefinitionInferenceAcceleratorsDetails,
+
+    -- ** AwsEcsTaskDefinitionPlacementConstraintsDetails
+    AwsEcsTaskDefinitionPlacementConstraintsDetails (AwsEcsTaskDefinitionPlacementConstraintsDetails'),
+    newAwsEcsTaskDefinitionPlacementConstraintsDetails,
+
+    -- ** AwsEcsTaskDefinitionProxyConfigurationDetails
+    AwsEcsTaskDefinitionProxyConfigurationDetails (AwsEcsTaskDefinitionProxyConfigurationDetails'),
+    newAwsEcsTaskDefinitionProxyConfigurationDetails,
+
+    -- ** AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails
+    AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails (AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails'),
+    newAwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails,
+
+    -- ** AwsEcsTaskDefinitionVolumesDetails
+    AwsEcsTaskDefinitionVolumesDetails (AwsEcsTaskDefinitionVolumesDetails'),
+    newAwsEcsTaskDefinitionVolumesDetails,
+
+    -- ** AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails
+    AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails (AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails'),
+    newAwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails,
+
+    -- ** AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails
+    AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails (AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails'),
+    newAwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails,
+
+    -- ** AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails
+    AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails (AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails'),
+    newAwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails,
+
+    -- ** AwsEcsTaskDefinitionVolumesHostDetails
+    AwsEcsTaskDefinitionVolumesHostDetails (AwsEcsTaskDefinitionVolumesHostDetails'),
+    newAwsEcsTaskDefinitionVolumesHostDetails,
+
+    -- ** AwsEksClusterDetails
+    AwsEksClusterDetails (AwsEksClusterDetails'),
+    newAwsEksClusterDetails,
+
+    -- ** AwsEksClusterLoggingClusterLoggingDetails
+    AwsEksClusterLoggingClusterLoggingDetails (AwsEksClusterLoggingClusterLoggingDetails'),
+    newAwsEksClusterLoggingClusterLoggingDetails,
+
+    -- ** AwsEksClusterLoggingDetails
+    AwsEksClusterLoggingDetails (AwsEksClusterLoggingDetails'),
+    newAwsEksClusterLoggingDetails,
+
+    -- ** AwsEksClusterResourcesVpcConfigDetails
+    AwsEksClusterResourcesVpcConfigDetails (AwsEksClusterResourcesVpcConfigDetails'),
+    newAwsEksClusterResourcesVpcConfigDetails,
+
+    -- ** AwsElasticBeanstalkEnvironmentDetails
+    AwsElasticBeanstalkEnvironmentDetails (AwsElasticBeanstalkEnvironmentDetails'),
+    newAwsElasticBeanstalkEnvironmentDetails,
+
+    -- ** AwsElasticBeanstalkEnvironmentEnvironmentLink
+    AwsElasticBeanstalkEnvironmentEnvironmentLink (AwsElasticBeanstalkEnvironmentEnvironmentLink'),
+    newAwsElasticBeanstalkEnvironmentEnvironmentLink,
+
+    -- ** AwsElasticBeanstalkEnvironmentOptionSetting
+    AwsElasticBeanstalkEnvironmentOptionSetting (AwsElasticBeanstalkEnvironmentOptionSetting'),
+    newAwsElasticBeanstalkEnvironmentOptionSetting,
+
+    -- ** AwsElasticBeanstalkEnvironmentTier
+    AwsElasticBeanstalkEnvironmentTier (AwsElasticBeanstalkEnvironmentTier'),
+    newAwsElasticBeanstalkEnvironmentTier,
+
+    -- ** AwsElasticsearchDomainDetails
+    AwsElasticsearchDomainDetails (AwsElasticsearchDomainDetails'),
+    newAwsElasticsearchDomainDetails,
+
+    -- ** AwsElasticsearchDomainDomainEndpointOptions
+    AwsElasticsearchDomainDomainEndpointOptions (AwsElasticsearchDomainDomainEndpointOptions'),
+    newAwsElasticsearchDomainDomainEndpointOptions,
+
+    -- ** AwsElasticsearchDomainElasticsearchClusterConfigDetails
+    AwsElasticsearchDomainElasticsearchClusterConfigDetails (AwsElasticsearchDomainElasticsearchClusterConfigDetails'),
+    newAwsElasticsearchDomainElasticsearchClusterConfigDetails,
+
+    -- ** AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails
+    AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails (AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails'),
+    newAwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails,
+
+    -- ** AwsElasticsearchDomainEncryptionAtRestOptions
+    AwsElasticsearchDomainEncryptionAtRestOptions (AwsElasticsearchDomainEncryptionAtRestOptions'),
+    newAwsElasticsearchDomainEncryptionAtRestOptions,
+
+    -- ** AwsElasticsearchDomainLogPublishingOptions
+    AwsElasticsearchDomainLogPublishingOptions (AwsElasticsearchDomainLogPublishingOptions'),
+    newAwsElasticsearchDomainLogPublishingOptions,
+
+    -- ** AwsElasticsearchDomainLogPublishingOptionsLogConfig
+    AwsElasticsearchDomainLogPublishingOptionsLogConfig (AwsElasticsearchDomainLogPublishingOptionsLogConfig'),
+    newAwsElasticsearchDomainLogPublishingOptionsLogConfig,
+
+    -- ** AwsElasticsearchDomainNodeToNodeEncryptionOptions
+    AwsElasticsearchDomainNodeToNodeEncryptionOptions (AwsElasticsearchDomainNodeToNodeEncryptionOptions'),
+    newAwsElasticsearchDomainNodeToNodeEncryptionOptions,
+
+    -- ** AwsElasticsearchDomainServiceSoftwareOptions
+    AwsElasticsearchDomainServiceSoftwareOptions (AwsElasticsearchDomainServiceSoftwareOptions'),
+    newAwsElasticsearchDomainServiceSoftwareOptions,
+
+    -- ** AwsElasticsearchDomainVPCOptions
+    AwsElasticsearchDomainVPCOptions (AwsElasticsearchDomainVPCOptions'),
+    newAwsElasticsearchDomainVPCOptions,
+
+    -- ** AwsElbAppCookieStickinessPolicy
+    AwsElbAppCookieStickinessPolicy (AwsElbAppCookieStickinessPolicy'),
+    newAwsElbAppCookieStickinessPolicy,
+
+    -- ** AwsElbLbCookieStickinessPolicy
+    AwsElbLbCookieStickinessPolicy (AwsElbLbCookieStickinessPolicy'),
+    newAwsElbLbCookieStickinessPolicy,
+
+    -- ** AwsElbLoadBalancerAccessLog
+    AwsElbLoadBalancerAccessLog (AwsElbLoadBalancerAccessLog'),
+    newAwsElbLoadBalancerAccessLog,
+
+    -- ** AwsElbLoadBalancerAttributes
+    AwsElbLoadBalancerAttributes (AwsElbLoadBalancerAttributes'),
+    newAwsElbLoadBalancerAttributes,
+
+    -- ** AwsElbLoadBalancerBackendServerDescription
+    AwsElbLoadBalancerBackendServerDescription (AwsElbLoadBalancerBackendServerDescription'),
+    newAwsElbLoadBalancerBackendServerDescription,
+
+    -- ** AwsElbLoadBalancerConnectionDraining
+    AwsElbLoadBalancerConnectionDraining (AwsElbLoadBalancerConnectionDraining'),
+    newAwsElbLoadBalancerConnectionDraining,
+
+    -- ** AwsElbLoadBalancerConnectionSettings
+    AwsElbLoadBalancerConnectionSettings (AwsElbLoadBalancerConnectionSettings'),
+    newAwsElbLoadBalancerConnectionSettings,
+
+    -- ** AwsElbLoadBalancerCrossZoneLoadBalancing
+    AwsElbLoadBalancerCrossZoneLoadBalancing (AwsElbLoadBalancerCrossZoneLoadBalancing'),
+    newAwsElbLoadBalancerCrossZoneLoadBalancing,
+
+    -- ** AwsElbLoadBalancerDetails
+    AwsElbLoadBalancerDetails (AwsElbLoadBalancerDetails'),
+    newAwsElbLoadBalancerDetails,
+
+    -- ** AwsElbLoadBalancerHealthCheck
+    AwsElbLoadBalancerHealthCheck (AwsElbLoadBalancerHealthCheck'),
+    newAwsElbLoadBalancerHealthCheck,
+
+    -- ** AwsElbLoadBalancerInstance
+    AwsElbLoadBalancerInstance (AwsElbLoadBalancerInstance'),
+    newAwsElbLoadBalancerInstance,
+
+    -- ** AwsElbLoadBalancerListener
+    AwsElbLoadBalancerListener (AwsElbLoadBalancerListener'),
+    newAwsElbLoadBalancerListener,
+
+    -- ** AwsElbLoadBalancerListenerDescription
+    AwsElbLoadBalancerListenerDescription (AwsElbLoadBalancerListenerDescription'),
+    newAwsElbLoadBalancerListenerDescription,
+
+    -- ** AwsElbLoadBalancerPolicies
+    AwsElbLoadBalancerPolicies (AwsElbLoadBalancerPolicies'),
+    newAwsElbLoadBalancerPolicies,
+
+    -- ** AwsElbLoadBalancerSourceSecurityGroup
+    AwsElbLoadBalancerSourceSecurityGroup (AwsElbLoadBalancerSourceSecurityGroup'),
+    newAwsElbLoadBalancerSourceSecurityGroup,
+
+    -- ** AwsElbv2LoadBalancerAttribute
+    AwsElbv2LoadBalancerAttribute (AwsElbv2LoadBalancerAttribute'),
+    newAwsElbv2LoadBalancerAttribute,
+
+    -- ** AwsElbv2LoadBalancerDetails
+    AwsElbv2LoadBalancerDetails (AwsElbv2LoadBalancerDetails'),
+    newAwsElbv2LoadBalancerDetails,
+
+    -- ** AwsIamAccessKeyDetails
+    AwsIamAccessKeyDetails (AwsIamAccessKeyDetails'),
+    newAwsIamAccessKeyDetails,
+
+    -- ** AwsIamAccessKeySessionContext
+    AwsIamAccessKeySessionContext (AwsIamAccessKeySessionContext'),
+    newAwsIamAccessKeySessionContext,
+
+    -- ** AwsIamAccessKeySessionContextAttributes
+    AwsIamAccessKeySessionContextAttributes (AwsIamAccessKeySessionContextAttributes'),
+    newAwsIamAccessKeySessionContextAttributes,
+
+    -- ** AwsIamAccessKeySessionContextSessionIssuer
+    AwsIamAccessKeySessionContextSessionIssuer (AwsIamAccessKeySessionContextSessionIssuer'),
+    newAwsIamAccessKeySessionContextSessionIssuer,
+
+    -- ** AwsIamAttachedManagedPolicy
+    AwsIamAttachedManagedPolicy (AwsIamAttachedManagedPolicy'),
+    newAwsIamAttachedManagedPolicy,
+
+    -- ** AwsIamGroupDetails
+    AwsIamGroupDetails (AwsIamGroupDetails'),
+    newAwsIamGroupDetails,
+
+    -- ** AwsIamGroupPolicy
+    AwsIamGroupPolicy (AwsIamGroupPolicy'),
+    newAwsIamGroupPolicy,
+
+    -- ** AwsIamInstanceProfile
+    AwsIamInstanceProfile (AwsIamInstanceProfile'),
+    newAwsIamInstanceProfile,
+
+    -- ** AwsIamInstanceProfileRole
+    AwsIamInstanceProfileRole (AwsIamInstanceProfileRole'),
+    newAwsIamInstanceProfileRole,
+
+    -- ** AwsIamPermissionsBoundary
+    AwsIamPermissionsBoundary (AwsIamPermissionsBoundary'),
+    newAwsIamPermissionsBoundary,
+
+    -- ** AwsIamPolicyDetails
+    AwsIamPolicyDetails (AwsIamPolicyDetails'),
+    newAwsIamPolicyDetails,
+
+    -- ** AwsIamPolicyVersion
+    AwsIamPolicyVersion (AwsIamPolicyVersion'),
+    newAwsIamPolicyVersion,
+
+    -- ** AwsIamRoleDetails
+    AwsIamRoleDetails (AwsIamRoleDetails'),
+    newAwsIamRoleDetails,
+
+    -- ** AwsIamRolePolicy
+    AwsIamRolePolicy (AwsIamRolePolicy'),
+    newAwsIamRolePolicy,
+
+    -- ** AwsIamUserDetails
+    AwsIamUserDetails (AwsIamUserDetails'),
+    newAwsIamUserDetails,
+
+    -- ** AwsIamUserPolicy
+    AwsIamUserPolicy (AwsIamUserPolicy'),
+    newAwsIamUserPolicy,
+
+    -- ** AwsKmsKeyDetails
+    AwsKmsKeyDetails (AwsKmsKeyDetails'),
+    newAwsKmsKeyDetails,
+
+    -- ** AwsLambdaFunctionCode
+    AwsLambdaFunctionCode (AwsLambdaFunctionCode'),
+    newAwsLambdaFunctionCode,
+
+    -- ** AwsLambdaFunctionDeadLetterConfig
+    AwsLambdaFunctionDeadLetterConfig (AwsLambdaFunctionDeadLetterConfig'),
+    newAwsLambdaFunctionDeadLetterConfig,
+
+    -- ** AwsLambdaFunctionDetails
+    AwsLambdaFunctionDetails (AwsLambdaFunctionDetails'),
+    newAwsLambdaFunctionDetails,
+
+    -- ** AwsLambdaFunctionEnvironment
+    AwsLambdaFunctionEnvironment (AwsLambdaFunctionEnvironment'),
+    newAwsLambdaFunctionEnvironment,
+
+    -- ** AwsLambdaFunctionEnvironmentError
+    AwsLambdaFunctionEnvironmentError (AwsLambdaFunctionEnvironmentError'),
+    newAwsLambdaFunctionEnvironmentError,
+
+    -- ** AwsLambdaFunctionLayer
+    AwsLambdaFunctionLayer (AwsLambdaFunctionLayer'),
+    newAwsLambdaFunctionLayer,
+
+    -- ** AwsLambdaFunctionTracingConfig
+    AwsLambdaFunctionTracingConfig (AwsLambdaFunctionTracingConfig'),
+    newAwsLambdaFunctionTracingConfig,
+
+    -- ** AwsLambdaFunctionVpcConfig
+    AwsLambdaFunctionVpcConfig (AwsLambdaFunctionVpcConfig'),
+    newAwsLambdaFunctionVpcConfig,
+
+    -- ** AwsLambdaLayerVersionDetails
+    AwsLambdaLayerVersionDetails (AwsLambdaLayerVersionDetails'),
+    newAwsLambdaLayerVersionDetails,
+
+    -- ** AwsOpenSearchServiceDomainClusterConfigDetails
+    AwsOpenSearchServiceDomainClusterConfigDetails (AwsOpenSearchServiceDomainClusterConfigDetails'),
+    newAwsOpenSearchServiceDomainClusterConfigDetails,
+
+    -- ** AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails
+    AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails (AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails'),
+    newAwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails,
+
+    -- ** AwsOpenSearchServiceDomainDetails
+    AwsOpenSearchServiceDomainDetails (AwsOpenSearchServiceDomainDetails'),
+    newAwsOpenSearchServiceDomainDetails,
+
+    -- ** AwsOpenSearchServiceDomainDomainEndpointOptionsDetails
+    AwsOpenSearchServiceDomainDomainEndpointOptionsDetails (AwsOpenSearchServiceDomainDomainEndpointOptionsDetails'),
+    newAwsOpenSearchServiceDomainDomainEndpointOptionsDetails,
+
+    -- ** AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails
+    AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails (AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails'),
+    newAwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails,
+
+    -- ** AwsOpenSearchServiceDomainLogPublishingOption
+    AwsOpenSearchServiceDomainLogPublishingOption (AwsOpenSearchServiceDomainLogPublishingOption'),
+    newAwsOpenSearchServiceDomainLogPublishingOption,
+
+    -- ** AwsOpenSearchServiceDomainLogPublishingOptionsDetails
+    AwsOpenSearchServiceDomainLogPublishingOptionsDetails (AwsOpenSearchServiceDomainLogPublishingOptionsDetails'),
+    newAwsOpenSearchServiceDomainLogPublishingOptionsDetails,
+
+    -- ** AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails
+    AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails (AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails'),
+    newAwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails,
+
+    -- ** AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+    AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails (AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails'),
+    newAwsOpenSearchServiceDomainServiceSoftwareOptionsDetails,
+
+    -- ** AwsOpenSearchServiceDomainVpcOptionsDetails
+    AwsOpenSearchServiceDomainVpcOptionsDetails (AwsOpenSearchServiceDomainVpcOptionsDetails'),
+    newAwsOpenSearchServiceDomainVpcOptionsDetails,
+
+    -- ** AwsRdsDbClusterAssociatedRole
+    AwsRdsDbClusterAssociatedRole (AwsRdsDbClusterAssociatedRole'),
+    newAwsRdsDbClusterAssociatedRole,
+
+    -- ** AwsRdsDbClusterDetails
+    AwsRdsDbClusterDetails (AwsRdsDbClusterDetails'),
+    newAwsRdsDbClusterDetails,
+
+    -- ** AwsRdsDbClusterMember
+    AwsRdsDbClusterMember (AwsRdsDbClusterMember'),
+    newAwsRdsDbClusterMember,
+
+    -- ** AwsRdsDbClusterOptionGroupMembership
+    AwsRdsDbClusterOptionGroupMembership (AwsRdsDbClusterOptionGroupMembership'),
+    newAwsRdsDbClusterOptionGroupMembership,
+
+    -- ** AwsRdsDbClusterSnapshotDetails
+    AwsRdsDbClusterSnapshotDetails (AwsRdsDbClusterSnapshotDetails'),
+    newAwsRdsDbClusterSnapshotDetails,
+
+    -- ** AwsRdsDbDomainMembership
+    AwsRdsDbDomainMembership (AwsRdsDbDomainMembership'),
+    newAwsRdsDbDomainMembership,
+
+    -- ** AwsRdsDbInstanceAssociatedRole
+    AwsRdsDbInstanceAssociatedRole (AwsRdsDbInstanceAssociatedRole'),
+    newAwsRdsDbInstanceAssociatedRole,
+
+    -- ** AwsRdsDbInstanceDetails
+    AwsRdsDbInstanceDetails (AwsRdsDbInstanceDetails'),
+    newAwsRdsDbInstanceDetails,
+
+    -- ** AwsRdsDbInstanceEndpoint
+    AwsRdsDbInstanceEndpoint (AwsRdsDbInstanceEndpoint'),
+    newAwsRdsDbInstanceEndpoint,
+
+    -- ** AwsRdsDbInstanceVpcSecurityGroup
+    AwsRdsDbInstanceVpcSecurityGroup (AwsRdsDbInstanceVpcSecurityGroup'),
+    newAwsRdsDbInstanceVpcSecurityGroup,
+
+    -- ** AwsRdsDbOptionGroupMembership
+    AwsRdsDbOptionGroupMembership (AwsRdsDbOptionGroupMembership'),
+    newAwsRdsDbOptionGroupMembership,
+
+    -- ** AwsRdsDbParameterGroup
+    AwsRdsDbParameterGroup (AwsRdsDbParameterGroup'),
+    newAwsRdsDbParameterGroup,
+
+    -- ** AwsRdsDbPendingModifiedValues
+    AwsRdsDbPendingModifiedValues (AwsRdsDbPendingModifiedValues'),
+    newAwsRdsDbPendingModifiedValues,
+
+    -- ** AwsRdsDbProcessorFeature
+    AwsRdsDbProcessorFeature (AwsRdsDbProcessorFeature'),
+    newAwsRdsDbProcessorFeature,
+
+    -- ** AwsRdsDbSnapshotDetails
+    AwsRdsDbSnapshotDetails (AwsRdsDbSnapshotDetails'),
+    newAwsRdsDbSnapshotDetails,
+
+    -- ** AwsRdsDbStatusInfo
+    AwsRdsDbStatusInfo (AwsRdsDbStatusInfo'),
+    newAwsRdsDbStatusInfo,
+
+    -- ** AwsRdsDbSubnetGroup
+    AwsRdsDbSubnetGroup (AwsRdsDbSubnetGroup'),
+    newAwsRdsDbSubnetGroup,
+
+    -- ** AwsRdsDbSubnetGroupSubnet
+    AwsRdsDbSubnetGroupSubnet (AwsRdsDbSubnetGroupSubnet'),
+    newAwsRdsDbSubnetGroupSubnet,
+
+    -- ** AwsRdsDbSubnetGroupSubnetAvailabilityZone
+    AwsRdsDbSubnetGroupSubnetAvailabilityZone (AwsRdsDbSubnetGroupSubnetAvailabilityZone'),
+    newAwsRdsDbSubnetGroupSubnetAvailabilityZone,
+
+    -- ** AwsRdsEventSubscriptionDetails
+    AwsRdsEventSubscriptionDetails (AwsRdsEventSubscriptionDetails'),
+    newAwsRdsEventSubscriptionDetails,
+
+    -- ** AwsRdsPendingCloudWatchLogsExports
+    AwsRdsPendingCloudWatchLogsExports (AwsRdsPendingCloudWatchLogsExports'),
+    newAwsRdsPendingCloudWatchLogsExports,
+
+    -- ** AwsRedshiftClusterClusterNode
+    AwsRedshiftClusterClusterNode (AwsRedshiftClusterClusterNode'),
+    newAwsRedshiftClusterClusterNode,
+
+    -- ** AwsRedshiftClusterClusterParameterGroup
+    AwsRedshiftClusterClusterParameterGroup (AwsRedshiftClusterClusterParameterGroup'),
+    newAwsRedshiftClusterClusterParameterGroup,
+
+    -- ** AwsRedshiftClusterClusterParameterStatus
+    AwsRedshiftClusterClusterParameterStatus (AwsRedshiftClusterClusterParameterStatus'),
+    newAwsRedshiftClusterClusterParameterStatus,
+
+    -- ** AwsRedshiftClusterClusterSecurityGroup
+    AwsRedshiftClusterClusterSecurityGroup (AwsRedshiftClusterClusterSecurityGroup'),
+    newAwsRedshiftClusterClusterSecurityGroup,
+
+    -- ** AwsRedshiftClusterClusterSnapshotCopyStatus
+    AwsRedshiftClusterClusterSnapshotCopyStatus (AwsRedshiftClusterClusterSnapshotCopyStatus'),
+    newAwsRedshiftClusterClusterSnapshotCopyStatus,
+
+    -- ** AwsRedshiftClusterDeferredMaintenanceWindow
+    AwsRedshiftClusterDeferredMaintenanceWindow (AwsRedshiftClusterDeferredMaintenanceWindow'),
+    newAwsRedshiftClusterDeferredMaintenanceWindow,
+
+    -- ** AwsRedshiftClusterDetails
+    AwsRedshiftClusterDetails (AwsRedshiftClusterDetails'),
+    newAwsRedshiftClusterDetails,
+
+    -- ** AwsRedshiftClusterElasticIpStatus
+    AwsRedshiftClusterElasticIpStatus (AwsRedshiftClusterElasticIpStatus'),
+    newAwsRedshiftClusterElasticIpStatus,
+
+    -- ** AwsRedshiftClusterEndpoint
+    AwsRedshiftClusterEndpoint (AwsRedshiftClusterEndpoint'),
+    newAwsRedshiftClusterEndpoint,
+
+    -- ** AwsRedshiftClusterHsmStatus
+    AwsRedshiftClusterHsmStatus (AwsRedshiftClusterHsmStatus'),
+    newAwsRedshiftClusterHsmStatus,
+
+    -- ** AwsRedshiftClusterIamRole
+    AwsRedshiftClusterIamRole (AwsRedshiftClusterIamRole'),
+    newAwsRedshiftClusterIamRole,
+
+    -- ** AwsRedshiftClusterPendingModifiedValues
+    AwsRedshiftClusterPendingModifiedValues (AwsRedshiftClusterPendingModifiedValues'),
+    newAwsRedshiftClusterPendingModifiedValues,
+
+    -- ** AwsRedshiftClusterResizeInfo
+    AwsRedshiftClusterResizeInfo (AwsRedshiftClusterResizeInfo'),
+    newAwsRedshiftClusterResizeInfo,
+
+    -- ** AwsRedshiftClusterRestoreStatus
+    AwsRedshiftClusterRestoreStatus (AwsRedshiftClusterRestoreStatus'),
+    newAwsRedshiftClusterRestoreStatus,
+
+    -- ** AwsRedshiftClusterVpcSecurityGroup
+    AwsRedshiftClusterVpcSecurityGroup (AwsRedshiftClusterVpcSecurityGroup'),
+    newAwsRedshiftClusterVpcSecurityGroup,
+
+    -- ** AwsS3AccountPublicAccessBlockDetails
+    AwsS3AccountPublicAccessBlockDetails (AwsS3AccountPublicAccessBlockDetails'),
+    newAwsS3AccountPublicAccessBlockDetails,
+
+    -- ** AwsS3BucketBucketLifecycleConfigurationDetails
+    AwsS3BucketBucketLifecycleConfigurationDetails (AwsS3BucketBucketLifecycleConfigurationDetails'),
+    newAwsS3BucketBucketLifecycleConfigurationDetails,
+
+    -- ** AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails
+    AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails (AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails'),
+    newAwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails,
+
+    -- ** AwsS3BucketBucketLifecycleConfigurationRulesDetails
+    AwsS3BucketBucketLifecycleConfigurationRulesDetails (AwsS3BucketBucketLifecycleConfigurationRulesDetails'),
+    newAwsS3BucketBucketLifecycleConfigurationRulesDetails,
+
+    -- ** AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails
+    AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails (AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails'),
+    newAwsS3BucketBucketLifecycleConfigurationRulesFilterDetails,
+
+    -- ** AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails
+    AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails (AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails'),
+    newAwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails,
+
+    -- ** AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails
+    AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails (AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails'),
+    newAwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails,
+
+    -- ** AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails
+    AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails (AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails'),
+    newAwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails,
+
+    -- ** AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails
+    AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails (AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails'),
+    newAwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails,
+
+    -- ** AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails
+    AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails (AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails'),
+    newAwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails,
+
+    -- ** AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails
+    AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails (AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails'),
+    newAwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails,
+
+    -- ** AwsS3BucketDetails
+    AwsS3BucketDetails (AwsS3BucketDetails'),
+    newAwsS3BucketDetails,
+
+    -- ** AwsS3BucketLoggingConfiguration
+    AwsS3BucketLoggingConfiguration (AwsS3BucketLoggingConfiguration'),
+    newAwsS3BucketLoggingConfiguration,
+
+    -- ** AwsS3BucketNotificationConfiguration
+    AwsS3BucketNotificationConfiguration (AwsS3BucketNotificationConfiguration'),
+    newAwsS3BucketNotificationConfiguration,
+
+    -- ** AwsS3BucketNotificationConfigurationDetail
+    AwsS3BucketNotificationConfigurationDetail (AwsS3BucketNotificationConfigurationDetail'),
+    newAwsS3BucketNotificationConfigurationDetail,
+
+    -- ** AwsS3BucketNotificationConfigurationFilter
+    AwsS3BucketNotificationConfigurationFilter (AwsS3BucketNotificationConfigurationFilter'),
+    newAwsS3BucketNotificationConfigurationFilter,
+
+    -- ** AwsS3BucketNotificationConfigurationS3KeyFilter
+    AwsS3BucketNotificationConfigurationS3KeyFilter (AwsS3BucketNotificationConfigurationS3KeyFilter'),
+    newAwsS3BucketNotificationConfigurationS3KeyFilter,
+
+    -- ** AwsS3BucketNotificationConfigurationS3KeyFilterRule
+    AwsS3BucketNotificationConfigurationS3KeyFilterRule (AwsS3BucketNotificationConfigurationS3KeyFilterRule'),
+    newAwsS3BucketNotificationConfigurationS3KeyFilterRule,
+
+    -- ** AwsS3BucketServerSideEncryptionByDefault
+    AwsS3BucketServerSideEncryptionByDefault (AwsS3BucketServerSideEncryptionByDefault'),
+    newAwsS3BucketServerSideEncryptionByDefault,
+
+    -- ** AwsS3BucketServerSideEncryptionConfiguration
+    AwsS3BucketServerSideEncryptionConfiguration (AwsS3BucketServerSideEncryptionConfiguration'),
+    newAwsS3BucketServerSideEncryptionConfiguration,
+
+    -- ** AwsS3BucketServerSideEncryptionRule
+    AwsS3BucketServerSideEncryptionRule (AwsS3BucketServerSideEncryptionRule'),
+    newAwsS3BucketServerSideEncryptionRule,
+
+    -- ** AwsS3BucketWebsiteConfiguration
+    AwsS3BucketWebsiteConfiguration (AwsS3BucketWebsiteConfiguration'),
+    newAwsS3BucketWebsiteConfiguration,
+
+    -- ** AwsS3BucketWebsiteConfigurationRedirectTo
+    AwsS3BucketWebsiteConfigurationRedirectTo (AwsS3BucketWebsiteConfigurationRedirectTo'),
+    newAwsS3BucketWebsiteConfigurationRedirectTo,
+
+    -- ** AwsS3BucketWebsiteConfigurationRoutingRule
+    AwsS3BucketWebsiteConfigurationRoutingRule (AwsS3BucketWebsiteConfigurationRoutingRule'),
+    newAwsS3BucketWebsiteConfigurationRoutingRule,
+
+    -- ** AwsS3BucketWebsiteConfigurationRoutingRuleCondition
+    AwsS3BucketWebsiteConfigurationRoutingRuleCondition (AwsS3BucketWebsiteConfigurationRoutingRuleCondition'),
+    newAwsS3BucketWebsiteConfigurationRoutingRuleCondition,
+
+    -- ** AwsS3BucketWebsiteConfigurationRoutingRuleRedirect
+    AwsS3BucketWebsiteConfigurationRoutingRuleRedirect (AwsS3BucketWebsiteConfigurationRoutingRuleRedirect'),
+    newAwsS3BucketWebsiteConfigurationRoutingRuleRedirect,
+
+    -- ** AwsS3ObjectDetails
+    AwsS3ObjectDetails (AwsS3ObjectDetails'),
+    newAwsS3ObjectDetails,
+
+    -- ** AwsSecretsManagerSecretDetails
+    AwsSecretsManagerSecretDetails (AwsSecretsManagerSecretDetails'),
+    newAwsSecretsManagerSecretDetails,
+
+    -- ** AwsSecretsManagerSecretRotationRules
+    AwsSecretsManagerSecretRotationRules (AwsSecretsManagerSecretRotationRules'),
+    newAwsSecretsManagerSecretRotationRules,
+
+    -- ** AwsSecurityFinding
+    AwsSecurityFinding (AwsSecurityFinding'),
+    newAwsSecurityFinding,
+
+    -- ** AwsSecurityFindingFilters
+    AwsSecurityFindingFilters (AwsSecurityFindingFilters'),
+    newAwsSecurityFindingFilters,
+
+    -- ** AwsSecurityFindingIdentifier
+    AwsSecurityFindingIdentifier (AwsSecurityFindingIdentifier'),
+    newAwsSecurityFindingIdentifier,
+
+    -- ** AwsSnsTopicDetails
+    AwsSnsTopicDetails (AwsSnsTopicDetails'),
+    newAwsSnsTopicDetails,
+
+    -- ** AwsSnsTopicSubscription
+    AwsSnsTopicSubscription (AwsSnsTopicSubscription'),
+    newAwsSnsTopicSubscription,
+
+    -- ** AwsSqsQueueDetails
+    AwsSqsQueueDetails (AwsSqsQueueDetails'),
+    newAwsSqsQueueDetails,
+
+    -- ** AwsSsmComplianceSummary
+    AwsSsmComplianceSummary (AwsSsmComplianceSummary'),
+    newAwsSsmComplianceSummary,
+
+    -- ** AwsSsmPatch
+    AwsSsmPatch (AwsSsmPatch'),
+    newAwsSsmPatch,
+
+    -- ** AwsSsmPatchComplianceDetails
+    AwsSsmPatchComplianceDetails (AwsSsmPatchComplianceDetails'),
+    newAwsSsmPatchComplianceDetails,
+
+    -- ** AwsWafRateBasedRuleDetails
+    AwsWafRateBasedRuleDetails (AwsWafRateBasedRuleDetails'),
+    newAwsWafRateBasedRuleDetails,
+
+    -- ** AwsWafRateBasedRuleMatchPredicate
+    AwsWafRateBasedRuleMatchPredicate (AwsWafRateBasedRuleMatchPredicate'),
+    newAwsWafRateBasedRuleMatchPredicate,
+
+    -- ** AwsWafRegionalRateBasedRuleDetails
+    AwsWafRegionalRateBasedRuleDetails (AwsWafRegionalRateBasedRuleDetails'),
+    newAwsWafRegionalRateBasedRuleDetails,
+
+    -- ** AwsWafRegionalRateBasedRuleMatchPredicate
+    AwsWafRegionalRateBasedRuleMatchPredicate (AwsWafRegionalRateBasedRuleMatchPredicate'),
+    newAwsWafRegionalRateBasedRuleMatchPredicate,
+
+    -- ** AwsWafWebAclDetails
+    AwsWafWebAclDetails (AwsWafWebAclDetails'),
+    newAwsWafWebAclDetails,
+
+    -- ** AwsWafWebAclRule
+    AwsWafWebAclRule (AwsWafWebAclRule'),
+    newAwsWafWebAclRule,
+
+    -- ** AwsXrayEncryptionConfigDetails
+    AwsXrayEncryptionConfigDetails (AwsXrayEncryptionConfigDetails'),
+    newAwsXrayEncryptionConfigDetails,
+
+    -- ** BatchUpdateFindingsUnprocessedFinding
+    BatchUpdateFindingsUnprocessedFinding (BatchUpdateFindingsUnprocessedFinding'),
+    newBatchUpdateFindingsUnprocessedFinding,
+
+    -- ** Cell
+    Cell (Cell'),
+    newCell,
+
+    -- ** CidrBlockAssociation
+    CidrBlockAssociation (CidrBlockAssociation'),
+    newCidrBlockAssociation,
+
+    -- ** City
+    City (City'),
+    newCity,
+
+    -- ** ClassificationResult
+    ClassificationResult (ClassificationResult'),
+    newClassificationResult,
+
+    -- ** ClassificationStatus
+    ClassificationStatus (ClassificationStatus'),
+    newClassificationStatus,
+
+    -- ** Compliance
+    Compliance (Compliance'),
+    newCompliance,
+
+    -- ** ContainerDetails
+    ContainerDetails (ContainerDetails'),
+    newContainerDetails,
+
+    -- ** Country
+    Country (Country'),
+    newCountry,
+
+    -- ** CustomDataIdentifiersDetections
+    CustomDataIdentifiersDetections (CustomDataIdentifiersDetections'),
+    newCustomDataIdentifiersDetections,
+
+    -- ** CustomDataIdentifiersResult
+    CustomDataIdentifiersResult (CustomDataIdentifiersResult'),
+    newCustomDataIdentifiersResult,
+
+    -- ** Cvss
+    Cvss (Cvss'),
+    newCvss,
+
+    -- ** DataClassificationDetails
+    DataClassificationDetails (DataClassificationDetails'),
+    newDataClassificationDetails,
+
+    -- ** DateFilter
+    DateFilter (DateFilter'),
+    newDateFilter,
+
+    -- ** DateRange
+    DateRange (DateRange'),
+    newDateRange,
+
+    -- ** DnsRequestAction
+    DnsRequestAction (DnsRequestAction'),
+    newDnsRequestAction,
+
+    -- ** FindingAggregator
+    FindingAggregator (FindingAggregator'),
+    newFindingAggregator,
+
+    -- ** FindingProviderFields
+    FindingProviderFields (FindingProviderFields'),
+    newFindingProviderFields,
+
+    -- ** FindingProviderSeverity
+    FindingProviderSeverity (FindingProviderSeverity'),
+    newFindingProviderSeverity,
+
+    -- ** GeoLocation
+    GeoLocation (GeoLocation'),
+    newGeoLocation,
+
+    -- ** IcmpTypeCode
+    IcmpTypeCode (IcmpTypeCode'),
+    newIcmpTypeCode,
+
+    -- ** ImportFindingsError
+    ImportFindingsError (ImportFindingsError'),
+    newImportFindingsError,
+
+    -- ** Insight
+    Insight (Insight'),
+    newInsight,
+
+    -- ** InsightResultValue
+    InsightResultValue (InsightResultValue'),
+    newInsightResultValue,
+
+    -- ** InsightResults
+    InsightResults (InsightResults'),
+    newInsightResults,
+
+    -- ** Invitation
+    Invitation (Invitation'),
+    newInvitation,
+
+    -- ** IpFilter
+    IpFilter (IpFilter'),
+    newIpFilter,
+
+    -- ** IpOrganizationDetails
+    IpOrganizationDetails (IpOrganizationDetails'),
+    newIpOrganizationDetails,
+
+    -- ** Ipv6CidrBlockAssociation
+    Ipv6CidrBlockAssociation (Ipv6CidrBlockAssociation'),
+    newIpv6CidrBlockAssociation,
+
+    -- ** KeywordFilter
+    KeywordFilter (KeywordFilter'),
+    newKeywordFilter,
+
+    -- ** LoadBalancerState
+    LoadBalancerState (LoadBalancerState'),
+    newLoadBalancerState,
+
+    -- ** Malware
+    Malware (Malware'),
+    newMalware,
+
+    -- ** MapFilter
+    MapFilter (MapFilter'),
+    newMapFilter,
+
+    -- ** Member
+    Member (Member'),
+    newMember,
+
+    -- ** Network
+    Network (Network'),
+    newNetwork,
+
+    -- ** NetworkConnectionAction
+    NetworkConnectionAction (NetworkConnectionAction'),
+    newNetworkConnectionAction,
+
+    -- ** NetworkHeader
+    NetworkHeader (NetworkHeader'),
+    newNetworkHeader,
+
+    -- ** NetworkPathComponent
+    NetworkPathComponent (NetworkPathComponent'),
+    newNetworkPathComponent,
+
+    -- ** NetworkPathComponentDetails
+    NetworkPathComponentDetails (NetworkPathComponentDetails'),
+    newNetworkPathComponentDetails,
+
+    -- ** Note
+    Note (Note'),
+    newNote,
+
+    -- ** NoteUpdate
+    NoteUpdate (NoteUpdate'),
+    newNoteUpdate,
+
+    -- ** NumberFilter
+    NumberFilter (NumberFilter'),
+    newNumberFilter,
+
+    -- ** Occurrences
+    Occurrences (Occurrences'),
+    newOccurrences,
+
+    -- ** Page
+    Page (Page'),
+    newPage,
+
+    -- ** PatchSummary
+    PatchSummary (PatchSummary'),
+    newPatchSummary,
+
+    -- ** PortProbeAction
+    PortProbeAction (PortProbeAction'),
+    newPortProbeAction,
+
+    -- ** PortProbeDetail
+    PortProbeDetail (PortProbeDetail'),
+    newPortProbeDetail,
+
+    -- ** PortRange
+    PortRange (PortRange'),
+    newPortRange,
+
+    -- ** PortRangeFromTo
+    PortRangeFromTo (PortRangeFromTo'),
+    newPortRangeFromTo,
+
+    -- ** ProcessDetails
+    ProcessDetails (ProcessDetails'),
+    newProcessDetails,
+
+    -- ** Product
+    Product (Product'),
+    newProduct,
+
+    -- ** Range
+    Range (Range'),
+    newRange,
+
+    -- ** Recommendation
+    Recommendation (Recommendation'),
+    newRecommendation,
+
+    -- ** Record
+    Record (Record'),
+    newRecord,
+
+    -- ** RelatedFinding
+    RelatedFinding (RelatedFinding'),
+    newRelatedFinding,
+
+    -- ** Remediation
+    Remediation (Remediation'),
+    newRemediation,
+
+    -- ** Resource
+    Resource (Resource'),
+    newResource,
+
+    -- ** ResourceDetails
+    ResourceDetails (ResourceDetails'),
+    newResourceDetails,
+
+    -- ** Result
+    Result (Result'),
+    newResult,
+
+    -- ** SensitiveDataDetections
+    SensitiveDataDetections (SensitiveDataDetections'),
+    newSensitiveDataDetections,
+
+    -- ** SensitiveDataResult
+    SensitiveDataResult (SensitiveDataResult'),
+    newSensitiveDataResult,
+
+    -- ** Severity
+    Severity (Severity'),
+    newSeverity,
+
+    -- ** SeverityUpdate
+    SeverityUpdate (SeverityUpdate'),
+    newSeverityUpdate,
+
+    -- ** SoftwarePackage
+    SoftwarePackage (SoftwarePackage'),
+    newSoftwarePackage,
+
+    -- ** SortCriterion
+    SortCriterion (SortCriterion'),
+    newSortCriterion,
+
+    -- ** Standard
+    Standard (Standard'),
+    newStandard,
+
+    -- ** StandardsControl
+    StandardsControl (StandardsControl'),
+    newStandardsControl,
+
+    -- ** StandardsSubscription
+    StandardsSubscription (StandardsSubscription'),
+    newStandardsSubscription,
+
+    -- ** StandardsSubscriptionRequest
+    StandardsSubscriptionRequest (StandardsSubscriptionRequest'),
+    newStandardsSubscriptionRequest,
+
+    -- ** StatusReason
+    StatusReason (StatusReason'),
+    newStatusReason,
+
+    -- ** StringFilter
+    StringFilter (StringFilter'),
+    newStringFilter,
+
+    -- ** ThreatIntelIndicator
+    ThreatIntelIndicator (ThreatIntelIndicator'),
+    newThreatIntelIndicator,
+
+    -- ** Vulnerability
+    Vulnerability (Vulnerability'),
+    newVulnerability,
+
+    -- ** VulnerabilityVendor
+    VulnerabilityVendor (VulnerabilityVendor'),
+    newVulnerabilityVendor,
+
+    -- ** WafAction
+    WafAction (WafAction'),
+    newWafAction,
+
+    -- ** WafExcludedRule
+    WafExcludedRule (WafExcludedRule'),
+    newWafExcludedRule,
+
+    -- ** WafOverrideAction
+    WafOverrideAction (WafOverrideAction'),
+    newWafOverrideAction,
+
+    -- ** Workflow
+    Workflow (Workflow'),
+    newWorkflow,
+
+    -- ** WorkflowUpdate
+    WorkflowUpdate (WorkflowUpdate'),
+    newWorkflowUpdate,
+  )
+where
+
+import Amazonka.SecurityHub.AcceptAdministratorInvitation
+import Amazonka.SecurityHub.BatchDisableStandards
+import Amazonka.SecurityHub.BatchEnableStandards
+import Amazonka.SecurityHub.BatchImportFindings
+import Amazonka.SecurityHub.BatchUpdateFindings
+import Amazonka.SecurityHub.CreateActionTarget
+import Amazonka.SecurityHub.CreateFindingAggregator
+import Amazonka.SecurityHub.CreateInsight
+import Amazonka.SecurityHub.CreateMembers
+import Amazonka.SecurityHub.DeclineInvitations
+import Amazonka.SecurityHub.DeleteActionTarget
+import Amazonka.SecurityHub.DeleteFindingAggregator
+import Amazonka.SecurityHub.DeleteInsight
+import Amazonka.SecurityHub.DeleteInvitations
+import Amazonka.SecurityHub.DeleteMembers
+import Amazonka.SecurityHub.DescribeActionTargets
+import Amazonka.SecurityHub.DescribeHub
+import Amazonka.SecurityHub.DescribeOrganizationConfiguration
+import Amazonka.SecurityHub.DescribeProducts
+import Amazonka.SecurityHub.DescribeStandards
+import Amazonka.SecurityHub.DescribeStandardsControls
+import Amazonka.SecurityHub.DisableImportFindingsForProduct
+import Amazonka.SecurityHub.DisableOrganizationAdminAccount
+import Amazonka.SecurityHub.DisableSecurityHub
+import Amazonka.SecurityHub.DisassociateFromAdministratorAccount
+import Amazonka.SecurityHub.DisassociateMembers
+import Amazonka.SecurityHub.EnableImportFindingsForProduct
+import Amazonka.SecurityHub.EnableOrganizationAdminAccount
+import Amazonka.SecurityHub.EnableSecurityHub
+import Amazonka.SecurityHub.GetAdministratorAccount
+import Amazonka.SecurityHub.GetEnabledStandards
+import Amazonka.SecurityHub.GetFindingAggregator
+import Amazonka.SecurityHub.GetFindings
+import Amazonka.SecurityHub.GetInsightResults
+import Amazonka.SecurityHub.GetInsights
+import Amazonka.SecurityHub.GetInvitationsCount
+import Amazonka.SecurityHub.GetMembers
+import Amazonka.SecurityHub.InviteMembers
+import Amazonka.SecurityHub.Lens
+import Amazonka.SecurityHub.ListEnabledProductsForImport
+import Amazonka.SecurityHub.ListFindingAggregators
+import Amazonka.SecurityHub.ListInvitations
+import Amazonka.SecurityHub.ListMembers
+import Amazonka.SecurityHub.ListOrganizationAdminAccounts
+import Amazonka.SecurityHub.ListTagsForResource
+import Amazonka.SecurityHub.TagResource
+import Amazonka.SecurityHub.Types
+import Amazonka.SecurityHub.UntagResource
+import Amazonka.SecurityHub.UpdateActionTarget
+import Amazonka.SecurityHub.UpdateFindingAggregator
+import Amazonka.SecurityHub.UpdateFindings
+import Amazonka.SecurityHub.UpdateInsight
+import Amazonka.SecurityHub.UpdateOrganizationConfiguration
+import Amazonka.SecurityHub.UpdateSecurityHubConfiguration
+import Amazonka.SecurityHub.UpdateStandardsControl
+import Amazonka.SecurityHub.Waiters
+
+-- $errors
+-- Error matchers are designed for use with the functions provided by
+-- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+-- This allows catching (and rethrowing) service specific errors returned
+-- by 'SecurityHub'.
+
+-- $operations
+-- Some AWS operations return results that are incomplete and require subsequent
+-- requests in order to obtain the entire result set. The process of sending
+-- subsequent requests to continue where a previous request left off is called
+-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+-- 1000 objects at a time, and you must send subsequent requests with the
+-- appropriate Marker in order to retrieve the next page of results.
+--
+-- Operations that have an 'AWSPager' instance can transparently perform subsequent
+-- requests, correctly setting Markers and other request facets to iterate through
+-- the entire result set of a truncated API operation. Operations which support
+-- this have an additional note in the documentation.
+--
+-- Many operations have the ability to filter results on the server side. See the
+-- individual operation parameters for details.
+
+-- $waiters
+-- Waiters poll by repeatedly sending a request until some remote success condition
+-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+-- determines how many attempts should be made, in addition to delay and retry strategies.

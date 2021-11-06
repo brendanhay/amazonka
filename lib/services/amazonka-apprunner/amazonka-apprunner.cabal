@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.AppRunner.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.AppRunner.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.AppRunner" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.AppRunner" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,68 +45,68 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.AppRunner
-    Network.AWS.AppRunner.AssociateCustomDomain
-    Network.AWS.AppRunner.CreateAutoScalingConfiguration
-    Network.AWS.AppRunner.CreateConnection
-    Network.AWS.AppRunner.CreateService
-    Network.AWS.AppRunner.DeleteAutoScalingConfiguration
-    Network.AWS.AppRunner.DeleteConnection
-    Network.AWS.AppRunner.DeleteService
-    Network.AWS.AppRunner.DescribeAutoScalingConfiguration
-    Network.AWS.AppRunner.DescribeCustomDomains
-    Network.AWS.AppRunner.DescribeService
-    Network.AWS.AppRunner.DisassociateCustomDomain
-    Network.AWS.AppRunner.Lens
-    Network.AWS.AppRunner.ListAutoScalingConfigurations
-    Network.AWS.AppRunner.ListConnections
-    Network.AWS.AppRunner.ListOperations
-    Network.AWS.AppRunner.ListServices
-    Network.AWS.AppRunner.ListTagsForResource
-    Network.AWS.AppRunner.PauseService
-    Network.AWS.AppRunner.ResumeService
-    Network.AWS.AppRunner.StartDeployment
-    Network.AWS.AppRunner.TagResource
-    Network.AWS.AppRunner.Types
-    Network.AWS.AppRunner.Types.AuthenticationConfiguration
-    Network.AWS.AppRunner.Types.AutoScalingConfiguration
-    Network.AWS.AppRunner.Types.AutoScalingConfigurationStatus
-    Network.AWS.AppRunner.Types.AutoScalingConfigurationSummary
-    Network.AWS.AppRunner.Types.CertificateValidationRecord
-    Network.AWS.AppRunner.Types.CertificateValidationRecordStatus
-    Network.AWS.AppRunner.Types.CodeConfiguration
-    Network.AWS.AppRunner.Types.CodeConfigurationValues
-    Network.AWS.AppRunner.Types.CodeRepository
-    Network.AWS.AppRunner.Types.ConfigurationSource
-    Network.AWS.AppRunner.Types.Connection
-    Network.AWS.AppRunner.Types.ConnectionStatus
-    Network.AWS.AppRunner.Types.ConnectionSummary
-    Network.AWS.AppRunner.Types.CustomDomain
-    Network.AWS.AppRunner.Types.CustomDomainAssociationStatus
-    Network.AWS.AppRunner.Types.EncryptionConfiguration
-    Network.AWS.AppRunner.Types.HealthCheckConfiguration
-    Network.AWS.AppRunner.Types.HealthCheckProtocol
-    Network.AWS.AppRunner.Types.ImageConfiguration
-    Network.AWS.AppRunner.Types.ImageRepository
-    Network.AWS.AppRunner.Types.ImageRepositoryType
-    Network.AWS.AppRunner.Types.InstanceConfiguration
-    Network.AWS.AppRunner.Types.OperationStatus
-    Network.AWS.AppRunner.Types.OperationSummary
-    Network.AWS.AppRunner.Types.OperationType
-    Network.AWS.AppRunner.Types.ProviderType
-    Network.AWS.AppRunner.Types.Runtime
-    Network.AWS.AppRunner.Types.Service
-    Network.AWS.AppRunner.Types.ServiceStatus
-    Network.AWS.AppRunner.Types.ServiceSummary
-    Network.AWS.AppRunner.Types.SourceCodeVersion
-    Network.AWS.AppRunner.Types.SourceCodeVersionType
-    Network.AWS.AppRunner.Types.SourceConfiguration
-    Network.AWS.AppRunner.Types.Tag
-    Network.AWS.AppRunner.UntagResource
-    Network.AWS.AppRunner.UpdateService
-    Network.AWS.AppRunner.Waiters
+    Amazonka.AppRunner
+    Amazonka.AppRunner.AssociateCustomDomain
+    Amazonka.AppRunner.CreateAutoScalingConfiguration
+    Amazonka.AppRunner.CreateConnection
+    Amazonka.AppRunner.CreateService
+    Amazonka.AppRunner.DeleteAutoScalingConfiguration
+    Amazonka.AppRunner.DeleteConnection
+    Amazonka.AppRunner.DeleteService
+    Amazonka.AppRunner.DescribeAutoScalingConfiguration
+    Amazonka.AppRunner.DescribeCustomDomains
+    Amazonka.AppRunner.DescribeService
+    Amazonka.AppRunner.DisassociateCustomDomain
+    Amazonka.AppRunner.Lens
+    Amazonka.AppRunner.ListAutoScalingConfigurations
+    Amazonka.AppRunner.ListConnections
+    Amazonka.AppRunner.ListOperations
+    Amazonka.AppRunner.ListServices
+    Amazonka.AppRunner.ListTagsForResource
+    Amazonka.AppRunner.PauseService
+    Amazonka.AppRunner.ResumeService
+    Amazonka.AppRunner.StartDeployment
+    Amazonka.AppRunner.TagResource
+    Amazonka.AppRunner.Types
+    Amazonka.AppRunner.Types.AuthenticationConfiguration
+    Amazonka.AppRunner.Types.AutoScalingConfiguration
+    Amazonka.AppRunner.Types.AutoScalingConfigurationStatus
+    Amazonka.AppRunner.Types.AutoScalingConfigurationSummary
+    Amazonka.AppRunner.Types.CertificateValidationRecord
+    Amazonka.AppRunner.Types.CertificateValidationRecordStatus
+    Amazonka.AppRunner.Types.CodeConfiguration
+    Amazonka.AppRunner.Types.CodeConfigurationValues
+    Amazonka.AppRunner.Types.CodeRepository
+    Amazonka.AppRunner.Types.ConfigurationSource
+    Amazonka.AppRunner.Types.Connection
+    Amazonka.AppRunner.Types.ConnectionStatus
+    Amazonka.AppRunner.Types.ConnectionSummary
+    Amazonka.AppRunner.Types.CustomDomain
+    Amazonka.AppRunner.Types.CustomDomainAssociationStatus
+    Amazonka.AppRunner.Types.EncryptionConfiguration
+    Amazonka.AppRunner.Types.HealthCheckConfiguration
+    Amazonka.AppRunner.Types.HealthCheckProtocol
+    Amazonka.AppRunner.Types.ImageConfiguration
+    Amazonka.AppRunner.Types.ImageRepository
+    Amazonka.AppRunner.Types.ImageRepositoryType
+    Amazonka.AppRunner.Types.InstanceConfiguration
+    Amazonka.AppRunner.Types.OperationStatus
+    Amazonka.AppRunner.Types.OperationSummary
+    Amazonka.AppRunner.Types.OperationType
+    Amazonka.AppRunner.Types.ProviderType
+    Amazonka.AppRunner.Types.Runtime
+    Amazonka.AppRunner.Types.Service
+    Amazonka.AppRunner.Types.ServiceStatus
+    Amazonka.AppRunner.Types.ServiceSummary
+    Amazonka.AppRunner.Types.SourceCodeVersion
+    Amazonka.AppRunner.Types.SourceCodeVersionType
+    Amazonka.AppRunner.Types.SourceConfiguration
+    Amazonka.AppRunner.Types.Tag
+    Amazonka.AppRunner.UntagResource
+    Amazonka.AppRunner.UpdateService
+    Amazonka.AppRunner.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -122,9 +122,9 @@ test-suite amazonka-apprunner-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.AppRunner
-    Test.AWS.AppRunner.Internal
-    Test.AWS.Gen.AppRunner
+    Test.Amazonka.AppRunner
+    Test.Amazonka.AppRunner.Internal
+    Test.Amazonka.Gen.AppRunner
 
   build-depends:
     , amazonka              ^>=2.0

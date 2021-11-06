@@ -25,7 +25,7 @@ de/serialisation into more palatable Haskell values.
 The provided lenses should be compatible with any of the major lens libraries
 [lens](http://hackage.haskell.org/package/lens) or [lens-family-core](http://hackage.haskell.org/package/lens-family-core).
 
-See [Network.AWS.IoTDeviceAdvisor](http://hackage.haskell.org/package/amazonka-iotdeviceadvisor/docs/Network-AWS-IoTDeviceAdvisor.html)
+See [Amazonka.IoTDeviceAdvisor](http://hackage.haskell.org/package/amazonka-iotdeviceadvisor/docs/Amazonka-IoTDeviceAdvisor.html)
 or [the AWS documentation](https://aws.amazon.com/documentation/) to get started.
 
 

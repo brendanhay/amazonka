@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.CodeArtifact.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.CodeArtifact.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.CodeArtifact" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.CodeArtifact" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,70 +45,70 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.CodeArtifact
-    Network.AWS.CodeArtifact.AssociateExternalConnection
-    Network.AWS.CodeArtifact.CopyPackageVersions
-    Network.AWS.CodeArtifact.CreateDomain
-    Network.AWS.CodeArtifact.CreateRepository
-    Network.AWS.CodeArtifact.DeleteDomain
-    Network.AWS.CodeArtifact.DeleteDomainPermissionsPolicy
-    Network.AWS.CodeArtifact.DeletePackageVersions
-    Network.AWS.CodeArtifact.DeleteRepository
-    Network.AWS.CodeArtifact.DeleteRepositoryPermissionsPolicy
-    Network.AWS.CodeArtifact.DescribeDomain
-    Network.AWS.CodeArtifact.DescribePackageVersion
-    Network.AWS.CodeArtifact.DescribeRepository
-    Network.AWS.CodeArtifact.DisassociateExternalConnection
-    Network.AWS.CodeArtifact.DisposePackageVersions
-    Network.AWS.CodeArtifact.GetAuthorizationToken
-    Network.AWS.CodeArtifact.GetDomainPermissionsPolicy
-    Network.AWS.CodeArtifact.GetPackageVersionAsset
-    Network.AWS.CodeArtifact.GetPackageVersionReadme
-    Network.AWS.CodeArtifact.GetRepositoryEndpoint
-    Network.AWS.CodeArtifact.GetRepositoryPermissionsPolicy
-    Network.AWS.CodeArtifact.Lens
-    Network.AWS.CodeArtifact.ListDomains
-    Network.AWS.CodeArtifact.ListPackages
-    Network.AWS.CodeArtifact.ListPackageVersionAssets
-    Network.AWS.CodeArtifact.ListPackageVersionDependencies
-    Network.AWS.CodeArtifact.ListPackageVersions
-    Network.AWS.CodeArtifact.ListRepositories
-    Network.AWS.CodeArtifact.ListRepositoriesInDomain
-    Network.AWS.CodeArtifact.ListTagsForResource
-    Network.AWS.CodeArtifact.PutDomainPermissionsPolicy
-    Network.AWS.CodeArtifact.PutRepositoryPermissionsPolicy
-    Network.AWS.CodeArtifact.TagResource
-    Network.AWS.CodeArtifact.Types
-    Network.AWS.CodeArtifact.Types.AssetSummary
-    Network.AWS.CodeArtifact.Types.DomainDescription
-    Network.AWS.CodeArtifact.Types.DomainStatus
-    Network.AWS.CodeArtifact.Types.DomainSummary
-    Network.AWS.CodeArtifact.Types.ExternalConnectionStatus
-    Network.AWS.CodeArtifact.Types.HashAlgorithm
-    Network.AWS.CodeArtifact.Types.LicenseInfo
-    Network.AWS.CodeArtifact.Types.PackageDependency
-    Network.AWS.CodeArtifact.Types.PackageFormat
-    Network.AWS.CodeArtifact.Types.PackageSummary
-    Network.AWS.CodeArtifact.Types.PackageVersionDescription
-    Network.AWS.CodeArtifact.Types.PackageVersionError
-    Network.AWS.CodeArtifact.Types.PackageVersionErrorCode
-    Network.AWS.CodeArtifact.Types.PackageVersionSortType
-    Network.AWS.CodeArtifact.Types.PackageVersionStatus
-    Network.AWS.CodeArtifact.Types.PackageVersionSummary
-    Network.AWS.CodeArtifact.Types.RepositoryDescription
-    Network.AWS.CodeArtifact.Types.RepositoryExternalConnectionInfo
-    Network.AWS.CodeArtifact.Types.RepositorySummary
-    Network.AWS.CodeArtifact.Types.ResourcePolicy
-    Network.AWS.CodeArtifact.Types.SuccessfulPackageVersionInfo
-    Network.AWS.CodeArtifact.Types.Tag
-    Network.AWS.CodeArtifact.Types.UpstreamRepository
-    Network.AWS.CodeArtifact.Types.UpstreamRepositoryInfo
-    Network.AWS.CodeArtifact.UntagResource
-    Network.AWS.CodeArtifact.UpdatePackageVersionsStatus
-    Network.AWS.CodeArtifact.UpdateRepository
-    Network.AWS.CodeArtifact.Waiters
+    Amazonka.CodeArtifact
+    Amazonka.CodeArtifact.AssociateExternalConnection
+    Amazonka.CodeArtifact.CopyPackageVersions
+    Amazonka.CodeArtifact.CreateDomain
+    Amazonka.CodeArtifact.CreateRepository
+    Amazonka.CodeArtifact.DeleteDomain
+    Amazonka.CodeArtifact.DeleteDomainPermissionsPolicy
+    Amazonka.CodeArtifact.DeletePackageVersions
+    Amazonka.CodeArtifact.DeleteRepository
+    Amazonka.CodeArtifact.DeleteRepositoryPermissionsPolicy
+    Amazonka.CodeArtifact.DescribeDomain
+    Amazonka.CodeArtifact.DescribePackageVersion
+    Amazonka.CodeArtifact.DescribeRepository
+    Amazonka.CodeArtifact.DisassociateExternalConnection
+    Amazonka.CodeArtifact.DisposePackageVersions
+    Amazonka.CodeArtifact.GetAuthorizationToken
+    Amazonka.CodeArtifact.GetDomainPermissionsPolicy
+    Amazonka.CodeArtifact.GetPackageVersionAsset
+    Amazonka.CodeArtifact.GetPackageVersionReadme
+    Amazonka.CodeArtifact.GetRepositoryEndpoint
+    Amazonka.CodeArtifact.GetRepositoryPermissionsPolicy
+    Amazonka.CodeArtifact.Lens
+    Amazonka.CodeArtifact.ListDomains
+    Amazonka.CodeArtifact.ListPackages
+    Amazonka.CodeArtifact.ListPackageVersionAssets
+    Amazonka.CodeArtifact.ListPackageVersionDependencies
+    Amazonka.CodeArtifact.ListPackageVersions
+    Amazonka.CodeArtifact.ListRepositories
+    Amazonka.CodeArtifact.ListRepositoriesInDomain
+    Amazonka.CodeArtifact.ListTagsForResource
+    Amazonka.CodeArtifact.PutDomainPermissionsPolicy
+    Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy
+    Amazonka.CodeArtifact.TagResource
+    Amazonka.CodeArtifact.Types
+    Amazonka.CodeArtifact.Types.AssetSummary
+    Amazonka.CodeArtifact.Types.DomainDescription
+    Amazonka.CodeArtifact.Types.DomainStatus
+    Amazonka.CodeArtifact.Types.DomainSummary
+    Amazonka.CodeArtifact.Types.ExternalConnectionStatus
+    Amazonka.CodeArtifact.Types.HashAlgorithm
+    Amazonka.CodeArtifact.Types.LicenseInfo
+    Amazonka.CodeArtifact.Types.PackageDependency
+    Amazonka.CodeArtifact.Types.PackageFormat
+    Amazonka.CodeArtifact.Types.PackageSummary
+    Amazonka.CodeArtifact.Types.PackageVersionDescription
+    Amazonka.CodeArtifact.Types.PackageVersionError
+    Amazonka.CodeArtifact.Types.PackageVersionErrorCode
+    Amazonka.CodeArtifact.Types.PackageVersionSortType
+    Amazonka.CodeArtifact.Types.PackageVersionStatus
+    Amazonka.CodeArtifact.Types.PackageVersionSummary
+    Amazonka.CodeArtifact.Types.RepositoryDescription
+    Amazonka.CodeArtifact.Types.RepositoryExternalConnectionInfo
+    Amazonka.CodeArtifact.Types.RepositorySummary
+    Amazonka.CodeArtifact.Types.ResourcePolicy
+    Amazonka.CodeArtifact.Types.SuccessfulPackageVersionInfo
+    Amazonka.CodeArtifact.Types.Tag
+    Amazonka.CodeArtifact.Types.UpstreamRepository
+    Amazonka.CodeArtifact.Types.UpstreamRepositoryInfo
+    Amazonka.CodeArtifact.UntagResource
+    Amazonka.CodeArtifact.UpdatePackageVersionsStatus
+    Amazonka.CodeArtifact.UpdateRepository
+    Amazonka.CodeArtifact.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -124,9 +124,9 @@ test-suite amazonka-codeartifact-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CodeArtifact
-    Test.AWS.CodeArtifact.Internal
-    Test.AWS.Gen.CodeArtifact
+    Test.Amazonka.CodeArtifact
+    Test.Amazonka.CodeArtifact.Internal
+    Test.Amazonka.Gen.CodeArtifact
 
   build-depends:
     , amazonka               ^>=2.0

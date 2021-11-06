@@ -1,0 +1,199 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Amazonka.IoTWireless.SendDataToWirelessDevice
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Sends a decrypted application data frame to a device.
+module Amazonka.IoTWireless.SendDataToWirelessDevice
+  ( -- * Creating a Request
+    SendDataToWirelessDevice (..),
+    newSendDataToWirelessDevice,
+
+    -- * Request Lenses
+    sendDataToWirelessDevice_wirelessMetadata,
+    sendDataToWirelessDevice_id,
+    sendDataToWirelessDevice_transmitMode,
+    sendDataToWirelessDevice_payloadData,
+
+    -- * Destructuring the Response
+    SendDataToWirelessDeviceResponse (..),
+    newSendDataToWirelessDeviceResponse,
+
+    -- * Response Lenses
+    sendDataToWirelessDeviceResponse_messageId,
+    sendDataToWirelessDeviceResponse_httpStatus,
+  )
+where
+
+import qualified Amazonka.Core as Core
+import Amazonka.IoTWireless.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+
+-- | /See:/ 'newSendDataToWirelessDevice' smart constructor.
+data SendDataToWirelessDevice = SendDataToWirelessDevice'
+  { -- | Metadata about the message request.
+    wirelessMetadata :: Prelude.Maybe WirelessMetadata,
+    -- | The ID of the wireless device to receive the data.
+    id :: Prelude.Text,
+    -- | The transmit mode to use to send data to the wireless device. Can be:
+    -- @0@ for UM (unacknowledge mode) or @1@ for AM (acknowledge mode).
+    transmitMode :: Prelude.Natural,
+    -- | The binary to be sent to the end device, encoded in base64.
+    payloadData :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'SendDataToWirelessDevice' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'wirelessMetadata', 'sendDataToWirelessDevice_wirelessMetadata' - Metadata about the message request.
+--
+-- 'id', 'sendDataToWirelessDevice_id' - The ID of the wireless device to receive the data.
+--
+-- 'transmitMode', 'sendDataToWirelessDevice_transmitMode' - The transmit mode to use to send data to the wireless device. Can be:
+-- @0@ for UM (unacknowledge mode) or @1@ for AM (acknowledge mode).
+--
+-- 'payloadData', 'sendDataToWirelessDevice_payloadData' - The binary to be sent to the end device, encoded in base64.
+newSendDataToWirelessDevice ::
+  -- | 'id'
+  Prelude.Text ->
+  -- | 'transmitMode'
+  Prelude.Natural ->
+  -- | 'payloadData'
+  Prelude.Text ->
+  SendDataToWirelessDevice
+newSendDataToWirelessDevice
+  pId_
+  pTransmitMode_
+  pPayloadData_ =
+    SendDataToWirelessDevice'
+      { wirelessMetadata =
+          Prelude.Nothing,
+        id = pId_,
+        transmitMode = pTransmitMode_,
+        payloadData = pPayloadData_
+      }
+
+-- | Metadata about the message request.
+sendDataToWirelessDevice_wirelessMetadata :: Lens.Lens' SendDataToWirelessDevice (Prelude.Maybe WirelessMetadata)
+sendDataToWirelessDevice_wirelessMetadata = Lens.lens (\SendDataToWirelessDevice' {wirelessMetadata} -> wirelessMetadata) (\s@SendDataToWirelessDevice' {} a -> s {wirelessMetadata = a} :: SendDataToWirelessDevice)
+
+-- | The ID of the wireless device to receive the data.
+sendDataToWirelessDevice_id :: Lens.Lens' SendDataToWirelessDevice Prelude.Text
+sendDataToWirelessDevice_id = Lens.lens (\SendDataToWirelessDevice' {id} -> id) (\s@SendDataToWirelessDevice' {} a -> s {id = a} :: SendDataToWirelessDevice)
+
+-- | The transmit mode to use to send data to the wireless device. Can be:
+-- @0@ for UM (unacknowledge mode) or @1@ for AM (acknowledge mode).
+sendDataToWirelessDevice_transmitMode :: Lens.Lens' SendDataToWirelessDevice Prelude.Natural
+sendDataToWirelessDevice_transmitMode = Lens.lens (\SendDataToWirelessDevice' {transmitMode} -> transmitMode) (\s@SendDataToWirelessDevice' {} a -> s {transmitMode = a} :: SendDataToWirelessDevice)
+
+-- | The binary to be sent to the end device, encoded in base64.
+sendDataToWirelessDevice_payloadData :: Lens.Lens' SendDataToWirelessDevice Prelude.Text
+sendDataToWirelessDevice_payloadData = Lens.lens (\SendDataToWirelessDevice' {payloadData} -> payloadData) (\s@SendDataToWirelessDevice' {} a -> s {payloadData = a} :: SendDataToWirelessDevice)
+
+instance Core.AWSRequest SendDataToWirelessDevice where
+  type
+    AWSResponse SendDataToWirelessDevice =
+      SendDataToWirelessDeviceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          SendDataToWirelessDeviceResponse'
+            Prelude.<$> (x Core..?> "MessageId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable SendDataToWirelessDevice
+
+instance Prelude.NFData SendDataToWirelessDevice
+
+instance Core.ToHeaders SendDataToWirelessDevice where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToJSON SendDataToWirelessDevice where
+  toJSON SendDataToWirelessDevice' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("WirelessMetadata" Core..=)
+              Prelude.<$> wirelessMetadata,
+            Prelude.Just ("TransmitMode" Core..= transmitMode),
+            Prelude.Just ("PayloadData" Core..= payloadData)
+          ]
+      )
+
+instance Core.ToPath SendDataToWirelessDevice where
+  toPath SendDataToWirelessDevice' {..} =
+    Prelude.mconcat
+      ["/wireless-devices/", Core.toBS id, "/data"]
+
+instance Core.ToQuery SendDataToWirelessDevice where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newSendDataToWirelessDeviceResponse' smart constructor.
+data SendDataToWirelessDeviceResponse = SendDataToWirelessDeviceResponse'
+  { -- | The ID of the message sent to the wireless device.
+    messageId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'SendDataToWirelessDeviceResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'messageId', 'sendDataToWirelessDeviceResponse_messageId' - The ID of the message sent to the wireless device.
+--
+-- 'httpStatus', 'sendDataToWirelessDeviceResponse_httpStatus' - The response's http status code.
+newSendDataToWirelessDeviceResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  SendDataToWirelessDeviceResponse
+newSendDataToWirelessDeviceResponse pHttpStatus_ =
+  SendDataToWirelessDeviceResponse'
+    { messageId =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The ID of the message sent to the wireless device.
+sendDataToWirelessDeviceResponse_messageId :: Lens.Lens' SendDataToWirelessDeviceResponse (Prelude.Maybe Prelude.Text)
+sendDataToWirelessDeviceResponse_messageId = Lens.lens (\SendDataToWirelessDeviceResponse' {messageId} -> messageId) (\s@SendDataToWirelessDeviceResponse' {} a -> s {messageId = a} :: SendDataToWirelessDeviceResponse)
+
+-- | The response's http status code.
+sendDataToWirelessDeviceResponse_httpStatus :: Lens.Lens' SendDataToWirelessDeviceResponse Prelude.Int
+sendDataToWirelessDeviceResponse_httpStatus = Lens.lens (\SendDataToWirelessDeviceResponse' {httpStatus} -> httpStatus) (\s@SendDataToWirelessDeviceResponse' {} a -> s {httpStatus = a} :: SendDataToWirelessDeviceResponse)
+
+instance
+  Prelude.NFData
+    SendDataToWirelessDeviceResponse

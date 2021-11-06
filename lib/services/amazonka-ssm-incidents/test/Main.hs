@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.SSMIncidents
-import Test.AWS.SSMIncidents.Internal
+import Test.Amazonka.SSMIncidents
+import Test.Amazonka.SSMIncidents.Internal
 import Test.Tasty
 
 main :: IO ()

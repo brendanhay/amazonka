@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.FraudDetector.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.FraudDetector.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.FraudDetector" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.FraudDetector" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,136 +45,136 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.FraudDetector
-    Network.AWS.FraudDetector.BatchCreateVariable
-    Network.AWS.FraudDetector.BatchGetVariable
-    Network.AWS.FraudDetector.CancelBatchImportJob
-    Network.AWS.FraudDetector.CancelBatchPredictionJob
-    Network.AWS.FraudDetector.CreateBatchImportJob
-    Network.AWS.FraudDetector.CreateBatchPredictionJob
-    Network.AWS.FraudDetector.CreateDetectorVersion
-    Network.AWS.FraudDetector.CreateModel
-    Network.AWS.FraudDetector.CreateModelVersion
-    Network.AWS.FraudDetector.CreateRule
-    Network.AWS.FraudDetector.CreateVariable
-    Network.AWS.FraudDetector.DeleteBatchImportJob
-    Network.AWS.FraudDetector.DeleteBatchPredictionJob
-    Network.AWS.FraudDetector.DeleteDetector
-    Network.AWS.FraudDetector.DeleteDetectorVersion
-    Network.AWS.FraudDetector.DeleteEntityType
-    Network.AWS.FraudDetector.DeleteEvent
-    Network.AWS.FraudDetector.DeleteEventsByEventType
-    Network.AWS.FraudDetector.DeleteEventType
-    Network.AWS.FraudDetector.DeleteExternalModel
-    Network.AWS.FraudDetector.DeleteLabel
-    Network.AWS.FraudDetector.DeleteModel
-    Network.AWS.FraudDetector.DeleteModelVersion
-    Network.AWS.FraudDetector.DeleteOutcome
-    Network.AWS.FraudDetector.DeleteRule
-    Network.AWS.FraudDetector.DeleteVariable
-    Network.AWS.FraudDetector.DescribeDetector
-    Network.AWS.FraudDetector.DescribeModelVersions
-    Network.AWS.FraudDetector.GetBatchImportJobs
-    Network.AWS.FraudDetector.GetBatchPredictionJobs
-    Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus
-    Network.AWS.FraudDetector.GetDetectors
-    Network.AWS.FraudDetector.GetDetectorVersion
-    Network.AWS.FraudDetector.GetEntityTypes
-    Network.AWS.FraudDetector.GetEvent
-    Network.AWS.FraudDetector.GetEventPrediction
-    Network.AWS.FraudDetector.GetEventTypes
-    Network.AWS.FraudDetector.GetExternalModels
-    Network.AWS.FraudDetector.GetKMSEncryptionKey
-    Network.AWS.FraudDetector.GetLabels
-    Network.AWS.FraudDetector.GetModels
-    Network.AWS.FraudDetector.GetModelVersion
-    Network.AWS.FraudDetector.GetOutcomes
-    Network.AWS.FraudDetector.GetRules
-    Network.AWS.FraudDetector.GetVariables
-    Network.AWS.FraudDetector.Lens
-    Network.AWS.FraudDetector.ListTagsForResource
-    Network.AWS.FraudDetector.PutDetector
-    Network.AWS.FraudDetector.PutEntityType
-    Network.AWS.FraudDetector.PutEventType
-    Network.AWS.FraudDetector.PutExternalModel
-    Network.AWS.FraudDetector.PutKMSEncryptionKey
-    Network.AWS.FraudDetector.PutLabel
-    Network.AWS.FraudDetector.PutOutcome
-    Network.AWS.FraudDetector.SendEvent
-    Network.AWS.FraudDetector.TagResource
-    Network.AWS.FraudDetector.Types
-    Network.AWS.FraudDetector.Types.AsyncJobStatus
-    Network.AWS.FraudDetector.Types.BatchCreateVariableError
-    Network.AWS.FraudDetector.Types.BatchGetVariableError
-    Network.AWS.FraudDetector.Types.BatchImport
-    Network.AWS.FraudDetector.Types.BatchPrediction
-    Network.AWS.FraudDetector.Types.DataSource
-    Network.AWS.FraudDetector.Types.DataType
-    Network.AWS.FraudDetector.Types.DataValidationMetrics
-    Network.AWS.FraudDetector.Types.Detector
-    Network.AWS.FraudDetector.Types.DetectorVersionStatus
-    Network.AWS.FraudDetector.Types.DetectorVersionSummary
-    Network.AWS.FraudDetector.Types.Entity
-    Network.AWS.FraudDetector.Types.EntityType
-    Network.AWS.FraudDetector.Types.Event
-    Network.AWS.FraudDetector.Types.EventIngestion
-    Network.AWS.FraudDetector.Types.EventType
-    Network.AWS.FraudDetector.Types.ExternalEventsDetail
-    Network.AWS.FraudDetector.Types.ExternalModel
-    Network.AWS.FraudDetector.Types.ExternalModelOutputs
-    Network.AWS.FraudDetector.Types.ExternalModelSummary
-    Network.AWS.FraudDetector.Types.FieldValidationMessage
-    Network.AWS.FraudDetector.Types.FileValidationMessage
-    Network.AWS.FraudDetector.Types.IngestedEventsDetail
-    Network.AWS.FraudDetector.Types.IngestedEventStatistics
-    Network.AWS.FraudDetector.Types.IngestedEventsTimeWindow
-    Network.AWS.FraudDetector.Types.KMSKey
-    Network.AWS.FraudDetector.Types.Label
-    Network.AWS.FraudDetector.Types.LabelSchema
-    Network.AWS.FraudDetector.Types.Language
-    Network.AWS.FraudDetector.Types.LogOddsMetric
-    Network.AWS.FraudDetector.Types.MetricDataPoint
-    Network.AWS.FraudDetector.Types.Model
-    Network.AWS.FraudDetector.Types.ModelEndpointDataBlob
-    Network.AWS.FraudDetector.Types.ModelEndpointStatus
-    Network.AWS.FraudDetector.Types.ModelInputConfiguration
-    Network.AWS.FraudDetector.Types.ModelInputDataFormat
-    Network.AWS.FraudDetector.Types.ModelOutputConfiguration
-    Network.AWS.FraudDetector.Types.ModelOutputDataFormat
-    Network.AWS.FraudDetector.Types.ModelScores
-    Network.AWS.FraudDetector.Types.ModelSource
-    Network.AWS.FraudDetector.Types.ModelTypeEnum
-    Network.AWS.FraudDetector.Types.ModelVersion
-    Network.AWS.FraudDetector.Types.ModelVersionDetail
-    Network.AWS.FraudDetector.Types.ModelVersionStatus
-    Network.AWS.FraudDetector.Types.Outcome
-    Network.AWS.FraudDetector.Types.Rule
-    Network.AWS.FraudDetector.Types.RuleDetail
-    Network.AWS.FraudDetector.Types.RuleExecutionMode
-    Network.AWS.FraudDetector.Types.RuleResult
-    Network.AWS.FraudDetector.Types.Tag
-    Network.AWS.FraudDetector.Types.TrainingDataSchema
-    Network.AWS.FraudDetector.Types.TrainingDataSourceEnum
-    Network.AWS.FraudDetector.Types.TrainingMetrics
-    Network.AWS.FraudDetector.Types.TrainingResult
-    Network.AWS.FraudDetector.Types.UnlabeledEventsTreatment
-    Network.AWS.FraudDetector.Types.Variable
-    Network.AWS.FraudDetector.Types.VariableEntry
-    Network.AWS.FraudDetector.Types.VariableImportanceMetrics
-    Network.AWS.FraudDetector.UntagResource
-    Network.AWS.FraudDetector.UpdateDetectorVersion
-    Network.AWS.FraudDetector.UpdateDetectorVersionMetadata
-    Network.AWS.FraudDetector.UpdateDetectorVersionStatus
-    Network.AWS.FraudDetector.UpdateEventLabel
-    Network.AWS.FraudDetector.UpdateModel
-    Network.AWS.FraudDetector.UpdateModelVersion
-    Network.AWS.FraudDetector.UpdateModelVersionStatus
-    Network.AWS.FraudDetector.UpdateRuleMetadata
-    Network.AWS.FraudDetector.UpdateRuleVersion
-    Network.AWS.FraudDetector.UpdateVariable
-    Network.AWS.FraudDetector.Waiters
+    Amazonka.FraudDetector
+    Amazonka.FraudDetector.BatchCreateVariable
+    Amazonka.FraudDetector.BatchGetVariable
+    Amazonka.FraudDetector.CancelBatchImportJob
+    Amazonka.FraudDetector.CancelBatchPredictionJob
+    Amazonka.FraudDetector.CreateBatchImportJob
+    Amazonka.FraudDetector.CreateBatchPredictionJob
+    Amazonka.FraudDetector.CreateDetectorVersion
+    Amazonka.FraudDetector.CreateModel
+    Amazonka.FraudDetector.CreateModelVersion
+    Amazonka.FraudDetector.CreateRule
+    Amazonka.FraudDetector.CreateVariable
+    Amazonka.FraudDetector.DeleteBatchImportJob
+    Amazonka.FraudDetector.DeleteBatchPredictionJob
+    Amazonka.FraudDetector.DeleteDetector
+    Amazonka.FraudDetector.DeleteDetectorVersion
+    Amazonka.FraudDetector.DeleteEntityType
+    Amazonka.FraudDetector.DeleteEvent
+    Amazonka.FraudDetector.DeleteEventsByEventType
+    Amazonka.FraudDetector.DeleteEventType
+    Amazonka.FraudDetector.DeleteExternalModel
+    Amazonka.FraudDetector.DeleteLabel
+    Amazonka.FraudDetector.DeleteModel
+    Amazonka.FraudDetector.DeleteModelVersion
+    Amazonka.FraudDetector.DeleteOutcome
+    Amazonka.FraudDetector.DeleteRule
+    Amazonka.FraudDetector.DeleteVariable
+    Amazonka.FraudDetector.DescribeDetector
+    Amazonka.FraudDetector.DescribeModelVersions
+    Amazonka.FraudDetector.GetBatchImportJobs
+    Amazonka.FraudDetector.GetBatchPredictionJobs
+    Amazonka.FraudDetector.GetDeleteEventsByEventTypeStatus
+    Amazonka.FraudDetector.GetDetectors
+    Amazonka.FraudDetector.GetDetectorVersion
+    Amazonka.FraudDetector.GetEntityTypes
+    Amazonka.FraudDetector.GetEvent
+    Amazonka.FraudDetector.GetEventPrediction
+    Amazonka.FraudDetector.GetEventTypes
+    Amazonka.FraudDetector.GetExternalModels
+    Amazonka.FraudDetector.GetKMSEncryptionKey
+    Amazonka.FraudDetector.GetLabels
+    Amazonka.FraudDetector.GetModels
+    Amazonka.FraudDetector.GetModelVersion
+    Amazonka.FraudDetector.GetOutcomes
+    Amazonka.FraudDetector.GetRules
+    Amazonka.FraudDetector.GetVariables
+    Amazonka.FraudDetector.Lens
+    Amazonka.FraudDetector.ListTagsForResource
+    Amazonka.FraudDetector.PutDetector
+    Amazonka.FraudDetector.PutEntityType
+    Amazonka.FraudDetector.PutEventType
+    Amazonka.FraudDetector.PutExternalModel
+    Amazonka.FraudDetector.PutKMSEncryptionKey
+    Amazonka.FraudDetector.PutLabel
+    Amazonka.FraudDetector.PutOutcome
+    Amazonka.FraudDetector.SendEvent
+    Amazonka.FraudDetector.TagResource
+    Amazonka.FraudDetector.Types
+    Amazonka.FraudDetector.Types.AsyncJobStatus
+    Amazonka.FraudDetector.Types.BatchCreateVariableError
+    Amazonka.FraudDetector.Types.BatchGetVariableError
+    Amazonka.FraudDetector.Types.BatchImport
+    Amazonka.FraudDetector.Types.BatchPrediction
+    Amazonka.FraudDetector.Types.DataSource
+    Amazonka.FraudDetector.Types.DataType
+    Amazonka.FraudDetector.Types.DataValidationMetrics
+    Amazonka.FraudDetector.Types.Detector
+    Amazonka.FraudDetector.Types.DetectorVersionStatus
+    Amazonka.FraudDetector.Types.DetectorVersionSummary
+    Amazonka.FraudDetector.Types.Entity
+    Amazonka.FraudDetector.Types.EntityType
+    Amazonka.FraudDetector.Types.Event
+    Amazonka.FraudDetector.Types.EventIngestion
+    Amazonka.FraudDetector.Types.EventType
+    Amazonka.FraudDetector.Types.ExternalEventsDetail
+    Amazonka.FraudDetector.Types.ExternalModel
+    Amazonka.FraudDetector.Types.ExternalModelOutputs
+    Amazonka.FraudDetector.Types.ExternalModelSummary
+    Amazonka.FraudDetector.Types.FieldValidationMessage
+    Amazonka.FraudDetector.Types.FileValidationMessage
+    Amazonka.FraudDetector.Types.IngestedEventsDetail
+    Amazonka.FraudDetector.Types.IngestedEventStatistics
+    Amazonka.FraudDetector.Types.IngestedEventsTimeWindow
+    Amazonka.FraudDetector.Types.KMSKey
+    Amazonka.FraudDetector.Types.Label
+    Amazonka.FraudDetector.Types.LabelSchema
+    Amazonka.FraudDetector.Types.Language
+    Amazonka.FraudDetector.Types.LogOddsMetric
+    Amazonka.FraudDetector.Types.MetricDataPoint
+    Amazonka.FraudDetector.Types.Model
+    Amazonka.FraudDetector.Types.ModelEndpointDataBlob
+    Amazonka.FraudDetector.Types.ModelEndpointStatus
+    Amazonka.FraudDetector.Types.ModelInputConfiguration
+    Amazonka.FraudDetector.Types.ModelInputDataFormat
+    Amazonka.FraudDetector.Types.ModelOutputConfiguration
+    Amazonka.FraudDetector.Types.ModelOutputDataFormat
+    Amazonka.FraudDetector.Types.ModelScores
+    Amazonka.FraudDetector.Types.ModelSource
+    Amazonka.FraudDetector.Types.ModelTypeEnum
+    Amazonka.FraudDetector.Types.ModelVersion
+    Amazonka.FraudDetector.Types.ModelVersionDetail
+    Amazonka.FraudDetector.Types.ModelVersionStatus
+    Amazonka.FraudDetector.Types.Outcome
+    Amazonka.FraudDetector.Types.Rule
+    Amazonka.FraudDetector.Types.RuleDetail
+    Amazonka.FraudDetector.Types.RuleExecutionMode
+    Amazonka.FraudDetector.Types.RuleResult
+    Amazonka.FraudDetector.Types.Tag
+    Amazonka.FraudDetector.Types.TrainingDataSchema
+    Amazonka.FraudDetector.Types.TrainingDataSourceEnum
+    Amazonka.FraudDetector.Types.TrainingMetrics
+    Amazonka.FraudDetector.Types.TrainingResult
+    Amazonka.FraudDetector.Types.UnlabeledEventsTreatment
+    Amazonka.FraudDetector.Types.Variable
+    Amazonka.FraudDetector.Types.VariableEntry
+    Amazonka.FraudDetector.Types.VariableImportanceMetrics
+    Amazonka.FraudDetector.UntagResource
+    Amazonka.FraudDetector.UpdateDetectorVersion
+    Amazonka.FraudDetector.UpdateDetectorVersionMetadata
+    Amazonka.FraudDetector.UpdateDetectorVersionStatus
+    Amazonka.FraudDetector.UpdateEventLabel
+    Amazonka.FraudDetector.UpdateModel
+    Amazonka.FraudDetector.UpdateModelVersion
+    Amazonka.FraudDetector.UpdateModelVersionStatus
+    Amazonka.FraudDetector.UpdateRuleMetadata
+    Amazonka.FraudDetector.UpdateRuleVersion
+    Amazonka.FraudDetector.UpdateVariable
+    Amazonka.FraudDetector.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -190,9 +190,9 @@ test-suite amazonka-frauddetector-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.FraudDetector
-    Test.AWS.FraudDetector.Internal
-    Test.AWS.Gen.FraudDetector
+    Test.Amazonka.FraudDetector
+    Test.Amazonka.FraudDetector.Internal
+    Test.Amazonka.Gen.FraudDetector
 
   build-depends:
     , amazonka                ^>=2.0

@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.LookoutMetrics
-import Test.AWS.LookoutMetrics.Internal
+import Test.Amazonka.LookoutMetrics
+import Test.Amazonka.LookoutMetrics.Internal
 import Test.Tasty
 
 main :: IO ()

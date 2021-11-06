@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.CustomerProfiles.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.CustomerProfiles.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.CustomerProfiles" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.CustomerProfiles" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,86 +45,86 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.CustomerProfiles
-    Network.AWS.CustomerProfiles.AddProfileKey
-    Network.AWS.CustomerProfiles.CreateDomain
-    Network.AWS.CustomerProfiles.CreateProfile
-    Network.AWS.CustomerProfiles.DeleteDomain
-    Network.AWS.CustomerProfiles.DeleteIntegration
-    Network.AWS.CustomerProfiles.DeleteProfile
-    Network.AWS.CustomerProfiles.DeleteProfileKey
-    Network.AWS.CustomerProfiles.DeleteProfileObject
-    Network.AWS.CustomerProfiles.DeleteProfileObjectType
-    Network.AWS.CustomerProfiles.GetDomain
-    Network.AWS.CustomerProfiles.GetIntegration
-    Network.AWS.CustomerProfiles.GetMatches
-    Network.AWS.CustomerProfiles.GetProfileObjectType
-    Network.AWS.CustomerProfiles.GetProfileObjectTypeTemplate
-    Network.AWS.CustomerProfiles.Lens
-    Network.AWS.CustomerProfiles.ListAccountIntegrations
-    Network.AWS.CustomerProfiles.ListDomains
-    Network.AWS.CustomerProfiles.ListIntegrations
-    Network.AWS.CustomerProfiles.ListProfileObjects
-    Network.AWS.CustomerProfiles.ListProfileObjectTypes
-    Network.AWS.CustomerProfiles.ListProfileObjectTypeTemplates
-    Network.AWS.CustomerProfiles.ListTagsForResource
-    Network.AWS.CustomerProfiles.MergeProfiles
-    Network.AWS.CustomerProfiles.PutIntegration
-    Network.AWS.CustomerProfiles.PutProfileObject
-    Network.AWS.CustomerProfiles.PutProfileObjectType
-    Network.AWS.CustomerProfiles.SearchProfiles
-    Network.AWS.CustomerProfiles.TagResource
-    Network.AWS.CustomerProfiles.Types
-    Network.AWS.CustomerProfiles.Types.Address
-    Network.AWS.CustomerProfiles.Types.ConnectorOperator
-    Network.AWS.CustomerProfiles.Types.DataPullMode
-    Network.AWS.CustomerProfiles.Types.DomainStats
-    Network.AWS.CustomerProfiles.Types.FieldContentType
-    Network.AWS.CustomerProfiles.Types.FieldSourceProfileIds
-    Network.AWS.CustomerProfiles.Types.FlowDefinition
-    Network.AWS.CustomerProfiles.Types.Gender
-    Network.AWS.CustomerProfiles.Types.IncrementalPullConfig
-    Network.AWS.CustomerProfiles.Types.ListDomainItem
-    Network.AWS.CustomerProfiles.Types.ListIntegrationItem
-    Network.AWS.CustomerProfiles.Types.ListProfileObjectsItem
-    Network.AWS.CustomerProfiles.Types.ListProfileObjectTypeItem
-    Network.AWS.CustomerProfiles.Types.ListProfileObjectTypeTemplateItem
-    Network.AWS.CustomerProfiles.Types.MarketoConnectorOperator
-    Network.AWS.CustomerProfiles.Types.MarketoSourceProperties
-    Network.AWS.CustomerProfiles.Types.MatchingRequest
-    Network.AWS.CustomerProfiles.Types.MatchingResponse
-    Network.AWS.CustomerProfiles.Types.MatchItem
-    Network.AWS.CustomerProfiles.Types.ObjectFilter
-    Network.AWS.CustomerProfiles.Types.ObjectTypeField
-    Network.AWS.CustomerProfiles.Types.ObjectTypeKey
-    Network.AWS.CustomerProfiles.Types.OperatorPropertiesKeys
-    Network.AWS.CustomerProfiles.Types.PartyType
-    Network.AWS.CustomerProfiles.Types.Profile
-    Network.AWS.CustomerProfiles.Types.S3ConnectorOperator
-    Network.AWS.CustomerProfiles.Types.S3SourceProperties
-    Network.AWS.CustomerProfiles.Types.SalesforceConnectorOperator
-    Network.AWS.CustomerProfiles.Types.SalesforceSourceProperties
-    Network.AWS.CustomerProfiles.Types.ScheduledTriggerProperties
-    Network.AWS.CustomerProfiles.Types.ServiceNowConnectorOperator
-    Network.AWS.CustomerProfiles.Types.ServiceNowSourceProperties
-    Network.AWS.CustomerProfiles.Types.SourceConnectorProperties
-    Network.AWS.CustomerProfiles.Types.SourceConnectorType
-    Network.AWS.CustomerProfiles.Types.SourceFlowConfig
-    Network.AWS.CustomerProfiles.Types.StandardIdentifier
-    Network.AWS.CustomerProfiles.Types.Task
-    Network.AWS.CustomerProfiles.Types.TaskType
-    Network.AWS.CustomerProfiles.Types.TriggerConfig
-    Network.AWS.CustomerProfiles.Types.TriggerProperties
-    Network.AWS.CustomerProfiles.Types.TriggerType
-    Network.AWS.CustomerProfiles.Types.UpdateAddress
-    Network.AWS.CustomerProfiles.Types.ZendeskConnectorOperator
-    Network.AWS.CustomerProfiles.Types.ZendeskSourceProperties
-    Network.AWS.CustomerProfiles.UntagResource
-    Network.AWS.CustomerProfiles.UpdateDomain
-    Network.AWS.CustomerProfiles.UpdateProfile
-    Network.AWS.CustomerProfiles.Waiters
+    Amazonka.CustomerProfiles
+    Amazonka.CustomerProfiles.AddProfileKey
+    Amazonka.CustomerProfiles.CreateDomain
+    Amazonka.CustomerProfiles.CreateProfile
+    Amazonka.CustomerProfiles.DeleteDomain
+    Amazonka.CustomerProfiles.DeleteIntegration
+    Amazonka.CustomerProfiles.DeleteProfile
+    Amazonka.CustomerProfiles.DeleteProfileKey
+    Amazonka.CustomerProfiles.DeleteProfileObject
+    Amazonka.CustomerProfiles.DeleteProfileObjectType
+    Amazonka.CustomerProfiles.GetDomain
+    Amazonka.CustomerProfiles.GetIntegration
+    Amazonka.CustomerProfiles.GetMatches
+    Amazonka.CustomerProfiles.GetProfileObjectType
+    Amazonka.CustomerProfiles.GetProfileObjectTypeTemplate
+    Amazonka.CustomerProfiles.Lens
+    Amazonka.CustomerProfiles.ListAccountIntegrations
+    Amazonka.CustomerProfiles.ListDomains
+    Amazonka.CustomerProfiles.ListIntegrations
+    Amazonka.CustomerProfiles.ListProfileObjects
+    Amazonka.CustomerProfiles.ListProfileObjectTypes
+    Amazonka.CustomerProfiles.ListProfileObjectTypeTemplates
+    Amazonka.CustomerProfiles.ListTagsForResource
+    Amazonka.CustomerProfiles.MergeProfiles
+    Amazonka.CustomerProfiles.PutIntegration
+    Amazonka.CustomerProfiles.PutProfileObject
+    Amazonka.CustomerProfiles.PutProfileObjectType
+    Amazonka.CustomerProfiles.SearchProfiles
+    Amazonka.CustomerProfiles.TagResource
+    Amazonka.CustomerProfiles.Types
+    Amazonka.CustomerProfiles.Types.Address
+    Amazonka.CustomerProfiles.Types.ConnectorOperator
+    Amazonka.CustomerProfiles.Types.DataPullMode
+    Amazonka.CustomerProfiles.Types.DomainStats
+    Amazonka.CustomerProfiles.Types.FieldContentType
+    Amazonka.CustomerProfiles.Types.FieldSourceProfileIds
+    Amazonka.CustomerProfiles.Types.FlowDefinition
+    Amazonka.CustomerProfiles.Types.Gender
+    Amazonka.CustomerProfiles.Types.IncrementalPullConfig
+    Amazonka.CustomerProfiles.Types.ListDomainItem
+    Amazonka.CustomerProfiles.Types.ListIntegrationItem
+    Amazonka.CustomerProfiles.Types.ListProfileObjectsItem
+    Amazonka.CustomerProfiles.Types.ListProfileObjectTypeItem
+    Amazonka.CustomerProfiles.Types.ListProfileObjectTypeTemplateItem
+    Amazonka.CustomerProfiles.Types.MarketoConnectorOperator
+    Amazonka.CustomerProfiles.Types.MarketoSourceProperties
+    Amazonka.CustomerProfiles.Types.MatchingRequest
+    Amazonka.CustomerProfiles.Types.MatchingResponse
+    Amazonka.CustomerProfiles.Types.MatchItem
+    Amazonka.CustomerProfiles.Types.ObjectFilter
+    Amazonka.CustomerProfiles.Types.ObjectTypeField
+    Amazonka.CustomerProfiles.Types.ObjectTypeKey
+    Amazonka.CustomerProfiles.Types.OperatorPropertiesKeys
+    Amazonka.CustomerProfiles.Types.PartyType
+    Amazonka.CustomerProfiles.Types.Profile
+    Amazonka.CustomerProfiles.Types.S3ConnectorOperator
+    Amazonka.CustomerProfiles.Types.S3SourceProperties
+    Amazonka.CustomerProfiles.Types.SalesforceConnectorOperator
+    Amazonka.CustomerProfiles.Types.SalesforceSourceProperties
+    Amazonka.CustomerProfiles.Types.ScheduledTriggerProperties
+    Amazonka.CustomerProfiles.Types.ServiceNowConnectorOperator
+    Amazonka.CustomerProfiles.Types.ServiceNowSourceProperties
+    Amazonka.CustomerProfiles.Types.SourceConnectorProperties
+    Amazonka.CustomerProfiles.Types.SourceConnectorType
+    Amazonka.CustomerProfiles.Types.SourceFlowConfig
+    Amazonka.CustomerProfiles.Types.StandardIdentifier
+    Amazonka.CustomerProfiles.Types.Task
+    Amazonka.CustomerProfiles.Types.TaskType
+    Amazonka.CustomerProfiles.Types.TriggerConfig
+    Amazonka.CustomerProfiles.Types.TriggerProperties
+    Amazonka.CustomerProfiles.Types.TriggerType
+    Amazonka.CustomerProfiles.Types.UpdateAddress
+    Amazonka.CustomerProfiles.Types.ZendeskConnectorOperator
+    Amazonka.CustomerProfiles.Types.ZendeskSourceProperties
+    Amazonka.CustomerProfiles.UntagResource
+    Amazonka.CustomerProfiles.UpdateDomain
+    Amazonka.CustomerProfiles.UpdateProfile
+    Amazonka.CustomerProfiles.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -140,9 +140,9 @@ test-suite amazonka-customer-profiles-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CustomerProfiles
-    Test.AWS.CustomerProfiles.Internal
-    Test.AWS.Gen.CustomerProfiles
+    Test.Amazonka.CustomerProfiles
+    Test.Amazonka.CustomerProfiles.Internal
+    Test.Amazonka.Gen.CustomerProfiles
 
   build-depends:
     , amazonka                    ^>=2.0

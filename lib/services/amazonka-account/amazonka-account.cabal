@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Account.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Account.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Account" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Account" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,17 +45,17 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Account
-    Network.AWS.Account.DeleteAlternateContact
-    Network.AWS.Account.GetAlternateContact
-    Network.AWS.Account.Lens
-    Network.AWS.Account.PutAlternateContact
-    Network.AWS.Account.Types
-    Network.AWS.Account.Types.AlternateContact
-    Network.AWS.Account.Types.AlternateContactType
-    Network.AWS.Account.Waiters
+    Amazonka.Account
+    Amazonka.Account.DeleteAlternateContact
+    Amazonka.Account.GetAlternateContact
+    Amazonka.Account.Lens
+    Amazonka.Account.PutAlternateContact
+    Amazonka.Account.Types
+    Amazonka.Account.Types.AlternateContact
+    Amazonka.Account.Types.AlternateContactType
+    Amazonka.Account.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -71,9 +71,9 @@ test-suite amazonka-account-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Account
-    Test.AWS.Account.Internal
-    Test.AWS.Gen.Account
+    Test.Amazonka.Account
+    Test.Amazonka.Account.Internal
+    Test.Amazonka.Gen.Account
 
   build-depends:
     , amazonka              ^>=2.0

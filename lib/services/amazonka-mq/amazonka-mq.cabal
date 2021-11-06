@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.MQ.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.MQ.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.MQ" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.MQ" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,63 +45,63 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.MQ
-    Network.AWS.MQ.CreateBroker
-    Network.AWS.MQ.CreateConfiguration
-    Network.AWS.MQ.CreateTags
-    Network.AWS.MQ.CreateUser
-    Network.AWS.MQ.DeleteBroker
-    Network.AWS.MQ.DeleteTags
-    Network.AWS.MQ.DeleteUser
-    Network.AWS.MQ.DescribeBroker
-    Network.AWS.MQ.DescribeBrokerEngineTypes
-    Network.AWS.MQ.DescribeBrokerInstanceOptions
-    Network.AWS.MQ.DescribeConfiguration
-    Network.AWS.MQ.DescribeConfigurationRevision
-    Network.AWS.MQ.DescribeUser
-    Network.AWS.MQ.Lens
-    Network.AWS.MQ.ListBrokers
-    Network.AWS.MQ.ListConfigurationRevisions
-    Network.AWS.MQ.ListConfigurations
-    Network.AWS.MQ.ListTags
-    Network.AWS.MQ.ListUsers
-    Network.AWS.MQ.RebootBroker
-    Network.AWS.MQ.Types
-    Network.AWS.MQ.Types.AuthenticationStrategy
-    Network.AWS.MQ.Types.AvailabilityZone
-    Network.AWS.MQ.Types.BrokerEngineType
-    Network.AWS.MQ.Types.BrokerInstance
-    Network.AWS.MQ.Types.BrokerInstanceOption
-    Network.AWS.MQ.Types.BrokerState
-    Network.AWS.MQ.Types.BrokerStorageType
-    Network.AWS.MQ.Types.BrokerSummary
-    Network.AWS.MQ.Types.ChangeType
-    Network.AWS.MQ.Types.Configuration
-    Network.AWS.MQ.Types.ConfigurationId
-    Network.AWS.MQ.Types.ConfigurationRevision
-    Network.AWS.MQ.Types.Configurations
-    Network.AWS.MQ.Types.DayOfWeek
-    Network.AWS.MQ.Types.DeploymentMode
-    Network.AWS.MQ.Types.EncryptionOptions
-    Network.AWS.MQ.Types.EngineType
-    Network.AWS.MQ.Types.EngineVersion
-    Network.AWS.MQ.Types.LdapServerMetadataInput
-    Network.AWS.MQ.Types.LdapServerMetadataOutput
-    Network.AWS.MQ.Types.Logs
-    Network.AWS.MQ.Types.LogsSummary
-    Network.AWS.MQ.Types.PendingLogs
-    Network.AWS.MQ.Types.SanitizationWarning
-    Network.AWS.MQ.Types.SanitizationWarningReason
-    Network.AWS.MQ.Types.User
-    Network.AWS.MQ.Types.UserPendingChanges
-    Network.AWS.MQ.Types.UserSummary
-    Network.AWS.MQ.Types.WeeklyStartTime
-    Network.AWS.MQ.UpdateBroker
-    Network.AWS.MQ.UpdateConfiguration
-    Network.AWS.MQ.UpdateUser
-    Network.AWS.MQ.Waiters
+    Amazonka.MQ
+    Amazonka.MQ.CreateBroker
+    Amazonka.MQ.CreateConfiguration
+    Amazonka.MQ.CreateTags
+    Amazonka.MQ.CreateUser
+    Amazonka.MQ.DeleteBroker
+    Amazonka.MQ.DeleteTags
+    Amazonka.MQ.DeleteUser
+    Amazonka.MQ.DescribeBroker
+    Amazonka.MQ.DescribeBrokerEngineTypes
+    Amazonka.MQ.DescribeBrokerInstanceOptions
+    Amazonka.MQ.DescribeConfiguration
+    Amazonka.MQ.DescribeConfigurationRevision
+    Amazonka.MQ.DescribeUser
+    Amazonka.MQ.Lens
+    Amazonka.MQ.ListBrokers
+    Amazonka.MQ.ListConfigurationRevisions
+    Amazonka.MQ.ListConfigurations
+    Amazonka.MQ.ListTags
+    Amazonka.MQ.ListUsers
+    Amazonka.MQ.RebootBroker
+    Amazonka.MQ.Types
+    Amazonka.MQ.Types.AuthenticationStrategy
+    Amazonka.MQ.Types.AvailabilityZone
+    Amazonka.MQ.Types.BrokerEngineType
+    Amazonka.MQ.Types.BrokerInstance
+    Amazonka.MQ.Types.BrokerInstanceOption
+    Amazonka.MQ.Types.BrokerState
+    Amazonka.MQ.Types.BrokerStorageType
+    Amazonka.MQ.Types.BrokerSummary
+    Amazonka.MQ.Types.ChangeType
+    Amazonka.MQ.Types.Configuration
+    Amazonka.MQ.Types.ConfigurationId
+    Amazonka.MQ.Types.ConfigurationRevision
+    Amazonka.MQ.Types.Configurations
+    Amazonka.MQ.Types.DayOfWeek
+    Amazonka.MQ.Types.DeploymentMode
+    Amazonka.MQ.Types.EncryptionOptions
+    Amazonka.MQ.Types.EngineType
+    Amazonka.MQ.Types.EngineVersion
+    Amazonka.MQ.Types.LdapServerMetadataInput
+    Amazonka.MQ.Types.LdapServerMetadataOutput
+    Amazonka.MQ.Types.Logs
+    Amazonka.MQ.Types.LogsSummary
+    Amazonka.MQ.Types.PendingLogs
+    Amazonka.MQ.Types.SanitizationWarning
+    Amazonka.MQ.Types.SanitizationWarningReason
+    Amazonka.MQ.Types.User
+    Amazonka.MQ.Types.UserPendingChanges
+    Amazonka.MQ.Types.UserSummary
+    Amazonka.MQ.Types.WeeklyStartTime
+    Amazonka.MQ.UpdateBroker
+    Amazonka.MQ.UpdateConfiguration
+    Amazonka.MQ.UpdateUser
+    Amazonka.MQ.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -117,9 +117,9 @@ test-suite amazonka-mq-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.MQ
-    Test.AWS.MQ
-    Test.AWS.MQ.Internal
+    Test.Amazonka.Gen.MQ
+    Test.Amazonka.MQ
+    Test.Amazonka.MQ.Internal
 
   build-depends:
     , amazonka              ^>=2.0

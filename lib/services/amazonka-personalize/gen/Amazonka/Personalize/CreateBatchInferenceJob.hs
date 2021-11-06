@@ -1,0 +1,278 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Amazonka.Personalize.CreateBatchInferenceJob
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Creates a batch inference job. The operation can handle up to 50 million
+-- records and the input file must be in JSON format. For more information,
+-- see recommendations-batch.
+module Amazonka.Personalize.CreateBatchInferenceJob
+  ( -- * Creating a Request
+    CreateBatchInferenceJob (..),
+    newCreateBatchInferenceJob,
+
+    -- * Request Lenses
+    createBatchInferenceJob_numResults,
+    createBatchInferenceJob_batchInferenceJobConfig,
+    createBatchInferenceJob_filterArn,
+    createBatchInferenceJob_jobName,
+    createBatchInferenceJob_solutionVersionArn,
+    createBatchInferenceJob_jobInput,
+    createBatchInferenceJob_jobOutput,
+    createBatchInferenceJob_roleArn,
+
+    -- * Destructuring the Response
+    CreateBatchInferenceJobResponse (..),
+    newCreateBatchInferenceJobResponse,
+
+    -- * Response Lenses
+    createBatchInferenceJobResponse_batchInferenceJobArn,
+    createBatchInferenceJobResponse_httpStatus,
+  )
+where
+
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.Personalize.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+
+-- | /See:/ 'newCreateBatchInferenceJob' smart constructor.
+data CreateBatchInferenceJob = CreateBatchInferenceJob'
+  { -- | The number of recommendations to retreive.
+    numResults :: Prelude.Maybe Prelude.Int,
+    -- | The configuration details of a batch inference job.
+    batchInferenceJobConfig :: Prelude.Maybe BatchInferenceJobConfig,
+    -- | The ARN of the filter to apply to the batch inference job. For more
+    -- information on using filters, see
+    -- <https://docs.aws.amazon.com/personalize/latest/dg/filter-batch.html Filtering Batch Recommendations>..
+    filterArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the batch inference job to create.
+    jobName :: Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the solution version that will be used
+    -- to generate the batch inference recommendations.
+    solutionVersionArn :: Prelude.Text,
+    -- | The Amazon S3 path that leads to the input file to base your
+    -- recommendations on. The input material must be in JSON format.
+    jobInput :: BatchInferenceJobInput,
+    -- | The path to the Amazon S3 bucket where the job\'s output will be stored.
+    jobOutput :: BatchInferenceJobOutput,
+    -- | The ARN of the Amazon Identity and Access Management role that has
+    -- permissions to read and write to your input and output Amazon S3 buckets
+    -- respectively.
+    roleArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'CreateBatchInferenceJob' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'numResults', 'createBatchInferenceJob_numResults' - The number of recommendations to retreive.
+--
+-- 'batchInferenceJobConfig', 'createBatchInferenceJob_batchInferenceJobConfig' - The configuration details of a batch inference job.
+--
+-- 'filterArn', 'createBatchInferenceJob_filterArn' - The ARN of the filter to apply to the batch inference job. For more
+-- information on using filters, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/filter-batch.html Filtering Batch Recommendations>..
+--
+-- 'jobName', 'createBatchInferenceJob_jobName' - The name of the batch inference job to create.
+--
+-- 'solutionVersionArn', 'createBatchInferenceJob_solutionVersionArn' - The Amazon Resource Name (ARN) of the solution version that will be used
+-- to generate the batch inference recommendations.
+--
+-- 'jobInput', 'createBatchInferenceJob_jobInput' - The Amazon S3 path that leads to the input file to base your
+-- recommendations on. The input material must be in JSON format.
+--
+-- 'jobOutput', 'createBatchInferenceJob_jobOutput' - The path to the Amazon S3 bucket where the job\'s output will be stored.
+--
+-- 'roleArn', 'createBatchInferenceJob_roleArn' - The ARN of the Amazon Identity and Access Management role that has
+-- permissions to read and write to your input and output Amazon S3 buckets
+-- respectively.
+newCreateBatchInferenceJob ::
+  -- | 'jobName'
+  Prelude.Text ->
+  -- | 'solutionVersionArn'
+  Prelude.Text ->
+  -- | 'jobInput'
+  BatchInferenceJobInput ->
+  -- | 'jobOutput'
+  BatchInferenceJobOutput ->
+  -- | 'roleArn'
+  Prelude.Text ->
+  CreateBatchInferenceJob
+newCreateBatchInferenceJob
+  pJobName_
+  pSolutionVersionArn_
+  pJobInput_
+  pJobOutput_
+  pRoleArn_ =
+    CreateBatchInferenceJob'
+      { numResults =
+          Prelude.Nothing,
+        batchInferenceJobConfig = Prelude.Nothing,
+        filterArn = Prelude.Nothing,
+        jobName = pJobName_,
+        solutionVersionArn = pSolutionVersionArn_,
+        jobInput = pJobInput_,
+        jobOutput = pJobOutput_,
+        roleArn = pRoleArn_
+      }
+
+-- | The number of recommendations to retreive.
+createBatchInferenceJob_numResults :: Lens.Lens' CreateBatchInferenceJob (Prelude.Maybe Prelude.Int)
+createBatchInferenceJob_numResults = Lens.lens (\CreateBatchInferenceJob' {numResults} -> numResults) (\s@CreateBatchInferenceJob' {} a -> s {numResults = a} :: CreateBatchInferenceJob)
+
+-- | The configuration details of a batch inference job.
+createBatchInferenceJob_batchInferenceJobConfig :: Lens.Lens' CreateBatchInferenceJob (Prelude.Maybe BatchInferenceJobConfig)
+createBatchInferenceJob_batchInferenceJobConfig = Lens.lens (\CreateBatchInferenceJob' {batchInferenceJobConfig} -> batchInferenceJobConfig) (\s@CreateBatchInferenceJob' {} a -> s {batchInferenceJobConfig = a} :: CreateBatchInferenceJob)
+
+-- | The ARN of the filter to apply to the batch inference job. For more
+-- information on using filters, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/filter-batch.html Filtering Batch Recommendations>..
+createBatchInferenceJob_filterArn :: Lens.Lens' CreateBatchInferenceJob (Prelude.Maybe Prelude.Text)
+createBatchInferenceJob_filterArn = Lens.lens (\CreateBatchInferenceJob' {filterArn} -> filterArn) (\s@CreateBatchInferenceJob' {} a -> s {filterArn = a} :: CreateBatchInferenceJob)
+
+-- | The name of the batch inference job to create.
+createBatchInferenceJob_jobName :: Lens.Lens' CreateBatchInferenceJob Prelude.Text
+createBatchInferenceJob_jobName = Lens.lens (\CreateBatchInferenceJob' {jobName} -> jobName) (\s@CreateBatchInferenceJob' {} a -> s {jobName = a} :: CreateBatchInferenceJob)
+
+-- | The Amazon Resource Name (ARN) of the solution version that will be used
+-- to generate the batch inference recommendations.
+createBatchInferenceJob_solutionVersionArn :: Lens.Lens' CreateBatchInferenceJob Prelude.Text
+createBatchInferenceJob_solutionVersionArn = Lens.lens (\CreateBatchInferenceJob' {solutionVersionArn} -> solutionVersionArn) (\s@CreateBatchInferenceJob' {} a -> s {solutionVersionArn = a} :: CreateBatchInferenceJob)
+
+-- | The Amazon S3 path that leads to the input file to base your
+-- recommendations on. The input material must be in JSON format.
+createBatchInferenceJob_jobInput :: Lens.Lens' CreateBatchInferenceJob BatchInferenceJobInput
+createBatchInferenceJob_jobInput = Lens.lens (\CreateBatchInferenceJob' {jobInput} -> jobInput) (\s@CreateBatchInferenceJob' {} a -> s {jobInput = a} :: CreateBatchInferenceJob)
+
+-- | The path to the Amazon S3 bucket where the job\'s output will be stored.
+createBatchInferenceJob_jobOutput :: Lens.Lens' CreateBatchInferenceJob BatchInferenceJobOutput
+createBatchInferenceJob_jobOutput = Lens.lens (\CreateBatchInferenceJob' {jobOutput} -> jobOutput) (\s@CreateBatchInferenceJob' {} a -> s {jobOutput = a} :: CreateBatchInferenceJob)
+
+-- | The ARN of the Amazon Identity and Access Management role that has
+-- permissions to read and write to your input and output Amazon S3 buckets
+-- respectively.
+createBatchInferenceJob_roleArn :: Lens.Lens' CreateBatchInferenceJob Prelude.Text
+createBatchInferenceJob_roleArn = Lens.lens (\CreateBatchInferenceJob' {roleArn} -> roleArn) (\s@CreateBatchInferenceJob' {} a -> s {roleArn = a} :: CreateBatchInferenceJob)
+
+instance Core.AWSRequest CreateBatchInferenceJob where
+  type
+    AWSResponse CreateBatchInferenceJob =
+      CreateBatchInferenceJobResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateBatchInferenceJobResponse'
+            Prelude.<$> (x Core..?> "batchInferenceJobArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable CreateBatchInferenceJob
+
+instance Prelude.NFData CreateBatchInferenceJob
+
+instance Core.ToHeaders CreateBatchInferenceJob where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AmazonPersonalize.CreateBatchInferenceJob" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON CreateBatchInferenceJob where
+  toJSON CreateBatchInferenceJob' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("numResults" Core..=) Prelude.<$> numResults,
+            ("batchInferenceJobConfig" Core..=)
+              Prelude.<$> batchInferenceJobConfig,
+            ("filterArn" Core..=) Prelude.<$> filterArn,
+            Prelude.Just ("jobName" Core..= jobName),
+            Prelude.Just
+              ("solutionVersionArn" Core..= solutionVersionArn),
+            Prelude.Just ("jobInput" Core..= jobInput),
+            Prelude.Just ("jobOutput" Core..= jobOutput),
+            Prelude.Just ("roleArn" Core..= roleArn)
+          ]
+      )
+
+instance Core.ToPath CreateBatchInferenceJob where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery CreateBatchInferenceJob where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newCreateBatchInferenceJobResponse' smart constructor.
+data CreateBatchInferenceJobResponse = CreateBatchInferenceJobResponse'
+  { -- | The ARN of the batch inference job.
+    batchInferenceJobArn :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'CreateBatchInferenceJobResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'batchInferenceJobArn', 'createBatchInferenceJobResponse_batchInferenceJobArn' - The ARN of the batch inference job.
+--
+-- 'httpStatus', 'createBatchInferenceJobResponse_httpStatus' - The response's http status code.
+newCreateBatchInferenceJobResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateBatchInferenceJobResponse
+newCreateBatchInferenceJobResponse pHttpStatus_ =
+  CreateBatchInferenceJobResponse'
+    { batchInferenceJobArn =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The ARN of the batch inference job.
+createBatchInferenceJobResponse_batchInferenceJobArn :: Lens.Lens' CreateBatchInferenceJobResponse (Prelude.Maybe Prelude.Text)
+createBatchInferenceJobResponse_batchInferenceJobArn = Lens.lens (\CreateBatchInferenceJobResponse' {batchInferenceJobArn} -> batchInferenceJobArn) (\s@CreateBatchInferenceJobResponse' {} a -> s {batchInferenceJobArn = a} :: CreateBatchInferenceJobResponse)
+
+-- | The response's http status code.
+createBatchInferenceJobResponse_httpStatus :: Lens.Lens' CreateBatchInferenceJobResponse Prelude.Int
+createBatchInferenceJobResponse_httpStatus = Lens.lens (\CreateBatchInferenceJobResponse' {httpStatus} -> httpStatus) (\s@CreateBatchInferenceJobResponse' {} a -> s {httpStatus = a} :: CreateBatchInferenceJobResponse)
+
+instance
+  Prelude.NFData
+    CreateBatchInferenceJobResponse

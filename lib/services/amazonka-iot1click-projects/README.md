@@ -25,7 +25,7 @@ de/serialisation into more palatable Haskell values.
 The provided lenses should be compatible with any of the major lens libraries
 [lens](http://hackage.haskell.org/package/lens) or [lens-family-core](http://hackage.haskell.org/package/lens-family-core).
 
-See [Network.AWS.IoT1ClickProjects](http://hackage.haskell.org/package/amazonka-iot1click-projects/docs/Network-AWS-IoT1ClickProjects.html)
+See [Amazonka.IoT1ClickProjects](http://hackage.haskell.org/package/amazonka-iot1click-projects/docs/Amazonka-IoT1ClickProjects.html)
 or [the AWS documentation](https://aws.amazon.com/documentation/) to get started.
 
 

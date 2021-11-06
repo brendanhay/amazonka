@@ -1,0 +1,451 @@
+{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+-- |
+-- Module      : Amazonka.MechanicalTurk
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Derived from API version @2017-01-17@ of the AWS service descriptions, licensed under Apache 2.0.
+--
+-- Amazon Mechanical Turk API Reference
+module Amazonka.MechanicalTurk
+  ( -- * Service Configuration
+    defaultService,
+
+    -- * Errors
+    -- $errors
+
+    -- ** ServiceFault
+    _ServiceFault,
+
+    -- ** RequestError
+    _RequestError,
+
+    -- * Waiters
+    -- $waiters
+
+    -- * Operations
+    -- $operations
+
+    -- ** ApproveAssignment
+    ApproveAssignment (ApproveAssignment'),
+    newApproveAssignment,
+    ApproveAssignmentResponse (ApproveAssignmentResponse'),
+    newApproveAssignmentResponse,
+
+    -- ** ListReviewPolicyResultsForHIT
+    ListReviewPolicyResultsForHIT (ListReviewPolicyResultsForHIT'),
+    newListReviewPolicyResultsForHIT,
+    ListReviewPolicyResultsForHITResponse (ListReviewPolicyResultsForHITResponse'),
+    newListReviewPolicyResultsForHITResponse,
+
+    -- ** ListHITs (Paginated)
+    ListHITs (ListHITs'),
+    newListHITs,
+    ListHITsResponse (ListHITsResponse'),
+    newListHITsResponse,
+
+    -- ** ListWorkersWithQualificationType (Paginated)
+    ListWorkersWithQualificationType (ListWorkersWithQualificationType'),
+    newListWorkersWithQualificationType,
+    ListWorkersWithQualificationTypeResponse (ListWorkersWithQualificationTypeResponse'),
+    newListWorkersWithQualificationTypeResponse,
+
+    -- ** DeleteHIT
+    DeleteHIT (DeleteHIT'),
+    newDeleteHIT,
+    DeleteHITResponse (DeleteHITResponse'),
+    newDeleteHITResponse,
+
+    -- ** ListReviewableHITs (Paginated)
+    ListReviewableHITs (ListReviewableHITs'),
+    newListReviewableHITs,
+    ListReviewableHITsResponse (ListReviewableHITsResponse'),
+    newListReviewableHITsResponse,
+
+    -- ** GetAssignment
+    GetAssignment (GetAssignment'),
+    newGetAssignment,
+    GetAssignmentResponse (GetAssignmentResponse'),
+    newGetAssignmentResponse,
+
+    -- ** DeleteQualificationType
+    DeleteQualificationType (DeleteQualificationType'),
+    newDeleteQualificationType,
+    DeleteQualificationTypeResponse (DeleteQualificationTypeResponse'),
+    newDeleteQualificationTypeResponse,
+
+    -- ** UpdateQualificationType
+    UpdateQualificationType (UpdateQualificationType'),
+    newUpdateQualificationType,
+    UpdateQualificationTypeResponse (UpdateQualificationTypeResponse'),
+    newUpdateQualificationTypeResponse,
+
+    -- ** ListQualificationTypes (Paginated)
+    ListQualificationTypes (ListQualificationTypes'),
+    newListQualificationTypes,
+    ListQualificationTypesResponse (ListQualificationTypesResponse'),
+    newListQualificationTypesResponse,
+
+    -- ** UpdateHITTypeOfHIT
+    UpdateHITTypeOfHIT (UpdateHITTypeOfHIT'),
+    newUpdateHITTypeOfHIT,
+    UpdateHITTypeOfHITResponse (UpdateHITTypeOfHITResponse'),
+    newUpdateHITTypeOfHITResponse,
+
+    -- ** DisassociateQualificationFromWorker
+    DisassociateQualificationFromWorker (DisassociateQualificationFromWorker'),
+    newDisassociateQualificationFromWorker,
+    DisassociateQualificationFromWorkerResponse (DisassociateQualificationFromWorkerResponse'),
+    newDisassociateQualificationFromWorkerResponse,
+
+    -- ** SendTestEventNotification
+    SendTestEventNotification (SendTestEventNotification'),
+    newSendTestEventNotification,
+    SendTestEventNotificationResponse (SendTestEventNotificationResponse'),
+    newSendTestEventNotificationResponse,
+
+    -- ** NotifyWorkers
+    NotifyWorkers (NotifyWorkers'),
+    newNotifyWorkers,
+    NotifyWorkersResponse (NotifyWorkersResponse'),
+    newNotifyWorkersResponse,
+
+    -- ** CreateHITWithHITType
+    CreateHITWithHITType (CreateHITWithHITType'),
+    newCreateHITWithHITType,
+    CreateHITWithHITTypeResponse (CreateHITWithHITTypeResponse'),
+    newCreateHITWithHITTypeResponse,
+
+    -- ** CreateHITType
+    CreateHITType (CreateHITType'),
+    newCreateHITType,
+    CreateHITTypeResponse (CreateHITTypeResponse'),
+    newCreateHITTypeResponse,
+
+    -- ** SendBonus
+    SendBonus (SendBonus'),
+    newSendBonus,
+    SendBonusResponse (SendBonusResponse'),
+    newSendBonusResponse,
+
+    -- ** ListQualificationRequests (Paginated)
+    ListQualificationRequests (ListQualificationRequests'),
+    newListQualificationRequests,
+    ListQualificationRequestsResponse (ListQualificationRequestsResponse'),
+    newListQualificationRequestsResponse,
+
+    -- ** UpdateExpirationForHIT
+    UpdateExpirationForHIT (UpdateExpirationForHIT'),
+    newUpdateExpirationForHIT,
+    UpdateExpirationForHITResponse (UpdateExpirationForHITResponse'),
+    newUpdateExpirationForHITResponse,
+
+    -- ** RejectAssignment
+    RejectAssignment (RejectAssignment'),
+    newRejectAssignment,
+    RejectAssignmentResponse (RejectAssignmentResponse'),
+    newRejectAssignmentResponse,
+
+    -- ** ListAssignmentsForHIT (Paginated)
+    ListAssignmentsForHIT (ListAssignmentsForHIT'),
+    newListAssignmentsForHIT,
+    ListAssignmentsForHITResponse (ListAssignmentsForHITResponse'),
+    newListAssignmentsForHITResponse,
+
+    -- ** RejectQualificationRequest
+    RejectQualificationRequest (RejectQualificationRequest'),
+    newRejectQualificationRequest,
+    RejectQualificationRequestResponse (RejectQualificationRequestResponse'),
+    newRejectQualificationRequestResponse,
+
+    -- ** GetQualificationScore
+    GetQualificationScore (GetQualificationScore'),
+    newGetQualificationScore,
+    GetQualificationScoreResponse (GetQualificationScoreResponse'),
+    newGetQualificationScoreResponse,
+
+    -- ** GetQualificationType
+    GetQualificationType (GetQualificationType'),
+    newGetQualificationType,
+    GetQualificationTypeResponse (GetQualificationTypeResponse'),
+    newGetQualificationTypeResponse,
+
+    -- ** UpdateHITReviewStatus
+    UpdateHITReviewStatus (UpdateHITReviewStatus'),
+    newUpdateHITReviewStatus,
+    UpdateHITReviewStatusResponse (UpdateHITReviewStatusResponse'),
+    newUpdateHITReviewStatusResponse,
+
+    -- ** CreateQualificationType
+    CreateQualificationType (CreateQualificationType'),
+    newCreateQualificationType,
+    CreateQualificationTypeResponse (CreateQualificationTypeResponse'),
+    newCreateQualificationTypeResponse,
+
+    -- ** AcceptQualificationRequest
+    AcceptQualificationRequest (AcceptQualificationRequest'),
+    newAcceptQualificationRequest,
+    AcceptQualificationRequestResponse (AcceptQualificationRequestResponse'),
+    newAcceptQualificationRequestResponse,
+
+    -- ** GetFileUploadURL
+    GetFileUploadURL (GetFileUploadURL'),
+    newGetFileUploadURL,
+    GetFileUploadURLResponse (GetFileUploadURLResponse'),
+    newGetFileUploadURLResponse,
+
+    -- ** CreateAdditionalAssignmentsForHIT
+    CreateAdditionalAssignmentsForHIT (CreateAdditionalAssignmentsForHIT'),
+    newCreateAdditionalAssignmentsForHIT,
+    CreateAdditionalAssignmentsForHITResponse (CreateAdditionalAssignmentsForHITResponse'),
+    newCreateAdditionalAssignmentsForHITResponse,
+
+    -- ** GetHIT
+    GetHIT (GetHIT'),
+    newGetHIT,
+    GetHITResponse (GetHITResponse'),
+    newGetHITResponse,
+
+    -- ** CreateWorkerBlock
+    CreateWorkerBlock (CreateWorkerBlock'),
+    newCreateWorkerBlock,
+    CreateWorkerBlockResponse (CreateWorkerBlockResponse'),
+    newCreateWorkerBlockResponse,
+
+    -- ** ListHITsForQualificationType (Paginated)
+    ListHITsForQualificationType (ListHITsForQualificationType'),
+    newListHITsForQualificationType,
+    ListHITsForQualificationTypeResponse (ListHITsForQualificationTypeResponse'),
+    newListHITsForQualificationTypeResponse,
+
+    -- ** ListBonusPayments (Paginated)
+    ListBonusPayments (ListBonusPayments'),
+    newListBonusPayments,
+    ListBonusPaymentsResponse (ListBonusPaymentsResponse'),
+    newListBonusPaymentsResponse,
+
+    -- ** ListWorkerBlocks (Paginated)
+    ListWorkerBlocks (ListWorkerBlocks'),
+    newListWorkerBlocks,
+    ListWorkerBlocksResponse (ListWorkerBlocksResponse'),
+    newListWorkerBlocksResponse,
+
+    -- ** DeleteWorkerBlock
+    DeleteWorkerBlock (DeleteWorkerBlock'),
+    newDeleteWorkerBlock,
+    DeleteWorkerBlockResponse (DeleteWorkerBlockResponse'),
+    newDeleteWorkerBlockResponse,
+
+    -- ** UpdateNotificationSettings
+    UpdateNotificationSettings (UpdateNotificationSettings'),
+    newUpdateNotificationSettings,
+    UpdateNotificationSettingsResponse (UpdateNotificationSettingsResponse'),
+    newUpdateNotificationSettingsResponse,
+
+    -- ** AssociateQualificationWithWorker
+    AssociateQualificationWithWorker (AssociateQualificationWithWorker'),
+    newAssociateQualificationWithWorker,
+    AssociateQualificationWithWorkerResponse (AssociateQualificationWithWorkerResponse'),
+    newAssociateQualificationWithWorkerResponse,
+
+    -- ** CreateHIT
+    CreateHIT (CreateHIT'),
+    newCreateHIT,
+    CreateHITResponse (CreateHITResponse'),
+    newCreateHITResponse,
+
+    -- ** GetAccountBalance
+    GetAccountBalance (GetAccountBalance'),
+    newGetAccountBalance,
+    GetAccountBalanceResponse (GetAccountBalanceResponse'),
+    newGetAccountBalanceResponse,
+
+    -- * Types
+
+    -- ** AssignmentStatus
+    AssignmentStatus (..),
+
+    -- ** Comparator
+    Comparator (..),
+
+    -- ** EventType
+    EventType (..),
+
+    -- ** HITAccessActions
+    HITAccessActions (..),
+
+    -- ** HITReviewStatus
+    HITReviewStatus (..),
+
+    -- ** HITStatus
+    HITStatus (..),
+
+    -- ** NotificationTransport
+    NotificationTransport (..),
+
+    -- ** NotifyWorkersFailureCode
+    NotifyWorkersFailureCode (..),
+
+    -- ** QualificationStatus
+    QualificationStatus (..),
+
+    -- ** QualificationTypeStatus
+    QualificationTypeStatus (..),
+
+    -- ** ReviewActionStatus
+    ReviewActionStatus (..),
+
+    -- ** ReviewPolicyLevel
+    ReviewPolicyLevel (..),
+
+    -- ** ReviewableHITStatus
+    ReviewableHITStatus (..),
+
+    -- ** Assignment
+    Assignment (Assignment'),
+    newAssignment,
+
+    -- ** BonusPayment
+    BonusPayment (BonusPayment'),
+    newBonusPayment,
+
+    -- ** HIT
+    HIT (HIT'),
+    newHIT,
+
+    -- ** HITLayoutParameter
+    HITLayoutParameter (HITLayoutParameter'),
+    newHITLayoutParameter,
+
+    -- ** Locale
+    Locale (Locale'),
+    newLocale,
+
+    -- ** NotificationSpecification
+    NotificationSpecification (NotificationSpecification'),
+    newNotificationSpecification,
+
+    -- ** NotifyWorkersFailureStatus
+    NotifyWorkersFailureStatus (NotifyWorkersFailureStatus'),
+    newNotifyWorkersFailureStatus,
+
+    -- ** ParameterMapEntry
+    ParameterMapEntry (ParameterMapEntry'),
+    newParameterMapEntry,
+
+    -- ** PolicyParameter
+    PolicyParameter (PolicyParameter'),
+    newPolicyParameter,
+
+    -- ** Qualification
+    Qualification (Qualification'),
+    newQualification,
+
+    -- ** QualificationRequest
+    QualificationRequest (QualificationRequest'),
+    newQualificationRequest,
+
+    -- ** QualificationRequirement
+    QualificationRequirement (QualificationRequirement'),
+    newQualificationRequirement,
+
+    -- ** QualificationType
+    QualificationType (QualificationType'),
+    newQualificationType,
+
+    -- ** ReviewActionDetail
+    ReviewActionDetail (ReviewActionDetail'),
+    newReviewActionDetail,
+
+    -- ** ReviewPolicy
+    ReviewPolicy (ReviewPolicy'),
+    newReviewPolicy,
+
+    -- ** ReviewReport
+    ReviewReport (ReviewReport'),
+    newReviewReport,
+
+    -- ** ReviewResultDetail
+    ReviewResultDetail (ReviewResultDetail'),
+    newReviewResultDetail,
+
+    -- ** WorkerBlock
+    WorkerBlock (WorkerBlock'),
+    newWorkerBlock,
+  )
+where
+
+import Amazonka.MechanicalTurk.AcceptQualificationRequest
+import Amazonka.MechanicalTurk.ApproveAssignment
+import Amazonka.MechanicalTurk.AssociateQualificationWithWorker
+import Amazonka.MechanicalTurk.CreateAdditionalAssignmentsForHIT
+import Amazonka.MechanicalTurk.CreateHIT
+import Amazonka.MechanicalTurk.CreateHITType
+import Amazonka.MechanicalTurk.CreateHITWithHITType
+import Amazonka.MechanicalTurk.CreateQualificationType
+import Amazonka.MechanicalTurk.CreateWorkerBlock
+import Amazonka.MechanicalTurk.DeleteHIT
+import Amazonka.MechanicalTurk.DeleteQualificationType
+import Amazonka.MechanicalTurk.DeleteWorkerBlock
+import Amazonka.MechanicalTurk.DisassociateQualificationFromWorker
+import Amazonka.MechanicalTurk.GetAccountBalance
+import Amazonka.MechanicalTurk.GetAssignment
+import Amazonka.MechanicalTurk.GetFileUploadURL
+import Amazonka.MechanicalTurk.GetHIT
+import Amazonka.MechanicalTurk.GetQualificationScore
+import Amazonka.MechanicalTurk.GetQualificationType
+import Amazonka.MechanicalTurk.Lens
+import Amazonka.MechanicalTurk.ListAssignmentsForHIT
+import Amazonka.MechanicalTurk.ListBonusPayments
+import Amazonka.MechanicalTurk.ListHITs
+import Amazonka.MechanicalTurk.ListHITsForQualificationType
+import Amazonka.MechanicalTurk.ListQualificationRequests
+import Amazonka.MechanicalTurk.ListQualificationTypes
+import Amazonka.MechanicalTurk.ListReviewPolicyResultsForHIT
+import Amazonka.MechanicalTurk.ListReviewableHITs
+import Amazonka.MechanicalTurk.ListWorkerBlocks
+import Amazonka.MechanicalTurk.ListWorkersWithQualificationType
+import Amazonka.MechanicalTurk.NotifyWorkers
+import Amazonka.MechanicalTurk.RejectAssignment
+import Amazonka.MechanicalTurk.RejectQualificationRequest
+import Amazonka.MechanicalTurk.SendBonus
+import Amazonka.MechanicalTurk.SendTestEventNotification
+import Amazonka.MechanicalTurk.Types
+import Amazonka.MechanicalTurk.UpdateExpirationForHIT
+import Amazonka.MechanicalTurk.UpdateHITReviewStatus
+import Amazonka.MechanicalTurk.UpdateHITTypeOfHIT
+import Amazonka.MechanicalTurk.UpdateNotificationSettings
+import Amazonka.MechanicalTurk.UpdateQualificationType
+import Amazonka.MechanicalTurk.Waiters
+
+-- $errors
+-- Error matchers are designed for use with the functions provided by
+-- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+-- This allows catching (and rethrowing) service specific errors returned
+-- by 'MechanicalTurk'.
+
+-- $operations
+-- Some AWS operations return results that are incomplete and require subsequent
+-- requests in order to obtain the entire result set. The process of sending
+-- subsequent requests to continue where a previous request left off is called
+-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+-- 1000 objects at a time, and you must send subsequent requests with the
+-- appropriate Marker in order to retrieve the next page of results.
+--
+-- Operations that have an 'AWSPager' instance can transparently perform subsequent
+-- requests, correctly setting Markers and other request facets to iterate through
+-- the entire result set of a truncated API operation. Operations which support
+-- this have an additional note in the documentation.
+--
+-- Many operations have the ability to filter results on the server side. See the
+-- individual operation parameters for details.
+
+-- $waiters
+-- Waiters poll by repeatedly sending a request until some remote success condition
+-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+-- determines how many attempts should be made, in addition to delay and retry strategies.

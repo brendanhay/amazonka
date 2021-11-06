@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.CognitoIdentity.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.CognitoIdentity.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.CognitoIdentity" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.CognitoIdentity" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,48 +45,48 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.CognitoIdentity
-    Network.AWS.CognitoIdentity.CreateIdentityPool
-    Network.AWS.CognitoIdentity.DeleteIdentities
-    Network.AWS.CognitoIdentity.DeleteIdentityPool
-    Network.AWS.CognitoIdentity.DescribeIdentity
-    Network.AWS.CognitoIdentity.DescribeIdentityPool
-    Network.AWS.CognitoIdentity.GetCredentialsForIdentity
-    Network.AWS.CognitoIdentity.GetId
-    Network.AWS.CognitoIdentity.GetIdentityPoolRoles
-    Network.AWS.CognitoIdentity.GetOpenIdToken
-    Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
-    Network.AWS.CognitoIdentity.GetPrincipalTagAttributeMap
-    Network.AWS.CognitoIdentity.Lens
-    Network.AWS.CognitoIdentity.ListIdentities
-    Network.AWS.CognitoIdentity.ListIdentityPools
-    Network.AWS.CognitoIdentity.ListTagsForResource
-    Network.AWS.CognitoIdentity.LookupDeveloperIdentity
-    Network.AWS.CognitoIdentity.MergeDeveloperIdentities
-    Network.AWS.CognitoIdentity.SetIdentityPoolRoles
-    Network.AWS.CognitoIdentity.SetPrincipalTagAttributeMap
-    Network.AWS.CognitoIdentity.TagResource
-    Network.AWS.CognitoIdentity.Types
-    Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType
-    Network.AWS.CognitoIdentity.Types.CognitoErrorCode
-    Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider
-    Network.AWS.CognitoIdentity.Types.Credentials
-    Network.AWS.CognitoIdentity.Types.IdentityDescription
-    Network.AWS.CognitoIdentity.Types.IdentityPool
-    Network.AWS.CognitoIdentity.Types.IdentityPoolShortDescription
-    Network.AWS.CognitoIdentity.Types.MappingRule
-    Network.AWS.CognitoIdentity.Types.MappingRuleMatchType
-    Network.AWS.CognitoIdentity.Types.RoleMapping
-    Network.AWS.CognitoIdentity.Types.RoleMappingType
-    Network.AWS.CognitoIdentity.Types.RulesConfigurationType
-    Network.AWS.CognitoIdentity.Types.UnprocessedIdentityId
-    Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
-    Network.AWS.CognitoIdentity.UnlinkIdentity
-    Network.AWS.CognitoIdentity.UntagResource
-    Network.AWS.CognitoIdentity.UpdateIdentityPool
-    Network.AWS.CognitoIdentity.Waiters
+    Amazonka.CognitoIdentity
+    Amazonka.CognitoIdentity.CreateIdentityPool
+    Amazonka.CognitoIdentity.DeleteIdentities
+    Amazonka.CognitoIdentity.DeleteIdentityPool
+    Amazonka.CognitoIdentity.DescribeIdentity
+    Amazonka.CognitoIdentity.DescribeIdentityPool
+    Amazonka.CognitoIdentity.GetCredentialsForIdentity
+    Amazonka.CognitoIdentity.GetId
+    Amazonka.CognitoIdentity.GetIdentityPoolRoles
+    Amazonka.CognitoIdentity.GetOpenIdToken
+    Amazonka.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
+    Amazonka.CognitoIdentity.GetPrincipalTagAttributeMap
+    Amazonka.CognitoIdentity.Lens
+    Amazonka.CognitoIdentity.ListIdentities
+    Amazonka.CognitoIdentity.ListIdentityPools
+    Amazonka.CognitoIdentity.ListTagsForResource
+    Amazonka.CognitoIdentity.LookupDeveloperIdentity
+    Amazonka.CognitoIdentity.MergeDeveloperIdentities
+    Amazonka.CognitoIdentity.SetIdentityPoolRoles
+    Amazonka.CognitoIdentity.SetPrincipalTagAttributeMap
+    Amazonka.CognitoIdentity.TagResource
+    Amazonka.CognitoIdentity.Types
+    Amazonka.CognitoIdentity.Types.AmbiguousRoleResolutionType
+    Amazonka.CognitoIdentity.Types.CognitoErrorCode
+    Amazonka.CognitoIdentity.Types.CognitoIdentityProvider
+    Amazonka.CognitoIdentity.Types.Credentials
+    Amazonka.CognitoIdentity.Types.IdentityDescription
+    Amazonka.CognitoIdentity.Types.IdentityPool
+    Amazonka.CognitoIdentity.Types.IdentityPoolShortDescription
+    Amazonka.CognitoIdentity.Types.MappingRule
+    Amazonka.CognitoIdentity.Types.MappingRuleMatchType
+    Amazonka.CognitoIdentity.Types.RoleMapping
+    Amazonka.CognitoIdentity.Types.RoleMappingType
+    Amazonka.CognitoIdentity.Types.RulesConfigurationType
+    Amazonka.CognitoIdentity.Types.UnprocessedIdentityId
+    Amazonka.CognitoIdentity.UnlinkDeveloperIdentity
+    Amazonka.CognitoIdentity.UnlinkIdentity
+    Amazonka.CognitoIdentity.UntagResource
+    Amazonka.CognitoIdentity.UpdateIdentityPool
+    Amazonka.CognitoIdentity.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -102,9 +102,9 @@ test-suite amazonka-cognito-identity-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CognitoIdentity
-    Test.AWS.CognitoIdentity.Internal
-    Test.AWS.Gen.CognitoIdentity
+    Test.Amazonka.CognitoIdentity
+    Test.Amazonka.CognitoIdentity.Internal
+    Test.Amazonka.Gen.CognitoIdentity
 
   build-depends:
     , amazonka                   ^>=2.0

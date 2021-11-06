@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Schemas.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Schemas.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Schemas" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Schemas" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,52 +45,52 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Schemas
-    Network.AWS.Schemas.CreateDiscoverer
-    Network.AWS.Schemas.CreateRegistry
-    Network.AWS.Schemas.CreateSchema
-    Network.AWS.Schemas.DeleteDiscoverer
-    Network.AWS.Schemas.DeleteRegistry
-    Network.AWS.Schemas.DeleteResourcePolicy
-    Network.AWS.Schemas.DeleteSchema
-    Network.AWS.Schemas.DeleteSchemaVersion
-    Network.AWS.Schemas.DescribeCodeBinding
-    Network.AWS.Schemas.DescribeDiscoverer
-    Network.AWS.Schemas.DescribeRegistry
-    Network.AWS.Schemas.DescribeSchema
-    Network.AWS.Schemas.ExportSchema
-    Network.AWS.Schemas.GetCodeBindingSource
-    Network.AWS.Schemas.GetDiscoveredSchema
-    Network.AWS.Schemas.GetResourcePolicy
-    Network.AWS.Schemas.Lens
-    Network.AWS.Schemas.ListDiscoverers
-    Network.AWS.Schemas.ListRegistries
-    Network.AWS.Schemas.ListSchemas
-    Network.AWS.Schemas.ListSchemaVersions
-    Network.AWS.Schemas.ListTagsForResource
-    Network.AWS.Schemas.PutCodeBinding
-    Network.AWS.Schemas.PutResourcePolicy
-    Network.AWS.Schemas.SearchSchemas
-    Network.AWS.Schemas.StartDiscoverer
-    Network.AWS.Schemas.StopDiscoverer
-    Network.AWS.Schemas.TagResource
-    Network.AWS.Schemas.Types
-    Network.AWS.Schemas.Types.CodeGenerationStatus
-    Network.AWS.Schemas.Types.DiscovererState
-    Network.AWS.Schemas.Types.DiscovererSummary
-    Network.AWS.Schemas.Types.RegistrySummary
-    Network.AWS.Schemas.Types.SchemaSummary
-    Network.AWS.Schemas.Types.SchemaVersionSummary
-    Network.AWS.Schemas.Types.SearchSchemaSummary
-    Network.AWS.Schemas.Types.SearchSchemaVersionSummary
-    Network.AWS.Schemas.Types.Type
-    Network.AWS.Schemas.UntagResource
-    Network.AWS.Schemas.UpdateDiscoverer
-    Network.AWS.Schemas.UpdateRegistry
-    Network.AWS.Schemas.UpdateSchema
-    Network.AWS.Schemas.Waiters
+    Amazonka.Schemas
+    Amazonka.Schemas.CreateDiscoverer
+    Amazonka.Schemas.CreateRegistry
+    Amazonka.Schemas.CreateSchema
+    Amazonka.Schemas.DeleteDiscoverer
+    Amazonka.Schemas.DeleteRegistry
+    Amazonka.Schemas.DeleteResourcePolicy
+    Amazonka.Schemas.DeleteSchema
+    Amazonka.Schemas.DeleteSchemaVersion
+    Amazonka.Schemas.DescribeCodeBinding
+    Amazonka.Schemas.DescribeDiscoverer
+    Amazonka.Schemas.DescribeRegistry
+    Amazonka.Schemas.DescribeSchema
+    Amazonka.Schemas.ExportSchema
+    Amazonka.Schemas.GetCodeBindingSource
+    Amazonka.Schemas.GetDiscoveredSchema
+    Amazonka.Schemas.GetResourcePolicy
+    Amazonka.Schemas.Lens
+    Amazonka.Schemas.ListDiscoverers
+    Amazonka.Schemas.ListRegistries
+    Amazonka.Schemas.ListSchemas
+    Amazonka.Schemas.ListSchemaVersions
+    Amazonka.Schemas.ListTagsForResource
+    Amazonka.Schemas.PutCodeBinding
+    Amazonka.Schemas.PutResourcePolicy
+    Amazonka.Schemas.SearchSchemas
+    Amazonka.Schemas.StartDiscoverer
+    Amazonka.Schemas.StopDiscoverer
+    Amazonka.Schemas.TagResource
+    Amazonka.Schemas.Types
+    Amazonka.Schemas.Types.CodeGenerationStatus
+    Amazonka.Schemas.Types.DiscovererState
+    Amazonka.Schemas.Types.DiscovererSummary
+    Amazonka.Schemas.Types.RegistrySummary
+    Amazonka.Schemas.Types.SchemaSummary
+    Amazonka.Schemas.Types.SchemaVersionSummary
+    Amazonka.Schemas.Types.SearchSchemaSummary
+    Amazonka.Schemas.Types.SearchSchemaVersionSummary
+    Amazonka.Schemas.Types.Type
+    Amazonka.Schemas.UntagResource
+    Amazonka.Schemas.UpdateDiscoverer
+    Amazonka.Schemas.UpdateRegistry
+    Amazonka.Schemas.UpdateSchema
+    Amazonka.Schemas.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -106,9 +106,9 @@ test-suite amazonka-schemas-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Schemas
-    Test.AWS.Schemas
-    Test.AWS.Schemas.Internal
+    Test.Amazonka.Gen.Schemas
+    Test.Amazonka.Schemas
+    Test.Amazonka.Schemas.Internal
 
   build-depends:
     , amazonka              ^>=2.0

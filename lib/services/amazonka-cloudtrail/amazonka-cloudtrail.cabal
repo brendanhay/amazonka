@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.CloudTrail.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.CloudTrail.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.CloudTrail" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.CloudTrail" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,47 +45,47 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.CloudTrail
-    Network.AWS.CloudTrail.AddTags
-    Network.AWS.CloudTrail.CreateTrail
-    Network.AWS.CloudTrail.DeleteTrail
-    Network.AWS.CloudTrail.DescribeTrails
-    Network.AWS.CloudTrail.GetEventSelectors
-    Network.AWS.CloudTrail.GetInsightSelectors
-    Network.AWS.CloudTrail.GetTrail
-    Network.AWS.CloudTrail.GetTrailStatus
-    Network.AWS.CloudTrail.Lens
-    Network.AWS.CloudTrail.ListPublicKeys
-    Network.AWS.CloudTrail.ListTags
-    Network.AWS.CloudTrail.ListTrails
-    Network.AWS.CloudTrail.LookupEvents
-    Network.AWS.CloudTrail.PutEventSelectors
-    Network.AWS.CloudTrail.PutInsightSelectors
-    Network.AWS.CloudTrail.RemoveTags
-    Network.AWS.CloudTrail.StartLogging
-    Network.AWS.CloudTrail.StopLogging
-    Network.AWS.CloudTrail.Types
-    Network.AWS.CloudTrail.Types.AdvancedEventSelector
-    Network.AWS.CloudTrail.Types.AdvancedFieldSelector
-    Network.AWS.CloudTrail.Types.DataResource
-    Network.AWS.CloudTrail.Types.Event
-    Network.AWS.CloudTrail.Types.EventCategory
-    Network.AWS.CloudTrail.Types.EventSelector
-    Network.AWS.CloudTrail.Types.InsightSelector
-    Network.AWS.CloudTrail.Types.InsightType
-    Network.AWS.CloudTrail.Types.LookupAttribute
-    Network.AWS.CloudTrail.Types.LookupAttributeKey
-    Network.AWS.CloudTrail.Types.PublicKey
-    Network.AWS.CloudTrail.Types.ReadWriteType
-    Network.AWS.CloudTrail.Types.Resource
-    Network.AWS.CloudTrail.Types.ResourceTag
-    Network.AWS.CloudTrail.Types.Tag
-    Network.AWS.CloudTrail.Types.Trail
-    Network.AWS.CloudTrail.Types.TrailInfo
-    Network.AWS.CloudTrail.UpdateTrail
-    Network.AWS.CloudTrail.Waiters
+    Amazonka.CloudTrail
+    Amazonka.CloudTrail.AddTags
+    Amazonka.CloudTrail.CreateTrail
+    Amazonka.CloudTrail.DeleteTrail
+    Amazonka.CloudTrail.DescribeTrails
+    Amazonka.CloudTrail.GetEventSelectors
+    Amazonka.CloudTrail.GetInsightSelectors
+    Amazonka.CloudTrail.GetTrail
+    Amazonka.CloudTrail.GetTrailStatus
+    Amazonka.CloudTrail.Lens
+    Amazonka.CloudTrail.ListPublicKeys
+    Amazonka.CloudTrail.ListTags
+    Amazonka.CloudTrail.ListTrails
+    Amazonka.CloudTrail.LookupEvents
+    Amazonka.CloudTrail.PutEventSelectors
+    Amazonka.CloudTrail.PutInsightSelectors
+    Amazonka.CloudTrail.RemoveTags
+    Amazonka.CloudTrail.StartLogging
+    Amazonka.CloudTrail.StopLogging
+    Amazonka.CloudTrail.Types
+    Amazonka.CloudTrail.Types.AdvancedEventSelector
+    Amazonka.CloudTrail.Types.AdvancedFieldSelector
+    Amazonka.CloudTrail.Types.DataResource
+    Amazonka.CloudTrail.Types.Event
+    Amazonka.CloudTrail.Types.EventCategory
+    Amazonka.CloudTrail.Types.EventSelector
+    Amazonka.CloudTrail.Types.InsightSelector
+    Amazonka.CloudTrail.Types.InsightType
+    Amazonka.CloudTrail.Types.LookupAttribute
+    Amazonka.CloudTrail.Types.LookupAttributeKey
+    Amazonka.CloudTrail.Types.PublicKey
+    Amazonka.CloudTrail.Types.ReadWriteType
+    Amazonka.CloudTrail.Types.Resource
+    Amazonka.CloudTrail.Types.ResourceTag
+    Amazonka.CloudTrail.Types.Tag
+    Amazonka.CloudTrail.Types.Trail
+    Amazonka.CloudTrail.Types.TrailInfo
+    Amazonka.CloudTrail.UpdateTrail
+    Amazonka.CloudTrail.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -101,9 +101,9 @@ test-suite amazonka-cloudtrail-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CloudTrail
-    Test.AWS.CloudTrail.Internal
-    Test.AWS.Gen.CloudTrail
+    Test.Amazonka.CloudTrail
+    Test.Amazonka.CloudTrail.Internal
+    Test.Amazonka.Gen.CloudTrail
 
   build-depends:
     , amazonka              ^>=2.0

@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.LexModels
-import Test.AWS.LexModels.Internal
+import Test.Amazonka.LexModels
+import Test.Amazonka.LexModels.Internal
 import Test.Tasty
 
 main :: IO ()

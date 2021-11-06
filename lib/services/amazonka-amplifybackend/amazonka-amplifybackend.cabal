@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.AmplifyBackend.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.AmplifyBackend.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.AmplifyBackend" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.AmplifyBackend" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,77 +45,77 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.AmplifyBackend
-    Network.AWS.AmplifyBackend.CloneBackend
-    Network.AWS.AmplifyBackend.CreateBackend
-    Network.AWS.AmplifyBackend.CreateBackendAPI
-    Network.AWS.AmplifyBackend.CreateBackendAuth
-    Network.AWS.AmplifyBackend.CreateBackendConfig
-    Network.AWS.AmplifyBackend.CreateToken
-    Network.AWS.AmplifyBackend.DeleteBackend
-    Network.AWS.AmplifyBackend.DeleteBackendAPI
-    Network.AWS.AmplifyBackend.DeleteBackendAuth
-    Network.AWS.AmplifyBackend.DeleteToken
-    Network.AWS.AmplifyBackend.GenerateBackendAPIModels
-    Network.AWS.AmplifyBackend.GetBackend
-    Network.AWS.AmplifyBackend.GetBackendAPI
-    Network.AWS.AmplifyBackend.GetBackendAPIModels
-    Network.AWS.AmplifyBackend.GetBackendAuth
-    Network.AWS.AmplifyBackend.GetBackendJob
-    Network.AWS.AmplifyBackend.GetToken
-    Network.AWS.AmplifyBackend.ImportBackendAuth
-    Network.AWS.AmplifyBackend.Lens
-    Network.AWS.AmplifyBackend.ListBackendJobs
-    Network.AWS.AmplifyBackend.RemoveAllBackends
-    Network.AWS.AmplifyBackend.RemoveBackendConfig
-    Network.AWS.AmplifyBackend.Types
-    Network.AWS.AmplifyBackend.Types.AdditionalConstraintsElement
-    Network.AWS.AmplifyBackend.Types.AuthResources
-    Network.AWS.AmplifyBackend.Types.BackendAPIAppSyncAuthSettings
-    Network.AWS.AmplifyBackend.Types.BackendAPIAuthType
-    Network.AWS.AmplifyBackend.Types.BackendAPIConflictResolution
-    Network.AWS.AmplifyBackend.Types.BackendAPIResourceConfig
-    Network.AWS.AmplifyBackend.Types.BackendAuthAppleProviderConfig
-    Network.AWS.AmplifyBackend.Types.BackendAuthSocialProviderConfig
-    Network.AWS.AmplifyBackend.Types.BackendJobRespObj
-    Network.AWS.AmplifyBackend.Types.CreateBackendAuthForgotPasswordConfig
-    Network.AWS.AmplifyBackend.Types.CreateBackendAuthIdentityPoolConfig
-    Network.AWS.AmplifyBackend.Types.CreateBackendAuthMFAConfig
-    Network.AWS.AmplifyBackend.Types.CreateBackendAuthOAuthConfig
-    Network.AWS.AmplifyBackend.Types.CreateBackendAuthPasswordPolicyConfig
-    Network.AWS.AmplifyBackend.Types.CreateBackendAuthResourceConfig
-    Network.AWS.AmplifyBackend.Types.CreateBackendAuthUserPoolConfig
-    Network.AWS.AmplifyBackend.Types.DeliveryMethod
-    Network.AWS.AmplifyBackend.Types.EmailSettings
-    Network.AWS.AmplifyBackend.Types.LoginAuthConfigReqObj
-    Network.AWS.AmplifyBackend.Types.MFAMode
-    Network.AWS.AmplifyBackend.Types.MfaTypesElement
-    Network.AWS.AmplifyBackend.Types.Mode
-    Network.AWS.AmplifyBackend.Types.OAuthGrantType
-    Network.AWS.AmplifyBackend.Types.OAuthScopesElement
-    Network.AWS.AmplifyBackend.Types.RequiredSignUpAttributesElement
-    Network.AWS.AmplifyBackend.Types.ResolutionStrategy
-    Network.AWS.AmplifyBackend.Types.ResourceConfig
-    Network.AWS.AmplifyBackend.Types.Service
-    Network.AWS.AmplifyBackend.Types.Settings
-    Network.AWS.AmplifyBackend.Types.SignInMethod
-    Network.AWS.AmplifyBackend.Types.SmsSettings
-    Network.AWS.AmplifyBackend.Types.SocialProviderSettings
-    Network.AWS.AmplifyBackend.Types.Status
-    Network.AWS.AmplifyBackend.Types.UpdateBackendAuthForgotPasswordConfig
-    Network.AWS.AmplifyBackend.Types.UpdateBackendAuthIdentityPoolConfig
-    Network.AWS.AmplifyBackend.Types.UpdateBackendAuthMFAConfig
-    Network.AWS.AmplifyBackend.Types.UpdateBackendAuthOAuthConfig
-    Network.AWS.AmplifyBackend.Types.UpdateBackendAuthPasswordPolicyConfig
-    Network.AWS.AmplifyBackend.Types.UpdateBackendAuthResourceConfig
-    Network.AWS.AmplifyBackend.Types.UpdateBackendAuthUserPoolConfig
-    Network.AWS.AmplifyBackend.UpdateBackendAPI
-    Network.AWS.AmplifyBackend.UpdateBackendAuth
-    Network.AWS.AmplifyBackend.UpdateBackendConfig
-    Network.AWS.AmplifyBackend.UpdateBackendJob
-    Network.AWS.AmplifyBackend.Waiters
+    Amazonka.AmplifyBackend
+    Amazonka.AmplifyBackend.CloneBackend
+    Amazonka.AmplifyBackend.CreateBackend
+    Amazonka.AmplifyBackend.CreateBackendAPI
+    Amazonka.AmplifyBackend.CreateBackendAuth
+    Amazonka.AmplifyBackend.CreateBackendConfig
+    Amazonka.AmplifyBackend.CreateToken
+    Amazonka.AmplifyBackend.DeleteBackend
+    Amazonka.AmplifyBackend.DeleteBackendAPI
+    Amazonka.AmplifyBackend.DeleteBackendAuth
+    Amazonka.AmplifyBackend.DeleteToken
+    Amazonka.AmplifyBackend.GenerateBackendAPIModels
+    Amazonka.AmplifyBackend.GetBackend
+    Amazonka.AmplifyBackend.GetBackendAPI
+    Amazonka.AmplifyBackend.GetBackendAPIModels
+    Amazonka.AmplifyBackend.GetBackendAuth
+    Amazonka.AmplifyBackend.GetBackendJob
+    Amazonka.AmplifyBackend.GetToken
+    Amazonka.AmplifyBackend.ImportBackendAuth
+    Amazonka.AmplifyBackend.Lens
+    Amazonka.AmplifyBackend.ListBackendJobs
+    Amazonka.AmplifyBackend.RemoveAllBackends
+    Amazonka.AmplifyBackend.RemoveBackendConfig
+    Amazonka.AmplifyBackend.Types
+    Amazonka.AmplifyBackend.Types.AdditionalConstraintsElement
+    Amazonka.AmplifyBackend.Types.AuthResources
+    Amazonka.AmplifyBackend.Types.BackendAPIAppSyncAuthSettings
+    Amazonka.AmplifyBackend.Types.BackendAPIAuthType
+    Amazonka.AmplifyBackend.Types.BackendAPIConflictResolution
+    Amazonka.AmplifyBackend.Types.BackendAPIResourceConfig
+    Amazonka.AmplifyBackend.Types.BackendAuthAppleProviderConfig
+    Amazonka.AmplifyBackend.Types.BackendAuthSocialProviderConfig
+    Amazonka.AmplifyBackend.Types.BackendJobRespObj
+    Amazonka.AmplifyBackend.Types.CreateBackendAuthForgotPasswordConfig
+    Amazonka.AmplifyBackend.Types.CreateBackendAuthIdentityPoolConfig
+    Amazonka.AmplifyBackend.Types.CreateBackendAuthMFAConfig
+    Amazonka.AmplifyBackend.Types.CreateBackendAuthOAuthConfig
+    Amazonka.AmplifyBackend.Types.CreateBackendAuthPasswordPolicyConfig
+    Amazonka.AmplifyBackend.Types.CreateBackendAuthResourceConfig
+    Amazonka.AmplifyBackend.Types.CreateBackendAuthUserPoolConfig
+    Amazonka.AmplifyBackend.Types.DeliveryMethod
+    Amazonka.AmplifyBackend.Types.EmailSettings
+    Amazonka.AmplifyBackend.Types.LoginAuthConfigReqObj
+    Amazonka.AmplifyBackend.Types.MFAMode
+    Amazonka.AmplifyBackend.Types.MfaTypesElement
+    Amazonka.AmplifyBackend.Types.Mode
+    Amazonka.AmplifyBackend.Types.OAuthGrantType
+    Amazonka.AmplifyBackend.Types.OAuthScopesElement
+    Amazonka.AmplifyBackend.Types.RequiredSignUpAttributesElement
+    Amazonka.AmplifyBackend.Types.ResolutionStrategy
+    Amazonka.AmplifyBackend.Types.ResourceConfig
+    Amazonka.AmplifyBackend.Types.Service
+    Amazonka.AmplifyBackend.Types.Settings
+    Amazonka.AmplifyBackend.Types.SignInMethod
+    Amazonka.AmplifyBackend.Types.SmsSettings
+    Amazonka.AmplifyBackend.Types.SocialProviderSettings
+    Amazonka.AmplifyBackend.Types.Status
+    Amazonka.AmplifyBackend.Types.UpdateBackendAuthForgotPasswordConfig
+    Amazonka.AmplifyBackend.Types.UpdateBackendAuthIdentityPoolConfig
+    Amazonka.AmplifyBackend.Types.UpdateBackendAuthMFAConfig
+    Amazonka.AmplifyBackend.Types.UpdateBackendAuthOAuthConfig
+    Amazonka.AmplifyBackend.Types.UpdateBackendAuthPasswordPolicyConfig
+    Amazonka.AmplifyBackend.Types.UpdateBackendAuthResourceConfig
+    Amazonka.AmplifyBackend.Types.UpdateBackendAuthUserPoolConfig
+    Amazonka.AmplifyBackend.UpdateBackendAPI
+    Amazonka.AmplifyBackend.UpdateBackendAuth
+    Amazonka.AmplifyBackend.UpdateBackendConfig
+    Amazonka.AmplifyBackend.UpdateBackendJob
+    Amazonka.AmplifyBackend.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -131,9 +131,9 @@ test-suite amazonka-amplifybackend-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.AmplifyBackend
-    Test.AWS.AmplifyBackend.Internal
-    Test.AWS.Gen.AmplifyBackend
+    Test.Amazonka.AmplifyBackend
+    Test.Amazonka.AmplifyBackend.Internal
+    Test.Amazonka.Gen.AmplifyBackend
 
   build-depends:
     , amazonka                 ^>=2.0

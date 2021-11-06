@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.GreengrassV2
-import Test.AWS.GreengrassV2.Internal
+import Test.Amazonka.GreengrassV2
+import Test.Amazonka.GreengrassV2.Internal
 import Test.Tasty
 
 main :: IO ()

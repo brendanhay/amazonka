@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.AccessAnalyzer
-import Test.AWS.AccessAnalyzer.Internal
+import Test.Amazonka.AccessAnalyzer
+import Test.Amazonka.AccessAnalyzer.Internal
 import Test.Tasty
 
 main :: IO ()

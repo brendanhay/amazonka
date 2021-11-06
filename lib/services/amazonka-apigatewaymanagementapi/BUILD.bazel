@@ -4,14 +4,14 @@ load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 haskell_library(
     name = "amazonka-apigatewaymanagementapi",
     srcs = [
-        "gen/Network/AWS/APIGatewayManagementAPI.hs",
-        "gen/Network/AWS/APIGatewayManagementAPI/DeleteConnection.hs",
-        "gen/Network/AWS/APIGatewayManagementAPI/GetConnection.hs",
-        "gen/Network/AWS/APIGatewayManagementAPI/Lens.hs",
-        "gen/Network/AWS/APIGatewayManagementAPI/PostToConnection.hs",
-        "gen/Network/AWS/APIGatewayManagementAPI/Types.hs",
-        "gen/Network/AWS/APIGatewayManagementAPI/Types/Identity.hs",
-        "gen/Network/AWS/APIGatewayManagementAPI/Waiters.hs",
+        "gen/Amazonka/APIGatewayManagementAPI.hs",
+        "gen/Amazonka/APIGatewayManagementAPI/DeleteConnection.hs",
+        "gen/Amazonka/APIGatewayManagementAPI/GetConnection.hs",
+        "gen/Amazonka/APIGatewayManagementAPI/Lens.hs",
+        "gen/Amazonka/APIGatewayManagementAPI/PostToConnection.hs",
+        "gen/Amazonka/APIGatewayManagementAPI/Types.hs",
+        "gen/Amazonka/APIGatewayManagementAPI/Types/Identity.hs",
+        "gen/Amazonka/APIGatewayManagementAPI/Waiters.hs",
     ],
     compiler_flags = [
         "-Wall",
@@ -34,9 +34,9 @@ haskell_test(
     name = "amazonka-apigatewaymanagementapi-test",
     srcs = [
         "test/Main.hs",
-        "test/Test/AWS/APIGatewayManagementAPI.hs",
-        "test/Test/AWS/APIGatewayManagementAPI/Internal.hs",
-        "test/Test/AWS/Gen/APIGatewayManagementAPI.hs",
+        "test/Test/Amazonka/APIGatewayManagementAPI.hs",
+        "test/Test/Amazonka/APIGatewayManagementAPI/Internal.hs",
+        "test/Test/Amazonka/Gen/APIGatewayManagementAPI.hs",
     ],
     compiler_flags = [
         "-Wall",

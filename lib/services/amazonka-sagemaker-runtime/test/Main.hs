@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.SageMakerRuntime
-import Test.AWS.SageMakerRuntime.Internal
+import Test.Amazonka.SageMakerRuntime
+import Test.Amazonka.SageMakerRuntime.Internal
 import Test.Tasty
 
 main :: IO ()

@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.SSMContacts.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.SSMContacts.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.SSMContacts" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.SSMContacts" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,58 +45,58 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.SSMContacts
-    Network.AWS.SSMContacts.AcceptPage
-    Network.AWS.SSMContacts.ActivateContactChannel
-    Network.AWS.SSMContacts.CreateContact
-    Network.AWS.SSMContacts.CreateContactChannel
-    Network.AWS.SSMContacts.DeactivateContactChannel
-    Network.AWS.SSMContacts.DeleteContact
-    Network.AWS.SSMContacts.DeleteContactChannel
-    Network.AWS.SSMContacts.DescribeEngagement
-    Network.AWS.SSMContacts.DescribePage
-    Network.AWS.SSMContacts.GetContact
-    Network.AWS.SSMContacts.GetContactChannel
-    Network.AWS.SSMContacts.GetContactPolicy
-    Network.AWS.SSMContacts.Lens
-    Network.AWS.SSMContacts.ListContactChannels
-    Network.AWS.SSMContacts.ListContacts
-    Network.AWS.SSMContacts.ListEngagements
-    Network.AWS.SSMContacts.ListPageReceipts
-    Network.AWS.SSMContacts.ListPagesByContact
-    Network.AWS.SSMContacts.ListPagesByEngagement
-    Network.AWS.SSMContacts.ListTagsForResource
-    Network.AWS.SSMContacts.PutContactPolicy
-    Network.AWS.SSMContacts.SendActivationCode
-    Network.AWS.SSMContacts.StartEngagement
-    Network.AWS.SSMContacts.StopEngagement
-    Network.AWS.SSMContacts.TagResource
-    Network.AWS.SSMContacts.Types
-    Network.AWS.SSMContacts.Types.AcceptCodeValidation
-    Network.AWS.SSMContacts.Types.AcceptType
-    Network.AWS.SSMContacts.Types.ActivationStatus
-    Network.AWS.SSMContacts.Types.ChannelTargetInfo
-    Network.AWS.SSMContacts.Types.ChannelType
-    Network.AWS.SSMContacts.Types.Contact
-    Network.AWS.SSMContacts.Types.ContactChannel
-    Network.AWS.SSMContacts.Types.ContactChannelAddress
-    Network.AWS.SSMContacts.Types.ContactTargetInfo
-    Network.AWS.SSMContacts.Types.ContactType
-    Network.AWS.SSMContacts.Types.Engagement
-    Network.AWS.SSMContacts.Types.Page
-    Network.AWS.SSMContacts.Types.Plan
-    Network.AWS.SSMContacts.Types.Receipt
-    Network.AWS.SSMContacts.Types.ReceiptType
-    Network.AWS.SSMContacts.Types.Stage
-    Network.AWS.SSMContacts.Types.Tag
-    Network.AWS.SSMContacts.Types.Target
-    Network.AWS.SSMContacts.Types.TimeRange
-    Network.AWS.SSMContacts.UntagResource
-    Network.AWS.SSMContacts.UpdateContact
-    Network.AWS.SSMContacts.UpdateContactChannel
-    Network.AWS.SSMContacts.Waiters
+    Amazonka.SSMContacts
+    Amazonka.SSMContacts.AcceptPage
+    Amazonka.SSMContacts.ActivateContactChannel
+    Amazonka.SSMContacts.CreateContact
+    Amazonka.SSMContacts.CreateContactChannel
+    Amazonka.SSMContacts.DeactivateContactChannel
+    Amazonka.SSMContacts.DeleteContact
+    Amazonka.SSMContacts.DeleteContactChannel
+    Amazonka.SSMContacts.DescribeEngagement
+    Amazonka.SSMContacts.DescribePage
+    Amazonka.SSMContacts.GetContact
+    Amazonka.SSMContacts.GetContactChannel
+    Amazonka.SSMContacts.GetContactPolicy
+    Amazonka.SSMContacts.Lens
+    Amazonka.SSMContacts.ListContactChannels
+    Amazonka.SSMContacts.ListContacts
+    Amazonka.SSMContacts.ListEngagements
+    Amazonka.SSMContacts.ListPageReceipts
+    Amazonka.SSMContacts.ListPagesByContact
+    Amazonka.SSMContacts.ListPagesByEngagement
+    Amazonka.SSMContacts.ListTagsForResource
+    Amazonka.SSMContacts.PutContactPolicy
+    Amazonka.SSMContacts.SendActivationCode
+    Amazonka.SSMContacts.StartEngagement
+    Amazonka.SSMContacts.StopEngagement
+    Amazonka.SSMContacts.TagResource
+    Amazonka.SSMContacts.Types
+    Amazonka.SSMContacts.Types.AcceptCodeValidation
+    Amazonka.SSMContacts.Types.AcceptType
+    Amazonka.SSMContacts.Types.ActivationStatus
+    Amazonka.SSMContacts.Types.ChannelTargetInfo
+    Amazonka.SSMContacts.Types.ChannelType
+    Amazonka.SSMContacts.Types.Contact
+    Amazonka.SSMContacts.Types.ContactChannel
+    Amazonka.SSMContacts.Types.ContactChannelAddress
+    Amazonka.SSMContacts.Types.ContactTargetInfo
+    Amazonka.SSMContacts.Types.ContactType
+    Amazonka.SSMContacts.Types.Engagement
+    Amazonka.SSMContacts.Types.Page
+    Amazonka.SSMContacts.Types.Plan
+    Amazonka.SSMContacts.Types.Receipt
+    Amazonka.SSMContacts.Types.ReceiptType
+    Amazonka.SSMContacts.Types.Stage
+    Amazonka.SSMContacts.Types.Tag
+    Amazonka.SSMContacts.Types.Target
+    Amazonka.SSMContacts.Types.TimeRange
+    Amazonka.SSMContacts.UntagResource
+    Amazonka.SSMContacts.UpdateContact
+    Amazonka.SSMContacts.UpdateContactChannel
+    Amazonka.SSMContacts.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -112,9 +112,9 @@ test-suite amazonka-ssm-contacts-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.SSMContacts
-    Test.AWS.SSMContacts
-    Test.AWS.SSMContacts.Internal
+    Test.Amazonka.Gen.SSMContacts
+    Test.Amazonka.SSMContacts
+    Test.Amazonka.SSMContacts.Internal
 
   build-depends:
     , amazonka               ^>=2.0

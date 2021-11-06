@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.FinSpaceData
-import Test.AWS.FinSpaceData.Internal
+import Test.Amazonka.FinSpaceData
+import Test.Amazonka.FinSpaceData.Internal
 import Test.Tasty
 
 main :: IO ()

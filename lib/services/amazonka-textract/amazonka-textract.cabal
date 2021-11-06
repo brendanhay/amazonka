@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Textract.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Textract.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Textract" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Textract" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,48 +45,48 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Textract
-    Network.AWS.Textract.AnalyzeDocument
-    Network.AWS.Textract.AnalyzeExpense
-    Network.AWS.Textract.DetectDocumentText
-    Network.AWS.Textract.GetDocumentAnalysis
-    Network.AWS.Textract.GetDocumentTextDetection
-    Network.AWS.Textract.Lens
-    Network.AWS.Textract.StartDocumentAnalysis
-    Network.AWS.Textract.StartDocumentTextDetection
-    Network.AWS.Textract.Types
-    Network.AWS.Textract.Types.Block
-    Network.AWS.Textract.Types.BlockType
-    Network.AWS.Textract.Types.BoundingBox
-    Network.AWS.Textract.Types.ContentClassifier
-    Network.AWS.Textract.Types.Document
-    Network.AWS.Textract.Types.DocumentLocation
-    Network.AWS.Textract.Types.DocumentMetadata
-    Network.AWS.Textract.Types.EntityType
-    Network.AWS.Textract.Types.ExpenseDetection
-    Network.AWS.Textract.Types.ExpenseDocument
-    Network.AWS.Textract.Types.ExpenseField
-    Network.AWS.Textract.Types.ExpenseType
-    Network.AWS.Textract.Types.FeatureType
-    Network.AWS.Textract.Types.Geometry
-    Network.AWS.Textract.Types.HumanLoopActivationOutput
-    Network.AWS.Textract.Types.HumanLoopConfig
-    Network.AWS.Textract.Types.HumanLoopDataAttributes
-    Network.AWS.Textract.Types.JobStatus
-    Network.AWS.Textract.Types.LineItemFields
-    Network.AWS.Textract.Types.LineItemGroup
-    Network.AWS.Textract.Types.NotificationChannel
-    Network.AWS.Textract.Types.OutputConfig
-    Network.AWS.Textract.Types.Point
-    Network.AWS.Textract.Types.Relationship
-    Network.AWS.Textract.Types.RelationshipType
-    Network.AWS.Textract.Types.S3Object
-    Network.AWS.Textract.Types.SelectionStatus
-    Network.AWS.Textract.Types.TextType
-    Network.AWS.Textract.Types.Warning
-    Network.AWS.Textract.Waiters
+    Amazonka.Textract
+    Amazonka.Textract.AnalyzeDocument
+    Amazonka.Textract.AnalyzeExpense
+    Amazonka.Textract.DetectDocumentText
+    Amazonka.Textract.GetDocumentAnalysis
+    Amazonka.Textract.GetDocumentTextDetection
+    Amazonka.Textract.Lens
+    Amazonka.Textract.StartDocumentAnalysis
+    Amazonka.Textract.StartDocumentTextDetection
+    Amazonka.Textract.Types
+    Amazonka.Textract.Types.Block
+    Amazonka.Textract.Types.BlockType
+    Amazonka.Textract.Types.BoundingBox
+    Amazonka.Textract.Types.ContentClassifier
+    Amazonka.Textract.Types.Document
+    Amazonka.Textract.Types.DocumentLocation
+    Amazonka.Textract.Types.DocumentMetadata
+    Amazonka.Textract.Types.EntityType
+    Amazonka.Textract.Types.ExpenseDetection
+    Amazonka.Textract.Types.ExpenseDocument
+    Amazonka.Textract.Types.ExpenseField
+    Amazonka.Textract.Types.ExpenseType
+    Amazonka.Textract.Types.FeatureType
+    Amazonka.Textract.Types.Geometry
+    Amazonka.Textract.Types.HumanLoopActivationOutput
+    Amazonka.Textract.Types.HumanLoopConfig
+    Amazonka.Textract.Types.HumanLoopDataAttributes
+    Amazonka.Textract.Types.JobStatus
+    Amazonka.Textract.Types.LineItemFields
+    Amazonka.Textract.Types.LineItemGroup
+    Amazonka.Textract.Types.NotificationChannel
+    Amazonka.Textract.Types.OutputConfig
+    Amazonka.Textract.Types.Point
+    Amazonka.Textract.Types.Relationship
+    Amazonka.Textract.Types.RelationshipType
+    Amazonka.Textract.Types.S3Object
+    Amazonka.Textract.Types.SelectionStatus
+    Amazonka.Textract.Types.TextType
+    Amazonka.Textract.Types.Warning
+    Amazonka.Textract.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -102,9 +102,9 @@ test-suite amazonka-textract-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Textract
-    Test.AWS.Textract
-    Test.AWS.Textract.Internal
+    Test.Amazonka.Gen.Textract
+    Test.Amazonka.Textract
+    Test.Amazonka.Textract.Internal
 
   build-depends:
     , amazonka              ^>=2.0

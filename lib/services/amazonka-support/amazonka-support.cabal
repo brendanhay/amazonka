@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Support.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Support.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Support" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Support" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,42 +45,42 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Support
-    Network.AWS.Support.AddAttachmentsToSet
-    Network.AWS.Support.AddCommunicationToCase
-    Network.AWS.Support.CreateCase
-    Network.AWS.Support.DescribeAttachment
-    Network.AWS.Support.DescribeCases
-    Network.AWS.Support.DescribeCommunications
-    Network.AWS.Support.DescribeServices
-    Network.AWS.Support.DescribeSeverityLevels
-    Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
-    Network.AWS.Support.DescribeTrustedAdvisorCheckResult
-    Network.AWS.Support.DescribeTrustedAdvisorChecks
-    Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
-    Network.AWS.Support.Lens
-    Network.AWS.Support.RefreshTrustedAdvisorCheck
-    Network.AWS.Support.ResolveCase
-    Network.AWS.Support.Types
-    Network.AWS.Support.Types.Attachment
-    Network.AWS.Support.Types.AttachmentDetails
-    Network.AWS.Support.Types.CaseDetails
-    Network.AWS.Support.Types.Category
-    Network.AWS.Support.Types.Communication
-    Network.AWS.Support.Types.RecentCaseCommunications
-    Network.AWS.Support.Types.SeverityLevel
-    Network.AWS.Support.Types.SupportService
-    Network.AWS.Support.Types.TrustedAdvisorCategorySpecificSummary
-    Network.AWS.Support.Types.TrustedAdvisorCheckDescription
-    Network.AWS.Support.Types.TrustedAdvisorCheckRefreshStatus
-    Network.AWS.Support.Types.TrustedAdvisorCheckResult
-    Network.AWS.Support.Types.TrustedAdvisorCheckSummary
-    Network.AWS.Support.Types.TrustedAdvisorCostOptimizingSummary
-    Network.AWS.Support.Types.TrustedAdvisorResourceDetail
-    Network.AWS.Support.Types.TrustedAdvisorResourcesSummary
-    Network.AWS.Support.Waiters
+    Amazonka.Support
+    Amazonka.Support.AddAttachmentsToSet
+    Amazonka.Support.AddCommunicationToCase
+    Amazonka.Support.CreateCase
+    Amazonka.Support.DescribeAttachment
+    Amazonka.Support.DescribeCases
+    Amazonka.Support.DescribeCommunications
+    Amazonka.Support.DescribeServices
+    Amazonka.Support.DescribeSeverityLevels
+    Amazonka.Support.DescribeTrustedAdvisorCheckRefreshStatuses
+    Amazonka.Support.DescribeTrustedAdvisorCheckResult
+    Amazonka.Support.DescribeTrustedAdvisorChecks
+    Amazonka.Support.DescribeTrustedAdvisorCheckSummaries
+    Amazonka.Support.Lens
+    Amazonka.Support.RefreshTrustedAdvisorCheck
+    Amazonka.Support.ResolveCase
+    Amazonka.Support.Types
+    Amazonka.Support.Types.Attachment
+    Amazonka.Support.Types.AttachmentDetails
+    Amazonka.Support.Types.CaseDetails
+    Amazonka.Support.Types.Category
+    Amazonka.Support.Types.Communication
+    Amazonka.Support.Types.RecentCaseCommunications
+    Amazonka.Support.Types.SeverityLevel
+    Amazonka.Support.Types.SupportService
+    Amazonka.Support.Types.TrustedAdvisorCategorySpecificSummary
+    Amazonka.Support.Types.TrustedAdvisorCheckDescription
+    Amazonka.Support.Types.TrustedAdvisorCheckRefreshStatus
+    Amazonka.Support.Types.TrustedAdvisorCheckResult
+    Amazonka.Support.Types.TrustedAdvisorCheckSummary
+    Amazonka.Support.Types.TrustedAdvisorCostOptimizingSummary
+    Amazonka.Support.Types.TrustedAdvisorResourceDetail
+    Amazonka.Support.Types.TrustedAdvisorResourcesSummary
+    Amazonka.Support.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -96,9 +96,9 @@ test-suite amazonka-support-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Support
-    Test.AWS.Support
-    Test.AWS.Support.Internal
+    Test.Amazonka.Gen.Support
+    Test.Amazonka.Support
+    Test.Amazonka.Support.Internal
 
   build-depends:
     , amazonka              ^>=2.0

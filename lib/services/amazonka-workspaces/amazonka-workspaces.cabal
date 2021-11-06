@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.WorkSpaces.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.WorkSpaces.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.WorkSpaces" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.WorkSpaces" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,124 +45,124 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.WorkSpaces
-    Network.AWS.WorkSpaces.AssociateConnectionAlias
-    Network.AWS.WorkSpaces.AssociateIpGroups
-    Network.AWS.WorkSpaces.AuthorizeIpRules
-    Network.AWS.WorkSpaces.CopyWorkspaceImage
-    Network.AWS.WorkSpaces.CreateConnectionAlias
-    Network.AWS.WorkSpaces.CreateIpGroup
-    Network.AWS.WorkSpaces.CreateTags
-    Network.AWS.WorkSpaces.CreateUpdatedWorkspaceImage
-    Network.AWS.WorkSpaces.CreateWorkspaceBundle
-    Network.AWS.WorkSpaces.CreateWorkspaces
-    Network.AWS.WorkSpaces.DeleteConnectionAlias
-    Network.AWS.WorkSpaces.DeleteIpGroup
-    Network.AWS.WorkSpaces.DeleteTags
-    Network.AWS.WorkSpaces.DeleteWorkspaceBundle
-    Network.AWS.WorkSpaces.DeleteWorkspaceImage
-    Network.AWS.WorkSpaces.DeregisterWorkspaceDirectory
-    Network.AWS.WorkSpaces.DescribeAccount
-    Network.AWS.WorkSpaces.DescribeAccountModifications
-    Network.AWS.WorkSpaces.DescribeClientProperties
-    Network.AWS.WorkSpaces.DescribeConnectionAliases
-    Network.AWS.WorkSpaces.DescribeConnectionAliasPermissions
-    Network.AWS.WorkSpaces.DescribeIpGroups
-    Network.AWS.WorkSpaces.DescribeTags
-    Network.AWS.WorkSpaces.DescribeWorkspaceBundles
-    Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
-    Network.AWS.WorkSpaces.DescribeWorkspaceImagePermissions
-    Network.AWS.WorkSpaces.DescribeWorkspaceImages
-    Network.AWS.WorkSpaces.DescribeWorkspaces
-    Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus
-    Network.AWS.WorkSpaces.DescribeWorkspaceSnapshots
-    Network.AWS.WorkSpaces.DisassociateConnectionAlias
-    Network.AWS.WorkSpaces.DisassociateIpGroups
-    Network.AWS.WorkSpaces.ImportWorkspaceImage
-    Network.AWS.WorkSpaces.Lens
-    Network.AWS.WorkSpaces.ListAvailableManagementCidrRanges
-    Network.AWS.WorkSpaces.MigrateWorkspace
-    Network.AWS.WorkSpaces.ModifyAccount
-    Network.AWS.WorkSpaces.ModifyClientProperties
-    Network.AWS.WorkSpaces.ModifySelfservicePermissions
-    Network.AWS.WorkSpaces.ModifyWorkspaceAccessProperties
-    Network.AWS.WorkSpaces.ModifyWorkspaceCreationProperties
-    Network.AWS.WorkSpaces.ModifyWorkspaceProperties
-    Network.AWS.WorkSpaces.ModifyWorkspaceState
-    Network.AWS.WorkSpaces.RebootWorkspaces
-    Network.AWS.WorkSpaces.RebuildWorkspaces
-    Network.AWS.WorkSpaces.RegisterWorkspaceDirectory
-    Network.AWS.WorkSpaces.RestoreWorkspace
-    Network.AWS.WorkSpaces.RevokeIpRules
-    Network.AWS.WorkSpaces.StartWorkspaces
-    Network.AWS.WorkSpaces.StopWorkspaces
-    Network.AWS.WorkSpaces.TerminateWorkspaces
-    Network.AWS.WorkSpaces.Types
-    Network.AWS.WorkSpaces.Types.AccessPropertyValue
-    Network.AWS.WorkSpaces.Types.AccountModification
-    Network.AWS.WorkSpaces.Types.Application
-    Network.AWS.WorkSpaces.Types.AssociationStatus
-    Network.AWS.WorkSpaces.Types.ClientProperties
-    Network.AWS.WorkSpaces.Types.ClientPropertiesResult
-    Network.AWS.WorkSpaces.Types.Compute
-    Network.AWS.WorkSpaces.Types.ComputeType
-    Network.AWS.WorkSpaces.Types.ConnectionAlias
-    Network.AWS.WorkSpaces.Types.ConnectionAliasAssociation
-    Network.AWS.WorkSpaces.Types.ConnectionAliasPermission
-    Network.AWS.WorkSpaces.Types.ConnectionAliasState
-    Network.AWS.WorkSpaces.Types.ConnectionState
-    Network.AWS.WorkSpaces.Types.DedicatedTenancyModificationStateEnum
-    Network.AWS.WorkSpaces.Types.DedicatedTenancySupportEnum
-    Network.AWS.WorkSpaces.Types.DedicatedTenancySupportResultEnum
-    Network.AWS.WorkSpaces.Types.DefaultWorkspaceCreationProperties
-    Network.AWS.WorkSpaces.Types.FailedCreateWorkspaceRequest
-    Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest
-    Network.AWS.WorkSpaces.Types.ImagePermission
-    Network.AWS.WorkSpaces.Types.ImageType
-    Network.AWS.WorkSpaces.Types.IpRuleItem
-    Network.AWS.WorkSpaces.Types.ModificationResourceEnum
-    Network.AWS.WorkSpaces.Types.ModificationState
-    Network.AWS.WorkSpaces.Types.ModificationStateEnum
-    Network.AWS.WorkSpaces.Types.OperatingSystem
-    Network.AWS.WorkSpaces.Types.OperatingSystemType
-    Network.AWS.WorkSpaces.Types.RebootRequest
-    Network.AWS.WorkSpaces.Types.RebuildRequest
-    Network.AWS.WorkSpaces.Types.ReconnectEnum
-    Network.AWS.WorkSpaces.Types.RootStorage
-    Network.AWS.WorkSpaces.Types.RunningMode
-    Network.AWS.WorkSpaces.Types.SelfservicePermissions
-    Network.AWS.WorkSpaces.Types.Snapshot
-    Network.AWS.WorkSpaces.Types.StartRequest
-    Network.AWS.WorkSpaces.Types.StopRequest
-    Network.AWS.WorkSpaces.Types.Tag
-    Network.AWS.WorkSpaces.Types.TargetWorkspaceState
-    Network.AWS.WorkSpaces.Types.Tenancy
-    Network.AWS.WorkSpaces.Types.TerminateRequest
-    Network.AWS.WorkSpaces.Types.UpdateResult
-    Network.AWS.WorkSpaces.Types.UserStorage
-    Network.AWS.WorkSpaces.Types.Workspace
-    Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties
-    Network.AWS.WorkSpaces.Types.WorkspaceBundle
-    Network.AWS.WorkSpaces.Types.WorkspaceConnectionStatus
-    Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties
-    Network.AWS.WorkSpaces.Types.WorkspaceDirectory
-    Network.AWS.WorkSpaces.Types.WorkspaceDirectoryState
-    Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType
-    Network.AWS.WorkSpaces.Types.WorkspaceImage
-    Network.AWS.WorkSpaces.Types.WorkspaceImageIngestionProcess
-    Network.AWS.WorkSpaces.Types.WorkspaceImageRequiredTenancy
-    Network.AWS.WorkSpaces.Types.WorkspaceImageState
-    Network.AWS.WorkSpaces.Types.WorkspaceProperties
-    Network.AWS.WorkSpaces.Types.WorkspaceRequest
-    Network.AWS.WorkSpaces.Types.WorkspacesIpGroup
-    Network.AWS.WorkSpaces.Types.WorkspaceState
-    Network.AWS.WorkSpaces.UpdateConnectionAliasPermission
-    Network.AWS.WorkSpaces.UpdateRulesOfIpGroup
-    Network.AWS.WorkSpaces.UpdateWorkspaceBundle
-    Network.AWS.WorkSpaces.UpdateWorkspaceImagePermission
-    Network.AWS.WorkSpaces.Waiters
+    Amazonka.WorkSpaces
+    Amazonka.WorkSpaces.AssociateConnectionAlias
+    Amazonka.WorkSpaces.AssociateIpGroups
+    Amazonka.WorkSpaces.AuthorizeIpRules
+    Amazonka.WorkSpaces.CopyWorkspaceImage
+    Amazonka.WorkSpaces.CreateConnectionAlias
+    Amazonka.WorkSpaces.CreateIpGroup
+    Amazonka.WorkSpaces.CreateTags
+    Amazonka.WorkSpaces.CreateUpdatedWorkspaceImage
+    Amazonka.WorkSpaces.CreateWorkspaceBundle
+    Amazonka.WorkSpaces.CreateWorkspaces
+    Amazonka.WorkSpaces.DeleteConnectionAlias
+    Amazonka.WorkSpaces.DeleteIpGroup
+    Amazonka.WorkSpaces.DeleteTags
+    Amazonka.WorkSpaces.DeleteWorkspaceBundle
+    Amazonka.WorkSpaces.DeleteWorkspaceImage
+    Amazonka.WorkSpaces.DeregisterWorkspaceDirectory
+    Amazonka.WorkSpaces.DescribeAccount
+    Amazonka.WorkSpaces.DescribeAccountModifications
+    Amazonka.WorkSpaces.DescribeClientProperties
+    Amazonka.WorkSpaces.DescribeConnectionAliases
+    Amazonka.WorkSpaces.DescribeConnectionAliasPermissions
+    Amazonka.WorkSpaces.DescribeIpGroups
+    Amazonka.WorkSpaces.DescribeTags
+    Amazonka.WorkSpaces.DescribeWorkspaceBundles
+    Amazonka.WorkSpaces.DescribeWorkspaceDirectories
+    Amazonka.WorkSpaces.DescribeWorkspaceImagePermissions
+    Amazonka.WorkSpaces.DescribeWorkspaceImages
+    Amazonka.WorkSpaces.DescribeWorkspaces
+    Amazonka.WorkSpaces.DescribeWorkspacesConnectionStatus
+    Amazonka.WorkSpaces.DescribeWorkspaceSnapshots
+    Amazonka.WorkSpaces.DisassociateConnectionAlias
+    Amazonka.WorkSpaces.DisassociateIpGroups
+    Amazonka.WorkSpaces.ImportWorkspaceImage
+    Amazonka.WorkSpaces.Lens
+    Amazonka.WorkSpaces.ListAvailableManagementCidrRanges
+    Amazonka.WorkSpaces.MigrateWorkspace
+    Amazonka.WorkSpaces.ModifyAccount
+    Amazonka.WorkSpaces.ModifyClientProperties
+    Amazonka.WorkSpaces.ModifySelfservicePermissions
+    Amazonka.WorkSpaces.ModifyWorkspaceAccessProperties
+    Amazonka.WorkSpaces.ModifyWorkspaceCreationProperties
+    Amazonka.WorkSpaces.ModifyWorkspaceProperties
+    Amazonka.WorkSpaces.ModifyWorkspaceState
+    Amazonka.WorkSpaces.RebootWorkspaces
+    Amazonka.WorkSpaces.RebuildWorkspaces
+    Amazonka.WorkSpaces.RegisterWorkspaceDirectory
+    Amazonka.WorkSpaces.RestoreWorkspace
+    Amazonka.WorkSpaces.RevokeIpRules
+    Amazonka.WorkSpaces.StartWorkspaces
+    Amazonka.WorkSpaces.StopWorkspaces
+    Amazonka.WorkSpaces.TerminateWorkspaces
+    Amazonka.WorkSpaces.Types
+    Amazonka.WorkSpaces.Types.AccessPropertyValue
+    Amazonka.WorkSpaces.Types.AccountModification
+    Amazonka.WorkSpaces.Types.Application
+    Amazonka.WorkSpaces.Types.AssociationStatus
+    Amazonka.WorkSpaces.Types.ClientProperties
+    Amazonka.WorkSpaces.Types.ClientPropertiesResult
+    Amazonka.WorkSpaces.Types.Compute
+    Amazonka.WorkSpaces.Types.ComputeType
+    Amazonka.WorkSpaces.Types.ConnectionAlias
+    Amazonka.WorkSpaces.Types.ConnectionAliasAssociation
+    Amazonka.WorkSpaces.Types.ConnectionAliasPermission
+    Amazonka.WorkSpaces.Types.ConnectionAliasState
+    Amazonka.WorkSpaces.Types.ConnectionState
+    Amazonka.WorkSpaces.Types.DedicatedTenancyModificationStateEnum
+    Amazonka.WorkSpaces.Types.DedicatedTenancySupportEnum
+    Amazonka.WorkSpaces.Types.DedicatedTenancySupportResultEnum
+    Amazonka.WorkSpaces.Types.DefaultWorkspaceCreationProperties
+    Amazonka.WorkSpaces.Types.FailedCreateWorkspaceRequest
+    Amazonka.WorkSpaces.Types.FailedWorkspaceChangeRequest
+    Amazonka.WorkSpaces.Types.ImagePermission
+    Amazonka.WorkSpaces.Types.ImageType
+    Amazonka.WorkSpaces.Types.IpRuleItem
+    Amazonka.WorkSpaces.Types.ModificationResourceEnum
+    Amazonka.WorkSpaces.Types.ModificationState
+    Amazonka.WorkSpaces.Types.ModificationStateEnum
+    Amazonka.WorkSpaces.Types.OperatingSystem
+    Amazonka.WorkSpaces.Types.OperatingSystemType
+    Amazonka.WorkSpaces.Types.RebootRequest
+    Amazonka.WorkSpaces.Types.RebuildRequest
+    Amazonka.WorkSpaces.Types.ReconnectEnum
+    Amazonka.WorkSpaces.Types.RootStorage
+    Amazonka.WorkSpaces.Types.RunningMode
+    Amazonka.WorkSpaces.Types.SelfservicePermissions
+    Amazonka.WorkSpaces.Types.Snapshot
+    Amazonka.WorkSpaces.Types.StartRequest
+    Amazonka.WorkSpaces.Types.StopRequest
+    Amazonka.WorkSpaces.Types.Tag
+    Amazonka.WorkSpaces.Types.TargetWorkspaceState
+    Amazonka.WorkSpaces.Types.Tenancy
+    Amazonka.WorkSpaces.Types.TerminateRequest
+    Amazonka.WorkSpaces.Types.UpdateResult
+    Amazonka.WorkSpaces.Types.UserStorage
+    Amazonka.WorkSpaces.Types.Workspace
+    Amazonka.WorkSpaces.Types.WorkspaceAccessProperties
+    Amazonka.WorkSpaces.Types.WorkspaceBundle
+    Amazonka.WorkSpaces.Types.WorkspaceConnectionStatus
+    Amazonka.WorkSpaces.Types.WorkspaceCreationProperties
+    Amazonka.WorkSpaces.Types.WorkspaceDirectory
+    Amazonka.WorkSpaces.Types.WorkspaceDirectoryState
+    Amazonka.WorkSpaces.Types.WorkspaceDirectoryType
+    Amazonka.WorkSpaces.Types.WorkspaceImage
+    Amazonka.WorkSpaces.Types.WorkspaceImageIngestionProcess
+    Amazonka.WorkSpaces.Types.WorkspaceImageRequiredTenancy
+    Amazonka.WorkSpaces.Types.WorkspaceImageState
+    Amazonka.WorkSpaces.Types.WorkspaceProperties
+    Amazonka.WorkSpaces.Types.WorkspaceRequest
+    Amazonka.WorkSpaces.Types.WorkspacesIpGroup
+    Amazonka.WorkSpaces.Types.WorkspaceState
+    Amazonka.WorkSpaces.UpdateConnectionAliasPermission
+    Amazonka.WorkSpaces.UpdateRulesOfIpGroup
+    Amazonka.WorkSpaces.UpdateWorkspaceBundle
+    Amazonka.WorkSpaces.UpdateWorkspaceImagePermission
+    Amazonka.WorkSpaces.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -178,9 +178,9 @@ test-suite amazonka-workspaces-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.WorkSpaces
-    Test.AWS.WorkSpaces
-    Test.AWS.WorkSpaces.Internal
+    Test.Amazonka.Gen.WorkSpaces
+    Test.Amazonka.WorkSpaces
+    Test.Amazonka.WorkSpaces.Internal
 
   build-depends:
     , amazonka              ^>=2.0

@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.LicenseManager.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.LicenseManager.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.LicenseManager" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.LicenseManager" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,115 +45,115 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.LicenseManager
-    Network.AWS.LicenseManager.AcceptGrant
-    Network.AWS.LicenseManager.CheckInLicense
-    Network.AWS.LicenseManager.CheckoutBorrowLicense
-    Network.AWS.LicenseManager.CheckoutLicense
-    Network.AWS.LicenseManager.CreateGrant
-    Network.AWS.LicenseManager.CreateGrantVersion
-    Network.AWS.LicenseManager.CreateLicense
-    Network.AWS.LicenseManager.CreateLicenseConfiguration
-    Network.AWS.LicenseManager.CreateLicenseConversionTaskForResource
-    Network.AWS.LicenseManager.CreateLicenseManagerReportGenerator
-    Network.AWS.LicenseManager.CreateLicenseVersion
-    Network.AWS.LicenseManager.CreateToken
-    Network.AWS.LicenseManager.DeleteGrant
-    Network.AWS.LicenseManager.DeleteLicense
-    Network.AWS.LicenseManager.DeleteLicenseConfiguration
-    Network.AWS.LicenseManager.DeleteLicenseManagerReportGenerator
-    Network.AWS.LicenseManager.DeleteToken
-    Network.AWS.LicenseManager.ExtendLicenseConsumption
-    Network.AWS.LicenseManager.GetAccessToken
-    Network.AWS.LicenseManager.GetGrant
-    Network.AWS.LicenseManager.GetLicense
-    Network.AWS.LicenseManager.GetLicenseConfiguration
-    Network.AWS.LicenseManager.GetLicenseConversionTask
-    Network.AWS.LicenseManager.GetLicenseManagerReportGenerator
-    Network.AWS.LicenseManager.GetLicenseUsage
-    Network.AWS.LicenseManager.GetServiceSettings
-    Network.AWS.LicenseManager.Lens
-    Network.AWS.LicenseManager.ListAssociationsForLicenseConfiguration
-    Network.AWS.LicenseManager.ListDistributedGrants
-    Network.AWS.LicenseManager.ListFailuresForLicenseConfigurationOperations
-    Network.AWS.LicenseManager.ListLicenseConfigurations
-    Network.AWS.LicenseManager.ListLicenseConversionTasks
-    Network.AWS.LicenseManager.ListLicenseManagerReportGenerators
-    Network.AWS.LicenseManager.ListLicenses
-    Network.AWS.LicenseManager.ListLicenseSpecificationsForResource
-    Network.AWS.LicenseManager.ListLicenseVersions
-    Network.AWS.LicenseManager.ListReceivedGrants
-    Network.AWS.LicenseManager.ListReceivedLicenses
-    Network.AWS.LicenseManager.ListResourceInventory
-    Network.AWS.LicenseManager.ListTagsForResource
-    Network.AWS.LicenseManager.ListTokens
-    Network.AWS.LicenseManager.ListUsageForLicenseConfiguration
-    Network.AWS.LicenseManager.RejectGrant
-    Network.AWS.LicenseManager.TagResource
-    Network.AWS.LicenseManager.Types
-    Network.AWS.LicenseManager.Types.AllowedOperation
-    Network.AWS.LicenseManager.Types.AutomatedDiscoveryInformation
-    Network.AWS.LicenseManager.Types.BorrowConfiguration
-    Network.AWS.LicenseManager.Types.CheckoutType
-    Network.AWS.LicenseManager.Types.ConsumedLicenseSummary
-    Network.AWS.LicenseManager.Types.ConsumptionConfiguration
-    Network.AWS.LicenseManager.Types.DatetimeRange
-    Network.AWS.LicenseManager.Types.DigitalSignatureMethod
-    Network.AWS.LicenseManager.Types.Entitlement
-    Network.AWS.LicenseManager.Types.EntitlementData
-    Network.AWS.LicenseManager.Types.EntitlementDataUnit
-    Network.AWS.LicenseManager.Types.EntitlementUnit
-    Network.AWS.LicenseManager.Types.EntitlementUsage
-    Network.AWS.LicenseManager.Types.Filter
-    Network.AWS.LicenseManager.Types.Grant
-    Network.AWS.LicenseManager.Types.GrantedLicense
-    Network.AWS.LicenseManager.Types.GrantStatus
-    Network.AWS.LicenseManager.Types.InventoryFilter
-    Network.AWS.LicenseManager.Types.InventoryFilterCondition
-    Network.AWS.LicenseManager.Types.Issuer
-    Network.AWS.LicenseManager.Types.IssuerDetails
-    Network.AWS.LicenseManager.Types.License
-    Network.AWS.LicenseManager.Types.LicenseConfiguration
-    Network.AWS.LicenseManager.Types.LicenseConfigurationAssociation
-    Network.AWS.LicenseManager.Types.LicenseConfigurationStatus
-    Network.AWS.LicenseManager.Types.LicenseConfigurationUsage
-    Network.AWS.LicenseManager.Types.LicenseConversionContext
-    Network.AWS.LicenseManager.Types.LicenseConversionTask
-    Network.AWS.LicenseManager.Types.LicenseConversionTaskStatus
-    Network.AWS.LicenseManager.Types.LicenseCountingType
-    Network.AWS.LicenseManager.Types.LicenseDeletionStatus
-    Network.AWS.LicenseManager.Types.LicenseOperationFailure
-    Network.AWS.LicenseManager.Types.LicenseSpecification
-    Network.AWS.LicenseManager.Types.LicenseStatus
-    Network.AWS.LicenseManager.Types.LicenseUsage
-    Network.AWS.LicenseManager.Types.ManagedResourceSummary
-    Network.AWS.LicenseManager.Types.Metadata
-    Network.AWS.LicenseManager.Types.OrganizationConfiguration
-    Network.AWS.LicenseManager.Types.ProductInformation
-    Network.AWS.LicenseManager.Types.ProductInformationFilter
-    Network.AWS.LicenseManager.Types.ProvisionalConfiguration
-    Network.AWS.LicenseManager.Types.ReceivedMetadata
-    Network.AWS.LicenseManager.Types.ReceivedStatus
-    Network.AWS.LicenseManager.Types.RenewType
-    Network.AWS.LicenseManager.Types.ReportContext
-    Network.AWS.LicenseManager.Types.ReportFrequency
-    Network.AWS.LicenseManager.Types.ReportFrequencyType
-    Network.AWS.LicenseManager.Types.ReportGenerator
-    Network.AWS.LicenseManager.Types.ReportType
-    Network.AWS.LicenseManager.Types.ResourceInventory
-    Network.AWS.LicenseManager.Types.ResourceType
-    Network.AWS.LicenseManager.Types.S3Location
-    Network.AWS.LicenseManager.Types.Tag
-    Network.AWS.LicenseManager.Types.TokenData
-    Network.AWS.LicenseManager.Types.TokenType
-    Network.AWS.LicenseManager.UntagResource
-    Network.AWS.LicenseManager.UpdateLicenseConfiguration
-    Network.AWS.LicenseManager.UpdateLicenseManagerReportGenerator
-    Network.AWS.LicenseManager.UpdateLicenseSpecificationsForResource
-    Network.AWS.LicenseManager.UpdateServiceSettings
-    Network.AWS.LicenseManager.Waiters
+    Amazonka.LicenseManager
+    Amazonka.LicenseManager.AcceptGrant
+    Amazonka.LicenseManager.CheckInLicense
+    Amazonka.LicenseManager.CheckoutBorrowLicense
+    Amazonka.LicenseManager.CheckoutLicense
+    Amazonka.LicenseManager.CreateGrant
+    Amazonka.LicenseManager.CreateGrantVersion
+    Amazonka.LicenseManager.CreateLicense
+    Amazonka.LicenseManager.CreateLicenseConfiguration
+    Amazonka.LicenseManager.CreateLicenseConversionTaskForResource
+    Amazonka.LicenseManager.CreateLicenseManagerReportGenerator
+    Amazonka.LicenseManager.CreateLicenseVersion
+    Amazonka.LicenseManager.CreateToken
+    Amazonka.LicenseManager.DeleteGrant
+    Amazonka.LicenseManager.DeleteLicense
+    Amazonka.LicenseManager.DeleteLicenseConfiguration
+    Amazonka.LicenseManager.DeleteLicenseManagerReportGenerator
+    Amazonka.LicenseManager.DeleteToken
+    Amazonka.LicenseManager.ExtendLicenseConsumption
+    Amazonka.LicenseManager.GetAccessToken
+    Amazonka.LicenseManager.GetGrant
+    Amazonka.LicenseManager.GetLicense
+    Amazonka.LicenseManager.GetLicenseConfiguration
+    Amazonka.LicenseManager.GetLicenseConversionTask
+    Amazonka.LicenseManager.GetLicenseManagerReportGenerator
+    Amazonka.LicenseManager.GetLicenseUsage
+    Amazonka.LicenseManager.GetServiceSettings
+    Amazonka.LicenseManager.Lens
+    Amazonka.LicenseManager.ListAssociationsForLicenseConfiguration
+    Amazonka.LicenseManager.ListDistributedGrants
+    Amazonka.LicenseManager.ListFailuresForLicenseConfigurationOperations
+    Amazonka.LicenseManager.ListLicenseConfigurations
+    Amazonka.LicenseManager.ListLicenseConversionTasks
+    Amazonka.LicenseManager.ListLicenseManagerReportGenerators
+    Amazonka.LicenseManager.ListLicenses
+    Amazonka.LicenseManager.ListLicenseSpecificationsForResource
+    Amazonka.LicenseManager.ListLicenseVersions
+    Amazonka.LicenseManager.ListReceivedGrants
+    Amazonka.LicenseManager.ListReceivedLicenses
+    Amazonka.LicenseManager.ListResourceInventory
+    Amazonka.LicenseManager.ListTagsForResource
+    Amazonka.LicenseManager.ListTokens
+    Amazonka.LicenseManager.ListUsageForLicenseConfiguration
+    Amazonka.LicenseManager.RejectGrant
+    Amazonka.LicenseManager.TagResource
+    Amazonka.LicenseManager.Types
+    Amazonka.LicenseManager.Types.AllowedOperation
+    Amazonka.LicenseManager.Types.AutomatedDiscoveryInformation
+    Amazonka.LicenseManager.Types.BorrowConfiguration
+    Amazonka.LicenseManager.Types.CheckoutType
+    Amazonka.LicenseManager.Types.ConsumedLicenseSummary
+    Amazonka.LicenseManager.Types.ConsumptionConfiguration
+    Amazonka.LicenseManager.Types.DatetimeRange
+    Amazonka.LicenseManager.Types.DigitalSignatureMethod
+    Amazonka.LicenseManager.Types.Entitlement
+    Amazonka.LicenseManager.Types.EntitlementData
+    Amazonka.LicenseManager.Types.EntitlementDataUnit
+    Amazonka.LicenseManager.Types.EntitlementUnit
+    Amazonka.LicenseManager.Types.EntitlementUsage
+    Amazonka.LicenseManager.Types.Filter
+    Amazonka.LicenseManager.Types.Grant
+    Amazonka.LicenseManager.Types.GrantedLicense
+    Amazonka.LicenseManager.Types.GrantStatus
+    Amazonka.LicenseManager.Types.InventoryFilter
+    Amazonka.LicenseManager.Types.InventoryFilterCondition
+    Amazonka.LicenseManager.Types.Issuer
+    Amazonka.LicenseManager.Types.IssuerDetails
+    Amazonka.LicenseManager.Types.License
+    Amazonka.LicenseManager.Types.LicenseConfiguration
+    Amazonka.LicenseManager.Types.LicenseConfigurationAssociation
+    Amazonka.LicenseManager.Types.LicenseConfigurationStatus
+    Amazonka.LicenseManager.Types.LicenseConfigurationUsage
+    Amazonka.LicenseManager.Types.LicenseConversionContext
+    Amazonka.LicenseManager.Types.LicenseConversionTask
+    Amazonka.LicenseManager.Types.LicenseConversionTaskStatus
+    Amazonka.LicenseManager.Types.LicenseCountingType
+    Amazonka.LicenseManager.Types.LicenseDeletionStatus
+    Amazonka.LicenseManager.Types.LicenseOperationFailure
+    Amazonka.LicenseManager.Types.LicenseSpecification
+    Amazonka.LicenseManager.Types.LicenseStatus
+    Amazonka.LicenseManager.Types.LicenseUsage
+    Amazonka.LicenseManager.Types.ManagedResourceSummary
+    Amazonka.LicenseManager.Types.Metadata
+    Amazonka.LicenseManager.Types.OrganizationConfiguration
+    Amazonka.LicenseManager.Types.ProductInformation
+    Amazonka.LicenseManager.Types.ProductInformationFilter
+    Amazonka.LicenseManager.Types.ProvisionalConfiguration
+    Amazonka.LicenseManager.Types.ReceivedMetadata
+    Amazonka.LicenseManager.Types.ReceivedStatus
+    Amazonka.LicenseManager.Types.RenewType
+    Amazonka.LicenseManager.Types.ReportContext
+    Amazonka.LicenseManager.Types.ReportFrequency
+    Amazonka.LicenseManager.Types.ReportFrequencyType
+    Amazonka.LicenseManager.Types.ReportGenerator
+    Amazonka.LicenseManager.Types.ReportType
+    Amazonka.LicenseManager.Types.ResourceInventory
+    Amazonka.LicenseManager.Types.ResourceType
+    Amazonka.LicenseManager.Types.S3Location
+    Amazonka.LicenseManager.Types.Tag
+    Amazonka.LicenseManager.Types.TokenData
+    Amazonka.LicenseManager.Types.TokenType
+    Amazonka.LicenseManager.UntagResource
+    Amazonka.LicenseManager.UpdateLicenseConfiguration
+    Amazonka.LicenseManager.UpdateLicenseManagerReportGenerator
+    Amazonka.LicenseManager.UpdateLicenseSpecificationsForResource
+    Amazonka.LicenseManager.UpdateServiceSettings
+    Amazonka.LicenseManager.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -169,9 +169,9 @@ test-suite amazonka-license-manager-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.LicenseManager
-    Test.AWS.LicenseManager
-    Test.AWS.LicenseManager.Internal
+    Test.Amazonka.Gen.LicenseManager
+    Test.Amazonka.LicenseManager
+    Test.Amazonka.LicenseManager.Internal
 
   build-depends:
     , amazonka                  ^>=2.0

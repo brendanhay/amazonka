@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.ForecastQuery.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.ForecastQuery.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.ForecastQuery" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.ForecastQuery" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,15 +45,15 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.ForecastQuery
-    Network.AWS.ForecastQuery.Lens
-    Network.AWS.ForecastQuery.QueryForecast
-    Network.AWS.ForecastQuery.Types
-    Network.AWS.ForecastQuery.Types.DataPoint
-    Network.AWS.ForecastQuery.Types.Forecast
-    Network.AWS.ForecastQuery.Waiters
+    Amazonka.ForecastQuery
+    Amazonka.ForecastQuery.Lens
+    Amazonka.ForecastQuery.QueryForecast
+    Amazonka.ForecastQuery.Types
+    Amazonka.ForecastQuery.Types.DataPoint
+    Amazonka.ForecastQuery.Types.Forecast
+    Amazonka.ForecastQuery.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -69,9 +69,9 @@ test-suite amazonka-forecastquery-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.ForecastQuery
-    Test.AWS.ForecastQuery.Internal
-    Test.AWS.Gen.ForecastQuery
+    Test.Amazonka.ForecastQuery
+    Test.Amazonka.ForecastQuery.Internal
+    Test.Amazonka.Gen.ForecastQuery
 
   build-depends:
     , amazonka                ^>=2.0

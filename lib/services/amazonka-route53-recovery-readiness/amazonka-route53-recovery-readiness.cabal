@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Route53RecoveryReadiness.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Route53RecoveryReadiness.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Route53RecoveryReadiness" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Route53RecoveryReadiness" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,60 +45,60 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Route53RecoveryReadiness
-    Network.AWS.Route53RecoveryReadiness.CreateCell
-    Network.AWS.Route53RecoveryReadiness.CreateCrossAccountAuthorization
-    Network.AWS.Route53RecoveryReadiness.CreateReadinessCheck
-    Network.AWS.Route53RecoveryReadiness.CreateRecoveryGroup
-    Network.AWS.Route53RecoveryReadiness.CreateResourceSet
-    Network.AWS.Route53RecoveryReadiness.DeleteCell
-    Network.AWS.Route53RecoveryReadiness.DeleteCrossAccountAuthorization
-    Network.AWS.Route53RecoveryReadiness.DeleteReadinessCheck
-    Network.AWS.Route53RecoveryReadiness.DeleteRecoveryGroup
-    Network.AWS.Route53RecoveryReadiness.DeleteResourceSet
-    Network.AWS.Route53RecoveryReadiness.GetArchitectureRecommendations
-    Network.AWS.Route53RecoveryReadiness.GetCell
-    Network.AWS.Route53RecoveryReadiness.GetCellReadinessSummary
-    Network.AWS.Route53RecoveryReadiness.GetReadinessCheck
-    Network.AWS.Route53RecoveryReadiness.GetReadinessCheckResourceStatus
-    Network.AWS.Route53RecoveryReadiness.GetReadinessCheckStatus
-    Network.AWS.Route53RecoveryReadiness.GetRecoveryGroup
-    Network.AWS.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary
-    Network.AWS.Route53RecoveryReadiness.GetResourceSet
-    Network.AWS.Route53RecoveryReadiness.Lens
-    Network.AWS.Route53RecoveryReadiness.ListCells
-    Network.AWS.Route53RecoveryReadiness.ListCrossAccountAuthorizations
-    Network.AWS.Route53RecoveryReadiness.ListReadinessChecks
-    Network.AWS.Route53RecoveryReadiness.ListRecoveryGroups
-    Network.AWS.Route53RecoveryReadiness.ListResourceSets
-    Network.AWS.Route53RecoveryReadiness.ListRules
-    Network.AWS.Route53RecoveryReadiness.ListTagsForResources
-    Network.AWS.Route53RecoveryReadiness.TagResource
-    Network.AWS.Route53RecoveryReadiness.Types
-    Network.AWS.Route53RecoveryReadiness.Types.CellOutput
-    Network.AWS.Route53RecoveryReadiness.Types.DNSTargetResource
-    Network.AWS.Route53RecoveryReadiness.Types.ListRulesOutput
-    Network.AWS.Route53RecoveryReadiness.Types.Message
-    Network.AWS.Route53RecoveryReadiness.Types.NLBResource
-    Network.AWS.Route53RecoveryReadiness.Types.R53ResourceRecord
-    Network.AWS.Route53RecoveryReadiness.Types.Readiness
-    Network.AWS.Route53RecoveryReadiness.Types.ReadinessCheckOutput
-    Network.AWS.Route53RecoveryReadiness.Types.ReadinessCheckSummary
-    Network.AWS.Route53RecoveryReadiness.Types.Recommendation
-    Network.AWS.Route53RecoveryReadiness.Types.RecoveryGroupOutput
-    Network.AWS.Route53RecoveryReadiness.Types.Resource
-    Network.AWS.Route53RecoveryReadiness.Types.ResourceResult
-    Network.AWS.Route53RecoveryReadiness.Types.ResourceSetOutput
-    Network.AWS.Route53RecoveryReadiness.Types.RuleResult
-    Network.AWS.Route53RecoveryReadiness.Types.TargetResource
-    Network.AWS.Route53RecoveryReadiness.UntagResource
-    Network.AWS.Route53RecoveryReadiness.UpdateCell
-    Network.AWS.Route53RecoveryReadiness.UpdateReadinessCheck
-    Network.AWS.Route53RecoveryReadiness.UpdateRecoveryGroup
-    Network.AWS.Route53RecoveryReadiness.UpdateResourceSet
-    Network.AWS.Route53RecoveryReadiness.Waiters
+    Amazonka.Route53RecoveryReadiness
+    Amazonka.Route53RecoveryReadiness.CreateCell
+    Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization
+    Amazonka.Route53RecoveryReadiness.CreateReadinessCheck
+    Amazonka.Route53RecoveryReadiness.CreateRecoveryGroup
+    Amazonka.Route53RecoveryReadiness.CreateResourceSet
+    Amazonka.Route53RecoveryReadiness.DeleteCell
+    Amazonka.Route53RecoveryReadiness.DeleteCrossAccountAuthorization
+    Amazonka.Route53RecoveryReadiness.DeleteReadinessCheck
+    Amazonka.Route53RecoveryReadiness.DeleteRecoveryGroup
+    Amazonka.Route53RecoveryReadiness.DeleteResourceSet
+    Amazonka.Route53RecoveryReadiness.GetArchitectureRecommendations
+    Amazonka.Route53RecoveryReadiness.GetCell
+    Amazonka.Route53RecoveryReadiness.GetCellReadinessSummary
+    Amazonka.Route53RecoveryReadiness.GetReadinessCheck
+    Amazonka.Route53RecoveryReadiness.GetReadinessCheckResourceStatus
+    Amazonka.Route53RecoveryReadiness.GetReadinessCheckStatus
+    Amazonka.Route53RecoveryReadiness.GetRecoveryGroup
+    Amazonka.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary
+    Amazonka.Route53RecoveryReadiness.GetResourceSet
+    Amazonka.Route53RecoveryReadiness.Lens
+    Amazonka.Route53RecoveryReadiness.ListCells
+    Amazonka.Route53RecoveryReadiness.ListCrossAccountAuthorizations
+    Amazonka.Route53RecoveryReadiness.ListReadinessChecks
+    Amazonka.Route53RecoveryReadiness.ListRecoveryGroups
+    Amazonka.Route53RecoveryReadiness.ListResourceSets
+    Amazonka.Route53RecoveryReadiness.ListRules
+    Amazonka.Route53RecoveryReadiness.ListTagsForResources
+    Amazonka.Route53RecoveryReadiness.TagResource
+    Amazonka.Route53RecoveryReadiness.Types
+    Amazonka.Route53RecoveryReadiness.Types.CellOutput
+    Amazonka.Route53RecoveryReadiness.Types.DNSTargetResource
+    Amazonka.Route53RecoveryReadiness.Types.ListRulesOutput
+    Amazonka.Route53RecoveryReadiness.Types.Message
+    Amazonka.Route53RecoveryReadiness.Types.NLBResource
+    Amazonka.Route53RecoveryReadiness.Types.R53ResourceRecord
+    Amazonka.Route53RecoveryReadiness.Types.Readiness
+    Amazonka.Route53RecoveryReadiness.Types.ReadinessCheckOutput
+    Amazonka.Route53RecoveryReadiness.Types.ReadinessCheckSummary
+    Amazonka.Route53RecoveryReadiness.Types.Recommendation
+    Amazonka.Route53RecoveryReadiness.Types.RecoveryGroupOutput
+    Amazonka.Route53RecoveryReadiness.Types.Resource
+    Amazonka.Route53RecoveryReadiness.Types.ResourceResult
+    Amazonka.Route53RecoveryReadiness.Types.ResourceSetOutput
+    Amazonka.Route53RecoveryReadiness.Types.RuleResult
+    Amazonka.Route53RecoveryReadiness.Types.TargetResource
+    Amazonka.Route53RecoveryReadiness.UntagResource
+    Amazonka.Route53RecoveryReadiness.UpdateCell
+    Amazonka.Route53RecoveryReadiness.UpdateReadinessCheck
+    Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup
+    Amazonka.Route53RecoveryReadiness.UpdateResourceSet
+    Amazonka.Route53RecoveryReadiness.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -114,9 +114,9 @@ test-suite amazonka-route53-recovery-readiness-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Route53RecoveryReadiness
-    Test.AWS.Route53RecoveryReadiness
-    Test.AWS.Route53RecoveryReadiness.Internal
+    Test.Amazonka.Gen.Route53RecoveryReadiness
+    Test.Amazonka.Route53RecoveryReadiness
+    Test.Amazonka.Route53RecoveryReadiness.Internal
 
   build-depends:
     , amazonka                             ^>=2.0

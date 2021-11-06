@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Pi.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Pi.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Pi" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Pi" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,25 +45,25 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Pi
-    Network.AWS.Pi.DescribeDimensionKeys
-    Network.AWS.Pi.GetDimensionKeyDetails
-    Network.AWS.Pi.GetResourceMetrics
-    Network.AWS.Pi.Lens
-    Network.AWS.Pi.Types
-    Network.AWS.Pi.Types.DataPoint
-    Network.AWS.Pi.Types.DetailStatus
-    Network.AWS.Pi.Types.DimensionGroup
-    Network.AWS.Pi.Types.DimensionKeyDescription
-    Network.AWS.Pi.Types.DimensionKeyDetail
-    Network.AWS.Pi.Types.MetricKeyDataPoints
-    Network.AWS.Pi.Types.MetricQuery
-    Network.AWS.Pi.Types.ResponsePartitionKey
-    Network.AWS.Pi.Types.ResponseResourceMetricKey
-    Network.AWS.Pi.Types.ServiceType
-    Network.AWS.Pi.Waiters
+    Amazonka.Pi
+    Amazonka.Pi.DescribeDimensionKeys
+    Amazonka.Pi.GetDimensionKeyDetails
+    Amazonka.Pi.GetResourceMetrics
+    Amazonka.Pi.Lens
+    Amazonka.Pi.Types
+    Amazonka.Pi.Types.DataPoint
+    Amazonka.Pi.Types.DetailStatus
+    Amazonka.Pi.Types.DimensionGroup
+    Amazonka.Pi.Types.DimensionKeyDescription
+    Amazonka.Pi.Types.DimensionKeyDetail
+    Amazonka.Pi.Types.MetricKeyDataPoints
+    Amazonka.Pi.Types.MetricQuery
+    Amazonka.Pi.Types.ResponsePartitionKey
+    Amazonka.Pi.Types.ResponseResourceMetricKey
+    Amazonka.Pi.Types.ServiceType
+    Amazonka.Pi.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -79,9 +79,9 @@ test-suite amazonka-pi-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Pi
-    Test.AWS.Pi
-    Test.AWS.Pi.Internal
+    Test.Amazonka.Gen.Pi
+    Test.Amazonka.Pi
+    Test.Amazonka.Pi.Internal
 
   build-depends:
     , amazonka              ^>=2.0

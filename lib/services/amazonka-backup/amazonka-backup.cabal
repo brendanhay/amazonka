@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Backup.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Backup.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Backup" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Backup" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,115 +45,115 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Backup
-    Network.AWS.Backup.CreateBackupPlan
-    Network.AWS.Backup.CreateBackupSelection
-    Network.AWS.Backup.CreateBackupVault
-    Network.AWS.Backup.CreateFramework
-    Network.AWS.Backup.CreateReportPlan
-    Network.AWS.Backup.DeleteBackupPlan
-    Network.AWS.Backup.DeleteBackupSelection
-    Network.AWS.Backup.DeleteBackupVault
-    Network.AWS.Backup.DeleteBackupVaultAccessPolicy
-    Network.AWS.Backup.DeleteBackupVaultLockConfiguration
-    Network.AWS.Backup.DeleteBackupVaultNotifications
-    Network.AWS.Backup.DeleteFramework
-    Network.AWS.Backup.DeleteRecoveryPoint
-    Network.AWS.Backup.DeleteReportPlan
-    Network.AWS.Backup.DescribeBackupJob
-    Network.AWS.Backup.DescribeBackupVault
-    Network.AWS.Backup.DescribeCopyJob
-    Network.AWS.Backup.DescribeFramework
-    Network.AWS.Backup.DescribeGlobalSettings
-    Network.AWS.Backup.DescribeProtectedResource
-    Network.AWS.Backup.DescribeRecoveryPoint
-    Network.AWS.Backup.DescribeRegionSettings
-    Network.AWS.Backup.DescribeReportJob
-    Network.AWS.Backup.DescribeReportPlan
-    Network.AWS.Backup.DescribeRestoreJob
-    Network.AWS.Backup.DisassociateRecoveryPoint
-    Network.AWS.Backup.ExportBackupPlanTemplate
-    Network.AWS.Backup.GetBackupPlan
-    Network.AWS.Backup.GetBackupPlanFromJSON
-    Network.AWS.Backup.GetBackupPlanFromTemplate
-    Network.AWS.Backup.GetBackupSelection
-    Network.AWS.Backup.GetBackupVaultAccessPolicy
-    Network.AWS.Backup.GetBackupVaultNotifications
-    Network.AWS.Backup.GetRecoveryPointRestoreMetadata
-    Network.AWS.Backup.GetSupportedResourceTypes
-    Network.AWS.Backup.Lens
-    Network.AWS.Backup.ListBackupJobs
-    Network.AWS.Backup.ListBackupPlans
-    Network.AWS.Backup.ListBackupPlanTemplates
-    Network.AWS.Backup.ListBackupPlanVersions
-    Network.AWS.Backup.ListBackupSelections
-    Network.AWS.Backup.ListBackupVaults
-    Network.AWS.Backup.ListCopyJobs
-    Network.AWS.Backup.ListFrameworks
-    Network.AWS.Backup.ListProtectedResources
-    Network.AWS.Backup.ListRecoveryPointsByBackupVault
-    Network.AWS.Backup.ListRecoveryPointsByResource
-    Network.AWS.Backup.ListReportJobs
-    Network.AWS.Backup.ListReportPlans
-    Network.AWS.Backup.ListRestoreJobs
-    Network.AWS.Backup.ListTags
-    Network.AWS.Backup.PutBackupVaultAccessPolicy
-    Network.AWS.Backup.PutBackupVaultLockConfiguration
-    Network.AWS.Backup.PutBackupVaultNotifications
-    Network.AWS.Backup.StartBackupJob
-    Network.AWS.Backup.StartCopyJob
-    Network.AWS.Backup.StartReportJob
-    Network.AWS.Backup.StartRestoreJob
-    Network.AWS.Backup.StopBackupJob
-    Network.AWS.Backup.TagResource
-    Network.AWS.Backup.Types
-    Network.AWS.Backup.Types.AdvancedBackupSetting
-    Network.AWS.Backup.Types.BackupJob
-    Network.AWS.Backup.Types.BackupJobState
-    Network.AWS.Backup.Types.BackupPlan
-    Network.AWS.Backup.Types.BackupPlanInput
-    Network.AWS.Backup.Types.BackupPlansListMember
-    Network.AWS.Backup.Types.BackupPlanTemplatesListMember
-    Network.AWS.Backup.Types.BackupRule
-    Network.AWS.Backup.Types.BackupRuleInput
-    Network.AWS.Backup.Types.BackupSelection
-    Network.AWS.Backup.Types.BackupSelectionsListMember
-    Network.AWS.Backup.Types.BackupVaultEvent
-    Network.AWS.Backup.Types.BackupVaultListMember
-    Network.AWS.Backup.Types.CalculatedLifecycle
-    Network.AWS.Backup.Types.Condition
-    Network.AWS.Backup.Types.ConditionType
-    Network.AWS.Backup.Types.ControlInputParameter
-    Network.AWS.Backup.Types.ControlScope
-    Network.AWS.Backup.Types.CopyAction
-    Network.AWS.Backup.Types.CopyJob
-    Network.AWS.Backup.Types.CopyJobState
-    Network.AWS.Backup.Types.Framework
-    Network.AWS.Backup.Types.FrameworkControl
-    Network.AWS.Backup.Types.Lifecycle
-    Network.AWS.Backup.Types.ProtectedResource
-    Network.AWS.Backup.Types.RecoveryPointByBackupVault
-    Network.AWS.Backup.Types.RecoveryPointByResource
-    Network.AWS.Backup.Types.RecoveryPointCreator
-    Network.AWS.Backup.Types.RecoveryPointStatus
-    Network.AWS.Backup.Types.ReportDeliveryChannel
-    Network.AWS.Backup.Types.ReportDestination
-    Network.AWS.Backup.Types.ReportJob
-    Network.AWS.Backup.Types.ReportPlan
-    Network.AWS.Backup.Types.ReportSetting
-    Network.AWS.Backup.Types.RestoreJobsListMember
-    Network.AWS.Backup.Types.RestoreJobStatus
-    Network.AWS.Backup.Types.StorageClass
-    Network.AWS.Backup.UntagResource
-    Network.AWS.Backup.UpdateBackupPlan
-    Network.AWS.Backup.UpdateFramework
-    Network.AWS.Backup.UpdateGlobalSettings
-    Network.AWS.Backup.UpdateRecoveryPointLifecycle
-    Network.AWS.Backup.UpdateRegionSettings
-    Network.AWS.Backup.UpdateReportPlan
-    Network.AWS.Backup.Waiters
+    Amazonka.Backup
+    Amazonka.Backup.CreateBackupPlan
+    Amazonka.Backup.CreateBackupSelection
+    Amazonka.Backup.CreateBackupVault
+    Amazonka.Backup.CreateFramework
+    Amazonka.Backup.CreateReportPlan
+    Amazonka.Backup.DeleteBackupPlan
+    Amazonka.Backup.DeleteBackupSelection
+    Amazonka.Backup.DeleteBackupVault
+    Amazonka.Backup.DeleteBackupVaultAccessPolicy
+    Amazonka.Backup.DeleteBackupVaultLockConfiguration
+    Amazonka.Backup.DeleteBackupVaultNotifications
+    Amazonka.Backup.DeleteFramework
+    Amazonka.Backup.DeleteRecoveryPoint
+    Amazonka.Backup.DeleteReportPlan
+    Amazonka.Backup.DescribeBackupJob
+    Amazonka.Backup.DescribeBackupVault
+    Amazonka.Backup.DescribeCopyJob
+    Amazonka.Backup.DescribeFramework
+    Amazonka.Backup.DescribeGlobalSettings
+    Amazonka.Backup.DescribeProtectedResource
+    Amazonka.Backup.DescribeRecoveryPoint
+    Amazonka.Backup.DescribeRegionSettings
+    Amazonka.Backup.DescribeReportJob
+    Amazonka.Backup.DescribeReportPlan
+    Amazonka.Backup.DescribeRestoreJob
+    Amazonka.Backup.DisassociateRecoveryPoint
+    Amazonka.Backup.ExportBackupPlanTemplate
+    Amazonka.Backup.GetBackupPlan
+    Amazonka.Backup.GetBackupPlanFromJSON
+    Amazonka.Backup.GetBackupPlanFromTemplate
+    Amazonka.Backup.GetBackupSelection
+    Amazonka.Backup.GetBackupVaultAccessPolicy
+    Amazonka.Backup.GetBackupVaultNotifications
+    Amazonka.Backup.GetRecoveryPointRestoreMetadata
+    Amazonka.Backup.GetSupportedResourceTypes
+    Amazonka.Backup.Lens
+    Amazonka.Backup.ListBackupJobs
+    Amazonka.Backup.ListBackupPlans
+    Amazonka.Backup.ListBackupPlanTemplates
+    Amazonka.Backup.ListBackupPlanVersions
+    Amazonka.Backup.ListBackupSelections
+    Amazonka.Backup.ListBackupVaults
+    Amazonka.Backup.ListCopyJobs
+    Amazonka.Backup.ListFrameworks
+    Amazonka.Backup.ListProtectedResources
+    Amazonka.Backup.ListRecoveryPointsByBackupVault
+    Amazonka.Backup.ListRecoveryPointsByResource
+    Amazonka.Backup.ListReportJobs
+    Amazonka.Backup.ListReportPlans
+    Amazonka.Backup.ListRestoreJobs
+    Amazonka.Backup.ListTags
+    Amazonka.Backup.PutBackupVaultAccessPolicy
+    Amazonka.Backup.PutBackupVaultLockConfiguration
+    Amazonka.Backup.PutBackupVaultNotifications
+    Amazonka.Backup.StartBackupJob
+    Amazonka.Backup.StartCopyJob
+    Amazonka.Backup.StartReportJob
+    Amazonka.Backup.StartRestoreJob
+    Amazonka.Backup.StopBackupJob
+    Amazonka.Backup.TagResource
+    Amazonka.Backup.Types
+    Amazonka.Backup.Types.AdvancedBackupSetting
+    Amazonka.Backup.Types.BackupJob
+    Amazonka.Backup.Types.BackupJobState
+    Amazonka.Backup.Types.BackupPlan
+    Amazonka.Backup.Types.BackupPlanInput
+    Amazonka.Backup.Types.BackupPlansListMember
+    Amazonka.Backup.Types.BackupPlanTemplatesListMember
+    Amazonka.Backup.Types.BackupRule
+    Amazonka.Backup.Types.BackupRuleInput
+    Amazonka.Backup.Types.BackupSelection
+    Amazonka.Backup.Types.BackupSelectionsListMember
+    Amazonka.Backup.Types.BackupVaultEvent
+    Amazonka.Backup.Types.BackupVaultListMember
+    Amazonka.Backup.Types.CalculatedLifecycle
+    Amazonka.Backup.Types.Condition
+    Amazonka.Backup.Types.ConditionType
+    Amazonka.Backup.Types.ControlInputParameter
+    Amazonka.Backup.Types.ControlScope
+    Amazonka.Backup.Types.CopyAction
+    Amazonka.Backup.Types.CopyJob
+    Amazonka.Backup.Types.CopyJobState
+    Amazonka.Backup.Types.Framework
+    Amazonka.Backup.Types.FrameworkControl
+    Amazonka.Backup.Types.Lifecycle
+    Amazonka.Backup.Types.ProtectedResource
+    Amazonka.Backup.Types.RecoveryPointByBackupVault
+    Amazonka.Backup.Types.RecoveryPointByResource
+    Amazonka.Backup.Types.RecoveryPointCreator
+    Amazonka.Backup.Types.RecoveryPointStatus
+    Amazonka.Backup.Types.ReportDeliveryChannel
+    Amazonka.Backup.Types.ReportDestination
+    Amazonka.Backup.Types.ReportJob
+    Amazonka.Backup.Types.ReportPlan
+    Amazonka.Backup.Types.ReportSetting
+    Amazonka.Backup.Types.RestoreJobsListMember
+    Amazonka.Backup.Types.RestoreJobStatus
+    Amazonka.Backup.Types.StorageClass
+    Amazonka.Backup.UntagResource
+    Amazonka.Backup.UpdateBackupPlan
+    Amazonka.Backup.UpdateFramework
+    Amazonka.Backup.UpdateGlobalSettings
+    Amazonka.Backup.UpdateRecoveryPointLifecycle
+    Amazonka.Backup.UpdateRegionSettings
+    Amazonka.Backup.UpdateReportPlan
+    Amazonka.Backup.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -169,9 +169,9 @@ test-suite amazonka-backup-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Backup
-    Test.AWS.Backup.Internal
-    Test.AWS.Gen.Backup
+    Test.Amazonka.Backup
+    Test.Amazonka.Backup.Internal
+    Test.Amazonka.Gen.Backup
 
   build-depends:
     , amazonka              ^>=2.0

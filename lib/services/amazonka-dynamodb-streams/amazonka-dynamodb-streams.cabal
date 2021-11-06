@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.DynamoDBStreams.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.DynamoDBStreams.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.DynamoDBStreams" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.DynamoDBStreams" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,30 +45,30 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.DynamoDBStreams
-    Network.AWS.DynamoDBStreams.DescribeStream
-    Network.AWS.DynamoDBStreams.GetRecords
-    Network.AWS.DynamoDBStreams.GetShardIterator
-    Network.AWS.DynamoDBStreams.Lens
-    Network.AWS.DynamoDBStreams.ListStreams
-    Network.AWS.DynamoDBStreams.Types
-    Network.AWS.DynamoDBStreams.Types.AttributeValue
-    Network.AWS.DynamoDBStreams.Types.Identity
-    Network.AWS.DynamoDBStreams.Types.KeySchemaElement
-    Network.AWS.DynamoDBStreams.Types.KeyType
-    Network.AWS.DynamoDBStreams.Types.OperationType
-    Network.AWS.DynamoDBStreams.Types.Record
-    Network.AWS.DynamoDBStreams.Types.SequenceNumberRange
-    Network.AWS.DynamoDBStreams.Types.Shard
-    Network.AWS.DynamoDBStreams.Types.ShardIteratorType
-    Network.AWS.DynamoDBStreams.Types.Stream
-    Network.AWS.DynamoDBStreams.Types.StreamDescription
-    Network.AWS.DynamoDBStreams.Types.StreamRecord
-    Network.AWS.DynamoDBStreams.Types.StreamStatus
-    Network.AWS.DynamoDBStreams.Types.StreamViewType
-    Network.AWS.DynamoDBStreams.Waiters
+    Amazonka.DynamoDBStreams
+    Amazonka.DynamoDBStreams.DescribeStream
+    Amazonka.DynamoDBStreams.GetRecords
+    Amazonka.DynamoDBStreams.GetShardIterator
+    Amazonka.DynamoDBStreams.Lens
+    Amazonka.DynamoDBStreams.ListStreams
+    Amazonka.DynamoDBStreams.Types
+    Amazonka.DynamoDBStreams.Types.AttributeValue
+    Amazonka.DynamoDBStreams.Types.Identity
+    Amazonka.DynamoDBStreams.Types.KeySchemaElement
+    Amazonka.DynamoDBStreams.Types.KeyType
+    Amazonka.DynamoDBStreams.Types.OperationType
+    Amazonka.DynamoDBStreams.Types.Record
+    Amazonka.DynamoDBStreams.Types.SequenceNumberRange
+    Amazonka.DynamoDBStreams.Types.Shard
+    Amazonka.DynamoDBStreams.Types.ShardIteratorType
+    Amazonka.DynamoDBStreams.Types.Stream
+    Amazonka.DynamoDBStreams.Types.StreamDescription
+    Amazonka.DynamoDBStreams.Types.StreamRecord
+    Amazonka.DynamoDBStreams.Types.StreamStatus
+    Amazonka.DynamoDBStreams.Types.StreamViewType
+    Amazonka.DynamoDBStreams.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -84,9 +84,9 @@ test-suite amazonka-dynamodb-streams-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.DynamoDBStreams
-    Test.AWS.DynamoDBStreams.Internal
-    Test.AWS.Gen.DynamoDBStreams
+    Test.Amazonka.DynamoDBStreams
+    Test.Amazonka.DynamoDBStreams.Internal
+    Test.Amazonka.Gen.DynamoDBStreams
 
   build-depends:
     , amazonka                   ^>=2.0

@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.EBS.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.EBS.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.EBS" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.EBS" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,24 +45,24 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.EBS
-    Network.AWS.EBS.CompleteSnapshot
-    Network.AWS.EBS.GetSnapshotBlock
-    Network.AWS.EBS.Lens
-    Network.AWS.EBS.ListChangedBlocks
-    Network.AWS.EBS.ListSnapshotBlocks
-    Network.AWS.EBS.PutSnapshotBlock
-    Network.AWS.EBS.StartSnapshot
-    Network.AWS.EBS.Types
-    Network.AWS.EBS.Types.Block
-    Network.AWS.EBS.Types.ChangedBlock
-    Network.AWS.EBS.Types.ChecksumAggregationMethod
-    Network.AWS.EBS.Types.ChecksumAlgorithm
-    Network.AWS.EBS.Types.Status
-    Network.AWS.EBS.Types.Tag
-    Network.AWS.EBS.Waiters
+    Amazonka.EBS
+    Amazonka.EBS.CompleteSnapshot
+    Amazonka.EBS.GetSnapshotBlock
+    Amazonka.EBS.Lens
+    Amazonka.EBS.ListChangedBlocks
+    Amazonka.EBS.ListSnapshotBlocks
+    Amazonka.EBS.PutSnapshotBlock
+    Amazonka.EBS.StartSnapshot
+    Amazonka.EBS.Types
+    Amazonka.EBS.Types.Block
+    Amazonka.EBS.Types.ChangedBlock
+    Amazonka.EBS.Types.ChecksumAggregationMethod
+    Amazonka.EBS.Types.ChecksumAlgorithm
+    Amazonka.EBS.Types.Status
+    Amazonka.EBS.Types.Tag
+    Amazonka.EBS.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -78,9 +78,9 @@ test-suite amazonka-ebs-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.EBS
-    Test.AWS.EBS.Internal
-    Test.AWS.Gen.EBS
+    Test.Amazonka.EBS
+    Test.Amazonka.EBS.Internal
+    Test.Amazonka.Gen.EBS
 
   build-depends:
     , amazonka              ^>=2.0

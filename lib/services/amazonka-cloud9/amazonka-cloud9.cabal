@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Cloud9.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Cloud9.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Cloud9" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Cloud9" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,37 +45,37 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Cloud9
-    Network.AWS.Cloud9.CreateEnvironmentEC2
-    Network.AWS.Cloud9.CreateEnvironmentMembership
-    Network.AWS.Cloud9.DeleteEnvironment
-    Network.AWS.Cloud9.DeleteEnvironmentMembership
-    Network.AWS.Cloud9.DescribeEnvironmentMemberships
-    Network.AWS.Cloud9.DescribeEnvironments
-    Network.AWS.Cloud9.DescribeEnvironmentStatus
-    Network.AWS.Cloud9.Lens
-    Network.AWS.Cloud9.ListEnvironments
-    Network.AWS.Cloud9.ListTagsForResource
-    Network.AWS.Cloud9.TagResource
-    Network.AWS.Cloud9.Types
-    Network.AWS.Cloud9.Types.ConnectionType
-    Network.AWS.Cloud9.Types.Environment
-    Network.AWS.Cloud9.Types.EnvironmentLifecycle
-    Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus
-    Network.AWS.Cloud9.Types.EnvironmentMember
-    Network.AWS.Cloud9.Types.EnvironmentStatus
-    Network.AWS.Cloud9.Types.EnvironmentType
-    Network.AWS.Cloud9.Types.ManagedCredentialsAction
-    Network.AWS.Cloud9.Types.ManagedCredentialsStatus
-    Network.AWS.Cloud9.Types.MemberPermissions
-    Network.AWS.Cloud9.Types.Permissions
-    Network.AWS.Cloud9.Types.Tag
-    Network.AWS.Cloud9.UntagResource
-    Network.AWS.Cloud9.UpdateEnvironment
-    Network.AWS.Cloud9.UpdateEnvironmentMembership
-    Network.AWS.Cloud9.Waiters
+    Amazonka.Cloud9
+    Amazonka.Cloud9.CreateEnvironmentEC2
+    Amazonka.Cloud9.CreateEnvironmentMembership
+    Amazonka.Cloud9.DeleteEnvironment
+    Amazonka.Cloud9.DeleteEnvironmentMembership
+    Amazonka.Cloud9.DescribeEnvironmentMemberships
+    Amazonka.Cloud9.DescribeEnvironments
+    Amazonka.Cloud9.DescribeEnvironmentStatus
+    Amazonka.Cloud9.Lens
+    Amazonka.Cloud9.ListEnvironments
+    Amazonka.Cloud9.ListTagsForResource
+    Amazonka.Cloud9.TagResource
+    Amazonka.Cloud9.Types
+    Amazonka.Cloud9.Types.ConnectionType
+    Amazonka.Cloud9.Types.Environment
+    Amazonka.Cloud9.Types.EnvironmentLifecycle
+    Amazonka.Cloud9.Types.EnvironmentLifecycleStatus
+    Amazonka.Cloud9.Types.EnvironmentMember
+    Amazonka.Cloud9.Types.EnvironmentStatus
+    Amazonka.Cloud9.Types.EnvironmentType
+    Amazonka.Cloud9.Types.ManagedCredentialsAction
+    Amazonka.Cloud9.Types.ManagedCredentialsStatus
+    Amazonka.Cloud9.Types.MemberPermissions
+    Amazonka.Cloud9.Types.Permissions
+    Amazonka.Cloud9.Types.Tag
+    Amazonka.Cloud9.UntagResource
+    Amazonka.Cloud9.UpdateEnvironment
+    Amazonka.Cloud9.UpdateEnvironmentMembership
+    Amazonka.Cloud9.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -91,9 +91,9 @@ test-suite amazonka-cloud9-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Cloud9
-    Test.AWS.Cloud9.Internal
-    Test.AWS.Gen.Cloud9
+    Test.Amazonka.Cloud9
+    Test.Amazonka.Cloud9.Internal
+    Test.Amazonka.Gen.Cloud9
 
   build-depends:
     , amazonka              ^>=2.0

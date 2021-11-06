@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.RobOMaker
-import Test.AWS.RobOMaker.Internal
+import Test.Amazonka.RobOMaker
+import Test.Amazonka.RobOMaker.Internal
 import Test.Tasty
 
 main :: IO ()

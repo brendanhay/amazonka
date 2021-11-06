@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.PinpointSMSVoice
-import Test.AWS.PinpointSMSVoice.Internal
+import Test.Amazonka.PinpointSMSVoice
+import Test.Amazonka.PinpointSMSVoice.Internal
 import Test.Tasty
 
 main :: IO ()

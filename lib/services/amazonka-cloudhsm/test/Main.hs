@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.CloudHSM
-import Test.AWS.CloudHSM.Internal
+import Test.Amazonka.CloudHSM
+import Test.Amazonka.CloudHSM.Internal
 import Test.Tasty
 
 main :: IO ()

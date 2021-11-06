@@ -1,7 +1,7 @@
 {
     "libraryName": "amazonka-ec2",
     "typeModules": [
-        "Network.AWS.EC2.Internal"
+        "Amazonka.EC2.Internal"
     ],
     "typeOverrides": {
         "Status": {

@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.LicenseManager
-import Test.AWS.LicenseManager.Internal
+import Test.Amazonka.LicenseManager
+import Test.Amazonka.LicenseManager.Internal
 import Test.Tasty
 
 main :: IO ()

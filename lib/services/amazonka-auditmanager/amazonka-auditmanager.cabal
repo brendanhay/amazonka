@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.AuditManager.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.AuditManager.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.AuditManager" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.AuditManager" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,123 +45,123 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.AuditManager
-    Network.AWS.AuditManager.AssociateAssessmentReportEvidenceFolder
-    Network.AWS.AuditManager.BatchAssociateAssessmentReportEvidence
-    Network.AWS.AuditManager.BatchCreateDelegationByAssessment
-    Network.AWS.AuditManager.BatchDeleteDelegationByAssessment
-    Network.AWS.AuditManager.BatchDisassociateAssessmentReportEvidence
-    Network.AWS.AuditManager.BatchImportEvidenceToAssessmentControl
-    Network.AWS.AuditManager.CreateAssessment
-    Network.AWS.AuditManager.CreateAssessmentFramework
-    Network.AWS.AuditManager.CreateAssessmentReport
-    Network.AWS.AuditManager.CreateControl
-    Network.AWS.AuditManager.DeleteAssessment
-    Network.AWS.AuditManager.DeleteAssessmentFramework
-    Network.AWS.AuditManager.DeleteAssessmentReport
-    Network.AWS.AuditManager.DeleteControl
-    Network.AWS.AuditManager.DeregisterAccount
-    Network.AWS.AuditManager.DeregisterOrganizationAdminAccount
-    Network.AWS.AuditManager.DisassociateAssessmentReportEvidenceFolder
-    Network.AWS.AuditManager.GetAccountStatus
-    Network.AWS.AuditManager.GetAssessment
-    Network.AWS.AuditManager.GetAssessmentFramework
-    Network.AWS.AuditManager.GetAssessmentReportUrl
-    Network.AWS.AuditManager.GetChangeLogs
-    Network.AWS.AuditManager.GetControl
-    Network.AWS.AuditManager.GetDelegations
-    Network.AWS.AuditManager.GetEvidence
-    Network.AWS.AuditManager.GetEvidenceByEvidenceFolder
-    Network.AWS.AuditManager.GetEvidenceFolder
-    Network.AWS.AuditManager.GetEvidenceFoldersByAssessment
-    Network.AWS.AuditManager.GetEvidenceFoldersByAssessmentControl
-    Network.AWS.AuditManager.GetOrganizationAdminAccount
-    Network.AWS.AuditManager.GetServicesInScope
-    Network.AWS.AuditManager.GetSettings
-    Network.AWS.AuditManager.Lens
-    Network.AWS.AuditManager.ListAssessmentFrameworks
-    Network.AWS.AuditManager.ListAssessmentReports
-    Network.AWS.AuditManager.ListAssessments
-    Network.AWS.AuditManager.ListControls
-    Network.AWS.AuditManager.ListKeywordsForDataSource
-    Network.AWS.AuditManager.ListNotifications
-    Network.AWS.AuditManager.ListTagsForResource
-    Network.AWS.AuditManager.RegisterAccount
-    Network.AWS.AuditManager.RegisterOrganizationAdminAccount
-    Network.AWS.AuditManager.TagResource
-    Network.AWS.AuditManager.Types
-    Network.AWS.AuditManager.Types.AccountStatus
-    Network.AWS.AuditManager.Types.ActionEnum
-    Network.AWS.AuditManager.Types.Assessment
-    Network.AWS.AuditManager.Types.AssessmentControl
-    Network.AWS.AuditManager.Types.AssessmentControlSet
-    Network.AWS.AuditManager.Types.AssessmentEvidenceFolder
-    Network.AWS.AuditManager.Types.AssessmentFramework
-    Network.AWS.AuditManager.Types.AssessmentFrameworkMetadata
-    Network.AWS.AuditManager.Types.AssessmentMetadata
-    Network.AWS.AuditManager.Types.AssessmentMetadataItem
-    Network.AWS.AuditManager.Types.AssessmentReport
-    Network.AWS.AuditManager.Types.AssessmentReportDestinationType
-    Network.AWS.AuditManager.Types.AssessmentReportEvidenceError
-    Network.AWS.AuditManager.Types.AssessmentReportMetadata
-    Network.AWS.AuditManager.Types.AssessmentReportsDestination
-    Network.AWS.AuditManager.Types.AssessmentReportStatus
-    Network.AWS.AuditManager.Types.AssessmentStatus
-    Network.AWS.AuditManager.Types.AWSAccount
-    Network.AWS.AuditManager.Types.AWSService
-    Network.AWS.AuditManager.Types.BatchCreateDelegationByAssessmentError
-    Network.AWS.AuditManager.Types.BatchDeleteDelegationByAssessmentError
-    Network.AWS.AuditManager.Types.BatchImportEvidenceToAssessmentControlError
-    Network.AWS.AuditManager.Types.ChangeLog
-    Network.AWS.AuditManager.Types.Control
-    Network.AWS.AuditManager.Types.ControlComment
-    Network.AWS.AuditManager.Types.ControlMappingSource
-    Network.AWS.AuditManager.Types.ControlMetadata
-    Network.AWS.AuditManager.Types.ControlResponse
-    Network.AWS.AuditManager.Types.ControlSet
-    Network.AWS.AuditManager.Types.ControlSetStatus
-    Network.AWS.AuditManager.Types.ControlStatus
-    Network.AWS.AuditManager.Types.ControlType
-    Network.AWS.AuditManager.Types.CreateAssessmentFrameworkControl
-    Network.AWS.AuditManager.Types.CreateAssessmentFrameworkControlSet
-    Network.AWS.AuditManager.Types.CreateControlMappingSource
-    Network.AWS.AuditManager.Types.CreateDelegationRequest
-    Network.AWS.AuditManager.Types.Delegation
-    Network.AWS.AuditManager.Types.DelegationMetadata
-    Network.AWS.AuditManager.Types.DelegationStatus
-    Network.AWS.AuditManager.Types.Evidence
-    Network.AWS.AuditManager.Types.Framework
-    Network.AWS.AuditManager.Types.FrameworkMetadata
-    Network.AWS.AuditManager.Types.FrameworkType
-    Network.AWS.AuditManager.Types.KeywordInputType
-    Network.AWS.AuditManager.Types.ManualEvidence
-    Network.AWS.AuditManager.Types.Notification
-    Network.AWS.AuditManager.Types.ObjectTypeEnum
-    Network.AWS.AuditManager.Types.Resource
-    Network.AWS.AuditManager.Types.Role
-    Network.AWS.AuditManager.Types.RoleType
-    Network.AWS.AuditManager.Types.Scope
-    Network.AWS.AuditManager.Types.ServiceMetadata
-    Network.AWS.AuditManager.Types.SettingAttribute
-    Network.AWS.AuditManager.Types.Settings
-    Network.AWS.AuditManager.Types.SourceFrequency
-    Network.AWS.AuditManager.Types.SourceKeyword
-    Network.AWS.AuditManager.Types.SourceSetUpOption
-    Network.AWS.AuditManager.Types.SourceType
-    Network.AWS.AuditManager.Types.UpdateAssessmentFrameworkControlSet
-    Network.AWS.AuditManager.Types.URL
-    Network.AWS.AuditManager.UntagResource
-    Network.AWS.AuditManager.UpdateAssessment
-    Network.AWS.AuditManager.UpdateAssessmentControl
-    Network.AWS.AuditManager.UpdateAssessmentControlSetStatus
-    Network.AWS.AuditManager.UpdateAssessmentFramework
-    Network.AWS.AuditManager.UpdateAssessmentStatus
-    Network.AWS.AuditManager.UpdateControl
-    Network.AWS.AuditManager.UpdateSettings
-    Network.AWS.AuditManager.ValidateAssessmentReportIntegrity
-    Network.AWS.AuditManager.Waiters
+    Amazonka.AuditManager
+    Amazonka.AuditManager.AssociateAssessmentReportEvidenceFolder
+    Amazonka.AuditManager.BatchAssociateAssessmentReportEvidence
+    Amazonka.AuditManager.BatchCreateDelegationByAssessment
+    Amazonka.AuditManager.BatchDeleteDelegationByAssessment
+    Amazonka.AuditManager.BatchDisassociateAssessmentReportEvidence
+    Amazonka.AuditManager.BatchImportEvidenceToAssessmentControl
+    Amazonka.AuditManager.CreateAssessment
+    Amazonka.AuditManager.CreateAssessmentFramework
+    Amazonka.AuditManager.CreateAssessmentReport
+    Amazonka.AuditManager.CreateControl
+    Amazonka.AuditManager.DeleteAssessment
+    Amazonka.AuditManager.DeleteAssessmentFramework
+    Amazonka.AuditManager.DeleteAssessmentReport
+    Amazonka.AuditManager.DeleteControl
+    Amazonka.AuditManager.DeregisterAccount
+    Amazonka.AuditManager.DeregisterOrganizationAdminAccount
+    Amazonka.AuditManager.DisassociateAssessmentReportEvidenceFolder
+    Amazonka.AuditManager.GetAccountStatus
+    Amazonka.AuditManager.GetAssessment
+    Amazonka.AuditManager.GetAssessmentFramework
+    Amazonka.AuditManager.GetAssessmentReportUrl
+    Amazonka.AuditManager.GetChangeLogs
+    Amazonka.AuditManager.GetControl
+    Amazonka.AuditManager.GetDelegations
+    Amazonka.AuditManager.GetEvidence
+    Amazonka.AuditManager.GetEvidenceByEvidenceFolder
+    Amazonka.AuditManager.GetEvidenceFolder
+    Amazonka.AuditManager.GetEvidenceFoldersByAssessment
+    Amazonka.AuditManager.GetEvidenceFoldersByAssessmentControl
+    Amazonka.AuditManager.GetOrganizationAdminAccount
+    Amazonka.AuditManager.GetServicesInScope
+    Amazonka.AuditManager.GetSettings
+    Amazonka.AuditManager.Lens
+    Amazonka.AuditManager.ListAssessmentFrameworks
+    Amazonka.AuditManager.ListAssessmentReports
+    Amazonka.AuditManager.ListAssessments
+    Amazonka.AuditManager.ListControls
+    Amazonka.AuditManager.ListKeywordsForDataSource
+    Amazonka.AuditManager.ListNotifications
+    Amazonka.AuditManager.ListTagsForResource
+    Amazonka.AuditManager.RegisterAccount
+    Amazonka.AuditManager.RegisterOrganizationAdminAccount
+    Amazonka.AuditManager.TagResource
+    Amazonka.AuditManager.Types
+    Amazonka.AuditManager.Types.AccountStatus
+    Amazonka.AuditManager.Types.ActionEnum
+    Amazonka.AuditManager.Types.Assessment
+    Amazonka.AuditManager.Types.AssessmentControl
+    Amazonka.AuditManager.Types.AssessmentControlSet
+    Amazonka.AuditManager.Types.AssessmentEvidenceFolder
+    Amazonka.AuditManager.Types.AssessmentFramework
+    Amazonka.AuditManager.Types.AssessmentFrameworkMetadata
+    Amazonka.AuditManager.Types.AssessmentMetadata
+    Amazonka.AuditManager.Types.AssessmentMetadataItem
+    Amazonka.AuditManager.Types.AssessmentReport
+    Amazonka.AuditManager.Types.AssessmentReportDestinationType
+    Amazonka.AuditManager.Types.AssessmentReportEvidenceError
+    Amazonka.AuditManager.Types.AssessmentReportMetadata
+    Amazonka.AuditManager.Types.AssessmentReportsDestination
+    Amazonka.AuditManager.Types.AssessmentReportStatus
+    Amazonka.AuditManager.Types.AssessmentStatus
+    Amazonka.AuditManager.Types.AWSAccount
+    Amazonka.AuditManager.Types.AWSService
+    Amazonka.AuditManager.Types.BatchCreateDelegationByAssessmentError
+    Amazonka.AuditManager.Types.BatchDeleteDelegationByAssessmentError
+    Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError
+    Amazonka.AuditManager.Types.ChangeLog
+    Amazonka.AuditManager.Types.Control
+    Amazonka.AuditManager.Types.ControlComment
+    Amazonka.AuditManager.Types.ControlMappingSource
+    Amazonka.AuditManager.Types.ControlMetadata
+    Amazonka.AuditManager.Types.ControlResponse
+    Amazonka.AuditManager.Types.ControlSet
+    Amazonka.AuditManager.Types.ControlSetStatus
+    Amazonka.AuditManager.Types.ControlStatus
+    Amazonka.AuditManager.Types.ControlType
+    Amazonka.AuditManager.Types.CreateAssessmentFrameworkControl
+    Amazonka.AuditManager.Types.CreateAssessmentFrameworkControlSet
+    Amazonka.AuditManager.Types.CreateControlMappingSource
+    Amazonka.AuditManager.Types.CreateDelegationRequest
+    Amazonka.AuditManager.Types.Delegation
+    Amazonka.AuditManager.Types.DelegationMetadata
+    Amazonka.AuditManager.Types.DelegationStatus
+    Amazonka.AuditManager.Types.Evidence
+    Amazonka.AuditManager.Types.Framework
+    Amazonka.AuditManager.Types.FrameworkMetadata
+    Amazonka.AuditManager.Types.FrameworkType
+    Amazonka.AuditManager.Types.KeywordInputType
+    Amazonka.AuditManager.Types.ManualEvidence
+    Amazonka.AuditManager.Types.Notification
+    Amazonka.AuditManager.Types.ObjectTypeEnum
+    Amazonka.AuditManager.Types.Resource
+    Amazonka.AuditManager.Types.Role
+    Amazonka.AuditManager.Types.RoleType
+    Amazonka.AuditManager.Types.Scope
+    Amazonka.AuditManager.Types.ServiceMetadata
+    Amazonka.AuditManager.Types.SettingAttribute
+    Amazonka.AuditManager.Types.Settings
+    Amazonka.AuditManager.Types.SourceFrequency
+    Amazonka.AuditManager.Types.SourceKeyword
+    Amazonka.AuditManager.Types.SourceSetUpOption
+    Amazonka.AuditManager.Types.SourceType
+    Amazonka.AuditManager.Types.UpdateAssessmentFrameworkControlSet
+    Amazonka.AuditManager.Types.URL
+    Amazonka.AuditManager.UntagResource
+    Amazonka.AuditManager.UpdateAssessment
+    Amazonka.AuditManager.UpdateAssessmentControl
+    Amazonka.AuditManager.UpdateAssessmentControlSetStatus
+    Amazonka.AuditManager.UpdateAssessmentFramework
+    Amazonka.AuditManager.UpdateAssessmentStatus
+    Amazonka.AuditManager.UpdateControl
+    Amazonka.AuditManager.UpdateSettings
+    Amazonka.AuditManager.ValidateAssessmentReportIntegrity
+    Amazonka.AuditManager.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -177,9 +177,9 @@ test-suite amazonka-auditmanager-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.AuditManager
-    Test.AWS.AuditManager.Internal
-    Test.AWS.Gen.AuditManager
+    Test.Amazonka.AuditManager
+    Test.Amazonka.AuditManager.Internal
+    Test.Amazonka.Gen.AuditManager
 
   build-depends:
     , amazonka               ^>=2.0

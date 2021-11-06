@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.CloudSearchDomains.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.CloudSearchDomains.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.CloudSearchDomains" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.CloudSearchDomains" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,27 +45,27 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.CloudSearchDomains
-    Network.AWS.CloudSearchDomains.Lens
-    Network.AWS.CloudSearchDomains.Search
-    Network.AWS.CloudSearchDomains.Suggest
-    Network.AWS.CloudSearchDomains.Types
-    Network.AWS.CloudSearchDomains.Types.Bucket
-    Network.AWS.CloudSearchDomains.Types.BucketInfo
-    Network.AWS.CloudSearchDomains.Types.ContentType
-    Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning
-    Network.AWS.CloudSearchDomains.Types.FieldStats
-    Network.AWS.CloudSearchDomains.Types.Hit
-    Network.AWS.CloudSearchDomains.Types.Hits
-    Network.AWS.CloudSearchDomains.Types.QueryParser
-    Network.AWS.CloudSearchDomains.Types.SearchStatus
-    Network.AWS.CloudSearchDomains.Types.SuggestionMatch
-    Network.AWS.CloudSearchDomains.Types.SuggestModel
-    Network.AWS.CloudSearchDomains.Types.SuggestStatus
-    Network.AWS.CloudSearchDomains.UploadDocuments
-    Network.AWS.CloudSearchDomains.Waiters
+    Amazonka.CloudSearchDomains
+    Amazonka.CloudSearchDomains.Lens
+    Amazonka.CloudSearchDomains.Search
+    Amazonka.CloudSearchDomains.Suggest
+    Amazonka.CloudSearchDomains.Types
+    Amazonka.CloudSearchDomains.Types.Bucket
+    Amazonka.CloudSearchDomains.Types.BucketInfo
+    Amazonka.CloudSearchDomains.Types.ContentType
+    Amazonka.CloudSearchDomains.Types.DocumentServiceWarning
+    Amazonka.CloudSearchDomains.Types.FieldStats
+    Amazonka.CloudSearchDomains.Types.Hit
+    Amazonka.CloudSearchDomains.Types.Hits
+    Amazonka.CloudSearchDomains.Types.QueryParser
+    Amazonka.CloudSearchDomains.Types.SearchStatus
+    Amazonka.CloudSearchDomains.Types.SuggestionMatch
+    Amazonka.CloudSearchDomains.Types.SuggestModel
+    Amazonka.CloudSearchDomains.Types.SuggestStatus
+    Amazonka.CloudSearchDomains.UploadDocuments
+    Amazonka.CloudSearchDomains.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -81,9 +81,9 @@ test-suite amazonka-cloudsearch-domains-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CloudSearchDomains
-    Test.AWS.CloudSearchDomains.Internal
-    Test.AWS.Gen.CloudSearchDomains
+    Test.Amazonka.CloudSearchDomains
+    Test.Amazonka.CloudSearchDomains.Internal
+    Test.Amazonka.Gen.CloudSearchDomains
 
   build-depends:
     , amazonka                      ^>=2.0

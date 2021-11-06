@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.LookoutVision.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.LookoutVision.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.LookoutVision" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.LookoutVision" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,51 +45,51 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.LookoutVision
-    Network.AWS.LookoutVision.CreateDataset
-    Network.AWS.LookoutVision.CreateModel
-    Network.AWS.LookoutVision.CreateProject
-    Network.AWS.LookoutVision.DeleteDataset
-    Network.AWS.LookoutVision.DeleteModel
-    Network.AWS.LookoutVision.DeleteProject
-    Network.AWS.LookoutVision.DescribeDataset
-    Network.AWS.LookoutVision.DescribeModel
-    Network.AWS.LookoutVision.DescribeProject
-    Network.AWS.LookoutVision.DetectAnomalies
-    Network.AWS.LookoutVision.Lens
-    Network.AWS.LookoutVision.ListDatasetEntries
-    Network.AWS.LookoutVision.ListModels
-    Network.AWS.LookoutVision.ListProjects
-    Network.AWS.LookoutVision.ListTagsForResource
-    Network.AWS.LookoutVision.StartModel
-    Network.AWS.LookoutVision.StopModel
-    Network.AWS.LookoutVision.TagResource
-    Network.AWS.LookoutVision.Types
-    Network.AWS.LookoutVision.Types.DatasetDescription
-    Network.AWS.LookoutVision.Types.DatasetGroundTruthManifest
-    Network.AWS.LookoutVision.Types.DatasetImageStats
-    Network.AWS.LookoutVision.Types.DatasetMetadata
-    Network.AWS.LookoutVision.Types.DatasetSource
-    Network.AWS.LookoutVision.Types.DatasetStatus
-    Network.AWS.LookoutVision.Types.DetectAnomalyResult
-    Network.AWS.LookoutVision.Types.ImageSource
-    Network.AWS.LookoutVision.Types.InputS3Object
-    Network.AWS.LookoutVision.Types.ModelDescription
-    Network.AWS.LookoutVision.Types.ModelHostingStatus
-    Network.AWS.LookoutVision.Types.ModelMetadata
-    Network.AWS.LookoutVision.Types.ModelPerformance
-    Network.AWS.LookoutVision.Types.ModelStatus
-    Network.AWS.LookoutVision.Types.OutputConfig
-    Network.AWS.LookoutVision.Types.OutputS3Object
-    Network.AWS.LookoutVision.Types.ProjectDescription
-    Network.AWS.LookoutVision.Types.ProjectMetadata
-    Network.AWS.LookoutVision.Types.S3Location
-    Network.AWS.LookoutVision.Types.Tag
-    Network.AWS.LookoutVision.UntagResource
-    Network.AWS.LookoutVision.UpdateDatasetEntries
-    Network.AWS.LookoutVision.Waiters
+    Amazonka.LookoutVision
+    Amazonka.LookoutVision.CreateDataset
+    Amazonka.LookoutVision.CreateModel
+    Amazonka.LookoutVision.CreateProject
+    Amazonka.LookoutVision.DeleteDataset
+    Amazonka.LookoutVision.DeleteModel
+    Amazonka.LookoutVision.DeleteProject
+    Amazonka.LookoutVision.DescribeDataset
+    Amazonka.LookoutVision.DescribeModel
+    Amazonka.LookoutVision.DescribeProject
+    Amazonka.LookoutVision.DetectAnomalies
+    Amazonka.LookoutVision.Lens
+    Amazonka.LookoutVision.ListDatasetEntries
+    Amazonka.LookoutVision.ListModels
+    Amazonka.LookoutVision.ListProjects
+    Amazonka.LookoutVision.ListTagsForResource
+    Amazonka.LookoutVision.StartModel
+    Amazonka.LookoutVision.StopModel
+    Amazonka.LookoutVision.TagResource
+    Amazonka.LookoutVision.Types
+    Amazonka.LookoutVision.Types.DatasetDescription
+    Amazonka.LookoutVision.Types.DatasetGroundTruthManifest
+    Amazonka.LookoutVision.Types.DatasetImageStats
+    Amazonka.LookoutVision.Types.DatasetMetadata
+    Amazonka.LookoutVision.Types.DatasetSource
+    Amazonka.LookoutVision.Types.DatasetStatus
+    Amazonka.LookoutVision.Types.DetectAnomalyResult
+    Amazonka.LookoutVision.Types.ImageSource
+    Amazonka.LookoutVision.Types.InputS3Object
+    Amazonka.LookoutVision.Types.ModelDescription
+    Amazonka.LookoutVision.Types.ModelHostingStatus
+    Amazonka.LookoutVision.Types.ModelMetadata
+    Amazonka.LookoutVision.Types.ModelPerformance
+    Amazonka.LookoutVision.Types.ModelStatus
+    Amazonka.LookoutVision.Types.OutputConfig
+    Amazonka.LookoutVision.Types.OutputS3Object
+    Amazonka.LookoutVision.Types.ProjectDescription
+    Amazonka.LookoutVision.Types.ProjectMetadata
+    Amazonka.LookoutVision.Types.S3Location
+    Amazonka.LookoutVision.Types.Tag
+    Amazonka.LookoutVision.UntagResource
+    Amazonka.LookoutVision.UpdateDatasetEntries
+    Amazonka.LookoutVision.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -105,9 +105,9 @@ test-suite amazonka-lookoutvision-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.LookoutVision
-    Test.AWS.LookoutVision
-    Test.AWS.LookoutVision.Internal
+    Test.Amazonka.Gen.LookoutVision
+    Test.Amazonka.LookoutVision
+    Test.Amazonka.LookoutVision.Internal
 
   build-depends:
     , amazonka                ^>=2.0

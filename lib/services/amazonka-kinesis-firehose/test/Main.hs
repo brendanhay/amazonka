@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.Firehose
-import Test.AWS.Firehose.Internal
+import Test.Amazonka.Firehose
+import Test.Amazonka.Firehose.Internal
 import Test.Tasty
 
 main :: IO ()

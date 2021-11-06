@@ -25,7 +25,7 @@ de/serialisation into more palatable Haskell values.
 The provided lenses should be compatible with any of the major lens libraries
 [lens](http://hackage.haskell.org/package/lens) or [lens-family-core](http://hackage.haskell.org/package/lens-family-core).
 
-See [Network.AWS.AutoScaling](http://hackage.haskell.org/package/amazonka-autoscaling/docs/Network-AWS-AutoScaling.html)
+See [Amazonka.AutoScaling](http://hackage.haskell.org/package/amazonka-autoscaling/docs/Amazonka-AutoScaling.html)
 or [the AWS documentation](https://aws.amazon.com/documentation/) to get started.
 
 

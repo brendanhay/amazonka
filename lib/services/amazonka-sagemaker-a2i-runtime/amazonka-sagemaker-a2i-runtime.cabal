@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.SageMakerA2IRuntime.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.SageMakerA2IRuntime.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.SageMakerA2IRuntime" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.SageMakerA2IRuntime" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,24 +45,24 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.SageMakerA2IRuntime
-    Network.AWS.SageMakerA2IRuntime.DeleteHumanLoop
-    Network.AWS.SageMakerA2IRuntime.DescribeHumanLoop
-    Network.AWS.SageMakerA2IRuntime.Lens
-    Network.AWS.SageMakerA2IRuntime.ListHumanLoops
-    Network.AWS.SageMakerA2IRuntime.StartHumanLoop
-    Network.AWS.SageMakerA2IRuntime.StopHumanLoop
-    Network.AWS.SageMakerA2IRuntime.Types
-    Network.AWS.SageMakerA2IRuntime.Types.ContentClassifier
-    Network.AWS.SageMakerA2IRuntime.Types.HumanLoopDataAttributes
-    Network.AWS.SageMakerA2IRuntime.Types.HumanLoopInput
-    Network.AWS.SageMakerA2IRuntime.Types.HumanLoopOutput
-    Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus
-    Network.AWS.SageMakerA2IRuntime.Types.HumanLoopSummary
-    Network.AWS.SageMakerA2IRuntime.Types.SortOrder
-    Network.AWS.SageMakerA2IRuntime.Waiters
+    Amazonka.SageMakerA2IRuntime
+    Amazonka.SageMakerA2IRuntime.DeleteHumanLoop
+    Amazonka.SageMakerA2IRuntime.DescribeHumanLoop
+    Amazonka.SageMakerA2IRuntime.Lens
+    Amazonka.SageMakerA2IRuntime.ListHumanLoops
+    Amazonka.SageMakerA2IRuntime.StartHumanLoop
+    Amazonka.SageMakerA2IRuntime.StopHumanLoop
+    Amazonka.SageMakerA2IRuntime.Types
+    Amazonka.SageMakerA2IRuntime.Types.ContentClassifier
+    Amazonka.SageMakerA2IRuntime.Types.HumanLoopDataAttributes
+    Amazonka.SageMakerA2IRuntime.Types.HumanLoopInput
+    Amazonka.SageMakerA2IRuntime.Types.HumanLoopOutput
+    Amazonka.SageMakerA2IRuntime.Types.HumanLoopStatus
+    Amazonka.SageMakerA2IRuntime.Types.HumanLoopSummary
+    Amazonka.SageMakerA2IRuntime.Types.SortOrder
+    Amazonka.SageMakerA2IRuntime.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -78,9 +78,9 @@ test-suite amazonka-sagemaker-a2i-runtime-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.SageMakerA2IRuntime
-    Test.AWS.SageMakerA2IRuntime
-    Test.AWS.SageMakerA2IRuntime.Internal
+    Test.Amazonka.Gen.SageMakerA2IRuntime
+    Test.Amazonka.SageMakerA2IRuntime
+    Test.Amazonka.SageMakerA2IRuntime.Internal
 
   build-depends:
     , amazonka                        ^>=2.0

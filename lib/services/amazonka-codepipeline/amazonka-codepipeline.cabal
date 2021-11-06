@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.CodePipeline.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.CodePipeline.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.CodePipeline" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.CodePipeline" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,137 +45,137 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.CodePipeline
-    Network.AWS.CodePipeline.AcknowledgeJob
-    Network.AWS.CodePipeline.AcknowledgeThirdPartyJob
-    Network.AWS.CodePipeline.CreateCustomActionType
-    Network.AWS.CodePipeline.CreatePipeline
-    Network.AWS.CodePipeline.DeleteCustomActionType
-    Network.AWS.CodePipeline.DeletePipeline
-    Network.AWS.CodePipeline.DeleteWebhook
-    Network.AWS.CodePipeline.DeregisterWebhookWithThirdParty
-    Network.AWS.CodePipeline.DisableStageTransition
-    Network.AWS.CodePipeline.EnableStageTransition
-    Network.AWS.CodePipeline.GetActionType
-    Network.AWS.CodePipeline.GetJobDetails
-    Network.AWS.CodePipeline.GetPipeline
-    Network.AWS.CodePipeline.GetPipelineExecution
-    Network.AWS.CodePipeline.GetPipelineState
-    Network.AWS.CodePipeline.GetThirdPartyJobDetails
-    Network.AWS.CodePipeline.Lens
-    Network.AWS.CodePipeline.ListActionExecutions
-    Network.AWS.CodePipeline.ListActionTypes
-    Network.AWS.CodePipeline.ListPipelineExecutions
-    Network.AWS.CodePipeline.ListPipelines
-    Network.AWS.CodePipeline.ListTagsForResource
-    Network.AWS.CodePipeline.ListWebhooks
-    Network.AWS.CodePipeline.PollForJobs
-    Network.AWS.CodePipeline.PollForThirdPartyJobs
-    Network.AWS.CodePipeline.PutActionRevision
-    Network.AWS.CodePipeline.PutApprovalResult
-    Network.AWS.CodePipeline.PutJobFailureResult
-    Network.AWS.CodePipeline.PutJobSuccessResult
-    Network.AWS.CodePipeline.PutThirdPartyJobFailureResult
-    Network.AWS.CodePipeline.PutThirdPartyJobSuccessResult
-    Network.AWS.CodePipeline.PutWebhook
-    Network.AWS.CodePipeline.RegisterWebhookWithThirdParty
-    Network.AWS.CodePipeline.RetryStageExecution
-    Network.AWS.CodePipeline.StartPipelineExecution
-    Network.AWS.CodePipeline.StopPipelineExecution
-    Network.AWS.CodePipeline.TagResource
-    Network.AWS.CodePipeline.Types
-    Network.AWS.CodePipeline.Types.ActionCategory
-    Network.AWS.CodePipeline.Types.ActionConfiguration
-    Network.AWS.CodePipeline.Types.ActionConfigurationProperty
-    Network.AWS.CodePipeline.Types.ActionConfigurationPropertyType
-    Network.AWS.CodePipeline.Types.ActionContext
-    Network.AWS.CodePipeline.Types.ActionDeclaration
-    Network.AWS.CodePipeline.Types.ActionExecution
-    Network.AWS.CodePipeline.Types.ActionExecutionDetail
-    Network.AWS.CodePipeline.Types.ActionExecutionFilter
-    Network.AWS.CodePipeline.Types.ActionExecutionInput
-    Network.AWS.CodePipeline.Types.ActionExecutionOutput
-    Network.AWS.CodePipeline.Types.ActionExecutionResult
-    Network.AWS.CodePipeline.Types.ActionExecutionStatus
-    Network.AWS.CodePipeline.Types.ActionOwner
-    Network.AWS.CodePipeline.Types.ActionRevision
-    Network.AWS.CodePipeline.Types.ActionState
-    Network.AWS.CodePipeline.Types.ActionType
-    Network.AWS.CodePipeline.Types.ActionTypeArtifactDetails
-    Network.AWS.CodePipeline.Types.ActionTypeDeclaration
-    Network.AWS.CodePipeline.Types.ActionTypeExecutor
-    Network.AWS.CodePipeline.Types.ActionTypeId
-    Network.AWS.CodePipeline.Types.ActionTypeIdentifier
-    Network.AWS.CodePipeline.Types.ActionTypePermissions
-    Network.AWS.CodePipeline.Types.ActionTypeProperty
-    Network.AWS.CodePipeline.Types.ActionTypeSettings
-    Network.AWS.CodePipeline.Types.ActionTypeUrls
-    Network.AWS.CodePipeline.Types.ApprovalResult
-    Network.AWS.CodePipeline.Types.ApprovalStatus
-    Network.AWS.CodePipeline.Types.Artifact
-    Network.AWS.CodePipeline.Types.ArtifactDetail
-    Network.AWS.CodePipeline.Types.ArtifactDetails
-    Network.AWS.CodePipeline.Types.ArtifactLocation
-    Network.AWS.CodePipeline.Types.ArtifactLocationType
-    Network.AWS.CodePipeline.Types.ArtifactRevision
-    Network.AWS.CodePipeline.Types.ArtifactStore
-    Network.AWS.CodePipeline.Types.ArtifactStoreType
-    Network.AWS.CodePipeline.Types.AWSSessionCredentials
-    Network.AWS.CodePipeline.Types.BlockerDeclaration
-    Network.AWS.CodePipeline.Types.BlockerType
-    Network.AWS.CodePipeline.Types.CurrentRevision
-    Network.AWS.CodePipeline.Types.EncryptionKey
-    Network.AWS.CodePipeline.Types.EncryptionKeyType
-    Network.AWS.CodePipeline.Types.ErrorDetails
-    Network.AWS.CodePipeline.Types.ExecutionDetails
-    Network.AWS.CodePipeline.Types.ExecutionTrigger
-    Network.AWS.CodePipeline.Types.ExecutorConfiguration
-    Network.AWS.CodePipeline.Types.ExecutorType
-    Network.AWS.CodePipeline.Types.FailureDetails
-    Network.AWS.CodePipeline.Types.FailureType
-    Network.AWS.CodePipeline.Types.InputArtifact
-    Network.AWS.CodePipeline.Types.Job
-    Network.AWS.CodePipeline.Types.JobData
-    Network.AWS.CodePipeline.Types.JobDetails
-    Network.AWS.CodePipeline.Types.JobStatus
-    Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration
-    Network.AWS.CodePipeline.Types.LambdaExecutorConfiguration
-    Network.AWS.CodePipeline.Types.ListWebhookItem
-    Network.AWS.CodePipeline.Types.OutputArtifact
-    Network.AWS.CodePipeline.Types.PipelineContext
-    Network.AWS.CodePipeline.Types.PipelineDeclaration
-    Network.AWS.CodePipeline.Types.PipelineExecution
-    Network.AWS.CodePipeline.Types.PipelineExecutionStatus
-    Network.AWS.CodePipeline.Types.PipelineExecutionSummary
-    Network.AWS.CodePipeline.Types.PipelineMetadata
-    Network.AWS.CodePipeline.Types.PipelineSummary
-    Network.AWS.CodePipeline.Types.S3ArtifactLocation
-    Network.AWS.CodePipeline.Types.S3Location
-    Network.AWS.CodePipeline.Types.SourceRevision
-    Network.AWS.CodePipeline.Types.StageContext
-    Network.AWS.CodePipeline.Types.StageDeclaration
-    Network.AWS.CodePipeline.Types.StageExecution
-    Network.AWS.CodePipeline.Types.StageExecutionStatus
-    Network.AWS.CodePipeline.Types.StageRetryMode
-    Network.AWS.CodePipeline.Types.StageState
-    Network.AWS.CodePipeline.Types.StageTransitionType
-    Network.AWS.CodePipeline.Types.StopExecutionTrigger
-    Network.AWS.CodePipeline.Types.Tag
-    Network.AWS.CodePipeline.Types.ThirdPartyJob
-    Network.AWS.CodePipeline.Types.ThirdPartyJobData
-    Network.AWS.CodePipeline.Types.ThirdPartyJobDetails
-    Network.AWS.CodePipeline.Types.TransitionState
-    Network.AWS.CodePipeline.Types.TriggerType
-    Network.AWS.CodePipeline.Types.WebhookAuthConfiguration
-    Network.AWS.CodePipeline.Types.WebhookAuthenticationType
-    Network.AWS.CodePipeline.Types.WebhookDefinition
-    Network.AWS.CodePipeline.Types.WebhookFilterRule
-    Network.AWS.CodePipeline.UntagResource
-    Network.AWS.CodePipeline.UpdateActionType
-    Network.AWS.CodePipeline.UpdatePipeline
-    Network.AWS.CodePipeline.Waiters
+    Amazonka.CodePipeline
+    Amazonka.CodePipeline.AcknowledgeJob
+    Amazonka.CodePipeline.AcknowledgeThirdPartyJob
+    Amazonka.CodePipeline.CreateCustomActionType
+    Amazonka.CodePipeline.CreatePipeline
+    Amazonka.CodePipeline.DeleteCustomActionType
+    Amazonka.CodePipeline.DeletePipeline
+    Amazonka.CodePipeline.DeleteWebhook
+    Amazonka.CodePipeline.DeregisterWebhookWithThirdParty
+    Amazonka.CodePipeline.DisableStageTransition
+    Amazonka.CodePipeline.EnableStageTransition
+    Amazonka.CodePipeline.GetActionType
+    Amazonka.CodePipeline.GetJobDetails
+    Amazonka.CodePipeline.GetPipeline
+    Amazonka.CodePipeline.GetPipelineExecution
+    Amazonka.CodePipeline.GetPipelineState
+    Amazonka.CodePipeline.GetThirdPartyJobDetails
+    Amazonka.CodePipeline.Lens
+    Amazonka.CodePipeline.ListActionExecutions
+    Amazonka.CodePipeline.ListActionTypes
+    Amazonka.CodePipeline.ListPipelineExecutions
+    Amazonka.CodePipeline.ListPipelines
+    Amazonka.CodePipeline.ListTagsForResource
+    Amazonka.CodePipeline.ListWebhooks
+    Amazonka.CodePipeline.PollForJobs
+    Amazonka.CodePipeline.PollForThirdPartyJobs
+    Amazonka.CodePipeline.PutActionRevision
+    Amazonka.CodePipeline.PutApprovalResult
+    Amazonka.CodePipeline.PutJobFailureResult
+    Amazonka.CodePipeline.PutJobSuccessResult
+    Amazonka.CodePipeline.PutThirdPartyJobFailureResult
+    Amazonka.CodePipeline.PutThirdPartyJobSuccessResult
+    Amazonka.CodePipeline.PutWebhook
+    Amazonka.CodePipeline.RegisterWebhookWithThirdParty
+    Amazonka.CodePipeline.RetryStageExecution
+    Amazonka.CodePipeline.StartPipelineExecution
+    Amazonka.CodePipeline.StopPipelineExecution
+    Amazonka.CodePipeline.TagResource
+    Amazonka.CodePipeline.Types
+    Amazonka.CodePipeline.Types.ActionCategory
+    Amazonka.CodePipeline.Types.ActionConfiguration
+    Amazonka.CodePipeline.Types.ActionConfigurationProperty
+    Amazonka.CodePipeline.Types.ActionConfigurationPropertyType
+    Amazonka.CodePipeline.Types.ActionContext
+    Amazonka.CodePipeline.Types.ActionDeclaration
+    Amazonka.CodePipeline.Types.ActionExecution
+    Amazonka.CodePipeline.Types.ActionExecutionDetail
+    Amazonka.CodePipeline.Types.ActionExecutionFilter
+    Amazonka.CodePipeline.Types.ActionExecutionInput
+    Amazonka.CodePipeline.Types.ActionExecutionOutput
+    Amazonka.CodePipeline.Types.ActionExecutionResult
+    Amazonka.CodePipeline.Types.ActionExecutionStatus
+    Amazonka.CodePipeline.Types.ActionOwner
+    Amazonka.CodePipeline.Types.ActionRevision
+    Amazonka.CodePipeline.Types.ActionState
+    Amazonka.CodePipeline.Types.ActionType
+    Amazonka.CodePipeline.Types.ActionTypeArtifactDetails
+    Amazonka.CodePipeline.Types.ActionTypeDeclaration
+    Amazonka.CodePipeline.Types.ActionTypeExecutor
+    Amazonka.CodePipeline.Types.ActionTypeId
+    Amazonka.CodePipeline.Types.ActionTypeIdentifier
+    Amazonka.CodePipeline.Types.ActionTypePermissions
+    Amazonka.CodePipeline.Types.ActionTypeProperty
+    Amazonka.CodePipeline.Types.ActionTypeSettings
+    Amazonka.CodePipeline.Types.ActionTypeUrls
+    Amazonka.CodePipeline.Types.ApprovalResult
+    Amazonka.CodePipeline.Types.ApprovalStatus
+    Amazonka.CodePipeline.Types.Artifact
+    Amazonka.CodePipeline.Types.ArtifactDetail
+    Amazonka.CodePipeline.Types.ArtifactDetails
+    Amazonka.CodePipeline.Types.ArtifactLocation
+    Amazonka.CodePipeline.Types.ArtifactLocationType
+    Amazonka.CodePipeline.Types.ArtifactRevision
+    Amazonka.CodePipeline.Types.ArtifactStore
+    Amazonka.CodePipeline.Types.ArtifactStoreType
+    Amazonka.CodePipeline.Types.AWSSessionCredentials
+    Amazonka.CodePipeline.Types.BlockerDeclaration
+    Amazonka.CodePipeline.Types.BlockerType
+    Amazonka.CodePipeline.Types.CurrentRevision
+    Amazonka.CodePipeline.Types.EncryptionKey
+    Amazonka.CodePipeline.Types.EncryptionKeyType
+    Amazonka.CodePipeline.Types.ErrorDetails
+    Amazonka.CodePipeline.Types.ExecutionDetails
+    Amazonka.CodePipeline.Types.ExecutionTrigger
+    Amazonka.CodePipeline.Types.ExecutorConfiguration
+    Amazonka.CodePipeline.Types.ExecutorType
+    Amazonka.CodePipeline.Types.FailureDetails
+    Amazonka.CodePipeline.Types.FailureType
+    Amazonka.CodePipeline.Types.InputArtifact
+    Amazonka.CodePipeline.Types.Job
+    Amazonka.CodePipeline.Types.JobData
+    Amazonka.CodePipeline.Types.JobDetails
+    Amazonka.CodePipeline.Types.JobStatus
+    Amazonka.CodePipeline.Types.JobWorkerExecutorConfiguration
+    Amazonka.CodePipeline.Types.LambdaExecutorConfiguration
+    Amazonka.CodePipeline.Types.ListWebhookItem
+    Amazonka.CodePipeline.Types.OutputArtifact
+    Amazonka.CodePipeline.Types.PipelineContext
+    Amazonka.CodePipeline.Types.PipelineDeclaration
+    Amazonka.CodePipeline.Types.PipelineExecution
+    Amazonka.CodePipeline.Types.PipelineExecutionStatus
+    Amazonka.CodePipeline.Types.PipelineExecutionSummary
+    Amazonka.CodePipeline.Types.PipelineMetadata
+    Amazonka.CodePipeline.Types.PipelineSummary
+    Amazonka.CodePipeline.Types.S3ArtifactLocation
+    Amazonka.CodePipeline.Types.S3Location
+    Amazonka.CodePipeline.Types.SourceRevision
+    Amazonka.CodePipeline.Types.StageContext
+    Amazonka.CodePipeline.Types.StageDeclaration
+    Amazonka.CodePipeline.Types.StageExecution
+    Amazonka.CodePipeline.Types.StageExecutionStatus
+    Amazonka.CodePipeline.Types.StageRetryMode
+    Amazonka.CodePipeline.Types.StageState
+    Amazonka.CodePipeline.Types.StageTransitionType
+    Amazonka.CodePipeline.Types.StopExecutionTrigger
+    Amazonka.CodePipeline.Types.Tag
+    Amazonka.CodePipeline.Types.ThirdPartyJob
+    Amazonka.CodePipeline.Types.ThirdPartyJobData
+    Amazonka.CodePipeline.Types.ThirdPartyJobDetails
+    Amazonka.CodePipeline.Types.TransitionState
+    Amazonka.CodePipeline.Types.TriggerType
+    Amazonka.CodePipeline.Types.WebhookAuthConfiguration
+    Amazonka.CodePipeline.Types.WebhookAuthenticationType
+    Amazonka.CodePipeline.Types.WebhookDefinition
+    Amazonka.CodePipeline.Types.WebhookFilterRule
+    Amazonka.CodePipeline.UntagResource
+    Amazonka.CodePipeline.UpdateActionType
+    Amazonka.CodePipeline.UpdatePipeline
+    Amazonka.CodePipeline.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -191,9 +191,9 @@ test-suite amazonka-codepipeline-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CodePipeline
-    Test.AWS.CodePipeline.Internal
-    Test.AWS.Gen.CodePipeline
+    Test.Amazonka.CodePipeline
+    Test.Amazonka.CodePipeline.Internal
+    Test.Amazonka.Gen.CodePipeline
 
   build-depends:
     , amazonka               ^>=2.0

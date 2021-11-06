@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Kinesis.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Kinesis.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Kinesis" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Kinesis" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,64 +45,64 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Kinesis
-    Network.AWS.Kinesis.AddTagsToStream
-    Network.AWS.Kinesis.CreateStream
-    Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
-    Network.AWS.Kinesis.DeleteStream
-    Network.AWS.Kinesis.DeregisterStreamConsumer
-    Network.AWS.Kinesis.DescribeLimits
-    Network.AWS.Kinesis.DescribeStream
-    Network.AWS.Kinesis.DescribeStreamConsumer
-    Network.AWS.Kinesis.DescribeStreamSummary
-    Network.AWS.Kinesis.DisableEnhancedMonitoring
-    Network.AWS.Kinesis.EnableEnhancedMonitoring
-    Network.AWS.Kinesis.GetRecords
-    Network.AWS.Kinesis.GetShardIterator
-    Network.AWS.Kinesis.IncreaseStreamRetentionPeriod
-    Network.AWS.Kinesis.Lens
-    Network.AWS.Kinesis.ListShards
-    Network.AWS.Kinesis.ListStreamConsumers
-    Network.AWS.Kinesis.ListStreams
-    Network.AWS.Kinesis.ListTagsForStream
-    Network.AWS.Kinesis.MergeShards
-    Network.AWS.Kinesis.PutRecord
-    Network.AWS.Kinesis.PutRecords
-    Network.AWS.Kinesis.RegisterStreamConsumer
-    Network.AWS.Kinesis.RemoveTagsFromStream
-    Network.AWS.Kinesis.SplitShard
-    Network.AWS.Kinesis.StartStreamEncryption
-    Network.AWS.Kinesis.StopStreamEncryption
-    Network.AWS.Kinesis.SubscribeToShard
-    Network.AWS.Kinesis.Types
-    Network.AWS.Kinesis.Types.ChildShard
-    Network.AWS.Kinesis.Types.Consumer
-    Network.AWS.Kinesis.Types.ConsumerDescription
-    Network.AWS.Kinesis.Types.ConsumerStatus
-    Network.AWS.Kinesis.Types.EncryptionType
-    Network.AWS.Kinesis.Types.EnhancedMetrics
-    Network.AWS.Kinesis.Types.EnhancedMonitoringOutput
-    Network.AWS.Kinesis.Types.HashKeyRange
-    Network.AWS.Kinesis.Types.MetricsName
-    Network.AWS.Kinesis.Types.PutRecordsRequestEntry
-    Network.AWS.Kinesis.Types.PutRecordsResultEntry
-    Network.AWS.Kinesis.Types.Record
-    Network.AWS.Kinesis.Types.ScalingType
-    Network.AWS.Kinesis.Types.SequenceNumberRange
-    Network.AWS.Kinesis.Types.Shard
-    Network.AWS.Kinesis.Types.ShardFilter
-    Network.AWS.Kinesis.Types.ShardFilterType
-    Network.AWS.Kinesis.Types.ShardIteratorType
-    Network.AWS.Kinesis.Types.StartingPosition
-    Network.AWS.Kinesis.Types.StreamDescription
-    Network.AWS.Kinesis.Types.StreamDescriptionSummary
-    Network.AWS.Kinesis.Types.StreamStatus
-    Network.AWS.Kinesis.Types.SubscribeToShardEvent
-    Network.AWS.Kinesis.Types.Tag
-    Network.AWS.Kinesis.UpdateShardCount
-    Network.AWS.Kinesis.Waiters
+    Amazonka.Kinesis
+    Amazonka.Kinesis.AddTagsToStream
+    Amazonka.Kinesis.CreateStream
+    Amazonka.Kinesis.DecreaseStreamRetentionPeriod
+    Amazonka.Kinesis.DeleteStream
+    Amazonka.Kinesis.DeregisterStreamConsumer
+    Amazonka.Kinesis.DescribeLimits
+    Amazonka.Kinesis.DescribeStream
+    Amazonka.Kinesis.DescribeStreamConsumer
+    Amazonka.Kinesis.DescribeStreamSummary
+    Amazonka.Kinesis.DisableEnhancedMonitoring
+    Amazonka.Kinesis.EnableEnhancedMonitoring
+    Amazonka.Kinesis.GetRecords
+    Amazonka.Kinesis.GetShardIterator
+    Amazonka.Kinesis.IncreaseStreamRetentionPeriod
+    Amazonka.Kinesis.Lens
+    Amazonka.Kinesis.ListShards
+    Amazonka.Kinesis.ListStreamConsumers
+    Amazonka.Kinesis.ListStreams
+    Amazonka.Kinesis.ListTagsForStream
+    Amazonka.Kinesis.MergeShards
+    Amazonka.Kinesis.PutRecord
+    Amazonka.Kinesis.PutRecords
+    Amazonka.Kinesis.RegisterStreamConsumer
+    Amazonka.Kinesis.RemoveTagsFromStream
+    Amazonka.Kinesis.SplitShard
+    Amazonka.Kinesis.StartStreamEncryption
+    Amazonka.Kinesis.StopStreamEncryption
+    Amazonka.Kinesis.SubscribeToShard
+    Amazonka.Kinesis.Types
+    Amazonka.Kinesis.Types.ChildShard
+    Amazonka.Kinesis.Types.Consumer
+    Amazonka.Kinesis.Types.ConsumerDescription
+    Amazonka.Kinesis.Types.ConsumerStatus
+    Amazonka.Kinesis.Types.EncryptionType
+    Amazonka.Kinesis.Types.EnhancedMetrics
+    Amazonka.Kinesis.Types.EnhancedMonitoringOutput
+    Amazonka.Kinesis.Types.HashKeyRange
+    Amazonka.Kinesis.Types.MetricsName
+    Amazonka.Kinesis.Types.PutRecordsRequestEntry
+    Amazonka.Kinesis.Types.PutRecordsResultEntry
+    Amazonka.Kinesis.Types.Record
+    Amazonka.Kinesis.Types.ScalingType
+    Amazonka.Kinesis.Types.SequenceNumberRange
+    Amazonka.Kinesis.Types.Shard
+    Amazonka.Kinesis.Types.ShardFilter
+    Amazonka.Kinesis.Types.ShardFilterType
+    Amazonka.Kinesis.Types.ShardIteratorType
+    Amazonka.Kinesis.Types.StartingPosition
+    Amazonka.Kinesis.Types.StreamDescription
+    Amazonka.Kinesis.Types.StreamDescriptionSummary
+    Amazonka.Kinesis.Types.StreamStatus
+    Amazonka.Kinesis.Types.SubscribeToShardEvent
+    Amazonka.Kinesis.Types.Tag
+    Amazonka.Kinesis.UpdateShardCount
+    Amazonka.Kinesis.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -118,9 +118,9 @@ test-suite amazonka-kinesis-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Kinesis
-    Test.AWS.Kinesis
-    Test.AWS.Kinesis.Internal
+    Test.Amazonka.Gen.Kinesis
+    Test.Amazonka.Kinesis
+    Test.Amazonka.Kinesis.Internal
 
   build-depends:
     , amazonka              ^>=2.0

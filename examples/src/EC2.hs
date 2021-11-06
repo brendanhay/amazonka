@@ -11,8 +11,8 @@ import Data.ByteString.Builder (hPutBuilder)
 import Data.Conduit
 import qualified Data.Conduit.List as CL
 import Data.Generics.Product
-import Network.AWS
-import Network.AWS.EC2
+import Amazonka
+import Amazonka.EC2
 import System.IO
 
 instanceOverview :: Region -> IO ()

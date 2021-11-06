@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.ImageBuilder
-import Test.AWS.ImageBuilder.Internal
+import Test.Amazonka.ImageBuilder
+import Test.Amazonka.ImageBuilder.Internal
 import Test.Tasty
 
 main :: IO ()

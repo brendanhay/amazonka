@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.ResourceGroupsTagging
-import Test.AWS.ResourceGroupsTagging.Internal
+import Test.Amazonka.ResourceGroupsTagging
+import Test.Amazonka.ResourceGroupsTagging.Internal
 import Test.Tasty
 
 main :: IO ()

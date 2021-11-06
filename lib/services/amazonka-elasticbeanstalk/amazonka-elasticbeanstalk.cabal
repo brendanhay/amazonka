@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.ElasticBeanstalk.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.ElasticBeanstalk.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.ElasticBeanstalk" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.ElasticBeanstalk" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,136 +45,136 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.ElasticBeanstalk
-    Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
-    Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction
-    Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole
-    Network.AWS.ElasticBeanstalk.CheckDNSAvailability
-    Network.AWS.ElasticBeanstalk.ComposeEnvironments
-    Network.AWS.ElasticBeanstalk.CreateApplication
-    Network.AWS.ElasticBeanstalk.CreateApplicationVersion
-    Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
-    Network.AWS.ElasticBeanstalk.CreateEnvironment
-    Network.AWS.ElasticBeanstalk.CreatePlatformVersion
-    Network.AWS.ElasticBeanstalk.CreateStorageLocation
-    Network.AWS.ElasticBeanstalk.DeleteApplication
-    Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
-    Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
-    Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
-    Network.AWS.ElasticBeanstalk.DeletePlatformVersion
-    Network.AWS.ElasticBeanstalk.DescribeAccountAttributes
-    Network.AWS.ElasticBeanstalk.DescribeApplications
-    Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
-    Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
-    Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
-    Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth
-    Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory
-    Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActions
-    Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
-    Network.AWS.ElasticBeanstalk.DescribeEnvironments
-    Network.AWS.ElasticBeanstalk.DescribeEvents
-    Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
-    Network.AWS.ElasticBeanstalk.DescribePlatformVersion
-    Network.AWS.ElasticBeanstalk.DisassociateEnvironmentOperationsRole
-    Network.AWS.ElasticBeanstalk.Lens
-    Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
-    Network.AWS.ElasticBeanstalk.ListPlatformBranches
-    Network.AWS.ElasticBeanstalk.ListPlatformVersions
-    Network.AWS.ElasticBeanstalk.ListTagsForResource
-    Network.AWS.ElasticBeanstalk.RebuildEnvironment
-    Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
-    Network.AWS.ElasticBeanstalk.RestartAppServer
-    Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
-    Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
-    Network.AWS.ElasticBeanstalk.TerminateEnvironment
-    Network.AWS.ElasticBeanstalk.Types
-    Network.AWS.ElasticBeanstalk.Types.ActionHistoryStatus
-    Network.AWS.ElasticBeanstalk.Types.ActionStatus
-    Network.AWS.ElasticBeanstalk.Types.ActionType
-    Network.AWS.ElasticBeanstalk.Types.ApplicationDescription
-    Network.AWS.ElasticBeanstalk.Types.ApplicationDescriptionMessage
-    Network.AWS.ElasticBeanstalk.Types.ApplicationMetrics
-    Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig
-    Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescription
-    Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescriptionMessage
-    Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig
-    Network.AWS.ElasticBeanstalk.Types.ApplicationVersionStatus
-    Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup
-    Network.AWS.ElasticBeanstalk.Types.BuildConfiguration
-    Network.AWS.ElasticBeanstalk.Types.Builder
-    Network.AWS.ElasticBeanstalk.Types.ComputeType
-    Network.AWS.ElasticBeanstalk.Types.ConfigurationDeploymentStatus
-    Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionDescription
-    Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionSetting
-    Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionValueType
-    Network.AWS.ElasticBeanstalk.Types.ConfigurationSettingsDescription
-    Network.AWS.ElasticBeanstalk.Types.CPUUtilization
-    Network.AWS.ElasticBeanstalk.Types.CustomAmi
-    Network.AWS.ElasticBeanstalk.Types.Deployment
-    Network.AWS.ElasticBeanstalk.Types.EnvironmentDescription
-    Network.AWS.ElasticBeanstalk.Types.EnvironmentDescriptionsMessage
-    Network.AWS.ElasticBeanstalk.Types.EnvironmentHealth
-    Network.AWS.ElasticBeanstalk.Types.EnvironmentHealthAttribute
-    Network.AWS.ElasticBeanstalk.Types.EnvironmentHealthStatus
-    Network.AWS.ElasticBeanstalk.Types.EnvironmentInfoDescription
-    Network.AWS.ElasticBeanstalk.Types.EnvironmentInfoType
-    Network.AWS.ElasticBeanstalk.Types.EnvironmentLink
-    Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription
-    Network.AWS.ElasticBeanstalk.Types.EnvironmentResourcesDescription
-    Network.AWS.ElasticBeanstalk.Types.EnvironmentStatus
-    Network.AWS.ElasticBeanstalk.Types.EnvironmentTier
-    Network.AWS.ElasticBeanstalk.Types.EventDescription
-    Network.AWS.ElasticBeanstalk.Types.EventSeverity
-    Network.AWS.ElasticBeanstalk.Types.FailureType
-    Network.AWS.ElasticBeanstalk.Types.Instance
-    Network.AWS.ElasticBeanstalk.Types.InstanceHealthSummary
-    Network.AWS.ElasticBeanstalk.Types.InstancesHealthAttribute
-    Network.AWS.ElasticBeanstalk.Types.Latency
-    Network.AWS.ElasticBeanstalk.Types.LaunchConfiguration
-    Network.AWS.ElasticBeanstalk.Types.LaunchTemplate
-    Network.AWS.ElasticBeanstalk.Types.Listener
-    Network.AWS.ElasticBeanstalk.Types.LoadBalancer
-    Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription
-    Network.AWS.ElasticBeanstalk.Types.ManagedAction
-    Network.AWS.ElasticBeanstalk.Types.ManagedActionHistoryItem
-    Network.AWS.ElasticBeanstalk.Types.MaxAgeRule
-    Network.AWS.ElasticBeanstalk.Types.MaxCountRule
-    Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex
-    Network.AWS.ElasticBeanstalk.Types.OptionSpecification
-    Network.AWS.ElasticBeanstalk.Types.PlatformBranchSummary
-    Network.AWS.ElasticBeanstalk.Types.PlatformDescription
-    Network.AWS.ElasticBeanstalk.Types.PlatformFilter
-    Network.AWS.ElasticBeanstalk.Types.PlatformFramework
-    Network.AWS.ElasticBeanstalk.Types.PlatformProgrammingLanguage
-    Network.AWS.ElasticBeanstalk.Types.PlatformStatus
-    Network.AWS.ElasticBeanstalk.Types.PlatformSummary
-    Network.AWS.ElasticBeanstalk.Types.Queue
-    Network.AWS.ElasticBeanstalk.Types.ResourceQuota
-    Network.AWS.ElasticBeanstalk.Types.ResourceQuotas
-    Network.AWS.ElasticBeanstalk.Types.S3Location
-    Network.AWS.ElasticBeanstalk.Types.SearchFilter
-    Network.AWS.ElasticBeanstalk.Types.SingleInstanceHealth
-    Network.AWS.ElasticBeanstalk.Types.SolutionStackDescription
-    Network.AWS.ElasticBeanstalk.Types.SourceBuildInformation
-    Network.AWS.ElasticBeanstalk.Types.SourceConfiguration
-    Network.AWS.ElasticBeanstalk.Types.SourceRepository
-    Network.AWS.ElasticBeanstalk.Types.SourceType
-    Network.AWS.ElasticBeanstalk.Types.StatusCodes
-    Network.AWS.ElasticBeanstalk.Types.SystemStatus
-    Network.AWS.ElasticBeanstalk.Types.Tag
-    Network.AWS.ElasticBeanstalk.Types.Trigger
-    Network.AWS.ElasticBeanstalk.Types.ValidationMessage
-    Network.AWS.ElasticBeanstalk.Types.ValidationSeverity
-    Network.AWS.ElasticBeanstalk.UpdateApplication
-    Network.AWS.ElasticBeanstalk.UpdateApplicationResourceLifecycle
-    Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
-    Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
-    Network.AWS.ElasticBeanstalk.UpdateEnvironment
-    Network.AWS.ElasticBeanstalk.UpdateTagsForResource
-    Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
-    Network.AWS.ElasticBeanstalk.Waiters
+    Amazonka.ElasticBeanstalk
+    Amazonka.ElasticBeanstalk.AbortEnvironmentUpdate
+    Amazonka.ElasticBeanstalk.ApplyEnvironmentManagedAction
+    Amazonka.ElasticBeanstalk.AssociateEnvironmentOperationsRole
+    Amazonka.ElasticBeanstalk.CheckDNSAvailability
+    Amazonka.ElasticBeanstalk.ComposeEnvironments
+    Amazonka.ElasticBeanstalk.CreateApplication
+    Amazonka.ElasticBeanstalk.CreateApplicationVersion
+    Amazonka.ElasticBeanstalk.CreateConfigurationTemplate
+    Amazonka.ElasticBeanstalk.CreateEnvironment
+    Amazonka.ElasticBeanstalk.CreatePlatformVersion
+    Amazonka.ElasticBeanstalk.CreateStorageLocation
+    Amazonka.ElasticBeanstalk.DeleteApplication
+    Amazonka.ElasticBeanstalk.DeleteApplicationVersion
+    Amazonka.ElasticBeanstalk.DeleteConfigurationTemplate
+    Amazonka.ElasticBeanstalk.DeleteEnvironmentConfiguration
+    Amazonka.ElasticBeanstalk.DeletePlatformVersion
+    Amazonka.ElasticBeanstalk.DescribeAccountAttributes
+    Amazonka.ElasticBeanstalk.DescribeApplications
+    Amazonka.ElasticBeanstalk.DescribeApplicationVersions
+    Amazonka.ElasticBeanstalk.DescribeConfigurationOptions
+    Amazonka.ElasticBeanstalk.DescribeConfigurationSettings
+    Amazonka.ElasticBeanstalk.DescribeEnvironmentHealth
+    Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory
+    Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActions
+    Amazonka.ElasticBeanstalk.DescribeEnvironmentResources
+    Amazonka.ElasticBeanstalk.DescribeEnvironments
+    Amazonka.ElasticBeanstalk.DescribeEvents
+    Amazonka.ElasticBeanstalk.DescribeInstancesHealth
+    Amazonka.ElasticBeanstalk.DescribePlatformVersion
+    Amazonka.ElasticBeanstalk.DisassociateEnvironmentOperationsRole
+    Amazonka.ElasticBeanstalk.Lens
+    Amazonka.ElasticBeanstalk.ListAvailableSolutionStacks
+    Amazonka.ElasticBeanstalk.ListPlatformBranches
+    Amazonka.ElasticBeanstalk.ListPlatformVersions
+    Amazonka.ElasticBeanstalk.ListTagsForResource
+    Amazonka.ElasticBeanstalk.RebuildEnvironment
+    Amazonka.ElasticBeanstalk.RequestEnvironmentInfo
+    Amazonka.ElasticBeanstalk.RestartAppServer
+    Amazonka.ElasticBeanstalk.RetrieveEnvironmentInfo
+    Amazonka.ElasticBeanstalk.SwapEnvironmentCNAMEs
+    Amazonka.ElasticBeanstalk.TerminateEnvironment
+    Amazonka.ElasticBeanstalk.Types
+    Amazonka.ElasticBeanstalk.Types.ActionHistoryStatus
+    Amazonka.ElasticBeanstalk.Types.ActionStatus
+    Amazonka.ElasticBeanstalk.Types.ActionType
+    Amazonka.ElasticBeanstalk.Types.ApplicationDescription
+    Amazonka.ElasticBeanstalk.Types.ApplicationDescriptionMessage
+    Amazonka.ElasticBeanstalk.Types.ApplicationMetrics
+    Amazonka.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig
+    Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescription
+    Amazonka.ElasticBeanstalk.Types.ApplicationVersionDescriptionMessage
+    Amazonka.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig
+    Amazonka.ElasticBeanstalk.Types.ApplicationVersionStatus
+    Amazonka.ElasticBeanstalk.Types.AutoScalingGroup
+    Amazonka.ElasticBeanstalk.Types.BuildConfiguration
+    Amazonka.ElasticBeanstalk.Types.Builder
+    Amazonka.ElasticBeanstalk.Types.ComputeType
+    Amazonka.ElasticBeanstalk.Types.ConfigurationDeploymentStatus
+    Amazonka.ElasticBeanstalk.Types.ConfigurationOptionDescription
+    Amazonka.ElasticBeanstalk.Types.ConfigurationOptionSetting
+    Amazonka.ElasticBeanstalk.Types.ConfigurationOptionValueType
+    Amazonka.ElasticBeanstalk.Types.ConfigurationSettingsDescription
+    Amazonka.ElasticBeanstalk.Types.CPUUtilization
+    Amazonka.ElasticBeanstalk.Types.CustomAmi
+    Amazonka.ElasticBeanstalk.Types.Deployment
+    Amazonka.ElasticBeanstalk.Types.EnvironmentDescription
+    Amazonka.ElasticBeanstalk.Types.EnvironmentDescriptionsMessage
+    Amazonka.ElasticBeanstalk.Types.EnvironmentHealth
+    Amazonka.ElasticBeanstalk.Types.EnvironmentHealthAttribute
+    Amazonka.ElasticBeanstalk.Types.EnvironmentHealthStatus
+    Amazonka.ElasticBeanstalk.Types.EnvironmentInfoDescription
+    Amazonka.ElasticBeanstalk.Types.EnvironmentInfoType
+    Amazonka.ElasticBeanstalk.Types.EnvironmentLink
+    Amazonka.ElasticBeanstalk.Types.EnvironmentResourceDescription
+    Amazonka.ElasticBeanstalk.Types.EnvironmentResourcesDescription
+    Amazonka.ElasticBeanstalk.Types.EnvironmentStatus
+    Amazonka.ElasticBeanstalk.Types.EnvironmentTier
+    Amazonka.ElasticBeanstalk.Types.EventDescription
+    Amazonka.ElasticBeanstalk.Types.EventSeverity
+    Amazonka.ElasticBeanstalk.Types.FailureType
+    Amazonka.ElasticBeanstalk.Types.Instance
+    Amazonka.ElasticBeanstalk.Types.InstanceHealthSummary
+    Amazonka.ElasticBeanstalk.Types.InstancesHealthAttribute
+    Amazonka.ElasticBeanstalk.Types.Latency
+    Amazonka.ElasticBeanstalk.Types.LaunchConfiguration
+    Amazonka.ElasticBeanstalk.Types.LaunchTemplate
+    Amazonka.ElasticBeanstalk.Types.Listener
+    Amazonka.ElasticBeanstalk.Types.LoadBalancer
+    Amazonka.ElasticBeanstalk.Types.LoadBalancerDescription
+    Amazonka.ElasticBeanstalk.Types.ManagedAction
+    Amazonka.ElasticBeanstalk.Types.ManagedActionHistoryItem
+    Amazonka.ElasticBeanstalk.Types.MaxAgeRule
+    Amazonka.ElasticBeanstalk.Types.MaxCountRule
+    Amazonka.ElasticBeanstalk.Types.OptionRestrictionRegex
+    Amazonka.ElasticBeanstalk.Types.OptionSpecification
+    Amazonka.ElasticBeanstalk.Types.PlatformBranchSummary
+    Amazonka.ElasticBeanstalk.Types.PlatformDescription
+    Amazonka.ElasticBeanstalk.Types.PlatformFilter
+    Amazonka.ElasticBeanstalk.Types.PlatformFramework
+    Amazonka.ElasticBeanstalk.Types.PlatformProgrammingLanguage
+    Amazonka.ElasticBeanstalk.Types.PlatformStatus
+    Amazonka.ElasticBeanstalk.Types.PlatformSummary
+    Amazonka.ElasticBeanstalk.Types.Queue
+    Amazonka.ElasticBeanstalk.Types.ResourceQuota
+    Amazonka.ElasticBeanstalk.Types.ResourceQuotas
+    Amazonka.ElasticBeanstalk.Types.S3Location
+    Amazonka.ElasticBeanstalk.Types.SearchFilter
+    Amazonka.ElasticBeanstalk.Types.SingleInstanceHealth
+    Amazonka.ElasticBeanstalk.Types.SolutionStackDescription
+    Amazonka.ElasticBeanstalk.Types.SourceBuildInformation
+    Amazonka.ElasticBeanstalk.Types.SourceConfiguration
+    Amazonka.ElasticBeanstalk.Types.SourceRepository
+    Amazonka.ElasticBeanstalk.Types.SourceType
+    Amazonka.ElasticBeanstalk.Types.StatusCodes
+    Amazonka.ElasticBeanstalk.Types.SystemStatus
+    Amazonka.ElasticBeanstalk.Types.Tag
+    Amazonka.ElasticBeanstalk.Types.Trigger
+    Amazonka.ElasticBeanstalk.Types.ValidationMessage
+    Amazonka.ElasticBeanstalk.Types.ValidationSeverity
+    Amazonka.ElasticBeanstalk.UpdateApplication
+    Amazonka.ElasticBeanstalk.UpdateApplicationResourceLifecycle
+    Amazonka.ElasticBeanstalk.UpdateApplicationVersion
+    Amazonka.ElasticBeanstalk.UpdateConfigurationTemplate
+    Amazonka.ElasticBeanstalk.UpdateEnvironment
+    Amazonka.ElasticBeanstalk.UpdateTagsForResource
+    Amazonka.ElasticBeanstalk.ValidateConfigurationSettings
+    Amazonka.ElasticBeanstalk.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -190,9 +190,9 @@ test-suite amazonka-elasticbeanstalk-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.ElasticBeanstalk
-    Test.AWS.ElasticBeanstalk.Internal
-    Test.AWS.Gen.ElasticBeanstalk
+    Test.Amazonka.ElasticBeanstalk
+    Test.Amazonka.ElasticBeanstalk.Internal
+    Test.Amazonka.Gen.ElasticBeanstalk
 
   build-depends:
     , amazonka                   ^>=2.0

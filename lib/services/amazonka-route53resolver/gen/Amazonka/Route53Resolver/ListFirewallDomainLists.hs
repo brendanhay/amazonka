@@ -1,0 +1,268 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Amazonka.Route53Resolver.ListFirewallDomainLists
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Retrieves the firewall domain lists that you have defined. For each
+-- firewall domain list, you can retrieve the domains that are defined for
+-- a list by calling ListFirewallDomains.
+--
+-- A single call to this list operation might return only a partial list of
+-- the domain lists. For information, see @MaxResults@.
+--
+-- This operation returns paginated results.
+module Amazonka.Route53Resolver.ListFirewallDomainLists
+  ( -- * Creating a Request
+    ListFirewallDomainLists (..),
+    newListFirewallDomainLists,
+
+    -- * Request Lenses
+    listFirewallDomainLists_nextToken,
+    listFirewallDomainLists_maxResults,
+
+    -- * Destructuring the Response
+    ListFirewallDomainListsResponse (..),
+    newListFirewallDomainListsResponse,
+
+    -- * Response Lenses
+    listFirewallDomainListsResponse_nextToken,
+    listFirewallDomainListsResponse_firewallDomainLists,
+    listFirewallDomainListsResponse_httpStatus,
+  )
+where
+
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Route53Resolver.Types
+
+-- | /See:/ 'newListFirewallDomainLists' smart constructor.
+data ListFirewallDomainLists = ListFirewallDomainLists'
+  { -- | For the first call to this list request, omit this value.
+    --
+    -- When you request a list of objects, Resolver returns at most the number
+    -- of objects specified in @MaxResults@. If more objects are available for
+    -- retrieval, Resolver returns a @NextToken@ value in the response. To
+    -- retrieve the next batch of objects, use the token that was returned for
+    -- the prior request in your next request.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of objects that you want Resolver to return for this
+    -- request. If more objects are available, in the response, Resolver
+    -- provides a @NextToken@ value that you can use in a subsequent call to
+    -- get the next batch of objects.
+    --
+    -- If you don\'t specify a value for @MaxResults@, Resolver returns up to
+    -- 100 objects.
+    maxResults :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListFirewallDomainLists' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listFirewallDomainLists_nextToken' - For the first call to this list request, omit this value.
+--
+-- When you request a list of objects, Resolver returns at most the number
+-- of objects specified in @MaxResults@. If more objects are available for
+-- retrieval, Resolver returns a @NextToken@ value in the response. To
+-- retrieve the next batch of objects, use the token that was returned for
+-- the prior request in your next request.
+--
+-- 'maxResults', 'listFirewallDomainLists_maxResults' - The maximum number of objects that you want Resolver to return for this
+-- request. If more objects are available, in the response, Resolver
+-- provides a @NextToken@ value that you can use in a subsequent call to
+-- get the next batch of objects.
+--
+-- If you don\'t specify a value for @MaxResults@, Resolver returns up to
+-- 100 objects.
+newListFirewallDomainLists ::
+  ListFirewallDomainLists
+newListFirewallDomainLists =
+  ListFirewallDomainLists'
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing
+    }
+
+-- | For the first call to this list request, omit this value.
+--
+-- When you request a list of objects, Resolver returns at most the number
+-- of objects specified in @MaxResults@. If more objects are available for
+-- retrieval, Resolver returns a @NextToken@ value in the response. To
+-- retrieve the next batch of objects, use the token that was returned for
+-- the prior request in your next request.
+listFirewallDomainLists_nextToken :: Lens.Lens' ListFirewallDomainLists (Prelude.Maybe Prelude.Text)
+listFirewallDomainLists_nextToken = Lens.lens (\ListFirewallDomainLists' {nextToken} -> nextToken) (\s@ListFirewallDomainLists' {} a -> s {nextToken = a} :: ListFirewallDomainLists)
+
+-- | The maximum number of objects that you want Resolver to return for this
+-- request. If more objects are available, in the response, Resolver
+-- provides a @NextToken@ value that you can use in a subsequent call to
+-- get the next batch of objects.
+--
+-- If you don\'t specify a value for @MaxResults@, Resolver returns up to
+-- 100 objects.
+listFirewallDomainLists_maxResults :: Lens.Lens' ListFirewallDomainLists (Prelude.Maybe Prelude.Natural)
+listFirewallDomainLists_maxResults = Lens.lens (\ListFirewallDomainLists' {maxResults} -> maxResults) (\s@ListFirewallDomainLists' {} a -> s {maxResults = a} :: ListFirewallDomainLists)
+
+instance Core.AWSPager ListFirewallDomainLists where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listFirewallDomainListsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listFirewallDomainListsResponse_firewallDomainLists
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listFirewallDomainLists_nextToken
+          Lens..~ rs
+          Lens.^? listFirewallDomainListsResponse_nextToken
+            Prelude.. Lens._Just
+
+instance Core.AWSRequest ListFirewallDomainLists where
+  type
+    AWSResponse ListFirewallDomainLists =
+      ListFirewallDomainListsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListFirewallDomainListsResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "FirewallDomainLists"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ListFirewallDomainLists
+
+instance Prelude.NFData ListFirewallDomainLists
+
+instance Core.ToHeaders ListFirewallDomainLists where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Route53Resolver.ListFirewallDomainLists" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON ListFirewallDomainLists where
+  toJSON ListFirewallDomainLists' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
+          ]
+      )
+
+instance Core.ToPath ListFirewallDomainLists where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery ListFirewallDomainLists where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newListFirewallDomainListsResponse' smart constructor.
+data ListFirewallDomainListsResponse = ListFirewallDomainListsResponse'
+  { -- | If objects are still available for retrieval, Resolver returns this
+    -- token in the response. To retrieve the next batch of objects, provide
+    -- this token in your next request.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of the domain lists that you have defined.
+    --
+    -- This might be a partial list of the domain lists that you\'ve defined.
+    -- For information, see @MaxResults@.
+    firewallDomainLists :: Prelude.Maybe [FirewallDomainListMetadata],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListFirewallDomainListsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listFirewallDomainListsResponse_nextToken' - If objects are still available for retrieval, Resolver returns this
+-- token in the response. To retrieve the next batch of objects, provide
+-- this token in your next request.
+--
+-- 'firewallDomainLists', 'listFirewallDomainListsResponse_firewallDomainLists' - A list of the domain lists that you have defined.
+--
+-- This might be a partial list of the domain lists that you\'ve defined.
+-- For information, see @MaxResults@.
+--
+-- 'httpStatus', 'listFirewallDomainListsResponse_httpStatus' - The response's http status code.
+newListFirewallDomainListsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListFirewallDomainListsResponse
+newListFirewallDomainListsResponse pHttpStatus_ =
+  ListFirewallDomainListsResponse'
+    { nextToken =
+        Prelude.Nothing,
+      firewallDomainLists = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | If objects are still available for retrieval, Resolver returns this
+-- token in the response. To retrieve the next batch of objects, provide
+-- this token in your next request.
+listFirewallDomainListsResponse_nextToken :: Lens.Lens' ListFirewallDomainListsResponse (Prelude.Maybe Prelude.Text)
+listFirewallDomainListsResponse_nextToken = Lens.lens (\ListFirewallDomainListsResponse' {nextToken} -> nextToken) (\s@ListFirewallDomainListsResponse' {} a -> s {nextToken = a} :: ListFirewallDomainListsResponse)
+
+-- | A list of the domain lists that you have defined.
+--
+-- This might be a partial list of the domain lists that you\'ve defined.
+-- For information, see @MaxResults@.
+listFirewallDomainListsResponse_firewallDomainLists :: Lens.Lens' ListFirewallDomainListsResponse (Prelude.Maybe [FirewallDomainListMetadata])
+listFirewallDomainListsResponse_firewallDomainLists = Lens.lens (\ListFirewallDomainListsResponse' {firewallDomainLists} -> firewallDomainLists) (\s@ListFirewallDomainListsResponse' {} a -> s {firewallDomainLists = a} :: ListFirewallDomainListsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The response's http status code.
+listFirewallDomainListsResponse_httpStatus :: Lens.Lens' ListFirewallDomainListsResponse Prelude.Int
+listFirewallDomainListsResponse_httpStatus = Lens.lens (\ListFirewallDomainListsResponse' {httpStatus} -> httpStatus) (\s@ListFirewallDomainListsResponse' {} a -> s {httpStatus = a} :: ListFirewallDomainListsResponse)
+
+instance
+  Prelude.NFData
+    ListFirewallDomainListsResponse

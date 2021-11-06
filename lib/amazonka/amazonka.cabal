@@ -21,8 +21,8 @@ description:
   various @amazonka-*@ service libraries. See the <http://hackage.haskell.org/packages/#cat:AWS AWS>
   category on Hackage for supported services.
   .
-  To get started, import "Network.AWS" and the desired @amazonka-*@ library (such as
-  <http://hackage.haskell.org/package/amazonka-ml/docs/Network-AWS-MachineLearning.html Network.AWS.MachineLearning>)
+  To get started, import "Amazonka" and the desired @amazonka-*@ library (such as
+  <http://hackage.haskell.org/package/amazonka-ml/docs/Network-AWS-MachineLearning.html Amazonka.MachineLearning>)
   .
   GHC 8.8.4 and higher is officially supported.
 
@@ -75,46 +75,46 @@ library
   import:          base
   hs-source-dirs:  src
   exposed-modules:
-    Network.AWS
-    Network.AWS.Auth
-    Network.AWS.Core
-    Network.AWS.EC2.Metadata
-    Network.AWS.Env
-    Network.AWS.HTTP
-    Network.AWS.Lens
-    Network.AWS.Logger
-    Network.AWS.Prelude
-    Network.AWS.Presign
-    Network.AWS.Request
-    Network.AWS.Response
-    Network.AWS.Sign.V2
-    Network.AWS.Sign.V2Header
-    Network.AWS.Sign.V2Header.Base
-    Network.AWS.Sign.V4
-    Network.AWS.Sign.V4.Base
-    Network.AWS.Sign.V4.Chunked
+    Amazonka
+    Amazonka.Auth
+    Amazonka.Core
+    Amazonka.EC2.Metadata
+    Amazonka.Env
+    Amazonka.HTTP
+    Amazonka.Lens
+    Amazonka.Logger
+    Amazonka.Prelude
+    Amazonka.Presign
+    Amazonka.Request
+    Amazonka.Response
+    Amazonka.Sign.V2
+    Amazonka.Sign.V2Header
+    Amazonka.Sign.V2Header.Base
+    Amazonka.Sign.V4
+    Amazonka.Sign.V4.Base
+    Amazonka.Sign.V4.Chunked
 
   other-modules:
-    Network.AWS.Bytes
-    Network.AWS.Crypto
-    Network.AWS.Data
-    Network.AWS.Data.Base64
-    Network.AWS.Data.Body
-    Network.AWS.Data.ByteString
-    Network.AWS.Data.Headers
-    Network.AWS.Data.JSON
-    Network.AWS.Data.Log
-    Network.AWS.Data.Path
-    Network.AWS.Data.Query
-    Network.AWS.Data.Sensitive
-    Network.AWS.Data.Text
-    Network.AWS.Data.Time
-    Network.AWS.Data.XML
-    Network.AWS.Endpoint
-    Network.AWS.Error
-    Network.AWS.Pager
-    Network.AWS.Types
-    Network.AWS.Waiter
+    Amazonka.Bytes
+    Amazonka.Crypto
+    Amazonka.Data
+    Amazonka.Data.Base64
+    Amazonka.Data.Body
+    Amazonka.Data.ByteString
+    Amazonka.Data.Headers
+    Amazonka.Data.JSON
+    Amazonka.Data.Log
+    Amazonka.Data.Path
+    Amazonka.Data.Query
+    Amazonka.Data.Sensitive
+    Amazonka.Data.Text
+    Amazonka.Data.Time
+    Amazonka.Data.XML
+    Amazonka.Endpoint
+    Amazonka.Error
+    Amazonka.Pager
+    Amazonka.Types
+    Amazonka.Waiter
 
   build-depends:
     , aeson                 >=1.3.1   && <1.6.2
@@ -154,19 +154,19 @@ test-suite tests
   main-is:        Main.hs
   ghc-options:    -Wall -threaded
   other-modules:
-    Test.AWS.Arbitrary
-    Test.AWS.Data.Base64
-    Test.AWS.Data.List
-    Test.AWS.Data.Maybe
-    Test.AWS.Data.Numeric
-    Test.AWS.Data.Path
-    Test.AWS.Data.Query
-    Test.AWS.Data.Time
-    Test.AWS.Error
-    Test.AWS.Sign.V2Header.BaseSpec
-    Test.AWS.Sign.V4
-    Test.AWS.Sign.V4.Chunked
-    Test.AWS.Util
+    Test.Amazonka.Arbitrary
+    Test.Amazonka.Data.Base64
+    Test.Amazonka.Data.List
+    Test.Amazonka.Data.Maybe
+    Test.Amazonka.Data.Numeric
+    Test.Amazonka.Data.Path
+    Test.Amazonka.Data.Query
+    Test.Amazonka.Data.Time
+    Test.Amazonka.Error
+    Test.Amazonka.Sign.V2Header.BaseSpec
+    Test.Amazonka.Sign.V4
+    Test.Amazonka.Sign.V4.Chunked
+    Test.Amazonka.Util
 
   build-depends:
     , aeson

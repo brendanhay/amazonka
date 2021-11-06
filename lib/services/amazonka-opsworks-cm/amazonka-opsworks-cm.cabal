@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.OpsWorksCM.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.OpsWorksCM.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.OpsWorksCM" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.OpsWorksCM" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,42 +45,42 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.OpsWorksCM
-    Network.AWS.OpsWorksCM.AssociateNode
-    Network.AWS.OpsWorksCM.CreateBackup
-    Network.AWS.OpsWorksCM.CreateServer
-    Network.AWS.OpsWorksCM.DeleteBackup
-    Network.AWS.OpsWorksCM.DeleteServer
-    Network.AWS.OpsWorksCM.DescribeAccountAttributes
-    Network.AWS.OpsWorksCM.DescribeBackups
-    Network.AWS.OpsWorksCM.DescribeEvents
-    Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus
-    Network.AWS.OpsWorksCM.DescribeServers
-    Network.AWS.OpsWorksCM.DisassociateNode
-    Network.AWS.OpsWorksCM.ExportServerEngineAttribute
-    Network.AWS.OpsWorksCM.Lens
-    Network.AWS.OpsWorksCM.ListTagsForResource
-    Network.AWS.OpsWorksCM.RestoreServer
-    Network.AWS.OpsWorksCM.StartMaintenance
-    Network.AWS.OpsWorksCM.TagResource
-    Network.AWS.OpsWorksCM.Types
-    Network.AWS.OpsWorksCM.Types.AccountAttribute
-    Network.AWS.OpsWorksCM.Types.Backup
-    Network.AWS.OpsWorksCM.Types.BackupStatus
-    Network.AWS.OpsWorksCM.Types.BackupType
-    Network.AWS.OpsWorksCM.Types.EngineAttribute
-    Network.AWS.OpsWorksCM.Types.MaintenanceStatus
-    Network.AWS.OpsWorksCM.Types.NodeAssociationStatus
-    Network.AWS.OpsWorksCM.Types.Server
-    Network.AWS.OpsWorksCM.Types.ServerEvent
-    Network.AWS.OpsWorksCM.Types.ServerStatus
-    Network.AWS.OpsWorksCM.Types.Tag
-    Network.AWS.OpsWorksCM.UntagResource
-    Network.AWS.OpsWorksCM.UpdateServer
-    Network.AWS.OpsWorksCM.UpdateServerEngineAttributes
-    Network.AWS.OpsWorksCM.Waiters
+    Amazonka.OpsWorksCM
+    Amazonka.OpsWorksCM.AssociateNode
+    Amazonka.OpsWorksCM.CreateBackup
+    Amazonka.OpsWorksCM.CreateServer
+    Amazonka.OpsWorksCM.DeleteBackup
+    Amazonka.OpsWorksCM.DeleteServer
+    Amazonka.OpsWorksCM.DescribeAccountAttributes
+    Amazonka.OpsWorksCM.DescribeBackups
+    Amazonka.OpsWorksCM.DescribeEvents
+    Amazonka.OpsWorksCM.DescribeNodeAssociationStatus
+    Amazonka.OpsWorksCM.DescribeServers
+    Amazonka.OpsWorksCM.DisassociateNode
+    Amazonka.OpsWorksCM.ExportServerEngineAttribute
+    Amazonka.OpsWorksCM.Lens
+    Amazonka.OpsWorksCM.ListTagsForResource
+    Amazonka.OpsWorksCM.RestoreServer
+    Amazonka.OpsWorksCM.StartMaintenance
+    Amazonka.OpsWorksCM.TagResource
+    Amazonka.OpsWorksCM.Types
+    Amazonka.OpsWorksCM.Types.AccountAttribute
+    Amazonka.OpsWorksCM.Types.Backup
+    Amazonka.OpsWorksCM.Types.BackupStatus
+    Amazonka.OpsWorksCM.Types.BackupType
+    Amazonka.OpsWorksCM.Types.EngineAttribute
+    Amazonka.OpsWorksCM.Types.MaintenanceStatus
+    Amazonka.OpsWorksCM.Types.NodeAssociationStatus
+    Amazonka.OpsWorksCM.Types.Server
+    Amazonka.OpsWorksCM.Types.ServerEvent
+    Amazonka.OpsWorksCM.Types.ServerStatus
+    Amazonka.OpsWorksCM.Types.Tag
+    Amazonka.OpsWorksCM.UntagResource
+    Amazonka.OpsWorksCM.UpdateServer
+    Amazonka.OpsWorksCM.UpdateServerEngineAttributes
+    Amazonka.OpsWorksCM.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -96,9 +96,9 @@ test-suite amazonka-opsworks-cm-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.OpsWorksCM
-    Test.AWS.OpsWorksCM
-    Test.AWS.OpsWorksCM.Internal
+    Test.Amazonka.Gen.OpsWorksCM
+    Test.Amazonka.OpsWorksCM
+    Test.Amazonka.OpsWorksCM.Internal
 
   build-depends:
     , amazonka              ^>=2.0

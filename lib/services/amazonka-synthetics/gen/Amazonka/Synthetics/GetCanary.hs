@@ -1,0 +1,149 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Amazonka.Synthetics.GetCanary
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Retrieves complete information about one canary. You must specify the
+-- name of the canary that you want. To get a list of canaries and their
+-- names, use
+-- <https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html DescribeCanaries>.
+module Amazonka.Synthetics.GetCanary
+  ( -- * Creating a Request
+    GetCanary (..),
+    newGetCanary,
+
+    -- * Request Lenses
+    getCanary_name,
+
+    -- * Destructuring the Response
+    GetCanaryResponse (..),
+    newGetCanaryResponse,
+
+    -- * Response Lenses
+    getCanaryResponse_canary,
+    getCanaryResponse_httpStatus,
+  )
+where
+
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+import Amazonka.Synthetics.Types
+
+-- | /See:/ 'newGetCanary' smart constructor.
+data GetCanary = GetCanary'
+  { -- | The name of the canary that you want details for.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetCanary' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'name', 'getCanary_name' - The name of the canary that you want details for.
+newGetCanary ::
+  -- | 'name'
+  Prelude.Text ->
+  GetCanary
+newGetCanary pName_ = GetCanary' {name = pName_}
+
+-- | The name of the canary that you want details for.
+getCanary_name :: Lens.Lens' GetCanary Prelude.Text
+getCanary_name = Lens.lens (\GetCanary' {name} -> name) (\s@GetCanary' {} a -> s {name = a} :: GetCanary)
+
+instance Core.AWSRequest GetCanary where
+  type AWSResponse GetCanary = GetCanaryResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetCanaryResponse'
+            Prelude.<$> (x Core..?> "Canary")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable GetCanary
+
+instance Prelude.NFData GetCanary
+
+instance Core.ToHeaders GetCanary where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToPath GetCanary where
+  toPath GetCanary' {..} =
+    Prelude.mconcat ["/canary/", Core.toBS name]
+
+instance Core.ToQuery GetCanary where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newGetCanaryResponse' smart constructor.
+data GetCanaryResponse = GetCanaryResponse'
+  { -- | A strucure that contains the full information about the canary.
+    canary :: Prelude.Maybe Canary,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetCanaryResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'canary', 'getCanaryResponse_canary' - A strucure that contains the full information about the canary.
+--
+-- 'httpStatus', 'getCanaryResponse_httpStatus' - The response's http status code.
+newGetCanaryResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetCanaryResponse
+newGetCanaryResponse pHttpStatus_ =
+  GetCanaryResponse'
+    { canary = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | A strucure that contains the full information about the canary.
+getCanaryResponse_canary :: Lens.Lens' GetCanaryResponse (Prelude.Maybe Canary)
+getCanaryResponse_canary = Lens.lens (\GetCanaryResponse' {canary} -> canary) (\s@GetCanaryResponse' {} a -> s {canary = a} :: GetCanaryResponse)
+
+-- | The response's http status code.
+getCanaryResponse_httpStatus :: Lens.Lens' GetCanaryResponse Prelude.Int
+getCanaryResponse_httpStatus = Lens.lens (\GetCanaryResponse' {httpStatus} -> httpStatus) (\s@GetCanaryResponse' {} a -> s {httpStatus = a} :: GetCanaryResponse)
+
+instance Prelude.NFData GetCanaryResponse

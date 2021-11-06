@@ -1,0 +1,177 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Amazonka.MacieV2.EnableMacie
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Enables Amazon Macie and specifies the configuration settings for a
+-- Macie account.
+module Amazonka.MacieV2.EnableMacie
+  ( -- * Creating a Request
+    EnableMacie (..),
+    newEnableMacie,
+
+    -- * Request Lenses
+    enableMacie_status,
+    enableMacie_clientToken,
+    enableMacie_findingPublishingFrequency,
+
+    -- * Destructuring the Response
+    EnableMacieResponse (..),
+    newEnableMacieResponse,
+
+    -- * Response Lenses
+    enableMacieResponse_httpStatus,
+  )
+where
+
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Lens as Lens
+import Amazonka.MacieV2.Types
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+
+-- | /See:/ 'newEnableMacie' smart constructor.
+data EnableMacie = EnableMacie'
+  { -- | Specifies the new status for the account. To enable Amazon Macie and
+    -- start all Macie activities for the account, set this value to ENABLED.
+    status :: Prelude.Maybe MacieStatus,
+    -- | A unique, case-sensitive token that you provide to ensure the
+    -- idempotency of the request.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | Specifies how often to publish updates to policy findings for the
+    -- account. This includes publishing updates to Security Hub and Amazon
+    -- EventBridge (formerly called Amazon CloudWatch Events).
+    findingPublishingFrequency :: Prelude.Maybe FindingPublishingFrequency
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'EnableMacie' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'status', 'enableMacie_status' - Specifies the new status for the account. To enable Amazon Macie and
+-- start all Macie activities for the account, set this value to ENABLED.
+--
+-- 'clientToken', 'enableMacie_clientToken' - A unique, case-sensitive token that you provide to ensure the
+-- idempotency of the request.
+--
+-- 'findingPublishingFrequency', 'enableMacie_findingPublishingFrequency' - Specifies how often to publish updates to policy findings for the
+-- account. This includes publishing updates to Security Hub and Amazon
+-- EventBridge (formerly called Amazon CloudWatch Events).
+newEnableMacie ::
+  EnableMacie
+newEnableMacie =
+  EnableMacie'
+    { status = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
+      findingPublishingFrequency = Prelude.Nothing
+    }
+
+-- | Specifies the new status for the account. To enable Amazon Macie and
+-- start all Macie activities for the account, set this value to ENABLED.
+enableMacie_status :: Lens.Lens' EnableMacie (Prelude.Maybe MacieStatus)
+enableMacie_status = Lens.lens (\EnableMacie' {status} -> status) (\s@EnableMacie' {} a -> s {status = a} :: EnableMacie)
+
+-- | A unique, case-sensitive token that you provide to ensure the
+-- idempotency of the request.
+enableMacie_clientToken :: Lens.Lens' EnableMacie (Prelude.Maybe Prelude.Text)
+enableMacie_clientToken = Lens.lens (\EnableMacie' {clientToken} -> clientToken) (\s@EnableMacie' {} a -> s {clientToken = a} :: EnableMacie)
+
+-- | Specifies how often to publish updates to policy findings for the
+-- account. This includes publishing updates to Security Hub and Amazon
+-- EventBridge (formerly called Amazon CloudWatch Events).
+enableMacie_findingPublishingFrequency :: Lens.Lens' EnableMacie (Prelude.Maybe FindingPublishingFrequency)
+enableMacie_findingPublishingFrequency = Lens.lens (\EnableMacie' {findingPublishingFrequency} -> findingPublishingFrequency) (\s@EnableMacie' {} a -> s {findingPublishingFrequency = a} :: EnableMacie)
+
+instance Core.AWSRequest EnableMacie where
+  type AWSResponse EnableMacie = EnableMacieResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          EnableMacieResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable EnableMacie
+
+instance Prelude.NFData EnableMacie
+
+instance Core.ToHeaders EnableMacie where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON EnableMacie where
+  toJSON EnableMacie' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("status" Core..=) Prelude.<$> status,
+            ("clientToken" Core..=) Prelude.<$> clientToken,
+            ("findingPublishingFrequency" Core..=)
+              Prelude.<$> findingPublishingFrequency
+          ]
+      )
+
+instance Core.ToPath EnableMacie where
+  toPath = Prelude.const "/macie"
+
+instance Core.ToQuery EnableMacie where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newEnableMacieResponse' smart constructor.
+data EnableMacieResponse = EnableMacieResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'EnableMacieResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'enableMacieResponse_httpStatus' - The response's http status code.
+newEnableMacieResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  EnableMacieResponse
+newEnableMacieResponse pHttpStatus_ =
+  EnableMacieResponse' {httpStatus = pHttpStatus_}
+
+-- | The response's http status code.
+enableMacieResponse_httpStatus :: Lens.Lens' EnableMacieResponse Prelude.Int
+enableMacieResponse_httpStatus = Lens.lens (\EnableMacieResponse' {httpStatus} -> httpStatus) (\s@EnableMacieResponse' {} a -> s {httpStatus = a} :: EnableMacieResponse)
+
+instance Prelude.NFData EnableMacieResponse

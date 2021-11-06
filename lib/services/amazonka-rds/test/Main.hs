@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.RDS
-import Test.AWS.RDS.Internal
+import Test.Amazonka.RDS
+import Test.Amazonka.RDS.Internal
 import Test.Tasty
 
 main :: IO ()

@@ -4,13 +4,13 @@ load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 haskell_library(
     name = "amazonka-sso-oidc",
     srcs = [
-        "gen/Network/AWS/SSOOIDC.hs",
-        "gen/Network/AWS/SSOOIDC/CreateToken.hs",
-        "gen/Network/AWS/SSOOIDC/Lens.hs",
-        "gen/Network/AWS/SSOOIDC/RegisterClient.hs",
-        "gen/Network/AWS/SSOOIDC/StartDeviceAuthorization.hs",
-        "gen/Network/AWS/SSOOIDC/Types.hs",
-        "gen/Network/AWS/SSOOIDC/Waiters.hs",
+        "gen/Amazonka/SSOOIDC.hs",
+        "gen/Amazonka/SSOOIDC/CreateToken.hs",
+        "gen/Amazonka/SSOOIDC/Lens.hs",
+        "gen/Amazonka/SSOOIDC/RegisterClient.hs",
+        "gen/Amazonka/SSOOIDC/StartDeviceAuthorization.hs",
+        "gen/Amazonka/SSOOIDC/Types.hs",
+        "gen/Amazonka/SSOOIDC/Waiters.hs",
     ],
     compiler_flags = [
         "-DVERSION_amazonka_sso_oidc=\"2.0\"",
@@ -33,9 +33,9 @@ haskell_test(
     name = "amazonka-sso-oidc-test",
     srcs = [
         "test/Main.hs",
-        "test/Test/AWS/Gen/SSOOIDC.hs",
-        "test/Test/AWS/SSOOIDC.hs",
-        "test/Test/AWS/SSOOIDC/Internal.hs",
+        "test/Test/Amazonka/Gen/SSOOIDC.hs",
+        "test/Test/Amazonka/SSOOIDC.hs",
+        "test/Test/Amazonka/SSOOIDC/Internal.hs",
     ],
     compiler_flags = [
         "-DVERSION_amazonka_sso_oidc=\"2.0\"",

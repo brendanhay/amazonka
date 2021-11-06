@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.CodeStarConnections.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.CodeStarConnections.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.CodeStarConnections" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.CodeStarConnections" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,30 +45,30 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.CodeStarConnections
-    Network.AWS.CodeStarConnections.CreateConnection
-    Network.AWS.CodeStarConnections.CreateHost
-    Network.AWS.CodeStarConnections.DeleteConnection
-    Network.AWS.CodeStarConnections.DeleteHost
-    Network.AWS.CodeStarConnections.GetConnection
-    Network.AWS.CodeStarConnections.GetHost
-    Network.AWS.CodeStarConnections.Lens
-    Network.AWS.CodeStarConnections.ListConnections
-    Network.AWS.CodeStarConnections.ListHosts
-    Network.AWS.CodeStarConnections.ListTagsForResource
-    Network.AWS.CodeStarConnections.TagResource
-    Network.AWS.CodeStarConnections.Types
-    Network.AWS.CodeStarConnections.Types.Connection
-    Network.AWS.CodeStarConnections.Types.ConnectionStatus
-    Network.AWS.CodeStarConnections.Types.Host
-    Network.AWS.CodeStarConnections.Types.ProviderType
-    Network.AWS.CodeStarConnections.Types.Tag
-    Network.AWS.CodeStarConnections.Types.VpcConfiguration
-    Network.AWS.CodeStarConnections.UntagResource
-    Network.AWS.CodeStarConnections.UpdateHost
-    Network.AWS.CodeStarConnections.Waiters
+    Amazonka.CodeStarConnections
+    Amazonka.CodeStarConnections.CreateConnection
+    Amazonka.CodeStarConnections.CreateHost
+    Amazonka.CodeStarConnections.DeleteConnection
+    Amazonka.CodeStarConnections.DeleteHost
+    Amazonka.CodeStarConnections.GetConnection
+    Amazonka.CodeStarConnections.GetHost
+    Amazonka.CodeStarConnections.Lens
+    Amazonka.CodeStarConnections.ListConnections
+    Amazonka.CodeStarConnections.ListHosts
+    Amazonka.CodeStarConnections.ListTagsForResource
+    Amazonka.CodeStarConnections.TagResource
+    Amazonka.CodeStarConnections.Types
+    Amazonka.CodeStarConnections.Types.Connection
+    Amazonka.CodeStarConnections.Types.ConnectionStatus
+    Amazonka.CodeStarConnections.Types.Host
+    Amazonka.CodeStarConnections.Types.ProviderType
+    Amazonka.CodeStarConnections.Types.Tag
+    Amazonka.CodeStarConnections.Types.VpcConfiguration
+    Amazonka.CodeStarConnections.UntagResource
+    Amazonka.CodeStarConnections.UpdateHost
+    Amazonka.CodeStarConnections.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -84,9 +84,9 @@ test-suite amazonka-codestar-connections-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CodeStarConnections
-    Test.AWS.CodeStarConnections.Internal
-    Test.AWS.Gen.CodeStarConnections
+    Test.Amazonka.CodeStarConnections
+    Test.Amazonka.CodeStarConnections.Internal
+    Test.Amazonka.Gen.CodeStarConnections
 
   build-depends:
     , amazonka                       ^>=2.0

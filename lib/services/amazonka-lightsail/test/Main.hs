@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.Lightsail
-import Test.AWS.Lightsail.Internal
+import Test.Amazonka.Lightsail
+import Test.Amazonka.Lightsail.Internal
 import Test.Tasty
 
 main :: IO ()

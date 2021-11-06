@@ -4,12 +4,12 @@ load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 haskell_library(
     name = "amazonka-ec2-instance-connect",
     srcs = [
-        "gen/Network/AWS/EC2InstanceConnect.hs",
-        "gen/Network/AWS/EC2InstanceConnect/Lens.hs",
-        "gen/Network/AWS/EC2InstanceConnect/SendSSHPublicKey.hs",
-        "gen/Network/AWS/EC2InstanceConnect/SendSerialConsoleSSHPublicKey.hs",
-        "gen/Network/AWS/EC2InstanceConnect/Types.hs",
-        "gen/Network/AWS/EC2InstanceConnect/Waiters.hs",
+        "gen/Amazonka/EC2InstanceConnect.hs",
+        "gen/Amazonka/EC2InstanceConnect/Lens.hs",
+        "gen/Amazonka/EC2InstanceConnect/SendSSHPublicKey.hs",
+        "gen/Amazonka/EC2InstanceConnect/SendSerialConsoleSSHPublicKey.hs",
+        "gen/Amazonka/EC2InstanceConnect/Types.hs",
+        "gen/Amazonka/EC2InstanceConnect/Waiters.hs",
     ],
     compiler_flags = [
         "-DVERSION_amazonka_ec2_instance_connect=\"2.0\"",
@@ -32,9 +32,9 @@ haskell_test(
     name = "amazonka-ec2-instance-connect-test",
     srcs = [
         "test/Main.hs",
-        "test/Test/AWS/EC2InstanceConnect.hs",
-        "test/Test/AWS/EC2InstanceConnect/Internal.hs",
-        "test/Test/AWS/Gen/EC2InstanceConnect.hs",
+        "test/Test/Amazonka/EC2InstanceConnect.hs",
+        "test/Test/Amazonka/EC2InstanceConnect/Internal.hs",
+        "test/Test/Amazonka/Gen/EC2InstanceConnect.hs",
     ],
     compiler_flags = [
         "-DVERSION_amazonka_ec2_instance_connect=\"2.0\"",

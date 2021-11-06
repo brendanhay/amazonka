@@ -1,0 +1,90 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DerivingStrategies #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE LambdaCase #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE PatternSynonyms #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Amazonka.Lambda.Types.SourceAccessType
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Amazonka.Lambda.Types.SourceAccessType
+  ( SourceAccessType
+      ( ..,
+        SourceAccessType_BASIC_AUTH,
+        SourceAccessType_SASL_SCRAM_256_AUTH,
+        SourceAccessType_SASL_SCRAM_512_AUTH,
+        SourceAccessType_VIRTUAL_HOST,
+        SourceAccessType_VPC_SECURITY_GROUP,
+        SourceAccessType_VPC_SUBNET
+      ),
+  )
+where
+
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Prelude as Prelude
+
+newtype SourceAccessType = SourceAccessType'
+  { fromSourceAccessType ::
+      Core.Text
+  }
+  deriving stock
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
+    )
+  deriving newtype
+    ( Prelude.Hashable,
+      Prelude.NFData,
+      Core.FromText,
+      Core.ToText,
+      Core.ToByteString,
+      Core.ToLog,
+      Core.ToHeader,
+      Core.ToQuery,
+      Core.FromJSON,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.ToJSONKey,
+      Core.FromXML,
+      Core.ToXML
+    )
+
+pattern SourceAccessType_BASIC_AUTH :: SourceAccessType
+pattern SourceAccessType_BASIC_AUTH = SourceAccessType' "BASIC_AUTH"
+
+pattern SourceAccessType_SASL_SCRAM_256_AUTH :: SourceAccessType
+pattern SourceAccessType_SASL_SCRAM_256_AUTH = SourceAccessType' "SASL_SCRAM_256_AUTH"
+
+pattern SourceAccessType_SASL_SCRAM_512_AUTH :: SourceAccessType
+pattern SourceAccessType_SASL_SCRAM_512_AUTH = SourceAccessType' "SASL_SCRAM_512_AUTH"
+
+pattern SourceAccessType_VIRTUAL_HOST :: SourceAccessType
+pattern SourceAccessType_VIRTUAL_HOST = SourceAccessType' "VIRTUAL_HOST"
+
+pattern SourceAccessType_VPC_SECURITY_GROUP :: SourceAccessType
+pattern SourceAccessType_VPC_SECURITY_GROUP = SourceAccessType' "VPC_SECURITY_GROUP"
+
+pattern SourceAccessType_VPC_SUBNET :: SourceAccessType
+pattern SourceAccessType_VPC_SUBNET = SourceAccessType' "VPC_SUBNET"
+
+{-# COMPLETE
+  SourceAccessType_BASIC_AUTH,
+  SourceAccessType_SASL_SCRAM_256_AUTH,
+  SourceAccessType_SASL_SCRAM_512_AUTH,
+  SourceAccessType_VIRTUAL_HOST,
+  SourceAccessType_VPC_SECURITY_GROUP,
+  SourceAccessType_VPC_SUBNET,
+  SourceAccessType'
+  #-}

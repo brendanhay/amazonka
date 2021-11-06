@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Synthetics.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Synthetics.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Synthetics" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Synthetics" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,52 +45,52 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Synthetics
-    Network.AWS.Synthetics.CreateCanary
-    Network.AWS.Synthetics.DeleteCanary
-    Network.AWS.Synthetics.DescribeCanaries
-    Network.AWS.Synthetics.DescribeCanariesLastRun
-    Network.AWS.Synthetics.DescribeRuntimeVersions
-    Network.AWS.Synthetics.GetCanary
-    Network.AWS.Synthetics.GetCanaryRuns
-    Network.AWS.Synthetics.Lens
-    Network.AWS.Synthetics.ListTagsForResource
-    Network.AWS.Synthetics.StartCanary
-    Network.AWS.Synthetics.StopCanary
-    Network.AWS.Synthetics.TagResource
-    Network.AWS.Synthetics.Types
-    Network.AWS.Synthetics.Types.ArtifactConfigInput
-    Network.AWS.Synthetics.Types.ArtifactConfigOutput
-    Network.AWS.Synthetics.Types.BaseScreenshot
-    Network.AWS.Synthetics.Types.Canary
-    Network.AWS.Synthetics.Types.CanaryCodeInput
-    Network.AWS.Synthetics.Types.CanaryCodeOutput
-    Network.AWS.Synthetics.Types.CanaryLastRun
-    Network.AWS.Synthetics.Types.CanaryRun
-    Network.AWS.Synthetics.Types.CanaryRunConfigInput
-    Network.AWS.Synthetics.Types.CanaryRunConfigOutput
-    Network.AWS.Synthetics.Types.CanaryRunState
-    Network.AWS.Synthetics.Types.CanaryRunStateReasonCode
-    Network.AWS.Synthetics.Types.CanaryRunStatus
-    Network.AWS.Synthetics.Types.CanaryRunTimeline
-    Network.AWS.Synthetics.Types.CanaryScheduleInput
-    Network.AWS.Synthetics.Types.CanaryScheduleOutput
-    Network.AWS.Synthetics.Types.CanaryState
-    Network.AWS.Synthetics.Types.CanaryStateReasonCode
-    Network.AWS.Synthetics.Types.CanaryStatus
-    Network.AWS.Synthetics.Types.CanaryTimeline
-    Network.AWS.Synthetics.Types.EncryptionMode
-    Network.AWS.Synthetics.Types.RuntimeVersion
-    Network.AWS.Synthetics.Types.S3EncryptionConfig
-    Network.AWS.Synthetics.Types.VisualReferenceInput
-    Network.AWS.Synthetics.Types.VisualReferenceOutput
-    Network.AWS.Synthetics.Types.VpcConfigInput
-    Network.AWS.Synthetics.Types.VpcConfigOutput
-    Network.AWS.Synthetics.UntagResource
-    Network.AWS.Synthetics.UpdateCanary
-    Network.AWS.Synthetics.Waiters
+    Amazonka.Synthetics
+    Amazonka.Synthetics.CreateCanary
+    Amazonka.Synthetics.DeleteCanary
+    Amazonka.Synthetics.DescribeCanaries
+    Amazonka.Synthetics.DescribeCanariesLastRun
+    Amazonka.Synthetics.DescribeRuntimeVersions
+    Amazonka.Synthetics.GetCanary
+    Amazonka.Synthetics.GetCanaryRuns
+    Amazonka.Synthetics.Lens
+    Amazonka.Synthetics.ListTagsForResource
+    Amazonka.Synthetics.StartCanary
+    Amazonka.Synthetics.StopCanary
+    Amazonka.Synthetics.TagResource
+    Amazonka.Synthetics.Types
+    Amazonka.Synthetics.Types.ArtifactConfigInput
+    Amazonka.Synthetics.Types.ArtifactConfigOutput
+    Amazonka.Synthetics.Types.BaseScreenshot
+    Amazonka.Synthetics.Types.Canary
+    Amazonka.Synthetics.Types.CanaryCodeInput
+    Amazonka.Synthetics.Types.CanaryCodeOutput
+    Amazonka.Synthetics.Types.CanaryLastRun
+    Amazonka.Synthetics.Types.CanaryRun
+    Amazonka.Synthetics.Types.CanaryRunConfigInput
+    Amazonka.Synthetics.Types.CanaryRunConfigOutput
+    Amazonka.Synthetics.Types.CanaryRunState
+    Amazonka.Synthetics.Types.CanaryRunStateReasonCode
+    Amazonka.Synthetics.Types.CanaryRunStatus
+    Amazonka.Synthetics.Types.CanaryRunTimeline
+    Amazonka.Synthetics.Types.CanaryScheduleInput
+    Amazonka.Synthetics.Types.CanaryScheduleOutput
+    Amazonka.Synthetics.Types.CanaryState
+    Amazonka.Synthetics.Types.CanaryStateReasonCode
+    Amazonka.Synthetics.Types.CanaryStatus
+    Amazonka.Synthetics.Types.CanaryTimeline
+    Amazonka.Synthetics.Types.EncryptionMode
+    Amazonka.Synthetics.Types.RuntimeVersion
+    Amazonka.Synthetics.Types.S3EncryptionConfig
+    Amazonka.Synthetics.Types.VisualReferenceInput
+    Amazonka.Synthetics.Types.VisualReferenceOutput
+    Amazonka.Synthetics.Types.VpcConfigInput
+    Amazonka.Synthetics.Types.VpcConfigOutput
+    Amazonka.Synthetics.UntagResource
+    Amazonka.Synthetics.UpdateCanary
+    Amazonka.Synthetics.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -106,9 +106,9 @@ test-suite amazonka-synthetics-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Synthetics
-    Test.AWS.Synthetics
-    Test.AWS.Synthetics.Internal
+    Test.Amazonka.Gen.Synthetics
+    Test.Amazonka.Synthetics
+    Test.Amazonka.Synthetics.Internal
 
   build-depends:
     , amazonka              ^>=2.0

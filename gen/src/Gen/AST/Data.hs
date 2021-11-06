@@ -348,7 +348,7 @@ waiterData m os n w = do
 
     help =
       Help $
-        "Polls 'Network.AWS."
+        "Polls 'Amazonka."
           <> (m ^. serviceAbbrev)
           <> "."
           <> typeId key

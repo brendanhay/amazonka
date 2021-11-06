@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Translate.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Translate.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Translate" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Translate" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,46 +45,46 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Translate
-    Network.AWS.Translate.CreateParallelData
-    Network.AWS.Translate.DeleteParallelData
-    Network.AWS.Translate.DeleteTerminology
-    Network.AWS.Translate.DescribeTextTranslationJob
-    Network.AWS.Translate.GetParallelData
-    Network.AWS.Translate.GetTerminology
-    Network.AWS.Translate.ImportTerminology
-    Network.AWS.Translate.Lens
-    Network.AWS.Translate.ListParallelData
-    Network.AWS.Translate.ListTerminologies
-    Network.AWS.Translate.ListTextTranslationJobs
-    Network.AWS.Translate.StartTextTranslationJob
-    Network.AWS.Translate.StopTextTranslationJob
-    Network.AWS.Translate.TranslateText
-    Network.AWS.Translate.Types
-    Network.AWS.Translate.Types.AppliedTerminology
-    Network.AWS.Translate.Types.EncryptionKey
-    Network.AWS.Translate.Types.EncryptionKeyType
-    Network.AWS.Translate.Types.InputDataConfig
-    Network.AWS.Translate.Types.JobDetails
-    Network.AWS.Translate.Types.JobStatus
-    Network.AWS.Translate.Types.MergeStrategy
-    Network.AWS.Translate.Types.OutputDataConfig
-    Network.AWS.Translate.Types.ParallelDataConfig
-    Network.AWS.Translate.Types.ParallelDataDataLocation
-    Network.AWS.Translate.Types.ParallelDataFormat
-    Network.AWS.Translate.Types.ParallelDataProperties
-    Network.AWS.Translate.Types.ParallelDataStatus
-    Network.AWS.Translate.Types.Term
-    Network.AWS.Translate.Types.TerminologyData
-    Network.AWS.Translate.Types.TerminologyDataFormat
-    Network.AWS.Translate.Types.TerminologyDataLocation
-    Network.AWS.Translate.Types.TerminologyProperties
-    Network.AWS.Translate.Types.TextTranslationJobFilter
-    Network.AWS.Translate.Types.TextTranslationJobProperties
-    Network.AWS.Translate.UpdateParallelData
-    Network.AWS.Translate.Waiters
+    Amazonka.Translate
+    Amazonka.Translate.CreateParallelData
+    Amazonka.Translate.DeleteParallelData
+    Amazonka.Translate.DeleteTerminology
+    Amazonka.Translate.DescribeTextTranslationJob
+    Amazonka.Translate.GetParallelData
+    Amazonka.Translate.GetTerminology
+    Amazonka.Translate.ImportTerminology
+    Amazonka.Translate.Lens
+    Amazonka.Translate.ListParallelData
+    Amazonka.Translate.ListTerminologies
+    Amazonka.Translate.ListTextTranslationJobs
+    Amazonka.Translate.StartTextTranslationJob
+    Amazonka.Translate.StopTextTranslationJob
+    Amazonka.Translate.TranslateText
+    Amazonka.Translate.Types
+    Amazonka.Translate.Types.AppliedTerminology
+    Amazonka.Translate.Types.EncryptionKey
+    Amazonka.Translate.Types.EncryptionKeyType
+    Amazonka.Translate.Types.InputDataConfig
+    Amazonka.Translate.Types.JobDetails
+    Amazonka.Translate.Types.JobStatus
+    Amazonka.Translate.Types.MergeStrategy
+    Amazonka.Translate.Types.OutputDataConfig
+    Amazonka.Translate.Types.ParallelDataConfig
+    Amazonka.Translate.Types.ParallelDataDataLocation
+    Amazonka.Translate.Types.ParallelDataFormat
+    Amazonka.Translate.Types.ParallelDataProperties
+    Amazonka.Translate.Types.ParallelDataStatus
+    Amazonka.Translate.Types.Term
+    Amazonka.Translate.Types.TerminologyData
+    Amazonka.Translate.Types.TerminologyDataFormat
+    Amazonka.Translate.Types.TerminologyDataLocation
+    Amazonka.Translate.Types.TerminologyProperties
+    Amazonka.Translate.Types.TextTranslationJobFilter
+    Amazonka.Translate.Types.TextTranslationJobProperties
+    Amazonka.Translate.UpdateParallelData
+    Amazonka.Translate.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -100,9 +100,9 @@ test-suite amazonka-translate-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Translate
-    Test.AWS.Translate
-    Test.AWS.Translate.Internal
+    Test.Amazonka.Gen.Translate
+    Test.Amazonka.Translate
+    Test.Amazonka.Translate.Internal
 
   build-depends:
     , amazonka              ^>=2.0

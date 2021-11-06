@@ -7,16 +7,16 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import qualified Test.AWS.Data.Base64 as Base64
-import qualified Test.AWS.Data.List as List
-import qualified Test.AWS.Data.Maybe as Maybe
-import qualified Test.AWS.Data.Numeric as Numeric
-import qualified Test.AWS.Data.Path as Path
-import qualified Test.AWS.Data.Query as Query
-import qualified Test.AWS.Data.Time as Time
-import qualified Test.AWS.Error as Error
-import qualified Test.AWS.Sign.V2Header.BaseSpec as V2Header
-import qualified Test.AWS.Sign.V4 as V4
+import qualified Test.Amazonka.Data.Base64 as Base64
+import qualified Test.Amazonka.Data.List as List
+import qualified Test.Amazonka.Data.Maybe as Maybe
+import qualified Test.Amazonka.Data.Numeric as Numeric
+import qualified Test.Amazonka.Data.Path as Path
+import qualified Test.Amazonka.Data.Query as Query
+import qualified Test.Amazonka.Data.Time as Time
+import qualified Test.Amazonka.Error as Error
+import qualified Test.Amazonka.Sign.V2Header.BaseSpec as V2Header
+import qualified Test.Amazonka.Sign.V4 as V4
 import Test.Tasty
 import Prelude
 

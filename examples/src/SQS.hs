@@ -11,8 +11,8 @@ import Control.Monad.IO.Class
 import Data.Generics.Product
 import qualified Data.Text as Text
 import qualified Data.Text.IO as Text
-import Network.AWS
-import Network.AWS.SQS
+import Amazonka
+import Amazonka.SQS
 import System.IO
 
 roundTrip ::

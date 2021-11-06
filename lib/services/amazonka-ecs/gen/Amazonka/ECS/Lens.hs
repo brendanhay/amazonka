@@ -1,0 +1,1215 @@
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Amazonka.ECS.Lens
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Amazonka.ECS.Lens
+  ( -- * Operations
+
+    -- ** ListServices
+    listServices_cluster,
+    listServices_nextToken,
+    listServices_launchType,
+    listServices_schedulingStrategy,
+    listServices_maxResults,
+    listServicesResponse_serviceArns,
+    listServicesResponse_nextToken,
+    listServicesResponse_httpStatus,
+
+    -- ** DescribeClusters
+    describeClusters_include,
+    describeClusters_clusters,
+    describeClustersResponse_failures,
+    describeClustersResponse_clusters,
+    describeClustersResponse_httpStatus,
+
+    -- ** DeleteService
+    deleteService_cluster,
+    deleteService_force,
+    deleteService_service,
+    deleteServiceResponse_service,
+    deleteServiceResponse_httpStatus,
+
+    -- ** UpdateService
+    updateService_cluster,
+    updateService_platformVersion,
+    updateService_desiredCount,
+    updateService_placementConstraints,
+    updateService_placementStrategy,
+    updateService_forceNewDeployment,
+    updateService_taskDefinition,
+    updateService_healthCheckGracePeriodSeconds,
+    updateService_networkConfiguration,
+    updateService_capacityProviderStrategy,
+    updateService_enableExecuteCommand,
+    updateService_deploymentConfiguration,
+    updateService_service,
+    updateServiceResponse_service,
+    updateServiceResponse_httpStatus,
+
+    -- ** DiscoverPollEndpoint
+    discoverPollEndpoint_cluster,
+    discoverPollEndpoint_containerInstance,
+    discoverPollEndpointResponse_telemetryEndpoint,
+    discoverPollEndpointResponse_endpoint,
+    discoverPollEndpointResponse_httpStatus,
+
+    -- ** SubmitAttachmentStateChanges
+    submitAttachmentStateChanges_cluster,
+    submitAttachmentStateChanges_attachments,
+    submitAttachmentStateChangesResponse_acknowledgment,
+    submitAttachmentStateChangesResponse_httpStatus,
+
+    -- ** SubmitContainerStateChange
+    submitContainerStateChange_networkBindings,
+    submitContainerStateChange_status,
+    submitContainerStateChange_cluster,
+    submitContainerStateChange_containerName,
+    submitContainerStateChange_reason,
+    submitContainerStateChange_exitCode,
+    submitContainerStateChange_task,
+    submitContainerStateChange_runtimeId,
+    submitContainerStateChangeResponse_acknowledgment,
+    submitContainerStateChangeResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** StopTask
+    stopTask_cluster,
+    stopTask_reason,
+    stopTask_task,
+    stopTaskResponse_task,
+    stopTaskResponse_httpStatus,
+
+    -- ** DescribeTaskDefinition
+    describeTaskDefinition_include,
+    describeTaskDefinition_taskDefinition,
+    describeTaskDefinitionResponse_taskDefinition,
+    describeTaskDefinitionResponse_tags,
+    describeTaskDefinitionResponse_httpStatus,
+
+    -- ** SubmitTaskStateChange
+    submitTaskStateChange_status,
+    submitTaskStateChange_managedAgents,
+    submitTaskStateChange_cluster,
+    submitTaskStateChange_attachments,
+    submitTaskStateChange_executionStoppedAt,
+    submitTaskStateChange_pullStoppedAt,
+    submitTaskStateChange_containers,
+    submitTaskStateChange_reason,
+    submitTaskStateChange_task,
+    submitTaskStateChange_pullStartedAt,
+    submitTaskStateChangeResponse_acknowledgment,
+    submitTaskStateChangeResponse_httpStatus,
+
+    -- ** DescribeContainerInstances
+    describeContainerInstances_include,
+    describeContainerInstances_cluster,
+    describeContainerInstances_containerInstances,
+    describeContainerInstancesResponse_failures,
+    describeContainerInstancesResponse_containerInstances,
+    describeContainerInstancesResponse_httpStatus,
+
+    -- ** DescribeCapacityProviders
+    describeCapacityProviders_include,
+    describeCapacityProviders_nextToken,
+    describeCapacityProviders_capacityProviders,
+    describeCapacityProviders_maxResults,
+    describeCapacityProvidersResponse_failures,
+    describeCapacityProvidersResponse_nextToken,
+    describeCapacityProvidersResponse_capacityProviders,
+    describeCapacityProvidersResponse_httpStatus,
+
+    -- ** UpdateContainerInstancesState
+    updateContainerInstancesState_cluster,
+    updateContainerInstancesState_containerInstances,
+    updateContainerInstancesState_status,
+    updateContainerInstancesStateResponse_failures,
+    updateContainerInstancesStateResponse_containerInstances,
+    updateContainerInstancesStateResponse_httpStatus,
+
+    -- ** DeleteCluster
+    deleteCluster_cluster,
+    deleteClusterResponse_cluster,
+    deleteClusterResponse_httpStatus,
+
+    -- ** UpdateCluster
+    updateCluster_settings,
+    updateCluster_configuration,
+    updateCluster_cluster,
+    updateClusterResponse_cluster,
+    updateClusterResponse_httpStatus,
+
+    -- ** CreateCluster
+    createCluster_defaultCapacityProviderStrategy,
+    createCluster_settings,
+    createCluster_clusterName,
+    createCluster_configuration,
+    createCluster_capacityProviders,
+    createCluster_tags,
+    createClusterResponse_cluster,
+    createClusterResponse_httpStatus,
+
+    -- ** PutAccountSetting
+    putAccountSetting_principalArn,
+    putAccountSetting_name,
+    putAccountSetting_value,
+    putAccountSettingResponse_setting,
+    putAccountSettingResponse_httpStatus,
+
+    -- ** DeleteAccountSetting
+    deleteAccountSetting_principalArn,
+    deleteAccountSetting_name,
+    deleteAccountSettingResponse_setting,
+    deleteAccountSettingResponse_httpStatus,
+
+    -- ** ListTaskDefinitions
+    listTaskDefinitions_status,
+    listTaskDefinitions_familyPrefix,
+    listTaskDefinitions_nextToken,
+    listTaskDefinitions_sort,
+    listTaskDefinitions_maxResults,
+    listTaskDefinitionsResponse_taskDefinitionArns,
+    listTaskDefinitionsResponse_nextToken,
+    listTaskDefinitionsResponse_httpStatus,
+
+    -- ** RunTask
+    runTask_overrides,
+    runTask_group,
+    runTask_cluster,
+    runTask_propagateTags,
+    runTask_platformVersion,
+    runTask_enableECSManagedTags,
+    runTask_count,
+    runTask_referenceId,
+    runTask_placementConstraints,
+    runTask_placementStrategy,
+    runTask_startedBy,
+    runTask_launchType,
+    runTask_networkConfiguration,
+    runTask_capacityProviderStrategy,
+    runTask_enableExecuteCommand,
+    runTask_tags,
+    runTask_taskDefinition,
+    runTaskResponse_failures,
+    runTaskResponse_tasks,
+    runTaskResponse_httpStatus,
+
+    -- ** DeleteCapacityProvider
+    deleteCapacityProvider_capacityProvider,
+    deleteCapacityProviderResponse_capacityProvider,
+    deleteCapacityProviderResponse_httpStatus,
+
+    -- ** ListTasks
+    listTasks_desiredStatus,
+    listTasks_cluster,
+    listTasks_family,
+    listTasks_nextToken,
+    listTasks_startedBy,
+    listTasks_serviceName,
+    listTasks_launchType,
+    listTasks_containerInstance,
+    listTasks_maxResults,
+    listTasksResponse_nextToken,
+    listTasksResponse_taskArns,
+    listTasksResponse_httpStatus,
+
+    -- ** UpdateCapacityProvider
+    updateCapacityProvider_name,
+    updateCapacityProvider_autoScalingGroupProvider,
+    updateCapacityProviderResponse_capacityProvider,
+    updateCapacityProviderResponse_httpStatus,
+
+    -- ** RegisterContainerInstance
+    registerContainerInstance_platformDevices,
+    registerContainerInstance_instanceIdentityDocumentSignature,
+    registerContainerInstance_cluster,
+    registerContainerInstance_instanceIdentityDocument,
+    registerContainerInstance_containerInstanceArn,
+    registerContainerInstance_versionInfo,
+    registerContainerInstance_attributes,
+    registerContainerInstance_totalResources,
+    registerContainerInstance_tags,
+    registerContainerInstanceResponse_containerInstance,
+    registerContainerInstanceResponse_httpStatus,
+
+    -- ** UpdateContainerAgent
+    updateContainerAgent_cluster,
+    updateContainerAgent_containerInstance,
+    updateContainerAgentResponse_containerInstance,
+    updateContainerAgentResponse_httpStatus,
+
+    -- ** ListContainerInstances
+    listContainerInstances_status,
+    listContainerInstances_cluster,
+    listContainerInstances_nextToken,
+    listContainerInstances_filter,
+    listContainerInstances_maxResults,
+    listContainerInstancesResponse_containerInstanceArns,
+    listContainerInstancesResponse_nextToken,
+    listContainerInstancesResponse_httpStatus,
+
+    -- ** UpdateServicePrimaryTaskSet
+    updateServicePrimaryTaskSet_cluster,
+    updateServicePrimaryTaskSet_service,
+    updateServicePrimaryTaskSet_primaryTaskSet,
+    updateServicePrimaryTaskSetResponse_taskSet,
+    updateServicePrimaryTaskSetResponse_httpStatus,
+
+    -- ** ListTaskDefinitionFamilies
+    listTaskDefinitionFamilies_status,
+    listTaskDefinitionFamilies_familyPrefix,
+    listTaskDefinitionFamilies_nextToken,
+    listTaskDefinitionFamilies_maxResults,
+    listTaskDefinitionFamiliesResponse_families,
+    listTaskDefinitionFamiliesResponse_nextToken,
+    listTaskDefinitionFamiliesResponse_httpStatus,
+
+    -- ** StartTask
+    startTask_overrides,
+    startTask_group,
+    startTask_cluster,
+    startTask_propagateTags,
+    startTask_enableECSManagedTags,
+    startTask_referenceId,
+    startTask_startedBy,
+    startTask_networkConfiguration,
+    startTask_enableExecuteCommand,
+    startTask_tags,
+    startTask_containerInstances,
+    startTask_taskDefinition,
+    startTaskResponse_failures,
+    startTaskResponse_tasks,
+    startTaskResponse_httpStatus,
+
+    -- ** PutClusterCapacityProviders
+    putClusterCapacityProviders_cluster,
+    putClusterCapacityProviders_capacityProviders,
+    putClusterCapacityProviders_defaultCapacityProviderStrategy,
+    putClusterCapacityProvidersResponse_cluster,
+    putClusterCapacityProvidersResponse_httpStatus,
+
+    -- ** PutAccountSettingDefault
+    putAccountSettingDefault_name,
+    putAccountSettingDefault_value,
+    putAccountSettingDefaultResponse_setting,
+    putAccountSettingDefaultResponse_httpStatus,
+
+    -- ** ListAttributes
+    listAttributes_attributeValue,
+    listAttributes_cluster,
+    listAttributes_nextToken,
+    listAttributes_attributeName,
+    listAttributes_maxResults,
+    listAttributes_targetType,
+    listAttributesResponse_nextToken,
+    listAttributesResponse_attributes,
+    listAttributesResponse_httpStatus,
+
+    -- ** ExecuteCommand
+    executeCommand_cluster,
+    executeCommand_container,
+    executeCommand_command,
+    executeCommand_interactive,
+    executeCommand_task,
+    executeCommandResponse_clusterArn,
+    executeCommandResponse_containerArn,
+    executeCommandResponse_taskArn,
+    executeCommandResponse_containerName,
+    executeCommandResponse_interactive,
+    executeCommandResponse_session,
+    executeCommandResponse_httpStatus,
+
+    -- ** DeregisterTaskDefinition
+    deregisterTaskDefinition_taskDefinition,
+    deregisterTaskDefinitionResponse_taskDefinition,
+    deregisterTaskDefinitionResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** CreateTaskSet
+    createTaskSet_clientToken,
+    createTaskSet_platformVersion,
+    createTaskSet_scale,
+    createTaskSet_loadBalancers,
+    createTaskSet_launchType,
+    createTaskSet_externalId,
+    createTaskSet_networkConfiguration,
+    createTaskSet_serviceRegistries,
+    createTaskSet_capacityProviderStrategy,
+    createTaskSet_tags,
+    createTaskSet_service,
+    createTaskSet_cluster,
+    createTaskSet_taskDefinition,
+    createTaskSetResponse_taskSet,
+    createTaskSetResponse_httpStatus,
+
+    -- ** DescribeTasks
+    describeTasks_include,
+    describeTasks_cluster,
+    describeTasks_tasks,
+    describeTasksResponse_failures,
+    describeTasksResponse_tasks,
+    describeTasksResponse_httpStatus,
+
+    -- ** ListClusters
+    listClusters_nextToken,
+    listClusters_maxResults,
+    listClustersResponse_clusterArns,
+    listClustersResponse_nextToken,
+    listClustersResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
+
+    -- ** DescribeServices
+    describeServices_include,
+    describeServices_cluster,
+    describeServices_services,
+    describeServicesResponse_failures,
+    describeServicesResponse_services,
+    describeServicesResponse_httpStatus,
+
+    -- ** DeregisterContainerInstance
+    deregisterContainerInstance_cluster,
+    deregisterContainerInstance_force,
+    deregisterContainerInstance_containerInstance,
+    deregisterContainerInstanceResponse_containerInstance,
+    deregisterContainerInstanceResponse_httpStatus,
+
+    -- ** UpdateClusterSettings
+    updateClusterSettings_cluster,
+    updateClusterSettings_settings,
+    updateClusterSettingsResponse_cluster,
+    updateClusterSettingsResponse_httpStatus,
+
+    -- ** DeleteAttributes
+    deleteAttributes_cluster,
+    deleteAttributes_attributes,
+    deleteAttributesResponse_attributes,
+    deleteAttributesResponse_httpStatus,
+
+    -- ** PutAttributes
+    putAttributes_cluster,
+    putAttributes_attributes,
+    putAttributesResponse_attributes,
+    putAttributesResponse_httpStatus,
+
+    -- ** ListAccountSettings
+    listAccountSettings_value,
+    listAccountSettings_nextToken,
+    listAccountSettings_name,
+    listAccountSettings_principalArn,
+    listAccountSettings_effectiveSettings,
+    listAccountSettings_maxResults,
+    listAccountSettingsResponse_settings,
+    listAccountSettingsResponse_nextToken,
+    listAccountSettingsResponse_httpStatus,
+
+    -- ** DeleteTaskSet
+    deleteTaskSet_force,
+    deleteTaskSet_cluster,
+    deleteTaskSet_service,
+    deleteTaskSet_taskSet,
+    deleteTaskSetResponse_taskSet,
+    deleteTaskSetResponse_httpStatus,
+
+    -- ** UpdateTaskSet
+    updateTaskSet_cluster,
+    updateTaskSet_service,
+    updateTaskSet_taskSet,
+    updateTaskSet_scale,
+    updateTaskSetResponse_taskSet,
+    updateTaskSetResponse_httpStatus,
+
+    -- ** CreateCapacityProvider
+    createCapacityProvider_tags,
+    createCapacityProvider_name,
+    createCapacityProvider_autoScalingGroupProvider,
+    createCapacityProviderResponse_capacityProvider,
+    createCapacityProviderResponse_httpStatus,
+
+    -- ** DescribeTaskSets
+    describeTaskSets_taskSets,
+    describeTaskSets_include,
+    describeTaskSets_cluster,
+    describeTaskSets_service,
+    describeTaskSetsResponse_taskSets,
+    describeTaskSetsResponse_failures,
+    describeTaskSetsResponse_httpStatus,
+
+    -- ** RegisterTaskDefinition
+    registerTaskDefinition_inferenceAccelerators,
+    registerTaskDefinition_executionRoleArn,
+    registerTaskDefinition_requiresCompatibilities,
+    registerTaskDefinition_ephemeralStorage,
+    registerTaskDefinition_pidMode,
+    registerTaskDefinition_ipcMode,
+    registerTaskDefinition_memory,
+    registerTaskDefinition_proxyConfiguration,
+    registerTaskDefinition_taskRoleArn,
+    registerTaskDefinition_placementConstraints,
+    registerTaskDefinition_networkMode,
+    registerTaskDefinition_volumes,
+    registerTaskDefinition_cpu,
+    registerTaskDefinition_tags,
+    registerTaskDefinition_family,
+    registerTaskDefinition_containerDefinitions,
+    registerTaskDefinitionResponse_taskDefinition,
+    registerTaskDefinitionResponse_tags,
+    registerTaskDefinitionResponse_httpStatus,
+
+    -- ** CreateService
+    createService_cluster,
+    createService_clientToken,
+    createService_propagateTags,
+    createService_platformVersion,
+    createService_enableECSManagedTags,
+    createService_desiredCount,
+    createService_loadBalancers,
+    createService_role,
+    createService_placementConstraints,
+    createService_placementStrategy,
+    createService_deploymentController,
+    createService_launchType,
+    createService_taskDefinition,
+    createService_schedulingStrategy,
+    createService_healthCheckGracePeriodSeconds,
+    createService_networkConfiguration,
+    createService_serviceRegistries,
+    createService_capacityProviderStrategy,
+    createService_enableExecuteCommand,
+    createService_tags,
+    createService_deploymentConfiguration,
+    createService_serviceName,
+    createServiceResponse_service,
+    createServiceResponse_httpStatus,
+
+    -- * Types
+
+    -- ** Attachment
+    attachment_status,
+    attachment_details,
+    attachment_id,
+    attachment_type,
+
+    -- ** AttachmentStateChange
+    attachmentStateChange_attachmentArn,
+    attachmentStateChange_status,
+
+    -- ** Attribute
+    attribute_targetId,
+    attribute_value,
+    attribute_targetType,
+    attribute_name,
+
+    -- ** AutoScalingGroupProvider
+    autoScalingGroupProvider_managedScaling,
+    autoScalingGroupProvider_managedTerminationProtection,
+    autoScalingGroupProvider_autoScalingGroupArn,
+
+    -- ** AutoScalingGroupProviderUpdate
+    autoScalingGroupProviderUpdate_managedScaling,
+    autoScalingGroupProviderUpdate_managedTerminationProtection,
+
+    -- ** AwsVpcConfiguration
+    awsVpcConfiguration_securityGroups,
+    awsVpcConfiguration_assignPublicIp,
+    awsVpcConfiguration_subnets,
+
+    -- ** CapacityProvider
+    capacityProvider_status,
+    capacityProvider_updateStatusReason,
+    capacityProvider_autoScalingGroupProvider,
+    capacityProvider_name,
+    capacityProvider_updateStatus,
+    capacityProvider_capacityProviderArn,
+    capacityProvider_tags,
+
+    -- ** CapacityProviderStrategyItem
+    capacityProviderStrategyItem_base,
+    capacityProviderStrategyItem_weight,
+    capacityProviderStrategyItem_capacityProvider,
+
+    -- ** Cluster
+    cluster_status,
+    cluster_clusterArn,
+    cluster_attachments,
+    cluster_runningTasksCount,
+    cluster_defaultCapacityProviderStrategy,
+    cluster_settings,
+    cluster_registeredContainerInstancesCount,
+    cluster_pendingTasksCount,
+    cluster_clusterName,
+    cluster_statistics,
+    cluster_configuration,
+    cluster_attachmentsStatus,
+    cluster_capacityProviders,
+    cluster_activeServicesCount,
+    cluster_tags,
+
+    -- ** ClusterConfiguration
+    clusterConfiguration_executeCommandConfiguration,
+
+    -- ** ClusterSetting
+    clusterSetting_value,
+    clusterSetting_name,
+
+    -- ** Container
+    container_gpuIds,
+    container_networkBindings,
+    container_managedAgents,
+    container_image,
+    container_containerArn,
+    container_networkInterfaces,
+    container_taskArn,
+    container_lastStatus,
+    container_memory,
+    container_reason,
+    container_name,
+    container_imageDigest,
+    container_exitCode,
+    container_healthStatus,
+    container_cpu,
+    container_runtimeId,
+    container_memoryReservation,
+
+    -- ** ContainerDefinition
+    containerDefinition_image,
+    containerDefinition_command,
+    containerDefinition_hostname,
+    containerDefinition_repositoryCredentials,
+    containerDefinition_dockerSecurityOptions,
+    containerDefinition_healthCheck,
+    containerDefinition_disableNetworking,
+    containerDefinition_secrets,
+    containerDefinition_volumesFrom,
+    containerDefinition_environment,
+    containerDefinition_environmentFiles,
+    containerDefinition_entryPoint,
+    containerDefinition_workingDirectory,
+    containerDefinition_ulimits,
+    containerDefinition_stopTimeout,
+    containerDefinition_privileged,
+    containerDefinition_portMappings,
+    containerDefinition_resourceRequirements,
+    containerDefinition_dockerLabels,
+    containerDefinition_extraHosts,
+    containerDefinition_memory,
+    containerDefinition_systemControls,
+    containerDefinition_user,
+    containerDefinition_firelensConfiguration,
+    containerDefinition_dnsSearchDomains,
+    containerDefinition_logConfiguration,
+    containerDefinition_linuxParameters,
+    containerDefinition_pseudoTerminal,
+    containerDefinition_dependsOn,
+    containerDefinition_name,
+    containerDefinition_dnsServers,
+    containerDefinition_mountPoints,
+    containerDefinition_interactive,
+    containerDefinition_startTimeout,
+    containerDefinition_links,
+    containerDefinition_readonlyRootFilesystem,
+    containerDefinition_essential,
+    containerDefinition_cpu,
+    containerDefinition_memoryReservation,
+
+    -- ** ContainerDependency
+    containerDependency_containerName,
+    containerDependency_condition,
+
+    -- ** ContainerInstance
+    containerInstance_status,
+    containerInstance_attachments,
+    containerInstance_runningTasksCount,
+    containerInstance_remainingResources,
+    containerInstance_ec2InstanceId,
+    containerInstance_containerInstanceArn,
+    containerInstance_agentConnected,
+    containerInstance_versionInfo,
+    containerInstance_agentUpdateStatus,
+    containerInstance_attributes,
+    containerInstance_version,
+    containerInstance_pendingTasksCount,
+    containerInstance_capacityProviderName,
+    containerInstance_registeredAt,
+    containerInstance_statusReason,
+    containerInstance_tags,
+    containerInstance_registeredResources,
+
+    -- ** ContainerOverride
+    containerOverride_command,
+    containerOverride_environment,
+    containerOverride_environmentFiles,
+    containerOverride_resourceRequirements,
+    containerOverride_memory,
+    containerOverride_name,
+    containerOverride_cpu,
+    containerOverride_memoryReservation,
+
+    -- ** ContainerService
+    containerService_taskSets,
+    containerService_runningCount,
+    containerService_status,
+    containerService_clusterArn,
+    containerService_propagateTags,
+    containerService_createdAt,
+    containerService_platformVersion,
+    containerService_enableECSManagedTags,
+    containerService_createdBy,
+    containerService_desiredCount,
+    containerService_loadBalancers,
+    containerService_pendingCount,
+    containerService_placementConstraints,
+    containerService_events,
+    containerService_placementStrategy,
+    containerService_deployments,
+    containerService_serviceName,
+    containerService_deploymentController,
+    containerService_launchType,
+    containerService_serviceArn,
+    containerService_taskDefinition,
+    containerService_schedulingStrategy,
+    containerService_healthCheckGracePeriodSeconds,
+    containerService_networkConfiguration,
+    containerService_serviceRegistries,
+    containerService_capacityProviderStrategy,
+    containerService_enableExecuteCommand,
+    containerService_tags,
+    containerService_roleArn,
+    containerService_deploymentConfiguration,
+
+    -- ** ContainerStateChange
+    containerStateChange_networkBindings,
+    containerStateChange_status,
+    containerStateChange_containerName,
+    containerStateChange_reason,
+    containerStateChange_imageDigest,
+    containerStateChange_exitCode,
+    containerStateChange_runtimeId,
+
+    -- ** Deployment
+    deployment_rolloutState,
+    deployment_runningCount,
+    deployment_status,
+    deployment_createdAt,
+    deployment_platformVersion,
+    deployment_desiredCount,
+    deployment_pendingCount,
+    deployment_id,
+    deployment_failedTasks,
+    deployment_launchType,
+    deployment_updatedAt,
+    deployment_taskDefinition,
+    deployment_rolloutStateReason,
+    deployment_networkConfiguration,
+    deployment_capacityProviderStrategy,
+
+    -- ** DeploymentCircuitBreaker
+    deploymentCircuitBreaker_enable,
+    deploymentCircuitBreaker_rollback,
+
+    -- ** DeploymentConfiguration
+    deploymentConfiguration_minimumHealthyPercent,
+    deploymentConfiguration_maximumPercent,
+    deploymentConfiguration_deploymentCircuitBreaker,
+
+    -- ** DeploymentController
+    deploymentController_type,
+
+    -- ** Device
+    device_containerPath,
+    device_permissions,
+    device_hostPath,
+
+    -- ** DockerVolumeConfiguration
+    dockerVolumeConfiguration_driverOpts,
+    dockerVolumeConfiguration_driver,
+    dockerVolumeConfiguration_scope,
+    dockerVolumeConfiguration_labels,
+    dockerVolumeConfiguration_autoprovision,
+
+    -- ** EFSAuthorizationConfig
+    eFSAuthorizationConfig_accessPointId,
+    eFSAuthorizationConfig_iam,
+
+    -- ** EFSVolumeConfiguration
+    eFSVolumeConfiguration_rootDirectory,
+    eFSVolumeConfiguration_transitEncryption,
+    eFSVolumeConfiguration_authorizationConfig,
+    eFSVolumeConfiguration_transitEncryptionPort,
+    eFSVolumeConfiguration_fileSystemId,
+
+    -- ** EnvironmentFile
+    environmentFile_value,
+    environmentFile_type,
+
+    -- ** EphemeralStorage
+    ephemeralStorage_sizeInGiB,
+
+    -- ** ExecuteCommandConfiguration
+    executeCommandConfiguration_logConfiguration,
+    executeCommandConfiguration_kmsKeyId,
+    executeCommandConfiguration_logging,
+
+    -- ** ExecuteCommandLogConfiguration
+    executeCommandLogConfiguration_cloudWatchLogGroupName,
+    executeCommandLogConfiguration_s3KeyPrefix,
+    executeCommandLogConfiguration_cloudWatchEncryptionEnabled,
+    executeCommandLogConfiguration_s3EncryptionEnabled,
+    executeCommandLogConfiguration_s3BucketName,
+
+    -- ** FSxWindowsFileServerAuthorizationConfig
+    fSxWindowsFileServerAuthorizationConfig_credentialsParameter,
+    fSxWindowsFileServerAuthorizationConfig_domain,
+
+    -- ** FSxWindowsFileServerVolumeConfiguration
+    fSxWindowsFileServerVolumeConfiguration_fileSystemId,
+    fSxWindowsFileServerVolumeConfiguration_rootDirectory,
+    fSxWindowsFileServerVolumeConfiguration_authorizationConfig,
+
+    -- ** Failure
+    failure_arn,
+    failure_reason,
+    failure_detail,
+
+    -- ** FirelensConfiguration
+    firelensConfiguration_options,
+    firelensConfiguration_type,
+
+    -- ** HealthCheck
+    healthCheck_startPeriod,
+    healthCheck_retries,
+    healthCheck_interval,
+    healthCheck_timeout,
+    healthCheck_command,
+
+    -- ** HostEntry
+    hostEntry_hostname,
+    hostEntry_ipAddress,
+
+    -- ** HostVolumeProperties
+    hostVolumeProperties_sourcePath,
+
+    -- ** InferenceAccelerator
+    inferenceAccelerator_deviceName,
+    inferenceAccelerator_deviceType,
+
+    -- ** InferenceAcceleratorOverride
+    inferenceAcceleratorOverride_deviceName,
+    inferenceAcceleratorOverride_deviceType,
+
+    -- ** KernelCapabilities
+    kernelCapabilities_drop,
+    kernelCapabilities_add,
+
+    -- ** KeyValuePair
+    keyValuePair_value,
+    keyValuePair_name,
+
+    -- ** LinuxParameters
+    linuxParameters_sharedMemorySize,
+    linuxParameters_initProcessEnabled,
+    linuxParameters_tmpfs,
+    linuxParameters_swappiness,
+    linuxParameters_devices,
+    linuxParameters_capabilities,
+    linuxParameters_maxSwap,
+
+    -- ** LoadBalancer
+    loadBalancer_loadBalancerName,
+    loadBalancer_containerName,
+    loadBalancer_targetGroupArn,
+    loadBalancer_containerPort,
+
+    -- ** LogConfiguration
+    logConfiguration_options,
+    logConfiguration_secretOptions,
+    logConfiguration_logDriver,
+
+    -- ** ManagedAgent
+    managedAgent_lastStatus,
+    managedAgent_reason,
+    managedAgent_name,
+    managedAgent_lastStartedAt,
+
+    -- ** ManagedAgentStateChange
+    managedAgentStateChange_reason,
+    managedAgentStateChange_containerName,
+    managedAgentStateChange_managedAgentName,
+    managedAgentStateChange_status,
+
+    -- ** ManagedScaling
+    managedScaling_status,
+    managedScaling_maximumScalingStepSize,
+    managedScaling_targetCapacity,
+    managedScaling_minimumScalingStepSize,
+    managedScaling_instanceWarmupPeriod,
+
+    -- ** MountPoint
+    mountPoint_containerPath,
+    mountPoint_sourceVolume,
+    mountPoint_readOnly,
+
+    -- ** NetworkBinding
+    networkBinding_bindIP,
+    networkBinding_protocol,
+    networkBinding_hostPort,
+    networkBinding_containerPort,
+
+    -- ** NetworkConfiguration
+    networkConfiguration_awsvpcConfiguration,
+
+    -- ** NetworkInterface
+    networkInterface_ipv6Address,
+    networkInterface_privateIpv4Address,
+    networkInterface_attachmentId,
+
+    -- ** PlacementConstraint
+    placementConstraint_expression,
+    placementConstraint_type,
+
+    -- ** PlacementStrategy
+    placementStrategy_field,
+    placementStrategy_type,
+
+    -- ** PlatformDevice
+    platformDevice_id,
+    platformDevice_type,
+
+    -- ** PortMapping
+    portMapping_protocol,
+    portMapping_hostPort,
+    portMapping_containerPort,
+
+    -- ** ProxyConfiguration
+    proxyConfiguration_type,
+    proxyConfiguration_properties,
+    proxyConfiguration_containerName,
+
+    -- ** RepositoryCredentials
+    repositoryCredentials_credentialsParameter,
+
+    -- ** Resource
+    resource_stringSetValue,
+    resource_integerValue,
+    resource_doubleValue,
+    resource_longValue,
+    resource_name,
+    resource_type,
+
+    -- ** ResourceRequirement
+    resourceRequirement_value,
+    resourceRequirement_type,
+
+    -- ** Scale
+    scale_value,
+    scale_unit,
+
+    -- ** Secret
+    secret_name,
+    secret_valueFrom,
+
+    -- ** ServiceEvent
+    serviceEvent_createdAt,
+    serviceEvent_id,
+    serviceEvent_message,
+
+    -- ** ServiceRegistry
+    serviceRegistry_registryArn,
+    serviceRegistry_containerName,
+    serviceRegistry_containerPort,
+    serviceRegistry_port,
+
+    -- ** Session
+    session_streamUrl,
+    session_tokenValue,
+    session_sessionId,
+
+    -- ** Setting
+    setting_value,
+    setting_name,
+    setting_principalArn,
+
+    -- ** SystemControl
+    systemControl_value,
+    systemControl_namespace,
+
+    -- ** Tag
+    tag_value,
+    tag_key,
+
+    -- ** Task
+    task_stoppedAt,
+    task_desiredStatus,
+    task_overrides,
+    task_inferenceAccelerators,
+    task_clusterArn,
+    task_group,
+    task_attachments,
+    task_createdAt,
+    task_stopCode,
+    task_platformVersion,
+    task_taskArn,
+    task_containerInstanceArn,
+    task_executionStoppedAt,
+    task_ephemeralStorage,
+    task_lastStatus,
+    task_memory,
+    task_pullStoppedAt,
+    task_containers,
+    task_startedAt,
+    task_availabilityZone,
+    task_attributes,
+    task_version,
+    task_capacityProviderName,
+    task_startedBy,
+    task_stoppedReason,
+    task_connectivity,
+    task_stoppingAt,
+    task_launchType,
+    task_taskDefinitionArn,
+    task_healthStatus,
+    task_connectivityAt,
+    task_cpu,
+    task_enableExecuteCommand,
+    task_pullStartedAt,
+    task_tags,
+
+    -- ** TaskDefinition
+    taskDefinition_status,
+    taskDefinition_inferenceAccelerators,
+    taskDefinition_executionRoleArn,
+    taskDefinition_requiresCompatibilities,
+    taskDefinition_ephemeralStorage,
+    taskDefinition_pidMode,
+    taskDefinition_family,
+    taskDefinition_ipcMode,
+    taskDefinition_containerDefinitions,
+    taskDefinition_memory,
+    taskDefinition_proxyConfiguration,
+    taskDefinition_taskRoleArn,
+    taskDefinition_deregisteredAt,
+    taskDefinition_placementConstraints,
+    taskDefinition_registeredAt,
+    taskDefinition_networkMode,
+    taskDefinition_taskDefinitionArn,
+    taskDefinition_compatibilities,
+    taskDefinition_registeredBy,
+    taskDefinition_revision,
+    taskDefinition_volumes,
+    taskDefinition_cpu,
+    taskDefinition_requiresAttributes,
+
+    -- ** TaskDefinitionPlacementConstraint
+    taskDefinitionPlacementConstraint_expression,
+    taskDefinitionPlacementConstraint_type,
+
+    -- ** TaskOverride
+    taskOverride_containerOverrides,
+    taskOverride_executionRoleArn,
+    taskOverride_ephemeralStorage,
+    taskOverride_memory,
+    taskOverride_taskRoleArn,
+    taskOverride_inferenceAcceleratorOverrides,
+    taskOverride_cpu,
+
+    -- ** TaskSet
+    taskSet_runningCount,
+    taskSet_status,
+    taskSet_clusterArn,
+    taskSet_computedDesiredCount,
+    taskSet_createdAt,
+    taskSet_platformVersion,
+    taskSet_scale,
+    taskSet_loadBalancers,
+    taskSet_stabilityStatusAt,
+    taskSet_pendingCount,
+    taskSet_taskSetArn,
+    taskSet_startedBy,
+    taskSet_id,
+    taskSet_launchType,
+    taskSet_updatedAt,
+    taskSet_serviceArn,
+    taskSet_taskDefinition,
+    taskSet_externalId,
+    taskSet_networkConfiguration,
+    taskSet_serviceRegistries,
+    taskSet_capacityProviderStrategy,
+    taskSet_stabilityStatus,
+    taskSet_tags,
+
+    -- ** Tmpfs
+    tmpfs_mountOptions,
+    tmpfs_containerPath,
+    tmpfs_size,
+
+    -- ** Ulimit
+    ulimit_name,
+    ulimit_softLimit,
+    ulimit_hardLimit,
+
+    -- ** VersionInfo
+    versionInfo_agentHash,
+    versionInfo_agentVersion,
+    versionInfo_dockerVersion,
+
+    -- ** Volume
+    volume_dockerVolumeConfiguration,
+    volume_fsxWindowsFileServerVolumeConfiguration,
+    volume_name,
+    volume_efsVolumeConfiguration,
+    volume_host,
+
+    -- ** VolumeFrom
+    volumeFrom_sourceContainer,
+    volumeFrom_readOnly,
+  )
+where
+
+import Amazonka.ECS.CreateCapacityProvider
+import Amazonka.ECS.CreateCluster
+import Amazonka.ECS.CreateService
+import Amazonka.ECS.CreateTaskSet
+import Amazonka.ECS.DeleteAccountSetting
+import Amazonka.ECS.DeleteAttributes
+import Amazonka.ECS.DeleteCapacityProvider
+import Amazonka.ECS.DeleteCluster
+import Amazonka.ECS.DeleteService
+import Amazonka.ECS.DeleteTaskSet
+import Amazonka.ECS.DeregisterContainerInstance
+import Amazonka.ECS.DeregisterTaskDefinition
+import Amazonka.ECS.DescribeCapacityProviders
+import Amazonka.ECS.DescribeClusters
+import Amazonka.ECS.DescribeContainerInstances
+import Amazonka.ECS.DescribeServices
+import Amazonka.ECS.DescribeTaskDefinition
+import Amazonka.ECS.DescribeTaskSets
+import Amazonka.ECS.DescribeTasks
+import Amazonka.ECS.DiscoverPollEndpoint
+import Amazonka.ECS.ExecuteCommand
+import Amazonka.ECS.ListAccountSettings
+import Amazonka.ECS.ListAttributes
+import Amazonka.ECS.ListClusters
+import Amazonka.ECS.ListContainerInstances
+import Amazonka.ECS.ListServices
+import Amazonka.ECS.ListTagsForResource
+import Amazonka.ECS.ListTaskDefinitionFamilies
+import Amazonka.ECS.ListTaskDefinitions
+import Amazonka.ECS.ListTasks
+import Amazonka.ECS.PutAccountSetting
+import Amazonka.ECS.PutAccountSettingDefault
+import Amazonka.ECS.PutAttributes
+import Amazonka.ECS.PutClusterCapacityProviders
+import Amazonka.ECS.RegisterContainerInstance
+import Amazonka.ECS.RegisterTaskDefinition
+import Amazonka.ECS.RunTask
+import Amazonka.ECS.StartTask
+import Amazonka.ECS.StopTask
+import Amazonka.ECS.SubmitAttachmentStateChanges
+import Amazonka.ECS.SubmitContainerStateChange
+import Amazonka.ECS.SubmitTaskStateChange
+import Amazonka.ECS.TagResource
+import Amazonka.ECS.Types.Attachment
+import Amazonka.ECS.Types.AttachmentStateChange
+import Amazonka.ECS.Types.Attribute
+import Amazonka.ECS.Types.AutoScalingGroupProvider
+import Amazonka.ECS.Types.AutoScalingGroupProviderUpdate
+import Amazonka.ECS.Types.AwsVpcConfiguration
+import Amazonka.ECS.Types.CapacityProvider
+import Amazonka.ECS.Types.CapacityProviderStrategyItem
+import Amazonka.ECS.Types.Cluster
+import Amazonka.ECS.Types.ClusterConfiguration
+import Amazonka.ECS.Types.ClusterSetting
+import Amazonka.ECS.Types.Container
+import Amazonka.ECS.Types.ContainerDefinition
+import Amazonka.ECS.Types.ContainerDependency
+import Amazonka.ECS.Types.ContainerInstance
+import Amazonka.ECS.Types.ContainerOverride
+import Amazonka.ECS.Types.ContainerService
+import Amazonka.ECS.Types.ContainerStateChange
+import Amazonka.ECS.Types.Deployment
+import Amazonka.ECS.Types.DeploymentCircuitBreaker
+import Amazonka.ECS.Types.DeploymentConfiguration
+import Amazonka.ECS.Types.DeploymentController
+import Amazonka.ECS.Types.Device
+import Amazonka.ECS.Types.DockerVolumeConfiguration
+import Amazonka.ECS.Types.EFSAuthorizationConfig
+import Amazonka.ECS.Types.EFSVolumeConfiguration
+import Amazonka.ECS.Types.EnvironmentFile
+import Amazonka.ECS.Types.EphemeralStorage
+import Amazonka.ECS.Types.ExecuteCommandConfiguration
+import Amazonka.ECS.Types.ExecuteCommandLogConfiguration
+import Amazonka.ECS.Types.FSxWindowsFileServerAuthorizationConfig
+import Amazonka.ECS.Types.FSxWindowsFileServerVolumeConfiguration
+import Amazonka.ECS.Types.Failure
+import Amazonka.ECS.Types.FirelensConfiguration
+import Amazonka.ECS.Types.HealthCheck
+import Amazonka.ECS.Types.HostEntry
+import Amazonka.ECS.Types.HostVolumeProperties
+import Amazonka.ECS.Types.InferenceAccelerator
+import Amazonka.ECS.Types.InferenceAcceleratorOverride
+import Amazonka.ECS.Types.KernelCapabilities
+import Amazonka.ECS.Types.KeyValuePair
+import Amazonka.ECS.Types.LinuxParameters
+import Amazonka.ECS.Types.LoadBalancer
+import Amazonka.ECS.Types.LogConfiguration
+import Amazonka.ECS.Types.ManagedAgent
+import Amazonka.ECS.Types.ManagedAgentStateChange
+import Amazonka.ECS.Types.ManagedScaling
+import Amazonka.ECS.Types.MountPoint
+import Amazonka.ECS.Types.NetworkBinding
+import Amazonka.ECS.Types.NetworkConfiguration
+import Amazonka.ECS.Types.NetworkInterface
+import Amazonka.ECS.Types.PlacementConstraint
+import Amazonka.ECS.Types.PlacementStrategy
+import Amazonka.ECS.Types.PlatformDevice
+import Amazonka.ECS.Types.PortMapping
+import Amazonka.ECS.Types.ProxyConfiguration
+import Amazonka.ECS.Types.RepositoryCredentials
+import Amazonka.ECS.Types.Resource
+import Amazonka.ECS.Types.ResourceRequirement
+import Amazonka.ECS.Types.Scale
+import Amazonka.ECS.Types.Secret
+import Amazonka.ECS.Types.ServiceEvent
+import Amazonka.ECS.Types.ServiceRegistry
+import Amazonka.ECS.Types.Session
+import Amazonka.ECS.Types.Setting
+import Amazonka.ECS.Types.SystemControl
+import Amazonka.ECS.Types.Tag
+import Amazonka.ECS.Types.Task
+import Amazonka.ECS.Types.TaskDefinition
+import Amazonka.ECS.Types.TaskDefinitionPlacementConstraint
+import Amazonka.ECS.Types.TaskOverride
+import Amazonka.ECS.Types.TaskSet
+import Amazonka.ECS.Types.Tmpfs
+import Amazonka.ECS.Types.Ulimit
+import Amazonka.ECS.Types.VersionInfo
+import Amazonka.ECS.Types.Volume
+import Amazonka.ECS.Types.VolumeFrom
+import Amazonka.ECS.UntagResource
+import Amazonka.ECS.UpdateCapacityProvider
+import Amazonka.ECS.UpdateCluster
+import Amazonka.ECS.UpdateClusterSettings
+import Amazonka.ECS.UpdateContainerAgent
+import Amazonka.ECS.UpdateContainerInstancesState
+import Amazonka.ECS.UpdateService
+import Amazonka.ECS.UpdateServicePrimaryTaskSet
+import Amazonka.ECS.UpdateTaskSet

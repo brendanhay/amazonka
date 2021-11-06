@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.ManagedBlockChain
-import Test.AWS.ManagedBlockChain.Internal
+import Test.Amazonka.ManagedBlockChain
+import Test.Amazonka.ManagedBlockChain.Internal
 import Test.Tasty
 
 main :: IO ()

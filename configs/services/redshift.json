@@ -1,7 +1,7 @@
 {
     "libraryName": "amazonka-redshift",
     "typeModules": [
-        "Network.AWS.Redshift.Internal"
+        "Amazonka.Redshift.Internal"
     ],
     "typeOverrides": {
         "DescribeDefaultClusterParametersResult": {

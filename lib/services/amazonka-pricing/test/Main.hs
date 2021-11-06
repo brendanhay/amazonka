@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.Pricing
-import Test.AWS.Pricing.Internal
+import Test.Amazonka.Pricing
+import Test.Amazonka.Pricing.Internal
 import Test.Tasty
 
 main :: IO ()

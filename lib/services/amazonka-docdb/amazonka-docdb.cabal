@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.DocumentDB.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.DocumentDB.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.DocumentDB" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.DocumentDB" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,100 +45,100 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.DocumentDB
-    Network.AWS.DocumentDB.AddSourceIdentifierToSubscription
-    Network.AWS.DocumentDB.AddTagsToResource
-    Network.AWS.DocumentDB.ApplyPendingMaintenanceAction
-    Network.AWS.DocumentDB.CopyDBClusterParameterGroup
-    Network.AWS.DocumentDB.CopyDBClusterSnapshot
-    Network.AWS.DocumentDB.CreateDBCluster
-    Network.AWS.DocumentDB.CreateDBClusterParameterGroup
-    Network.AWS.DocumentDB.CreateDBClusterSnapshot
-    Network.AWS.DocumentDB.CreateDBInstance
-    Network.AWS.DocumentDB.CreateDBSubnetGroup
-    Network.AWS.DocumentDB.CreateEventSubscription
-    Network.AWS.DocumentDB.CreateGlobalCluster
-    Network.AWS.DocumentDB.DeleteDBCluster
-    Network.AWS.DocumentDB.DeleteDBClusterParameterGroup
-    Network.AWS.DocumentDB.DeleteDBClusterSnapshot
-    Network.AWS.DocumentDB.DeleteDBInstance
-    Network.AWS.DocumentDB.DeleteDBSubnetGroup
-    Network.AWS.DocumentDB.DeleteEventSubscription
-    Network.AWS.DocumentDB.DeleteGlobalCluster
-    Network.AWS.DocumentDB.DescribeCertificates
-    Network.AWS.DocumentDB.DescribeDBClusterParameterGroups
-    Network.AWS.DocumentDB.DescribeDBClusterParameters
-    Network.AWS.DocumentDB.DescribeDBClusters
-    Network.AWS.DocumentDB.DescribeDBClusterSnapshotAttributes
-    Network.AWS.DocumentDB.DescribeDBClusterSnapshots
-    Network.AWS.DocumentDB.DescribeDBEngineVersions
-    Network.AWS.DocumentDB.DescribeDBInstances
-    Network.AWS.DocumentDB.DescribeDBSubnetGroups
-    Network.AWS.DocumentDB.DescribeEngineDefaultClusterParameters
-    Network.AWS.DocumentDB.DescribeEventCategories
-    Network.AWS.DocumentDB.DescribeEvents
-    Network.AWS.DocumentDB.DescribeEventSubscriptions
-    Network.AWS.DocumentDB.DescribeGlobalClusters
-    Network.AWS.DocumentDB.DescribeOrderableDBInstanceOptions
-    Network.AWS.DocumentDB.DescribePendingMaintenanceActions
-    Network.AWS.DocumentDB.FailoverDBCluster
-    Network.AWS.DocumentDB.Lens
-    Network.AWS.DocumentDB.ListTagsForResource
-    Network.AWS.DocumentDB.ModifyDBCluster
-    Network.AWS.DocumentDB.ModifyDBClusterParameterGroup
-    Network.AWS.DocumentDB.ModifyDBClusterSnapshotAttribute
-    Network.AWS.DocumentDB.ModifyDBInstance
-    Network.AWS.DocumentDB.ModifyDBSubnetGroup
-    Network.AWS.DocumentDB.ModifyEventSubscription
-    Network.AWS.DocumentDB.ModifyGlobalCluster
-    Network.AWS.DocumentDB.RebootDBInstance
-    Network.AWS.DocumentDB.RemoveFromGlobalCluster
-    Network.AWS.DocumentDB.RemoveSourceIdentifierFromSubscription
-    Network.AWS.DocumentDB.RemoveTagsFromResource
-    Network.AWS.DocumentDB.ResetDBClusterParameterGroup
-    Network.AWS.DocumentDB.RestoreDBClusterFromSnapshot
-    Network.AWS.DocumentDB.RestoreDBClusterToPointInTime
-    Network.AWS.DocumentDB.StartDBCluster
-    Network.AWS.DocumentDB.StopDBCluster
-    Network.AWS.DocumentDB.Types
-    Network.AWS.DocumentDB.Types.ApplyMethod
-    Network.AWS.DocumentDB.Types.AvailabilityZone
-    Network.AWS.DocumentDB.Types.Certificate
-    Network.AWS.DocumentDB.Types.CloudwatchLogsExportConfiguration
-    Network.AWS.DocumentDB.Types.DBCluster
-    Network.AWS.DocumentDB.Types.DBClusterMember
-    Network.AWS.DocumentDB.Types.DBClusterParameterGroup
-    Network.AWS.DocumentDB.Types.DBClusterParameterGroupNameMessage
-    Network.AWS.DocumentDB.Types.DBClusterRole
-    Network.AWS.DocumentDB.Types.DBClusterSnapshot
-    Network.AWS.DocumentDB.Types.DBClusterSnapshotAttribute
-    Network.AWS.DocumentDB.Types.DBClusterSnapshotAttributesResult
-    Network.AWS.DocumentDB.Types.DBEngineVersion
-    Network.AWS.DocumentDB.Types.DBInstance
-    Network.AWS.DocumentDB.Types.DBInstanceStatusInfo
-    Network.AWS.DocumentDB.Types.DBSubnetGroup
-    Network.AWS.DocumentDB.Types.Endpoint
-    Network.AWS.DocumentDB.Types.EngineDefaults
-    Network.AWS.DocumentDB.Types.Event
-    Network.AWS.DocumentDB.Types.EventCategoriesMap
-    Network.AWS.DocumentDB.Types.EventSubscription
-    Network.AWS.DocumentDB.Types.Filter
-    Network.AWS.DocumentDB.Types.GlobalCluster
-    Network.AWS.DocumentDB.Types.GlobalClusterMember
-    Network.AWS.DocumentDB.Types.OrderableDBInstanceOption
-    Network.AWS.DocumentDB.Types.Parameter
-    Network.AWS.DocumentDB.Types.PendingCloudwatchLogsExports
-    Network.AWS.DocumentDB.Types.PendingMaintenanceAction
-    Network.AWS.DocumentDB.Types.PendingModifiedValues
-    Network.AWS.DocumentDB.Types.ResourcePendingMaintenanceActions
-    Network.AWS.DocumentDB.Types.SourceType
-    Network.AWS.DocumentDB.Types.Subnet
-    Network.AWS.DocumentDB.Types.Tag
-    Network.AWS.DocumentDB.Types.UpgradeTarget
-    Network.AWS.DocumentDB.Types.VpcSecurityGroupMembership
-    Network.AWS.DocumentDB.Waiters
+    Amazonka.DocumentDB
+    Amazonka.DocumentDB.AddSourceIdentifierToSubscription
+    Amazonka.DocumentDB.AddTagsToResource
+    Amazonka.DocumentDB.ApplyPendingMaintenanceAction
+    Amazonka.DocumentDB.CopyDBClusterParameterGroup
+    Amazonka.DocumentDB.CopyDBClusterSnapshot
+    Amazonka.DocumentDB.CreateDBCluster
+    Amazonka.DocumentDB.CreateDBClusterParameterGroup
+    Amazonka.DocumentDB.CreateDBClusterSnapshot
+    Amazonka.DocumentDB.CreateDBInstance
+    Amazonka.DocumentDB.CreateDBSubnetGroup
+    Amazonka.DocumentDB.CreateEventSubscription
+    Amazonka.DocumentDB.CreateGlobalCluster
+    Amazonka.DocumentDB.DeleteDBCluster
+    Amazonka.DocumentDB.DeleteDBClusterParameterGroup
+    Amazonka.DocumentDB.DeleteDBClusterSnapshot
+    Amazonka.DocumentDB.DeleteDBInstance
+    Amazonka.DocumentDB.DeleteDBSubnetGroup
+    Amazonka.DocumentDB.DeleteEventSubscription
+    Amazonka.DocumentDB.DeleteGlobalCluster
+    Amazonka.DocumentDB.DescribeCertificates
+    Amazonka.DocumentDB.DescribeDBClusterParameterGroups
+    Amazonka.DocumentDB.DescribeDBClusterParameters
+    Amazonka.DocumentDB.DescribeDBClusters
+    Amazonka.DocumentDB.DescribeDBClusterSnapshotAttributes
+    Amazonka.DocumentDB.DescribeDBClusterSnapshots
+    Amazonka.DocumentDB.DescribeDBEngineVersions
+    Amazonka.DocumentDB.DescribeDBInstances
+    Amazonka.DocumentDB.DescribeDBSubnetGroups
+    Amazonka.DocumentDB.DescribeEngineDefaultClusterParameters
+    Amazonka.DocumentDB.DescribeEventCategories
+    Amazonka.DocumentDB.DescribeEvents
+    Amazonka.DocumentDB.DescribeEventSubscriptions
+    Amazonka.DocumentDB.DescribeGlobalClusters
+    Amazonka.DocumentDB.DescribeOrderableDBInstanceOptions
+    Amazonka.DocumentDB.DescribePendingMaintenanceActions
+    Amazonka.DocumentDB.FailoverDBCluster
+    Amazonka.DocumentDB.Lens
+    Amazonka.DocumentDB.ListTagsForResource
+    Amazonka.DocumentDB.ModifyDBCluster
+    Amazonka.DocumentDB.ModifyDBClusterParameterGroup
+    Amazonka.DocumentDB.ModifyDBClusterSnapshotAttribute
+    Amazonka.DocumentDB.ModifyDBInstance
+    Amazonka.DocumentDB.ModifyDBSubnetGroup
+    Amazonka.DocumentDB.ModifyEventSubscription
+    Amazonka.DocumentDB.ModifyGlobalCluster
+    Amazonka.DocumentDB.RebootDBInstance
+    Amazonka.DocumentDB.RemoveFromGlobalCluster
+    Amazonka.DocumentDB.RemoveSourceIdentifierFromSubscription
+    Amazonka.DocumentDB.RemoveTagsFromResource
+    Amazonka.DocumentDB.ResetDBClusterParameterGroup
+    Amazonka.DocumentDB.RestoreDBClusterFromSnapshot
+    Amazonka.DocumentDB.RestoreDBClusterToPointInTime
+    Amazonka.DocumentDB.StartDBCluster
+    Amazonka.DocumentDB.StopDBCluster
+    Amazonka.DocumentDB.Types
+    Amazonka.DocumentDB.Types.ApplyMethod
+    Amazonka.DocumentDB.Types.AvailabilityZone
+    Amazonka.DocumentDB.Types.Certificate
+    Amazonka.DocumentDB.Types.CloudwatchLogsExportConfiguration
+    Amazonka.DocumentDB.Types.DBCluster
+    Amazonka.DocumentDB.Types.DBClusterMember
+    Amazonka.DocumentDB.Types.DBClusterParameterGroup
+    Amazonka.DocumentDB.Types.DBClusterParameterGroupNameMessage
+    Amazonka.DocumentDB.Types.DBClusterRole
+    Amazonka.DocumentDB.Types.DBClusterSnapshot
+    Amazonka.DocumentDB.Types.DBClusterSnapshotAttribute
+    Amazonka.DocumentDB.Types.DBClusterSnapshotAttributesResult
+    Amazonka.DocumentDB.Types.DBEngineVersion
+    Amazonka.DocumentDB.Types.DBInstance
+    Amazonka.DocumentDB.Types.DBInstanceStatusInfo
+    Amazonka.DocumentDB.Types.DBSubnetGroup
+    Amazonka.DocumentDB.Types.Endpoint
+    Amazonka.DocumentDB.Types.EngineDefaults
+    Amazonka.DocumentDB.Types.Event
+    Amazonka.DocumentDB.Types.EventCategoriesMap
+    Amazonka.DocumentDB.Types.EventSubscription
+    Amazonka.DocumentDB.Types.Filter
+    Amazonka.DocumentDB.Types.GlobalCluster
+    Amazonka.DocumentDB.Types.GlobalClusterMember
+    Amazonka.DocumentDB.Types.OrderableDBInstanceOption
+    Amazonka.DocumentDB.Types.Parameter
+    Amazonka.DocumentDB.Types.PendingCloudwatchLogsExports
+    Amazonka.DocumentDB.Types.PendingMaintenanceAction
+    Amazonka.DocumentDB.Types.PendingModifiedValues
+    Amazonka.DocumentDB.Types.ResourcePendingMaintenanceActions
+    Amazonka.DocumentDB.Types.SourceType
+    Amazonka.DocumentDB.Types.Subnet
+    Amazonka.DocumentDB.Types.Tag
+    Amazonka.DocumentDB.Types.UpgradeTarget
+    Amazonka.DocumentDB.Types.VpcSecurityGroupMembership
+    Amazonka.DocumentDB.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -154,9 +154,9 @@ test-suite amazonka-docdb-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.DocumentDB
-    Test.AWS.DocumentDB.Internal
-    Test.AWS.Gen.DocumentDB
+    Test.Amazonka.DocumentDB
+    Test.Amazonka.DocumentDB.Internal
+    Test.Amazonka.Gen.DocumentDB
 
   build-depends:
     , amazonka              ^>=2.0

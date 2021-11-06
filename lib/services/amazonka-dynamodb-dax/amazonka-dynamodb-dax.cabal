@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.DAX.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.DAX.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.DAX" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.DAX" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,55 +45,55 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.DAX
-    Network.AWS.DAX.CreateCluster
-    Network.AWS.DAX.CreateParameterGroup
-    Network.AWS.DAX.CreateSubnetGroup
-    Network.AWS.DAX.DecreaseReplicationFactor
-    Network.AWS.DAX.DeleteCluster
-    Network.AWS.DAX.DeleteParameterGroup
-    Network.AWS.DAX.DeleteSubnetGroup
-    Network.AWS.DAX.DescribeClusters
-    Network.AWS.DAX.DescribeDefaultParameters
-    Network.AWS.DAX.DescribeEvents
-    Network.AWS.DAX.DescribeParameterGroups
-    Network.AWS.DAX.DescribeParameters
-    Network.AWS.DAX.DescribeSubnetGroups
-    Network.AWS.DAX.IncreaseReplicationFactor
-    Network.AWS.DAX.Lens
-    Network.AWS.DAX.ListTags
-    Network.AWS.DAX.RebootNode
-    Network.AWS.DAX.TagResource
-    Network.AWS.DAX.Types
-    Network.AWS.DAX.Types.ChangeType
-    Network.AWS.DAX.Types.Cluster
-    Network.AWS.DAX.Types.ClusterEndpointEncryptionType
-    Network.AWS.DAX.Types.Endpoint
-    Network.AWS.DAX.Types.Event
-    Network.AWS.DAX.Types.IsModifiable
-    Network.AWS.DAX.Types.Node
-    Network.AWS.DAX.Types.NodeTypeSpecificValue
-    Network.AWS.DAX.Types.NotificationConfiguration
-    Network.AWS.DAX.Types.Parameter
-    Network.AWS.DAX.Types.ParameterGroup
-    Network.AWS.DAX.Types.ParameterGroupStatus
-    Network.AWS.DAX.Types.ParameterNameValue
-    Network.AWS.DAX.Types.ParameterType
-    Network.AWS.DAX.Types.SecurityGroupMembership
-    Network.AWS.DAX.Types.SourceType
-    Network.AWS.DAX.Types.SSEDescription
-    Network.AWS.DAX.Types.SSESpecification
-    Network.AWS.DAX.Types.SSEStatus
-    Network.AWS.DAX.Types.Subnet
-    Network.AWS.DAX.Types.SubnetGroup
-    Network.AWS.DAX.Types.Tag
-    Network.AWS.DAX.UntagResource
-    Network.AWS.DAX.UpdateCluster
-    Network.AWS.DAX.UpdateParameterGroup
-    Network.AWS.DAX.UpdateSubnetGroup
-    Network.AWS.DAX.Waiters
+    Amazonka.DAX
+    Amazonka.DAX.CreateCluster
+    Amazonka.DAX.CreateParameterGroup
+    Amazonka.DAX.CreateSubnetGroup
+    Amazonka.DAX.DecreaseReplicationFactor
+    Amazonka.DAX.DeleteCluster
+    Amazonka.DAX.DeleteParameterGroup
+    Amazonka.DAX.DeleteSubnetGroup
+    Amazonka.DAX.DescribeClusters
+    Amazonka.DAX.DescribeDefaultParameters
+    Amazonka.DAX.DescribeEvents
+    Amazonka.DAX.DescribeParameterGroups
+    Amazonka.DAX.DescribeParameters
+    Amazonka.DAX.DescribeSubnetGroups
+    Amazonka.DAX.IncreaseReplicationFactor
+    Amazonka.DAX.Lens
+    Amazonka.DAX.ListTags
+    Amazonka.DAX.RebootNode
+    Amazonka.DAX.TagResource
+    Amazonka.DAX.Types
+    Amazonka.DAX.Types.ChangeType
+    Amazonka.DAX.Types.Cluster
+    Amazonka.DAX.Types.ClusterEndpointEncryptionType
+    Amazonka.DAX.Types.Endpoint
+    Amazonka.DAX.Types.Event
+    Amazonka.DAX.Types.IsModifiable
+    Amazonka.DAX.Types.Node
+    Amazonka.DAX.Types.NodeTypeSpecificValue
+    Amazonka.DAX.Types.NotificationConfiguration
+    Amazonka.DAX.Types.Parameter
+    Amazonka.DAX.Types.ParameterGroup
+    Amazonka.DAX.Types.ParameterGroupStatus
+    Amazonka.DAX.Types.ParameterNameValue
+    Amazonka.DAX.Types.ParameterType
+    Amazonka.DAX.Types.SecurityGroupMembership
+    Amazonka.DAX.Types.SourceType
+    Amazonka.DAX.Types.SSEDescription
+    Amazonka.DAX.Types.SSESpecification
+    Amazonka.DAX.Types.SSEStatus
+    Amazonka.DAX.Types.Subnet
+    Amazonka.DAX.Types.SubnetGroup
+    Amazonka.DAX.Types.Tag
+    Amazonka.DAX.UntagResource
+    Amazonka.DAX.UpdateCluster
+    Amazonka.DAX.UpdateParameterGroup
+    Amazonka.DAX.UpdateSubnetGroup
+    Amazonka.DAX.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -109,9 +109,9 @@ test-suite amazonka-dynamodb-dax-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.DAX
-    Test.AWS.DAX.Internal
-    Test.AWS.Gen.DAX
+    Test.Amazonka.DAX
+    Test.Amazonka.DAX.Internal
+    Test.Amazonka.Gen.DAX
 
   build-depends:
     , amazonka               ^>=2.0

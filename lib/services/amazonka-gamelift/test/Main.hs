@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.GameLift
-import Test.AWS.GameLift.Internal
+import Test.Amazonka.GameLift
+import Test.Amazonka.GameLift.Internal
 import Test.Tasty
 
 main :: IO ()

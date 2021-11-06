@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.CognitoSync.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.CognitoSync.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.CognitoSync" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.CognitoSync" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,40 +45,40 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.CognitoSync
-    Network.AWS.CognitoSync.BulkPublish
-    Network.AWS.CognitoSync.DeleteDataset
-    Network.AWS.CognitoSync.DescribeDataset
-    Network.AWS.CognitoSync.DescribeIdentityPoolUsage
-    Network.AWS.CognitoSync.DescribeIdentityUsage
-    Network.AWS.CognitoSync.GetBulkPublishDetails
-    Network.AWS.CognitoSync.GetCognitoEvents
-    Network.AWS.CognitoSync.GetIdentityPoolConfiguration
-    Network.AWS.CognitoSync.Lens
-    Network.AWS.CognitoSync.ListDatasets
-    Network.AWS.CognitoSync.ListIdentityPoolUsage
-    Network.AWS.CognitoSync.ListRecords
-    Network.AWS.CognitoSync.RegisterDevice
-    Network.AWS.CognitoSync.SetCognitoEvents
-    Network.AWS.CognitoSync.SetIdentityPoolConfiguration
-    Network.AWS.CognitoSync.SubscribeToDataset
-    Network.AWS.CognitoSync.Types
-    Network.AWS.CognitoSync.Types.BulkPublishStatus
-    Network.AWS.CognitoSync.Types.CognitoStreams
-    Network.AWS.CognitoSync.Types.Dataset
-    Network.AWS.CognitoSync.Types.IdentityPoolUsage
-    Network.AWS.CognitoSync.Types.IdentityUsage
-    Network.AWS.CognitoSync.Types.Operation
-    Network.AWS.CognitoSync.Types.Platform
-    Network.AWS.CognitoSync.Types.PushSync
-    Network.AWS.CognitoSync.Types.Record
-    Network.AWS.CognitoSync.Types.RecordPatch
-    Network.AWS.CognitoSync.Types.StreamingStatus
-    Network.AWS.CognitoSync.UnsubscribeFromDataset
-    Network.AWS.CognitoSync.UpdateRecords
-    Network.AWS.CognitoSync.Waiters
+    Amazonka.CognitoSync
+    Amazonka.CognitoSync.BulkPublish
+    Amazonka.CognitoSync.DeleteDataset
+    Amazonka.CognitoSync.DescribeDataset
+    Amazonka.CognitoSync.DescribeIdentityPoolUsage
+    Amazonka.CognitoSync.DescribeIdentityUsage
+    Amazonka.CognitoSync.GetBulkPublishDetails
+    Amazonka.CognitoSync.GetCognitoEvents
+    Amazonka.CognitoSync.GetIdentityPoolConfiguration
+    Amazonka.CognitoSync.Lens
+    Amazonka.CognitoSync.ListDatasets
+    Amazonka.CognitoSync.ListIdentityPoolUsage
+    Amazonka.CognitoSync.ListRecords
+    Amazonka.CognitoSync.RegisterDevice
+    Amazonka.CognitoSync.SetCognitoEvents
+    Amazonka.CognitoSync.SetIdentityPoolConfiguration
+    Amazonka.CognitoSync.SubscribeToDataset
+    Amazonka.CognitoSync.Types
+    Amazonka.CognitoSync.Types.BulkPublishStatus
+    Amazonka.CognitoSync.Types.CognitoStreams
+    Amazonka.CognitoSync.Types.Dataset
+    Amazonka.CognitoSync.Types.IdentityPoolUsage
+    Amazonka.CognitoSync.Types.IdentityUsage
+    Amazonka.CognitoSync.Types.Operation
+    Amazonka.CognitoSync.Types.Platform
+    Amazonka.CognitoSync.Types.PushSync
+    Amazonka.CognitoSync.Types.Record
+    Amazonka.CognitoSync.Types.RecordPatch
+    Amazonka.CognitoSync.Types.StreamingStatus
+    Amazonka.CognitoSync.UnsubscribeFromDataset
+    Amazonka.CognitoSync.UpdateRecords
+    Amazonka.CognitoSync.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -94,9 +94,9 @@ test-suite amazonka-cognito-sync-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CognitoSync
-    Test.AWS.CognitoSync.Internal
-    Test.AWS.Gen.CognitoSync
+    Test.Amazonka.CognitoSync
+    Test.Amazonka.CognitoSync.Internal
+    Test.Amazonka.Gen.CognitoSync
 
   build-depends:
     , amazonka               ^>=2.0

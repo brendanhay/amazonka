@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.IVS.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.IVS.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.IVS" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.IVS" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,56 +45,56 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.IVS
-    Network.AWS.IVS.BatchGetChannel
-    Network.AWS.IVS.BatchGetStreamKey
-    Network.AWS.IVS.CreateChannel
-    Network.AWS.IVS.CreateRecordingConfiguration
-    Network.AWS.IVS.CreateStreamKey
-    Network.AWS.IVS.DeleteChannel
-    Network.AWS.IVS.DeletePlaybackKeyPair
-    Network.AWS.IVS.DeleteRecordingConfiguration
-    Network.AWS.IVS.DeleteStreamKey
-    Network.AWS.IVS.GetChannel
-    Network.AWS.IVS.GetPlaybackKeyPair
-    Network.AWS.IVS.GetRecordingConfiguration
-    Network.AWS.IVS.GetStream
-    Network.AWS.IVS.GetStreamKey
-    Network.AWS.IVS.ImportPlaybackKeyPair
-    Network.AWS.IVS.Lens
-    Network.AWS.IVS.ListChannels
-    Network.AWS.IVS.ListPlaybackKeyPairs
-    Network.AWS.IVS.ListRecordingConfigurations
-    Network.AWS.IVS.ListStreamKeys
-    Network.AWS.IVS.ListStreams
-    Network.AWS.IVS.ListTagsForResource
-    Network.AWS.IVS.PutMetadata
-    Network.AWS.IVS.StopStream
-    Network.AWS.IVS.TagResource
-    Network.AWS.IVS.Types
-    Network.AWS.IVS.Types.BatchError
-    Network.AWS.IVS.Types.Channel
-    Network.AWS.IVS.Types.ChannelLatencyMode
-    Network.AWS.IVS.Types.ChannelSummary
-    Network.AWS.IVS.Types.ChannelType
-    Network.AWS.IVS.Types.DestinationConfiguration
-    Network.AWS.IVS.Types.PlaybackKeyPair
-    Network.AWS.IVS.Types.PlaybackKeyPairSummary
-    Network.AWS.IVS.Types.RecordingConfiguration
-    Network.AWS.IVS.Types.RecordingConfigurationState
-    Network.AWS.IVS.Types.RecordingConfigurationSummary
-    Network.AWS.IVS.Types.S3DestinationConfiguration
-    Network.AWS.IVS.Types.Stream
-    Network.AWS.IVS.Types.StreamHealth
-    Network.AWS.IVS.Types.StreamKey
-    Network.AWS.IVS.Types.StreamKeySummary
-    Network.AWS.IVS.Types.StreamState
-    Network.AWS.IVS.Types.StreamSummary
-    Network.AWS.IVS.UntagResource
-    Network.AWS.IVS.UpdateChannel
-    Network.AWS.IVS.Waiters
+    Amazonka.IVS
+    Amazonka.IVS.BatchGetChannel
+    Amazonka.IVS.BatchGetStreamKey
+    Amazonka.IVS.CreateChannel
+    Amazonka.IVS.CreateRecordingConfiguration
+    Amazonka.IVS.CreateStreamKey
+    Amazonka.IVS.DeleteChannel
+    Amazonka.IVS.DeletePlaybackKeyPair
+    Amazonka.IVS.DeleteRecordingConfiguration
+    Amazonka.IVS.DeleteStreamKey
+    Amazonka.IVS.GetChannel
+    Amazonka.IVS.GetPlaybackKeyPair
+    Amazonka.IVS.GetRecordingConfiguration
+    Amazonka.IVS.GetStream
+    Amazonka.IVS.GetStreamKey
+    Amazonka.IVS.ImportPlaybackKeyPair
+    Amazonka.IVS.Lens
+    Amazonka.IVS.ListChannels
+    Amazonka.IVS.ListPlaybackKeyPairs
+    Amazonka.IVS.ListRecordingConfigurations
+    Amazonka.IVS.ListStreamKeys
+    Amazonka.IVS.ListStreams
+    Amazonka.IVS.ListTagsForResource
+    Amazonka.IVS.PutMetadata
+    Amazonka.IVS.StopStream
+    Amazonka.IVS.TagResource
+    Amazonka.IVS.Types
+    Amazonka.IVS.Types.BatchError
+    Amazonka.IVS.Types.Channel
+    Amazonka.IVS.Types.ChannelLatencyMode
+    Amazonka.IVS.Types.ChannelSummary
+    Amazonka.IVS.Types.ChannelType
+    Amazonka.IVS.Types.DestinationConfiguration
+    Amazonka.IVS.Types.PlaybackKeyPair
+    Amazonka.IVS.Types.PlaybackKeyPairSummary
+    Amazonka.IVS.Types.RecordingConfiguration
+    Amazonka.IVS.Types.RecordingConfigurationState
+    Amazonka.IVS.Types.RecordingConfigurationSummary
+    Amazonka.IVS.Types.S3DestinationConfiguration
+    Amazonka.IVS.Types.Stream
+    Amazonka.IVS.Types.StreamHealth
+    Amazonka.IVS.Types.StreamKey
+    Amazonka.IVS.Types.StreamKeySummary
+    Amazonka.IVS.Types.StreamState
+    Amazonka.IVS.Types.StreamSummary
+    Amazonka.IVS.UntagResource
+    Amazonka.IVS.UpdateChannel
+    Amazonka.IVS.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -110,9 +110,9 @@ test-suite amazonka-ivs-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.IVS
-    Test.AWS.IVS
-    Test.AWS.IVS.Internal
+    Test.Amazonka.Gen.IVS
+    Test.Amazonka.IVS
+    Test.Amazonka.IVS.Internal
 
   build-depends:
     , amazonka              ^>=2.0

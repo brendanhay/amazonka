@@ -4,14 +4,14 @@ load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 haskell_library(
     name = "amazonka-sagemaker-edge",
     srcs = [
-        "gen/Network/AWS/SageMakerEdge.hs",
-        "gen/Network/AWS/SageMakerEdge/GetDeviceRegistration.hs",
-        "gen/Network/AWS/SageMakerEdge/Lens.hs",
-        "gen/Network/AWS/SageMakerEdge/SendHeartbeat.hs",
-        "gen/Network/AWS/SageMakerEdge/Types.hs",
-        "gen/Network/AWS/SageMakerEdge/Types/EdgeMetric.hs",
-        "gen/Network/AWS/SageMakerEdge/Types/Model.hs",
-        "gen/Network/AWS/SageMakerEdge/Waiters.hs",
+        "gen/Amazonka/SageMakerEdge.hs",
+        "gen/Amazonka/SageMakerEdge/GetDeviceRegistration.hs",
+        "gen/Amazonka/SageMakerEdge/Lens.hs",
+        "gen/Amazonka/SageMakerEdge/SendHeartbeat.hs",
+        "gen/Amazonka/SageMakerEdge/Types.hs",
+        "gen/Amazonka/SageMakerEdge/Types/EdgeMetric.hs",
+        "gen/Amazonka/SageMakerEdge/Types/Model.hs",
+        "gen/Amazonka/SageMakerEdge/Waiters.hs",
     ],
     compiler_flags = [
         "-DVERSION_amazonka_sagemaker_edge=\"2.0\"",
@@ -34,9 +34,9 @@ haskell_test(
     name = "amazonka-sagemaker-edge-test",
     srcs = [
         "test/Main.hs",
-        "test/Test/AWS/Gen/SageMakerEdge.hs",
-        "test/Test/AWS/SageMakerEdge.hs",
-        "test/Test/AWS/SageMakerEdge/Internal.hs",
+        "test/Test/Amazonka/Gen/SageMakerEdge.hs",
+        "test/Test/Amazonka/SageMakerEdge.hs",
+        "test/Test/Amazonka/SageMakerEdge/Internal.hs",
     ],
     compiler_flags = [
         "-DVERSION_amazonka_sagemaker_edge=\"2.0\"",

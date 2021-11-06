@@ -2,7 +2,7 @@
 
 module Main (main) where
 
-import Test.AWS.S3.Encryption.Envelope
+import Test.Amazonka.S3.Encryption.Envelope
 import Test.Tasty
 
 main :: IO ()

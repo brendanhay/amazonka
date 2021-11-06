@@ -4,14 +4,14 @@ load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 haskell_library(
     name = "amazonka-workmailmessageflow",
     srcs = [
-        "gen/Network/AWS/WorkMailMessageFlow.hs",
-        "gen/Network/AWS/WorkMailMessageFlow/GetRawMessageContent.hs",
-        "gen/Network/AWS/WorkMailMessageFlow/Lens.hs",
-        "gen/Network/AWS/WorkMailMessageFlow/PutRawMessageContent.hs",
-        "gen/Network/AWS/WorkMailMessageFlow/Types.hs",
-        "gen/Network/AWS/WorkMailMessageFlow/Types/RawMessageContent.hs",
-        "gen/Network/AWS/WorkMailMessageFlow/Types/S3Reference.hs",
-        "gen/Network/AWS/WorkMailMessageFlow/Waiters.hs",
+        "gen/Amazonka/WorkMailMessageFlow.hs",
+        "gen/Amazonka/WorkMailMessageFlow/GetRawMessageContent.hs",
+        "gen/Amazonka/WorkMailMessageFlow/Lens.hs",
+        "gen/Amazonka/WorkMailMessageFlow/PutRawMessageContent.hs",
+        "gen/Amazonka/WorkMailMessageFlow/Types.hs",
+        "gen/Amazonka/WorkMailMessageFlow/Types/RawMessageContent.hs",
+        "gen/Amazonka/WorkMailMessageFlow/Types/S3Reference.hs",
+        "gen/Amazonka/WorkMailMessageFlow/Waiters.hs",
     ],
     compiler_flags = [
         "-DVERSION_amazonka_workmailmessageflow=\"2.0\"",
@@ -34,9 +34,9 @@ haskell_test(
     name = "amazonka-workmailmessageflow-test",
     srcs = [
         "test/Main.hs",
-        "test/Test/AWS/Gen/WorkMailMessageFlow.hs",
-        "test/Test/AWS/WorkMailMessageFlow.hs",
-        "test/Test/AWS/WorkMailMessageFlow/Internal.hs",
+        "test/Test/Amazonka/Gen/WorkMailMessageFlow.hs",
+        "test/Test/Amazonka/WorkMailMessageFlow.hs",
+        "test/Test/Amazonka/WorkMailMessageFlow/Internal.hs",
     ],
     compiler_flags = [
         "-DVERSION_amazonka_workmailmessageflow=\"2.0\"",

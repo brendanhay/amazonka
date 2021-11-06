@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.ApplicationAutoScaling.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.ApplicationAutoScaling.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.ApplicationAutoScaling" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.ApplicationAutoScaling" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,43 +45,43 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.ApplicationAutoScaling
-    Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy
-    Network.AWS.ApplicationAutoScaling.DeleteScheduledAction
-    Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget
-    Network.AWS.ApplicationAutoScaling.DescribeScalableTargets
-    Network.AWS.ApplicationAutoScaling.DescribeScalingActivities
-    Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies
-    Network.AWS.ApplicationAutoScaling.DescribeScheduledActions
-    Network.AWS.ApplicationAutoScaling.Lens
-    Network.AWS.ApplicationAutoScaling.PutScalingPolicy
-    Network.AWS.ApplicationAutoScaling.PutScheduledAction
-    Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
-    Network.AWS.ApplicationAutoScaling.Types
-    Network.AWS.ApplicationAutoScaling.Types.AdjustmentType
-    Network.AWS.ApplicationAutoScaling.Types.Alarm
-    Network.AWS.ApplicationAutoScaling.Types.CustomizedMetricSpecification
-    Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType
-    Network.AWS.ApplicationAutoScaling.Types.MetricDimension
-    Network.AWS.ApplicationAutoScaling.Types.MetricStatistic
-    Network.AWS.ApplicationAutoScaling.Types.MetricType
-    Network.AWS.ApplicationAutoScaling.Types.PolicyType
-    Network.AWS.ApplicationAutoScaling.Types.PredefinedMetricSpecification
-    Network.AWS.ApplicationAutoScaling.Types.ScalableDimension
-    Network.AWS.ApplicationAutoScaling.Types.ScalableTarget
-    Network.AWS.ApplicationAutoScaling.Types.ScalableTargetAction
-    Network.AWS.ApplicationAutoScaling.Types.ScalingActivity
-    Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode
-    Network.AWS.ApplicationAutoScaling.Types.ScalingPolicy
-    Network.AWS.ApplicationAutoScaling.Types.ScheduledAction
-    Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace
-    Network.AWS.ApplicationAutoScaling.Types.StepAdjustment
-    Network.AWS.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration
-    Network.AWS.ApplicationAutoScaling.Types.SuspendedState
-    Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration
-    Network.AWS.ApplicationAutoScaling.Waiters
+    Amazonka.ApplicationAutoScaling
+    Amazonka.ApplicationAutoScaling.DeleteScalingPolicy
+    Amazonka.ApplicationAutoScaling.DeleteScheduledAction
+    Amazonka.ApplicationAutoScaling.DeregisterScalableTarget
+    Amazonka.ApplicationAutoScaling.DescribeScalableTargets
+    Amazonka.ApplicationAutoScaling.DescribeScalingActivities
+    Amazonka.ApplicationAutoScaling.DescribeScalingPolicies
+    Amazonka.ApplicationAutoScaling.DescribeScheduledActions
+    Amazonka.ApplicationAutoScaling.Lens
+    Amazonka.ApplicationAutoScaling.PutScalingPolicy
+    Amazonka.ApplicationAutoScaling.PutScheduledAction
+    Amazonka.ApplicationAutoScaling.RegisterScalableTarget
+    Amazonka.ApplicationAutoScaling.Types
+    Amazonka.ApplicationAutoScaling.Types.AdjustmentType
+    Amazonka.ApplicationAutoScaling.Types.Alarm
+    Amazonka.ApplicationAutoScaling.Types.CustomizedMetricSpecification
+    Amazonka.ApplicationAutoScaling.Types.MetricAggregationType
+    Amazonka.ApplicationAutoScaling.Types.MetricDimension
+    Amazonka.ApplicationAutoScaling.Types.MetricStatistic
+    Amazonka.ApplicationAutoScaling.Types.MetricType
+    Amazonka.ApplicationAutoScaling.Types.PolicyType
+    Amazonka.ApplicationAutoScaling.Types.PredefinedMetricSpecification
+    Amazonka.ApplicationAutoScaling.Types.ScalableDimension
+    Amazonka.ApplicationAutoScaling.Types.ScalableTarget
+    Amazonka.ApplicationAutoScaling.Types.ScalableTargetAction
+    Amazonka.ApplicationAutoScaling.Types.ScalingActivity
+    Amazonka.ApplicationAutoScaling.Types.ScalingActivityStatusCode
+    Amazonka.ApplicationAutoScaling.Types.ScalingPolicy
+    Amazonka.ApplicationAutoScaling.Types.ScheduledAction
+    Amazonka.ApplicationAutoScaling.Types.ServiceNamespace
+    Amazonka.ApplicationAutoScaling.Types.StepAdjustment
+    Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration
+    Amazonka.ApplicationAutoScaling.Types.SuspendedState
+    Amazonka.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration
+    Amazonka.ApplicationAutoScaling.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -97,9 +97,9 @@ test-suite amazonka-application-autoscaling-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.ApplicationAutoScaling
-    Test.AWS.ApplicationAutoScaling.Internal
-    Test.AWS.Gen.ApplicationAutoScaling
+    Test.Amazonka.ApplicationAutoScaling
+    Test.Amazonka.ApplicationAutoScaling.Internal
+    Test.Amazonka.Gen.ApplicationAutoScaling
 
   build-depends:
     , amazonka                          ^>=2.0

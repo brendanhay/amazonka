@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.XRay
-import Test.AWS.XRay.Internal
+import Test.Amazonka.XRay
+import Test.Amazonka.XRay.Internal
 import Test.Tasty
 
 main :: IO ()

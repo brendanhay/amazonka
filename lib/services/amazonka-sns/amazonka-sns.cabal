@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.SNS.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.SNS.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.SNS" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.SNS" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,63 +45,63 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.SNS
-    Network.AWS.SNS.AddPermission
-    Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut
-    Network.AWS.SNS.ConfirmSubscription
-    Network.AWS.SNS.CreatePlatformApplication
-    Network.AWS.SNS.CreatePlatformEndpoint
-    Network.AWS.SNS.CreateSMSSandboxPhoneNumber
-    Network.AWS.SNS.CreateTopic
-    Network.AWS.SNS.DeleteEndpoint
-    Network.AWS.SNS.DeletePlatformApplication
-    Network.AWS.SNS.DeleteSMSSandboxPhoneNumber
-    Network.AWS.SNS.DeleteTopic
-    Network.AWS.SNS.GetEndpointAttributes
-    Network.AWS.SNS.GetPlatformApplicationAttributes
-    Network.AWS.SNS.GetSMSAttributes
-    Network.AWS.SNS.GetSMSSandboxAccountStatus
-    Network.AWS.SNS.GetSubscriptionAttributes
-    Network.AWS.SNS.GetTopicAttributes
-    Network.AWS.SNS.Lens
-    Network.AWS.SNS.ListEndpointsByPlatformApplication
-    Network.AWS.SNS.ListOriginationNumbers
-    Network.AWS.SNS.ListPhoneNumbersOptedOut
-    Network.AWS.SNS.ListPlatformApplications
-    Network.AWS.SNS.ListSMSSandboxPhoneNumbers
-    Network.AWS.SNS.ListSubscriptions
-    Network.AWS.SNS.ListSubscriptionsByTopic
-    Network.AWS.SNS.ListTagsForResource
-    Network.AWS.SNS.ListTopics
-    Network.AWS.SNS.OptInPhoneNumber
-    Network.AWS.SNS.Publish
-    Network.AWS.SNS.RemovePermission
-    Network.AWS.SNS.SetEndpointAttributes
-    Network.AWS.SNS.SetPlatformApplicationAttributes
-    Network.AWS.SNS.SetSMSAttributes
-    Network.AWS.SNS.SetSubscriptionAttributes
-    Network.AWS.SNS.SetTopicAttributes
-    Network.AWS.SNS.Subscribe
-    Network.AWS.SNS.TagResource
-    Network.AWS.SNS.Types
-    Network.AWS.SNS.Types.Endpoint
-    Network.AWS.SNS.Types.LanguageCodeString
-    Network.AWS.SNS.Types.MessageAttributeValue
-    Network.AWS.SNS.Types.NumberCapability
-    Network.AWS.SNS.Types.PhoneNumberInformation
-    Network.AWS.SNS.Types.PlatformApplication
-    Network.AWS.SNS.Types.RouteType
-    Network.AWS.SNS.Types.SMSSandboxPhoneNumber
-    Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus
-    Network.AWS.SNS.Types.Subscription
-    Network.AWS.SNS.Types.Tag
-    Network.AWS.SNS.Types.Topic
-    Network.AWS.SNS.Unsubscribe
-    Network.AWS.SNS.UntagResource
-    Network.AWS.SNS.VerifySMSSandboxPhoneNumber
-    Network.AWS.SNS.Waiters
+    Amazonka.SNS
+    Amazonka.SNS.AddPermission
+    Amazonka.SNS.CheckIfPhoneNumberIsOptedOut
+    Amazonka.SNS.ConfirmSubscription
+    Amazonka.SNS.CreatePlatformApplication
+    Amazonka.SNS.CreatePlatformEndpoint
+    Amazonka.SNS.CreateSMSSandboxPhoneNumber
+    Amazonka.SNS.CreateTopic
+    Amazonka.SNS.DeleteEndpoint
+    Amazonka.SNS.DeletePlatformApplication
+    Amazonka.SNS.DeleteSMSSandboxPhoneNumber
+    Amazonka.SNS.DeleteTopic
+    Amazonka.SNS.GetEndpointAttributes
+    Amazonka.SNS.GetPlatformApplicationAttributes
+    Amazonka.SNS.GetSMSAttributes
+    Amazonka.SNS.GetSMSSandboxAccountStatus
+    Amazonka.SNS.GetSubscriptionAttributes
+    Amazonka.SNS.GetTopicAttributes
+    Amazonka.SNS.Lens
+    Amazonka.SNS.ListEndpointsByPlatformApplication
+    Amazonka.SNS.ListOriginationNumbers
+    Amazonka.SNS.ListPhoneNumbersOptedOut
+    Amazonka.SNS.ListPlatformApplications
+    Amazonka.SNS.ListSMSSandboxPhoneNumbers
+    Amazonka.SNS.ListSubscriptions
+    Amazonka.SNS.ListSubscriptionsByTopic
+    Amazonka.SNS.ListTagsForResource
+    Amazonka.SNS.ListTopics
+    Amazonka.SNS.OptInPhoneNumber
+    Amazonka.SNS.Publish
+    Amazonka.SNS.RemovePermission
+    Amazonka.SNS.SetEndpointAttributes
+    Amazonka.SNS.SetPlatformApplicationAttributes
+    Amazonka.SNS.SetSMSAttributes
+    Amazonka.SNS.SetSubscriptionAttributes
+    Amazonka.SNS.SetTopicAttributes
+    Amazonka.SNS.Subscribe
+    Amazonka.SNS.TagResource
+    Amazonka.SNS.Types
+    Amazonka.SNS.Types.Endpoint
+    Amazonka.SNS.Types.LanguageCodeString
+    Amazonka.SNS.Types.MessageAttributeValue
+    Amazonka.SNS.Types.NumberCapability
+    Amazonka.SNS.Types.PhoneNumberInformation
+    Amazonka.SNS.Types.PlatformApplication
+    Amazonka.SNS.Types.RouteType
+    Amazonka.SNS.Types.SMSSandboxPhoneNumber
+    Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus
+    Amazonka.SNS.Types.Subscription
+    Amazonka.SNS.Types.Tag
+    Amazonka.SNS.Types.Topic
+    Amazonka.SNS.Unsubscribe
+    Amazonka.SNS.UntagResource
+    Amazonka.SNS.VerifySMSSandboxPhoneNumber
+    Amazonka.SNS.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -117,9 +117,9 @@ test-suite amazonka-sns-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.SNS
-    Test.AWS.SNS
-    Test.AWS.SNS.Internal
+    Test.Amazonka.Gen.SNS
+    Test.Amazonka.SNS
+    Test.Amazonka.SNS.Internal
 
   build-depends:
     , amazonka              ^>=2.0

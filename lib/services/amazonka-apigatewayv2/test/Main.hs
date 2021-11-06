@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.ApiGatewayV2
-import Test.AWS.ApiGatewayV2.Internal
+import Test.Amazonka.ApiGatewayV2
+import Test.Amazonka.ApiGatewayV2.Internal
 import Test.Tasty
 
 main :: IO ()

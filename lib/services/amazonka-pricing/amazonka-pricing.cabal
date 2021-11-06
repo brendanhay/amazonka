@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.Pricing.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.Pricing.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.Pricing" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.Pricing" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,19 +45,19 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.Pricing
-    Network.AWS.Pricing.DescribeServices
-    Network.AWS.Pricing.GetAttributeValues
-    Network.AWS.Pricing.GetProducts
-    Network.AWS.Pricing.Lens
-    Network.AWS.Pricing.Types
-    Network.AWS.Pricing.Types.AttributeValue
-    Network.AWS.Pricing.Types.Filter
-    Network.AWS.Pricing.Types.FilterType
-    Network.AWS.Pricing.Types.PricingService
-    Network.AWS.Pricing.Waiters
+    Amazonka.Pricing
+    Amazonka.Pricing.DescribeServices
+    Amazonka.Pricing.GetAttributeValues
+    Amazonka.Pricing.GetProducts
+    Amazonka.Pricing.Lens
+    Amazonka.Pricing.Types
+    Amazonka.Pricing.Types.AttributeValue
+    Amazonka.Pricing.Types.Filter
+    Amazonka.Pricing.Types.FilterType
+    Amazonka.Pricing.Types.PricingService
+    Amazonka.Pricing.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -73,9 +73,9 @@ test-suite amazonka-pricing-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.Pricing
-    Test.AWS.Pricing
-    Test.AWS.Pricing.Internal
+    Test.Amazonka.Gen.Pricing
+    Test.Amazonka.Pricing
+    Test.Amazonka.Pricing.Internal
 
   build-depends:
     , amazonka              ^>=2.0

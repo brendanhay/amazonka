@@ -1,0 +1,219 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Amazonka.DynamoDB.UpdateContributorInsights
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Updates the status for contributor insights for a specific table or
+-- index.
+module Amazonka.DynamoDB.UpdateContributorInsights
+  ( -- * Creating a Request
+    UpdateContributorInsights (..),
+    newUpdateContributorInsights,
+
+    -- * Request Lenses
+    updateContributorInsights_indexName,
+    updateContributorInsights_tableName,
+    updateContributorInsights_contributorInsightsAction,
+
+    -- * Destructuring the Response
+    UpdateContributorInsightsResponse (..),
+    newUpdateContributorInsightsResponse,
+
+    -- * Response Lenses
+    updateContributorInsightsResponse_contributorInsightsStatus,
+    updateContributorInsightsResponse_tableName,
+    updateContributorInsightsResponse_indexName,
+    updateContributorInsightsResponse_httpStatus,
+  )
+where
+
+import qualified Amazonka.Core as Core
+import Amazonka.DynamoDB.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+
+-- | /See:/ 'newUpdateContributorInsights' smart constructor.
+data UpdateContributorInsights = UpdateContributorInsights'
+  { -- | The global secondary index name, if applicable.
+    indexName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the table.
+    tableName :: Prelude.Text,
+    -- | Represents the contributor insights action.
+    contributorInsightsAction :: ContributorInsightsAction
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'UpdateContributorInsights' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'indexName', 'updateContributorInsights_indexName' - The global secondary index name, if applicable.
+--
+-- 'tableName', 'updateContributorInsights_tableName' - The name of the table.
+--
+-- 'contributorInsightsAction', 'updateContributorInsights_contributorInsightsAction' - Represents the contributor insights action.
+newUpdateContributorInsights ::
+  -- | 'tableName'
+  Prelude.Text ->
+  -- | 'contributorInsightsAction'
+  ContributorInsightsAction ->
+  UpdateContributorInsights
+newUpdateContributorInsights
+  pTableName_
+  pContributorInsightsAction_ =
+    UpdateContributorInsights'
+      { indexName =
+          Prelude.Nothing,
+        tableName = pTableName_,
+        contributorInsightsAction =
+          pContributorInsightsAction_
+      }
+
+-- | The global secondary index name, if applicable.
+updateContributorInsights_indexName :: Lens.Lens' UpdateContributorInsights (Prelude.Maybe Prelude.Text)
+updateContributorInsights_indexName = Lens.lens (\UpdateContributorInsights' {indexName} -> indexName) (\s@UpdateContributorInsights' {} a -> s {indexName = a} :: UpdateContributorInsights)
+
+-- | The name of the table.
+updateContributorInsights_tableName :: Lens.Lens' UpdateContributorInsights Prelude.Text
+updateContributorInsights_tableName = Lens.lens (\UpdateContributorInsights' {tableName} -> tableName) (\s@UpdateContributorInsights' {} a -> s {tableName = a} :: UpdateContributorInsights)
+
+-- | Represents the contributor insights action.
+updateContributorInsights_contributorInsightsAction :: Lens.Lens' UpdateContributorInsights ContributorInsightsAction
+updateContributorInsights_contributorInsightsAction = Lens.lens (\UpdateContributorInsights' {contributorInsightsAction} -> contributorInsightsAction) (\s@UpdateContributorInsights' {} a -> s {contributorInsightsAction = a} :: UpdateContributorInsights)
+
+instance Core.AWSRequest UpdateContributorInsights where
+  type
+    AWSResponse UpdateContributorInsights =
+      UpdateContributorInsightsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateContributorInsightsResponse'
+            Prelude.<$> (x Core..?> "ContributorInsightsStatus")
+            Prelude.<*> (x Core..?> "TableName")
+            Prelude.<*> (x Core..?> "IndexName")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable UpdateContributorInsights
+
+instance Prelude.NFData UpdateContributorInsights
+
+instance Core.ToHeaders UpdateContributorInsights where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "DynamoDB_20120810.UpdateContributorInsights" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON UpdateContributorInsights where
+  toJSON UpdateContributorInsights' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("IndexName" Core..=) Prelude.<$> indexName,
+            Prelude.Just ("TableName" Core..= tableName),
+            Prelude.Just
+              ( "ContributorInsightsAction"
+                  Core..= contributorInsightsAction
+              )
+          ]
+      )
+
+instance Core.ToPath UpdateContributorInsights where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery UpdateContributorInsights where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newUpdateContributorInsightsResponse' smart constructor.
+data UpdateContributorInsightsResponse = UpdateContributorInsightsResponse'
+  { -- | The status of contributor insights
+    contributorInsightsStatus :: Prelude.Maybe ContributorInsightsStatus,
+    -- | The name of the table.
+    tableName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the global secondary index, if applicable.
+    indexName :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'UpdateContributorInsightsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'contributorInsightsStatus', 'updateContributorInsightsResponse_contributorInsightsStatus' - The status of contributor insights
+--
+-- 'tableName', 'updateContributorInsightsResponse_tableName' - The name of the table.
+--
+-- 'indexName', 'updateContributorInsightsResponse_indexName' - The name of the global secondary index, if applicable.
+--
+-- 'httpStatus', 'updateContributorInsightsResponse_httpStatus' - The response's http status code.
+newUpdateContributorInsightsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateContributorInsightsResponse
+newUpdateContributorInsightsResponse pHttpStatus_ =
+  UpdateContributorInsightsResponse'
+    { contributorInsightsStatus =
+        Prelude.Nothing,
+      tableName = Prelude.Nothing,
+      indexName = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The status of contributor insights
+updateContributorInsightsResponse_contributorInsightsStatus :: Lens.Lens' UpdateContributorInsightsResponse (Prelude.Maybe ContributorInsightsStatus)
+updateContributorInsightsResponse_contributorInsightsStatus = Lens.lens (\UpdateContributorInsightsResponse' {contributorInsightsStatus} -> contributorInsightsStatus) (\s@UpdateContributorInsightsResponse' {} a -> s {contributorInsightsStatus = a} :: UpdateContributorInsightsResponse)
+
+-- | The name of the table.
+updateContributorInsightsResponse_tableName :: Lens.Lens' UpdateContributorInsightsResponse (Prelude.Maybe Prelude.Text)
+updateContributorInsightsResponse_tableName = Lens.lens (\UpdateContributorInsightsResponse' {tableName} -> tableName) (\s@UpdateContributorInsightsResponse' {} a -> s {tableName = a} :: UpdateContributorInsightsResponse)
+
+-- | The name of the global secondary index, if applicable.
+updateContributorInsightsResponse_indexName :: Lens.Lens' UpdateContributorInsightsResponse (Prelude.Maybe Prelude.Text)
+updateContributorInsightsResponse_indexName = Lens.lens (\UpdateContributorInsightsResponse' {indexName} -> indexName) (\s@UpdateContributorInsightsResponse' {} a -> s {indexName = a} :: UpdateContributorInsightsResponse)
+
+-- | The response's http status code.
+updateContributorInsightsResponse_httpStatus :: Lens.Lens' UpdateContributorInsightsResponse Prelude.Int
+updateContributorInsightsResponse_httpStatus = Lens.lens (\UpdateContributorInsightsResponse' {httpStatus} -> httpStatus) (\s@UpdateContributorInsightsResponse' {} a -> s {httpStatus = a} :: UpdateContributorInsightsResponse)
+
+instance
+  Prelude.NFData
+    UpdateContributorInsightsResponse

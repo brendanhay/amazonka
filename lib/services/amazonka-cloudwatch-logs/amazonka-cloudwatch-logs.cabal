@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.CloudWatchLogs.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.CloudWatchLogs.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.CloudWatchLogs" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.CloudWatchLogs" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,80 +45,80 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.CloudWatchLogs
-    Network.AWS.CloudWatchLogs.AssociateKmsKey
-    Network.AWS.CloudWatchLogs.CancelExportTask
-    Network.AWS.CloudWatchLogs.CreateExportTask
-    Network.AWS.CloudWatchLogs.CreateLogGroup
-    Network.AWS.CloudWatchLogs.CreateLogStream
-    Network.AWS.CloudWatchLogs.DeleteDestination
-    Network.AWS.CloudWatchLogs.DeleteLogGroup
-    Network.AWS.CloudWatchLogs.DeleteLogStream
-    Network.AWS.CloudWatchLogs.DeleteMetricFilter
-    Network.AWS.CloudWatchLogs.DeleteQueryDefinition
-    Network.AWS.CloudWatchLogs.DeleteResourcePolicy
-    Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
-    Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
-    Network.AWS.CloudWatchLogs.DescribeDestinations
-    Network.AWS.CloudWatchLogs.DescribeExportTasks
-    Network.AWS.CloudWatchLogs.DescribeLogGroups
-    Network.AWS.CloudWatchLogs.DescribeLogStreams
-    Network.AWS.CloudWatchLogs.DescribeMetricFilters
-    Network.AWS.CloudWatchLogs.DescribeQueries
-    Network.AWS.CloudWatchLogs.DescribeQueryDefinitions
-    Network.AWS.CloudWatchLogs.DescribeResourcePolicies
-    Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
-    Network.AWS.CloudWatchLogs.DisassociateKmsKey
-    Network.AWS.CloudWatchLogs.FilterLogEvents
-    Network.AWS.CloudWatchLogs.GetLogEvents
-    Network.AWS.CloudWatchLogs.GetLogGroupFields
-    Network.AWS.CloudWatchLogs.GetLogRecord
-    Network.AWS.CloudWatchLogs.GetQueryResults
-    Network.AWS.CloudWatchLogs.Lens
-    Network.AWS.CloudWatchLogs.ListTagsLogGroup
-    Network.AWS.CloudWatchLogs.PutDestination
-    Network.AWS.CloudWatchLogs.PutDestinationPolicy
-    Network.AWS.CloudWatchLogs.PutLogEvents
-    Network.AWS.CloudWatchLogs.PutMetricFilter
-    Network.AWS.CloudWatchLogs.PutQueryDefinition
-    Network.AWS.CloudWatchLogs.PutResourcePolicy
-    Network.AWS.CloudWatchLogs.PutRetentionPolicy
-    Network.AWS.CloudWatchLogs.PutSubscriptionFilter
-    Network.AWS.CloudWatchLogs.StartQuery
-    Network.AWS.CloudWatchLogs.StopQuery
-    Network.AWS.CloudWatchLogs.TagLogGroup
-    Network.AWS.CloudWatchLogs.TestMetricFilter
-    Network.AWS.CloudWatchLogs.Types
-    Network.AWS.CloudWatchLogs.Types.Destination
-    Network.AWS.CloudWatchLogs.Types.Distribution
-    Network.AWS.CloudWatchLogs.Types.ExportTask
-    Network.AWS.CloudWatchLogs.Types.ExportTaskExecutionInfo
-    Network.AWS.CloudWatchLogs.Types.ExportTaskStatus
-    Network.AWS.CloudWatchLogs.Types.ExportTaskStatusCode
-    Network.AWS.CloudWatchLogs.Types.FilteredLogEvent
-    Network.AWS.CloudWatchLogs.Types.InputLogEvent
-    Network.AWS.CloudWatchLogs.Types.LogGroup
-    Network.AWS.CloudWatchLogs.Types.LogGroupField
-    Network.AWS.CloudWatchLogs.Types.LogStream
-    Network.AWS.CloudWatchLogs.Types.MetricFilter
-    Network.AWS.CloudWatchLogs.Types.MetricFilterMatchRecord
-    Network.AWS.CloudWatchLogs.Types.MetricTransformation
-    Network.AWS.CloudWatchLogs.Types.OrderBy
-    Network.AWS.CloudWatchLogs.Types.OutputLogEvent
-    Network.AWS.CloudWatchLogs.Types.QueryDefinition
-    Network.AWS.CloudWatchLogs.Types.QueryInfo
-    Network.AWS.CloudWatchLogs.Types.QueryStatistics
-    Network.AWS.CloudWatchLogs.Types.QueryStatus
-    Network.AWS.CloudWatchLogs.Types.RejectedLogEventsInfo
-    Network.AWS.CloudWatchLogs.Types.ResourcePolicy
-    Network.AWS.CloudWatchLogs.Types.ResultField
-    Network.AWS.CloudWatchLogs.Types.SearchedLogStream
-    Network.AWS.CloudWatchLogs.Types.StandardUnit
-    Network.AWS.CloudWatchLogs.Types.SubscriptionFilter
-    Network.AWS.CloudWatchLogs.UntagLogGroup
-    Network.AWS.CloudWatchLogs.Waiters
+    Amazonka.CloudWatchLogs
+    Amazonka.CloudWatchLogs.AssociateKmsKey
+    Amazonka.CloudWatchLogs.CancelExportTask
+    Amazonka.CloudWatchLogs.CreateExportTask
+    Amazonka.CloudWatchLogs.CreateLogGroup
+    Amazonka.CloudWatchLogs.CreateLogStream
+    Amazonka.CloudWatchLogs.DeleteDestination
+    Amazonka.CloudWatchLogs.DeleteLogGroup
+    Amazonka.CloudWatchLogs.DeleteLogStream
+    Amazonka.CloudWatchLogs.DeleteMetricFilter
+    Amazonka.CloudWatchLogs.DeleteQueryDefinition
+    Amazonka.CloudWatchLogs.DeleteResourcePolicy
+    Amazonka.CloudWatchLogs.DeleteRetentionPolicy
+    Amazonka.CloudWatchLogs.DeleteSubscriptionFilter
+    Amazonka.CloudWatchLogs.DescribeDestinations
+    Amazonka.CloudWatchLogs.DescribeExportTasks
+    Amazonka.CloudWatchLogs.DescribeLogGroups
+    Amazonka.CloudWatchLogs.DescribeLogStreams
+    Amazonka.CloudWatchLogs.DescribeMetricFilters
+    Amazonka.CloudWatchLogs.DescribeQueries
+    Amazonka.CloudWatchLogs.DescribeQueryDefinitions
+    Amazonka.CloudWatchLogs.DescribeResourcePolicies
+    Amazonka.CloudWatchLogs.DescribeSubscriptionFilters
+    Amazonka.CloudWatchLogs.DisassociateKmsKey
+    Amazonka.CloudWatchLogs.FilterLogEvents
+    Amazonka.CloudWatchLogs.GetLogEvents
+    Amazonka.CloudWatchLogs.GetLogGroupFields
+    Amazonka.CloudWatchLogs.GetLogRecord
+    Amazonka.CloudWatchLogs.GetQueryResults
+    Amazonka.CloudWatchLogs.Lens
+    Amazonka.CloudWatchLogs.ListTagsLogGroup
+    Amazonka.CloudWatchLogs.PutDestination
+    Amazonka.CloudWatchLogs.PutDestinationPolicy
+    Amazonka.CloudWatchLogs.PutLogEvents
+    Amazonka.CloudWatchLogs.PutMetricFilter
+    Amazonka.CloudWatchLogs.PutQueryDefinition
+    Amazonka.CloudWatchLogs.PutResourcePolicy
+    Amazonka.CloudWatchLogs.PutRetentionPolicy
+    Amazonka.CloudWatchLogs.PutSubscriptionFilter
+    Amazonka.CloudWatchLogs.StartQuery
+    Amazonka.CloudWatchLogs.StopQuery
+    Amazonka.CloudWatchLogs.TagLogGroup
+    Amazonka.CloudWatchLogs.TestMetricFilter
+    Amazonka.CloudWatchLogs.Types
+    Amazonka.CloudWatchLogs.Types.Destination
+    Amazonka.CloudWatchLogs.Types.Distribution
+    Amazonka.CloudWatchLogs.Types.ExportTask
+    Amazonka.CloudWatchLogs.Types.ExportTaskExecutionInfo
+    Amazonka.CloudWatchLogs.Types.ExportTaskStatus
+    Amazonka.CloudWatchLogs.Types.ExportTaskStatusCode
+    Amazonka.CloudWatchLogs.Types.FilteredLogEvent
+    Amazonka.CloudWatchLogs.Types.InputLogEvent
+    Amazonka.CloudWatchLogs.Types.LogGroup
+    Amazonka.CloudWatchLogs.Types.LogGroupField
+    Amazonka.CloudWatchLogs.Types.LogStream
+    Amazonka.CloudWatchLogs.Types.MetricFilter
+    Amazonka.CloudWatchLogs.Types.MetricFilterMatchRecord
+    Amazonka.CloudWatchLogs.Types.MetricTransformation
+    Amazonka.CloudWatchLogs.Types.OrderBy
+    Amazonka.CloudWatchLogs.Types.OutputLogEvent
+    Amazonka.CloudWatchLogs.Types.QueryDefinition
+    Amazonka.CloudWatchLogs.Types.QueryInfo
+    Amazonka.CloudWatchLogs.Types.QueryStatistics
+    Amazonka.CloudWatchLogs.Types.QueryStatus
+    Amazonka.CloudWatchLogs.Types.RejectedLogEventsInfo
+    Amazonka.CloudWatchLogs.Types.ResourcePolicy
+    Amazonka.CloudWatchLogs.Types.ResultField
+    Amazonka.CloudWatchLogs.Types.SearchedLogStream
+    Amazonka.CloudWatchLogs.Types.StandardUnit
+    Amazonka.CloudWatchLogs.Types.SubscriptionFilter
+    Amazonka.CloudWatchLogs.UntagLogGroup
+    Amazonka.CloudWatchLogs.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -134,9 +134,9 @@ test-suite amazonka-cloudwatch-logs-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CloudWatchLogs
-    Test.AWS.CloudWatchLogs.Internal
-    Test.AWS.Gen.CloudWatchLogs
+    Test.Amazonka.CloudWatchLogs
+    Test.Amazonka.CloudWatchLogs.Internal
+    Test.Amazonka.Gen.CloudWatchLogs
 
   build-depends:
     , amazonka                  ^>=2.0

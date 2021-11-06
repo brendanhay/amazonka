@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.KinesisVideoSignaling.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.KinesisVideoSignaling.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.KinesisVideoSignaling" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.KinesisVideoSignaling" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,16 +45,16 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.KinesisVideoSignaling
-    Network.AWS.KinesisVideoSignaling.GetIceServerConfig
-    Network.AWS.KinesisVideoSignaling.Lens
-    Network.AWS.KinesisVideoSignaling.SendAlexaOfferToMaster
-    Network.AWS.KinesisVideoSignaling.Types
-    Network.AWS.KinesisVideoSignaling.Types.IceServer
-    Network.AWS.KinesisVideoSignaling.Types.Service
-    Network.AWS.KinesisVideoSignaling.Waiters
+    Amazonka.KinesisVideoSignaling
+    Amazonka.KinesisVideoSignaling.GetIceServerConfig
+    Amazonka.KinesisVideoSignaling.Lens
+    Amazonka.KinesisVideoSignaling.SendAlexaOfferToMaster
+    Amazonka.KinesisVideoSignaling.Types
+    Amazonka.KinesisVideoSignaling.Types.IceServer
+    Amazonka.KinesisVideoSignaling.Types.Service
+    Amazonka.KinesisVideoSignaling.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -70,9 +70,9 @@ test-suite amazonka-kinesis-video-signaling-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.KinesisVideoSignaling
-    Test.AWS.KinesisVideoSignaling
-    Test.AWS.KinesisVideoSignaling.Internal
+    Test.Amazonka.Gen.KinesisVideoSignaling
+    Test.Amazonka.KinesisVideoSignaling
+    Test.Amazonka.KinesisVideoSignaling.Internal
 
   build-depends:
     , amazonka                          ^>=2.0

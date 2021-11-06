@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.MediaStore.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.MediaStore.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.MediaStore" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.MediaStore" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,41 +45,41 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.MediaStore
-    Network.AWS.MediaStore.CreateContainer
-    Network.AWS.MediaStore.DeleteContainer
-    Network.AWS.MediaStore.DeleteContainerPolicy
-    Network.AWS.MediaStore.DeleteCorsPolicy
-    Network.AWS.MediaStore.DeleteLifecyclePolicy
-    Network.AWS.MediaStore.DeleteMetricPolicy
-    Network.AWS.MediaStore.DescribeContainer
-    Network.AWS.MediaStore.GetContainerPolicy
-    Network.AWS.MediaStore.GetCorsPolicy
-    Network.AWS.MediaStore.GetLifecyclePolicy
-    Network.AWS.MediaStore.GetMetricPolicy
-    Network.AWS.MediaStore.Lens
-    Network.AWS.MediaStore.ListContainers
-    Network.AWS.MediaStore.ListTagsForResource
-    Network.AWS.MediaStore.PutContainerPolicy
-    Network.AWS.MediaStore.PutCorsPolicy
-    Network.AWS.MediaStore.PutLifecyclePolicy
-    Network.AWS.MediaStore.PutMetricPolicy
-    Network.AWS.MediaStore.StartAccessLogging
-    Network.AWS.MediaStore.StopAccessLogging
-    Network.AWS.MediaStore.TagResource
-    Network.AWS.MediaStore.Types
-    Network.AWS.MediaStore.Types.Container
-    Network.AWS.MediaStore.Types.ContainerLevelMetrics
-    Network.AWS.MediaStore.Types.ContainerStatus
-    Network.AWS.MediaStore.Types.CorsRule
-    Network.AWS.MediaStore.Types.MethodName
-    Network.AWS.MediaStore.Types.MetricPolicy
-    Network.AWS.MediaStore.Types.MetricPolicyRule
-    Network.AWS.MediaStore.Types.Tag
-    Network.AWS.MediaStore.UntagResource
-    Network.AWS.MediaStore.Waiters
+    Amazonka.MediaStore
+    Amazonka.MediaStore.CreateContainer
+    Amazonka.MediaStore.DeleteContainer
+    Amazonka.MediaStore.DeleteContainerPolicy
+    Amazonka.MediaStore.DeleteCorsPolicy
+    Amazonka.MediaStore.DeleteLifecyclePolicy
+    Amazonka.MediaStore.DeleteMetricPolicy
+    Amazonka.MediaStore.DescribeContainer
+    Amazonka.MediaStore.GetContainerPolicy
+    Amazonka.MediaStore.GetCorsPolicy
+    Amazonka.MediaStore.GetLifecyclePolicy
+    Amazonka.MediaStore.GetMetricPolicy
+    Amazonka.MediaStore.Lens
+    Amazonka.MediaStore.ListContainers
+    Amazonka.MediaStore.ListTagsForResource
+    Amazonka.MediaStore.PutContainerPolicy
+    Amazonka.MediaStore.PutCorsPolicy
+    Amazonka.MediaStore.PutLifecyclePolicy
+    Amazonka.MediaStore.PutMetricPolicy
+    Amazonka.MediaStore.StartAccessLogging
+    Amazonka.MediaStore.StopAccessLogging
+    Amazonka.MediaStore.TagResource
+    Amazonka.MediaStore.Types
+    Amazonka.MediaStore.Types.Container
+    Amazonka.MediaStore.Types.ContainerLevelMetrics
+    Amazonka.MediaStore.Types.ContainerStatus
+    Amazonka.MediaStore.Types.CorsRule
+    Amazonka.MediaStore.Types.MethodName
+    Amazonka.MediaStore.Types.MetricPolicy
+    Amazonka.MediaStore.Types.MetricPolicyRule
+    Amazonka.MediaStore.Types.Tag
+    Amazonka.MediaStore.UntagResource
+    Amazonka.MediaStore.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -95,9 +95,9 @@ test-suite amazonka-mediastore-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.MediaStore
-    Test.AWS.MediaStore
-    Test.AWS.MediaStore.Internal
+    Test.Amazonka.Gen.MediaStore
+    Test.Amazonka.MediaStore
+    Test.Amazonka.MediaStore.Internal
 
   build-depends:
     , amazonka              ^>=2.0

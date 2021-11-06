@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.SSOAdmin.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.SSOAdmin.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.SSOAdmin" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.SSOAdmin" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,62 +45,62 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.SSOAdmin
-    Network.AWS.SSOAdmin.AttachManagedPolicyToPermissionSet
-    Network.AWS.SSOAdmin.CreateAccountAssignment
-    Network.AWS.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration
-    Network.AWS.SSOAdmin.CreatePermissionSet
-    Network.AWS.SSOAdmin.DeleteAccountAssignment
-    Network.AWS.SSOAdmin.DeleteInlinePolicyFromPermissionSet
-    Network.AWS.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration
-    Network.AWS.SSOAdmin.DeletePermissionSet
-    Network.AWS.SSOAdmin.DescribeAccountAssignmentCreationStatus
-    Network.AWS.SSOAdmin.DescribeAccountAssignmentDeletionStatus
-    Network.AWS.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration
-    Network.AWS.SSOAdmin.DescribePermissionSet
-    Network.AWS.SSOAdmin.DescribePermissionSetProvisioningStatus
-    Network.AWS.SSOAdmin.DetachManagedPolicyFromPermissionSet
-    Network.AWS.SSOAdmin.GetInlinePolicyForPermissionSet
-    Network.AWS.SSOAdmin.Lens
-    Network.AWS.SSOAdmin.ListAccountAssignmentCreationStatus
-    Network.AWS.SSOAdmin.ListAccountAssignmentDeletionStatus
-    Network.AWS.SSOAdmin.ListAccountAssignments
-    Network.AWS.SSOAdmin.ListAccountsForProvisionedPermissionSet
-    Network.AWS.SSOAdmin.ListInstances
-    Network.AWS.SSOAdmin.ListManagedPoliciesInPermissionSet
-    Network.AWS.SSOAdmin.ListPermissionSetProvisioningStatus
-    Network.AWS.SSOAdmin.ListPermissionSets
-    Network.AWS.SSOAdmin.ListPermissionSetsProvisionedToAccount
-    Network.AWS.SSOAdmin.ListTagsForResource
-    Network.AWS.SSOAdmin.ProvisionPermissionSet
-    Network.AWS.SSOAdmin.PutInlinePolicyToPermissionSet
-    Network.AWS.SSOAdmin.TagResource
-    Network.AWS.SSOAdmin.Types
-    Network.AWS.SSOAdmin.Types.AccessControlAttribute
-    Network.AWS.SSOAdmin.Types.AccessControlAttributeValue
-    Network.AWS.SSOAdmin.Types.AccountAssignment
-    Network.AWS.SSOAdmin.Types.AccountAssignmentOperationStatus
-    Network.AWS.SSOAdmin.Types.AccountAssignmentOperationStatusMetadata
-    Network.AWS.SSOAdmin.Types.AttachedManagedPolicy
-    Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration
-    Network.AWS.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus
-    Network.AWS.SSOAdmin.Types.InstanceMetadata
-    Network.AWS.SSOAdmin.Types.OperationStatusFilter
-    Network.AWS.SSOAdmin.Types.PermissionSet
-    Network.AWS.SSOAdmin.Types.PermissionSetProvisioningStatus
-    Network.AWS.SSOAdmin.Types.PermissionSetProvisioningStatusMetadata
-    Network.AWS.SSOAdmin.Types.PrincipalType
-    Network.AWS.SSOAdmin.Types.ProvisioningStatus
-    Network.AWS.SSOAdmin.Types.ProvisionTargetType
-    Network.AWS.SSOAdmin.Types.StatusValues
-    Network.AWS.SSOAdmin.Types.Tag
-    Network.AWS.SSOAdmin.Types.TargetType
-    Network.AWS.SSOAdmin.UntagResource
-    Network.AWS.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration
-    Network.AWS.SSOAdmin.UpdatePermissionSet
-    Network.AWS.SSOAdmin.Waiters
+    Amazonka.SSOAdmin
+    Amazonka.SSOAdmin.AttachManagedPolicyToPermissionSet
+    Amazonka.SSOAdmin.CreateAccountAssignment
+    Amazonka.SSOAdmin.CreateInstanceAccessControlAttributeConfiguration
+    Amazonka.SSOAdmin.CreatePermissionSet
+    Amazonka.SSOAdmin.DeleteAccountAssignment
+    Amazonka.SSOAdmin.DeleteInlinePolicyFromPermissionSet
+    Amazonka.SSOAdmin.DeleteInstanceAccessControlAttributeConfiguration
+    Amazonka.SSOAdmin.DeletePermissionSet
+    Amazonka.SSOAdmin.DescribeAccountAssignmentCreationStatus
+    Amazonka.SSOAdmin.DescribeAccountAssignmentDeletionStatus
+    Amazonka.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration
+    Amazonka.SSOAdmin.DescribePermissionSet
+    Amazonka.SSOAdmin.DescribePermissionSetProvisioningStatus
+    Amazonka.SSOAdmin.DetachManagedPolicyFromPermissionSet
+    Amazonka.SSOAdmin.GetInlinePolicyForPermissionSet
+    Amazonka.SSOAdmin.Lens
+    Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus
+    Amazonka.SSOAdmin.ListAccountAssignmentDeletionStatus
+    Amazonka.SSOAdmin.ListAccountAssignments
+    Amazonka.SSOAdmin.ListAccountsForProvisionedPermissionSet
+    Amazonka.SSOAdmin.ListInstances
+    Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet
+    Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus
+    Amazonka.SSOAdmin.ListPermissionSets
+    Amazonka.SSOAdmin.ListPermissionSetsProvisionedToAccount
+    Amazonka.SSOAdmin.ListTagsForResource
+    Amazonka.SSOAdmin.ProvisionPermissionSet
+    Amazonka.SSOAdmin.PutInlinePolicyToPermissionSet
+    Amazonka.SSOAdmin.TagResource
+    Amazonka.SSOAdmin.Types
+    Amazonka.SSOAdmin.Types.AccessControlAttribute
+    Amazonka.SSOAdmin.Types.AccessControlAttributeValue
+    Amazonka.SSOAdmin.Types.AccountAssignment
+    Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus
+    Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatusMetadata
+    Amazonka.SSOAdmin.Types.AttachedManagedPolicy
+    Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration
+    Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus
+    Amazonka.SSOAdmin.Types.InstanceMetadata
+    Amazonka.SSOAdmin.Types.OperationStatusFilter
+    Amazonka.SSOAdmin.Types.PermissionSet
+    Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatus
+    Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatusMetadata
+    Amazonka.SSOAdmin.Types.PrincipalType
+    Amazonka.SSOAdmin.Types.ProvisioningStatus
+    Amazonka.SSOAdmin.Types.ProvisionTargetType
+    Amazonka.SSOAdmin.Types.StatusValues
+    Amazonka.SSOAdmin.Types.Tag
+    Amazonka.SSOAdmin.Types.TargetType
+    Amazonka.SSOAdmin.UntagResource
+    Amazonka.SSOAdmin.UpdateInstanceAccessControlAttributeConfiguration
+    Amazonka.SSOAdmin.UpdatePermissionSet
+    Amazonka.SSOAdmin.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -116,9 +116,9 @@ test-suite amazonka-sso-admin-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.SSOAdmin
-    Test.AWS.SSOAdmin
-    Test.AWS.SSOAdmin.Internal
+    Test.Amazonka.Gen.SSOAdmin
+    Test.Amazonka.SSOAdmin
+    Test.Amazonka.SSOAdmin.Internal
 
   build-depends:
     , amazonka              ^>=2.0

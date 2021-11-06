@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.MigrationHub.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.MigrationHub.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.MigrationHub" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.MigrationHub" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,40 +45,40 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.MigrationHub
-    Network.AWS.MigrationHub.AssociateCreatedArtifact
-    Network.AWS.MigrationHub.AssociateDiscoveredResource
-    Network.AWS.MigrationHub.CreateProgressUpdateStream
-    Network.AWS.MigrationHub.DeleteProgressUpdateStream
-    Network.AWS.MigrationHub.DescribeApplicationState
-    Network.AWS.MigrationHub.DescribeMigrationTask
-    Network.AWS.MigrationHub.DisassociateCreatedArtifact
-    Network.AWS.MigrationHub.DisassociateDiscoveredResource
-    Network.AWS.MigrationHub.ImportMigrationTask
-    Network.AWS.MigrationHub.Lens
-    Network.AWS.MigrationHub.ListApplicationStates
-    Network.AWS.MigrationHub.ListCreatedArtifacts
-    Network.AWS.MigrationHub.ListDiscoveredResources
-    Network.AWS.MigrationHub.ListMigrationTasks
-    Network.AWS.MigrationHub.ListProgressUpdateStreams
-    Network.AWS.MigrationHub.NotifyApplicationState
-    Network.AWS.MigrationHub.NotifyMigrationTaskState
-    Network.AWS.MigrationHub.PutResourceAttributes
-    Network.AWS.MigrationHub.Types
-    Network.AWS.MigrationHub.Types.ApplicationState
-    Network.AWS.MigrationHub.Types.ApplicationStatus
-    Network.AWS.MigrationHub.Types.CreatedArtifact
-    Network.AWS.MigrationHub.Types.DiscoveredResource
-    Network.AWS.MigrationHub.Types.MigrationStatus
-    Network.AWS.MigrationHub.Types.MigrationTask
-    Network.AWS.MigrationHub.Types.MigrationTaskSummary
-    Network.AWS.MigrationHub.Types.ProgressUpdateStreamSummary
-    Network.AWS.MigrationHub.Types.ResourceAttribute
-    Network.AWS.MigrationHub.Types.ResourceAttributeType
-    Network.AWS.MigrationHub.Types.Task
-    Network.AWS.MigrationHub.Waiters
+    Amazonka.MigrationHub
+    Amazonka.MigrationHub.AssociateCreatedArtifact
+    Amazonka.MigrationHub.AssociateDiscoveredResource
+    Amazonka.MigrationHub.CreateProgressUpdateStream
+    Amazonka.MigrationHub.DeleteProgressUpdateStream
+    Amazonka.MigrationHub.DescribeApplicationState
+    Amazonka.MigrationHub.DescribeMigrationTask
+    Amazonka.MigrationHub.DisassociateCreatedArtifact
+    Amazonka.MigrationHub.DisassociateDiscoveredResource
+    Amazonka.MigrationHub.ImportMigrationTask
+    Amazonka.MigrationHub.Lens
+    Amazonka.MigrationHub.ListApplicationStates
+    Amazonka.MigrationHub.ListCreatedArtifacts
+    Amazonka.MigrationHub.ListDiscoveredResources
+    Amazonka.MigrationHub.ListMigrationTasks
+    Amazonka.MigrationHub.ListProgressUpdateStreams
+    Amazonka.MigrationHub.NotifyApplicationState
+    Amazonka.MigrationHub.NotifyMigrationTaskState
+    Amazonka.MigrationHub.PutResourceAttributes
+    Amazonka.MigrationHub.Types
+    Amazonka.MigrationHub.Types.ApplicationState
+    Amazonka.MigrationHub.Types.ApplicationStatus
+    Amazonka.MigrationHub.Types.CreatedArtifact
+    Amazonka.MigrationHub.Types.DiscoveredResource
+    Amazonka.MigrationHub.Types.MigrationStatus
+    Amazonka.MigrationHub.Types.MigrationTask
+    Amazonka.MigrationHub.Types.MigrationTaskSummary
+    Amazonka.MigrationHub.Types.ProgressUpdateStreamSummary
+    Amazonka.MigrationHub.Types.ResourceAttribute
+    Amazonka.MigrationHub.Types.ResourceAttributeType
+    Amazonka.MigrationHub.Types.Task
+    Amazonka.MigrationHub.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -94,9 +94,9 @@ test-suite amazonka-migrationhub-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.Gen.MigrationHub
-    Test.AWS.MigrationHub
-    Test.AWS.MigrationHub.Internal
+    Test.Amazonka.Gen.MigrationHub
+    Test.Amazonka.MigrationHub
+    Test.Amazonka.MigrationHub.Internal
 
   build-depends:
     , amazonka               ^>=2.0

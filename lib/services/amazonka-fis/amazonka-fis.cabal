@@ -25,12 +25,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.FIS.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.FIS.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.FIS" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.FIS" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -45,53 +45,53 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.FIS
-    Network.AWS.FIS.CreateExperimentTemplate
-    Network.AWS.FIS.DeleteExperimentTemplate
-    Network.AWS.FIS.GetAction
-    Network.AWS.FIS.GetExperiment
-    Network.AWS.FIS.GetExperimentTemplate
-    Network.AWS.FIS.Lens
-    Network.AWS.FIS.ListActions
-    Network.AWS.FIS.ListExperiments
-    Network.AWS.FIS.ListExperimentTemplates
-    Network.AWS.FIS.ListTagsForResource
-    Network.AWS.FIS.StartExperiment
-    Network.AWS.FIS.StopExperiment
-    Network.AWS.FIS.TagResource
-    Network.AWS.FIS.Types
-    Network.AWS.FIS.Types.Action
-    Network.AWS.FIS.Types.ActionParameter
-    Network.AWS.FIS.Types.ActionSummary
-    Network.AWS.FIS.Types.ActionTarget
-    Network.AWS.FIS.Types.CreateExperimentTemplateActionInput
-    Network.AWS.FIS.Types.CreateExperimentTemplateStopConditionInput
-    Network.AWS.FIS.Types.CreateExperimentTemplateTargetInput
-    Network.AWS.FIS.Types.Experiment
-    Network.AWS.FIS.Types.ExperimentAction
-    Network.AWS.FIS.Types.ExperimentActionState
-    Network.AWS.FIS.Types.ExperimentActionStatus
-    Network.AWS.FIS.Types.ExperimentState
-    Network.AWS.FIS.Types.ExperimentStatus
-    Network.AWS.FIS.Types.ExperimentStopCondition
-    Network.AWS.FIS.Types.ExperimentSummary
-    Network.AWS.FIS.Types.ExperimentTarget
-    Network.AWS.FIS.Types.ExperimentTargetFilter
-    Network.AWS.FIS.Types.ExperimentTemplate
-    Network.AWS.FIS.Types.ExperimentTemplateAction
-    Network.AWS.FIS.Types.ExperimentTemplateStopCondition
-    Network.AWS.FIS.Types.ExperimentTemplateSummary
-    Network.AWS.FIS.Types.ExperimentTemplateTarget
-    Network.AWS.FIS.Types.ExperimentTemplateTargetFilter
-    Network.AWS.FIS.Types.ExperimentTemplateTargetInputFilter
-    Network.AWS.FIS.Types.UpdateExperimentTemplateActionInputItem
-    Network.AWS.FIS.Types.UpdateExperimentTemplateStopConditionInput
-    Network.AWS.FIS.Types.UpdateExperimentTemplateTargetInput
-    Network.AWS.FIS.UntagResource
-    Network.AWS.FIS.UpdateExperimentTemplate
-    Network.AWS.FIS.Waiters
+    Amazonka.FIS
+    Amazonka.FIS.CreateExperimentTemplate
+    Amazonka.FIS.DeleteExperimentTemplate
+    Amazonka.FIS.GetAction
+    Amazonka.FIS.GetExperiment
+    Amazonka.FIS.GetExperimentTemplate
+    Amazonka.FIS.Lens
+    Amazonka.FIS.ListActions
+    Amazonka.FIS.ListExperiments
+    Amazonka.FIS.ListExperimentTemplates
+    Amazonka.FIS.ListTagsForResource
+    Amazonka.FIS.StartExperiment
+    Amazonka.FIS.StopExperiment
+    Amazonka.FIS.TagResource
+    Amazonka.FIS.Types
+    Amazonka.FIS.Types.Action
+    Amazonka.FIS.Types.ActionParameter
+    Amazonka.FIS.Types.ActionSummary
+    Amazonka.FIS.Types.ActionTarget
+    Amazonka.FIS.Types.CreateExperimentTemplateActionInput
+    Amazonka.FIS.Types.CreateExperimentTemplateStopConditionInput
+    Amazonka.FIS.Types.CreateExperimentTemplateTargetInput
+    Amazonka.FIS.Types.Experiment
+    Amazonka.FIS.Types.ExperimentAction
+    Amazonka.FIS.Types.ExperimentActionState
+    Amazonka.FIS.Types.ExperimentActionStatus
+    Amazonka.FIS.Types.ExperimentState
+    Amazonka.FIS.Types.ExperimentStatus
+    Amazonka.FIS.Types.ExperimentStopCondition
+    Amazonka.FIS.Types.ExperimentSummary
+    Amazonka.FIS.Types.ExperimentTarget
+    Amazonka.FIS.Types.ExperimentTargetFilter
+    Amazonka.FIS.Types.ExperimentTemplate
+    Amazonka.FIS.Types.ExperimentTemplateAction
+    Amazonka.FIS.Types.ExperimentTemplateStopCondition
+    Amazonka.FIS.Types.ExperimentTemplateSummary
+    Amazonka.FIS.Types.ExperimentTemplateTarget
+    Amazonka.FIS.Types.ExperimentTemplateTargetFilter
+    Amazonka.FIS.Types.ExperimentTemplateTargetInputFilter
+    Amazonka.FIS.Types.UpdateExperimentTemplateActionInputItem
+    Amazonka.FIS.Types.UpdateExperimentTemplateStopConditionInput
+    Amazonka.FIS.Types.UpdateExperimentTemplateTargetInput
+    Amazonka.FIS.UntagResource
+    Amazonka.FIS.UpdateExperimentTemplate
+    Amazonka.FIS.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -107,9 +107,9 @@ test-suite amazonka-fis-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.FIS
-    Test.AWS.FIS.Internal
-    Test.AWS.Gen.FIS
+    Test.Amazonka.FIS
+    Test.Amazonka.FIS.Internal
+    Test.Amazonka.Gen.FIS
 
   build-depends:
     , amazonka              ^>=2.0

@@ -1,0 +1,272 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Amazonka.KinesisAnalyticsV2.AddApplicationOutput
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Adds an external destination to your SQL-based Kinesis Data Analytics
+-- application.
+--
+-- If you want Kinesis Data Analytics to deliver data from an
+-- in-application stream within your application to an external destination
+-- (such as an Kinesis data stream, a Kinesis Data Firehose delivery
+-- stream, or an Amazon Lambda function), you add the relevant
+-- configuration to your application using this operation. You can
+-- configure one or more outputs for your application. Each output
+-- configuration maps an in-application stream and an external destination.
+--
+-- You can use one of the output configurations to deliver data from your
+-- in-application error stream to an external destination so that you can
+-- analyze the errors.
+--
+-- Any configuration update, including adding a streaming source using this
+-- operation, results in a new version of the application. You can use the
+-- DescribeApplication operation to find the current application version.
+module Amazonka.KinesisAnalyticsV2.AddApplicationOutput
+  ( -- * Creating a Request
+    AddApplicationOutput (..),
+    newAddApplicationOutput,
+
+    -- * Request Lenses
+    addApplicationOutput_applicationName,
+    addApplicationOutput_currentApplicationVersionId,
+    addApplicationOutput_output,
+
+    -- * Destructuring the Response
+    AddApplicationOutputResponse (..),
+    newAddApplicationOutputResponse,
+
+    -- * Response Lenses
+    addApplicationOutputResponse_applicationARN,
+    addApplicationOutputResponse_outputDescriptions,
+    addApplicationOutputResponse_applicationVersionId,
+    addApplicationOutputResponse_httpStatus,
+  )
+where
+
+import qualified Amazonka.Core as Core
+import Amazonka.KinesisAnalyticsV2.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+
+-- | /See:/ 'newAddApplicationOutput' smart constructor.
+data AddApplicationOutput = AddApplicationOutput'
+  { -- | The name of the application to which you want to add the output
+    -- configuration.
+    applicationName :: Prelude.Text,
+    -- | The version of the application to which you want to add the output
+    -- configuration. You can use the DescribeApplication operation to get the
+    -- current application version. If the version specified is not the current
+    -- version, the @ConcurrentModificationException@ is returned.
+    currentApplicationVersionId :: Prelude.Natural,
+    -- | An array of objects, each describing one output configuration. In the
+    -- output configuration, you specify the name of an in-application stream,
+    -- a destination (that is, a Kinesis data stream, a Kinesis Data Firehose
+    -- delivery stream, or an Amazon Lambda function), and record the formation
+    -- to use when writing to the destination.
+    output :: Output
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'AddApplicationOutput' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'applicationName', 'addApplicationOutput_applicationName' - The name of the application to which you want to add the output
+-- configuration.
+--
+-- 'currentApplicationVersionId', 'addApplicationOutput_currentApplicationVersionId' - The version of the application to which you want to add the output
+-- configuration. You can use the DescribeApplication operation to get the
+-- current application version. If the version specified is not the current
+-- version, the @ConcurrentModificationException@ is returned.
+--
+-- 'output', 'addApplicationOutput_output' - An array of objects, each describing one output configuration. In the
+-- output configuration, you specify the name of an in-application stream,
+-- a destination (that is, a Kinesis data stream, a Kinesis Data Firehose
+-- delivery stream, or an Amazon Lambda function), and record the formation
+-- to use when writing to the destination.
+newAddApplicationOutput ::
+  -- | 'applicationName'
+  Prelude.Text ->
+  -- | 'currentApplicationVersionId'
+  Prelude.Natural ->
+  -- | 'output'
+  Output ->
+  AddApplicationOutput
+newAddApplicationOutput
+  pApplicationName_
+  pCurrentApplicationVersionId_
+  pOutput_ =
+    AddApplicationOutput'
+      { applicationName =
+          pApplicationName_,
+        currentApplicationVersionId =
+          pCurrentApplicationVersionId_,
+        output = pOutput_
+      }
+
+-- | The name of the application to which you want to add the output
+-- configuration.
+addApplicationOutput_applicationName :: Lens.Lens' AddApplicationOutput Prelude.Text
+addApplicationOutput_applicationName = Lens.lens (\AddApplicationOutput' {applicationName} -> applicationName) (\s@AddApplicationOutput' {} a -> s {applicationName = a} :: AddApplicationOutput)
+
+-- | The version of the application to which you want to add the output
+-- configuration. You can use the DescribeApplication operation to get the
+-- current application version. If the version specified is not the current
+-- version, the @ConcurrentModificationException@ is returned.
+addApplicationOutput_currentApplicationVersionId :: Lens.Lens' AddApplicationOutput Prelude.Natural
+addApplicationOutput_currentApplicationVersionId = Lens.lens (\AddApplicationOutput' {currentApplicationVersionId} -> currentApplicationVersionId) (\s@AddApplicationOutput' {} a -> s {currentApplicationVersionId = a} :: AddApplicationOutput)
+
+-- | An array of objects, each describing one output configuration. In the
+-- output configuration, you specify the name of an in-application stream,
+-- a destination (that is, a Kinesis data stream, a Kinesis Data Firehose
+-- delivery stream, or an Amazon Lambda function), and record the formation
+-- to use when writing to the destination.
+addApplicationOutput_output :: Lens.Lens' AddApplicationOutput Output
+addApplicationOutput_output = Lens.lens (\AddApplicationOutput' {output} -> output) (\s@AddApplicationOutput' {} a -> s {output = a} :: AddApplicationOutput)
+
+instance Core.AWSRequest AddApplicationOutput where
+  type
+    AWSResponse AddApplicationOutput =
+      AddApplicationOutputResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          AddApplicationOutputResponse'
+            Prelude.<$> (x Core..?> "ApplicationARN")
+            Prelude.<*> ( x Core..?> "OutputDescriptions"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "ApplicationVersionId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable AddApplicationOutput
+
+instance Prelude.NFData AddApplicationOutput
+
+instance Core.ToHeaders AddApplicationOutput where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "KinesisAnalytics_20180523.AddApplicationOutput" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON AddApplicationOutput where
+  toJSON AddApplicationOutput' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ApplicationName" Core..= applicationName),
+            Prelude.Just
+              ( "CurrentApplicationVersionId"
+                  Core..= currentApplicationVersionId
+              ),
+            Prelude.Just ("Output" Core..= output)
+          ]
+      )
+
+instance Core.ToPath AddApplicationOutput where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery AddApplicationOutput where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newAddApplicationOutputResponse' smart constructor.
+data AddApplicationOutputResponse = AddApplicationOutputResponse'
+  { -- | The application Amazon Resource Name (ARN).
+    applicationARN :: Prelude.Maybe Prelude.Text,
+    -- | Describes the application output configuration. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output>.
+    outputDescriptions :: Prelude.Maybe [OutputDescription],
+    -- | The updated application version ID. Kinesis Data Analytics increments
+    -- this ID when the application is updated.
+    applicationVersionId :: Prelude.Maybe Prelude.Natural,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'AddApplicationOutputResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'applicationARN', 'addApplicationOutputResponse_applicationARN' - The application Amazon Resource Name (ARN).
+--
+-- 'outputDescriptions', 'addApplicationOutputResponse_outputDescriptions' - Describes the application output configuration. For more information,
+-- see
+-- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output>.
+--
+-- 'applicationVersionId', 'addApplicationOutputResponse_applicationVersionId' - The updated application version ID. Kinesis Data Analytics increments
+-- this ID when the application is updated.
+--
+-- 'httpStatus', 'addApplicationOutputResponse_httpStatus' - The response's http status code.
+newAddApplicationOutputResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AddApplicationOutputResponse
+newAddApplicationOutputResponse pHttpStatus_ =
+  AddApplicationOutputResponse'
+    { applicationARN =
+        Prelude.Nothing,
+      outputDescriptions = Prelude.Nothing,
+      applicationVersionId = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The application Amazon Resource Name (ARN).
+addApplicationOutputResponse_applicationARN :: Lens.Lens' AddApplicationOutputResponse (Prelude.Maybe Prelude.Text)
+addApplicationOutputResponse_applicationARN = Lens.lens (\AddApplicationOutputResponse' {applicationARN} -> applicationARN) (\s@AddApplicationOutputResponse' {} a -> s {applicationARN = a} :: AddApplicationOutputResponse)
+
+-- | Describes the application output configuration. For more information,
+-- see
+-- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output>.
+addApplicationOutputResponse_outputDescriptions :: Lens.Lens' AddApplicationOutputResponse (Prelude.Maybe [OutputDescription])
+addApplicationOutputResponse_outputDescriptions = Lens.lens (\AddApplicationOutputResponse' {outputDescriptions} -> outputDescriptions) (\s@AddApplicationOutputResponse' {} a -> s {outputDescriptions = a} :: AddApplicationOutputResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The updated application version ID. Kinesis Data Analytics increments
+-- this ID when the application is updated.
+addApplicationOutputResponse_applicationVersionId :: Lens.Lens' AddApplicationOutputResponse (Prelude.Maybe Prelude.Natural)
+addApplicationOutputResponse_applicationVersionId = Lens.lens (\AddApplicationOutputResponse' {applicationVersionId} -> applicationVersionId) (\s@AddApplicationOutputResponse' {} a -> s {applicationVersionId = a} :: AddApplicationOutputResponse)
+
+-- | The response's http status code.
+addApplicationOutputResponse_httpStatus :: Lens.Lens' AddApplicationOutputResponse Prelude.Int
+addApplicationOutputResponse_httpStatus = Lens.lens (\AddApplicationOutputResponse' {httpStatus} -> httpStatus) (\s@AddApplicationOutputResponse' {} a -> s {httpStatus = a} :: AddApplicationOutputResponse)
+
+instance Prelude.NFData AddApplicationOutputResponse

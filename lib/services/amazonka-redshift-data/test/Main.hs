@@ -9,8 +9,8 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.RedshiftData
-import Test.AWS.RedshiftData.Internal
+import Test.Amazonka.RedshiftData
+import Test.Amazonka.RedshiftData.Internal
 import Test.Tasty
 
 main :: IO ()

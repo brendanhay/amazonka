@@ -1,0 +1,206 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Amazonka.ImageBuilder.StartImagePipelineExecution
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Manually triggers a pipeline to create an image.
+module Amazonka.ImageBuilder.StartImagePipelineExecution
+  ( -- * Creating a Request
+    StartImagePipelineExecution (..),
+    newStartImagePipelineExecution,
+
+    -- * Request Lenses
+    startImagePipelineExecution_imagePipelineArn,
+    startImagePipelineExecution_clientToken,
+
+    -- * Destructuring the Response
+    StartImagePipelineExecutionResponse (..),
+    newStartImagePipelineExecutionResponse,
+
+    -- * Response Lenses
+    startImagePipelineExecutionResponse_requestId,
+    startImagePipelineExecutionResponse_clientToken,
+    startImagePipelineExecutionResponse_imageBuildVersionArn,
+    startImagePipelineExecutionResponse_httpStatus,
+  )
+where
+
+import qualified Amazonka.Core as Core
+import Amazonka.ImageBuilder.Types
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+import qualified Amazonka.Request as Request
+import qualified Amazonka.Response as Response
+
+-- | /See:/ 'newStartImagePipelineExecution' smart constructor.
+data StartImagePipelineExecution = StartImagePipelineExecution'
+  { -- | The Amazon Resource Name (ARN) of the image pipeline that you want to
+    -- manually invoke.
+    imagePipelineArn :: Prelude.Text,
+    -- | The idempotency token used to make this request idempotent.
+    clientToken :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'StartImagePipelineExecution' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'imagePipelineArn', 'startImagePipelineExecution_imagePipelineArn' - The Amazon Resource Name (ARN) of the image pipeline that you want to
+-- manually invoke.
+--
+-- 'clientToken', 'startImagePipelineExecution_clientToken' - The idempotency token used to make this request idempotent.
+newStartImagePipelineExecution ::
+  -- | 'imagePipelineArn'
+  Prelude.Text ->
+  -- | 'clientToken'
+  Prelude.Text ->
+  StartImagePipelineExecution
+newStartImagePipelineExecution
+  pImagePipelineArn_
+  pClientToken_ =
+    StartImagePipelineExecution'
+      { imagePipelineArn =
+          pImagePipelineArn_,
+        clientToken = pClientToken_
+      }
+
+-- | The Amazon Resource Name (ARN) of the image pipeline that you want to
+-- manually invoke.
+startImagePipelineExecution_imagePipelineArn :: Lens.Lens' StartImagePipelineExecution Prelude.Text
+startImagePipelineExecution_imagePipelineArn = Lens.lens (\StartImagePipelineExecution' {imagePipelineArn} -> imagePipelineArn) (\s@StartImagePipelineExecution' {} a -> s {imagePipelineArn = a} :: StartImagePipelineExecution)
+
+-- | The idempotency token used to make this request idempotent.
+startImagePipelineExecution_clientToken :: Lens.Lens' StartImagePipelineExecution Prelude.Text
+startImagePipelineExecution_clientToken = Lens.lens (\StartImagePipelineExecution' {clientToken} -> clientToken) (\s@StartImagePipelineExecution' {} a -> s {clientToken = a} :: StartImagePipelineExecution)
+
+instance Core.AWSRequest StartImagePipelineExecution where
+  type
+    AWSResponse StartImagePipelineExecution =
+      StartImagePipelineExecutionResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          StartImagePipelineExecutionResponse'
+            Prelude.<$> (x Core..?> "requestId")
+            Prelude.<*> (x Core..?> "clientToken")
+            Prelude.<*> (x Core..?> "imageBuildVersionArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable StartImagePipelineExecution
+
+instance Prelude.NFData StartImagePipelineExecution
+
+instance Core.ToHeaders StartImagePipelineExecution where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON StartImagePipelineExecution where
+  toJSON StartImagePipelineExecution' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("imagePipelineArn" Core..= imagePipelineArn),
+            Prelude.Just ("clientToken" Core..= clientToken)
+          ]
+      )
+
+instance Core.ToPath StartImagePipelineExecution where
+  toPath = Prelude.const "/StartImagePipelineExecution"
+
+instance Core.ToQuery StartImagePipelineExecution where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newStartImagePipelineExecutionResponse' smart constructor.
+data StartImagePipelineExecutionResponse = StartImagePipelineExecutionResponse'
+  { -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
+    -- | The idempotency token used to make this request idempotent.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the image that was created by this
+    -- request.
+    imageBuildVersionArn :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'StartImagePipelineExecutionResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'requestId', 'startImagePipelineExecutionResponse_requestId' - The request ID that uniquely identifies this request.
+--
+-- 'clientToken', 'startImagePipelineExecutionResponse_clientToken' - The idempotency token used to make this request idempotent.
+--
+-- 'imageBuildVersionArn', 'startImagePipelineExecutionResponse_imageBuildVersionArn' - The Amazon Resource Name (ARN) of the image that was created by this
+-- request.
+--
+-- 'httpStatus', 'startImagePipelineExecutionResponse_httpStatus' - The response's http status code.
+newStartImagePipelineExecutionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  StartImagePipelineExecutionResponse
+newStartImagePipelineExecutionResponse pHttpStatus_ =
+  StartImagePipelineExecutionResponse'
+    { requestId =
+        Prelude.Nothing,
+      clientToken = Prelude.Nothing,
+      imageBuildVersionArn = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The request ID that uniquely identifies this request.
+startImagePipelineExecutionResponse_requestId :: Lens.Lens' StartImagePipelineExecutionResponse (Prelude.Maybe Prelude.Text)
+startImagePipelineExecutionResponse_requestId = Lens.lens (\StartImagePipelineExecutionResponse' {requestId} -> requestId) (\s@StartImagePipelineExecutionResponse' {} a -> s {requestId = a} :: StartImagePipelineExecutionResponse)
+
+-- | The idempotency token used to make this request idempotent.
+startImagePipelineExecutionResponse_clientToken :: Lens.Lens' StartImagePipelineExecutionResponse (Prelude.Maybe Prelude.Text)
+startImagePipelineExecutionResponse_clientToken = Lens.lens (\StartImagePipelineExecutionResponse' {clientToken} -> clientToken) (\s@StartImagePipelineExecutionResponse' {} a -> s {clientToken = a} :: StartImagePipelineExecutionResponse)
+
+-- | The Amazon Resource Name (ARN) of the image that was created by this
+-- request.
+startImagePipelineExecutionResponse_imageBuildVersionArn :: Lens.Lens' StartImagePipelineExecutionResponse (Prelude.Maybe Prelude.Text)
+startImagePipelineExecutionResponse_imageBuildVersionArn = Lens.lens (\StartImagePipelineExecutionResponse' {imageBuildVersionArn} -> imageBuildVersionArn) (\s@StartImagePipelineExecutionResponse' {} a -> s {imageBuildVersionArn = a} :: StartImagePipelineExecutionResponse)
+
+-- | The response's http status code.
+startImagePipelineExecutionResponse_httpStatus :: Lens.Lens' StartImagePipelineExecutionResponse Prelude.Int
+startImagePipelineExecutionResponse_httpStatus = Lens.lens (\StartImagePipelineExecutionResponse' {httpStatus} -> httpStatus) (\s@StartImagePipelineExecutionResponse' {} a -> s {httpStatus = a} :: StartImagePipelineExecutionResponse)
+
+instance
+  Prelude.NFData
+    StartImagePipelineExecutionResponse

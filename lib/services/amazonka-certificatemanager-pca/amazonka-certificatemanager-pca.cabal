@@ -27,12 +27,12 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Network.AWS.CertificateManagerPCA.Lens"
+  Generated lenses for legacy behaviour can be found in "Amazonka.CertificateManagerPCA.Lens"
   and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
   .
-  See "Network.AWS.CertificateManagerPCA" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+  See "Amazonka.CertificateManagerPCA" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
   type:     git
@@ -47,73 +47,73 @@ library
     -fwarn-incomplete-record-updates -funbox-strict-fields
 
   exposed-modules:
-    Network.AWS.CertificateManagerPCA
-    Network.AWS.CertificateManagerPCA.CreateCertificateAuthority
-    Network.AWS.CertificateManagerPCA.CreateCertificateAuthorityAuditReport
-    Network.AWS.CertificateManagerPCA.CreatePermission
-    Network.AWS.CertificateManagerPCA.DeleteCertificateAuthority
-    Network.AWS.CertificateManagerPCA.DeletePermission
-    Network.AWS.CertificateManagerPCA.DeletePolicy
-    Network.AWS.CertificateManagerPCA.DescribeCertificateAuthority
-    Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport
-    Network.AWS.CertificateManagerPCA.GetCertificate
-    Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCertificate
-    Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr
-    Network.AWS.CertificateManagerPCA.GetPolicy
-    Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate
-    Network.AWS.CertificateManagerPCA.IssueCertificate
-    Network.AWS.CertificateManagerPCA.Lens
-    Network.AWS.CertificateManagerPCA.ListCertificateAuthorities
-    Network.AWS.CertificateManagerPCA.ListPermissions
-    Network.AWS.CertificateManagerPCA.ListTags
-    Network.AWS.CertificateManagerPCA.PutPolicy
-    Network.AWS.CertificateManagerPCA.RestoreCertificateAuthority
-    Network.AWS.CertificateManagerPCA.RevokeCertificate
-    Network.AWS.CertificateManagerPCA.TagCertificateAuthority
-    Network.AWS.CertificateManagerPCA.Types
-    Network.AWS.CertificateManagerPCA.Types.AccessDescription
-    Network.AWS.CertificateManagerPCA.Types.AccessMethod
-    Network.AWS.CertificateManagerPCA.Types.AccessMethodType
-    Network.AWS.CertificateManagerPCA.Types.ActionType
-    Network.AWS.CertificateManagerPCA.Types.ApiPassthrough
-    Network.AWS.CertificateManagerPCA.Types.ASN1Subject
-    Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat
-    Network.AWS.CertificateManagerPCA.Types.AuditReportStatus
-    Network.AWS.CertificateManagerPCA.Types.CertificateAuthority
-    Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration
-    Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityStatus
-    Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType
-    Network.AWS.CertificateManagerPCA.Types.CrlConfiguration
-    Network.AWS.CertificateManagerPCA.Types.CsrExtensions
-    Network.AWS.CertificateManagerPCA.Types.EdiPartyName
-    Network.AWS.CertificateManagerPCA.Types.ExtendedKeyUsage
-    Network.AWS.CertificateManagerPCA.Types.ExtendedKeyUsageType
-    Network.AWS.CertificateManagerPCA.Types.Extensions
-    Network.AWS.CertificateManagerPCA.Types.FailureReason
-    Network.AWS.CertificateManagerPCA.Types.GeneralName
-    Network.AWS.CertificateManagerPCA.Types.KeyAlgorithm
-    Network.AWS.CertificateManagerPCA.Types.KeyStorageSecurityStandard
-    Network.AWS.CertificateManagerPCA.Types.KeyUsage
-    Network.AWS.CertificateManagerPCA.Types.OcspConfiguration
-    Network.AWS.CertificateManagerPCA.Types.OtherName
-    Network.AWS.CertificateManagerPCA.Types.Permission
-    Network.AWS.CertificateManagerPCA.Types.PolicyInformation
-    Network.AWS.CertificateManagerPCA.Types.PolicyQualifierId
-    Network.AWS.CertificateManagerPCA.Types.PolicyQualifierInfo
-    Network.AWS.CertificateManagerPCA.Types.Qualifier
-    Network.AWS.CertificateManagerPCA.Types.ResourceOwner
-    Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration
-    Network.AWS.CertificateManagerPCA.Types.RevocationReason
-    Network.AWS.CertificateManagerPCA.Types.S3ObjectAcl
-    Network.AWS.CertificateManagerPCA.Types.SigningAlgorithm
-    Network.AWS.CertificateManagerPCA.Types.Tag
-    Network.AWS.CertificateManagerPCA.Types.Validity
-    Network.AWS.CertificateManagerPCA.Types.ValidityPeriodType
-    Network.AWS.CertificateManagerPCA.UntagCertificateAuthority
-    Network.AWS.CertificateManagerPCA.UpdateCertificateAuthority
-    Network.AWS.CertificateManagerPCA.Waiters
+    Amazonka.CertificateManagerPCA
+    Amazonka.CertificateManagerPCA.CreateCertificateAuthority
+    Amazonka.CertificateManagerPCA.CreateCertificateAuthorityAuditReport
+    Amazonka.CertificateManagerPCA.CreatePermission
+    Amazonka.CertificateManagerPCA.DeleteCertificateAuthority
+    Amazonka.CertificateManagerPCA.DeletePermission
+    Amazonka.CertificateManagerPCA.DeletePolicy
+    Amazonka.CertificateManagerPCA.DescribeCertificateAuthority
+    Amazonka.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport
+    Amazonka.CertificateManagerPCA.GetCertificate
+    Amazonka.CertificateManagerPCA.GetCertificateAuthorityCertificate
+    Amazonka.CertificateManagerPCA.GetCertificateAuthorityCsr
+    Amazonka.CertificateManagerPCA.GetPolicy
+    Amazonka.CertificateManagerPCA.ImportCertificateAuthorityCertificate
+    Amazonka.CertificateManagerPCA.IssueCertificate
+    Amazonka.CertificateManagerPCA.Lens
+    Amazonka.CertificateManagerPCA.ListCertificateAuthorities
+    Amazonka.CertificateManagerPCA.ListPermissions
+    Amazonka.CertificateManagerPCA.ListTags
+    Amazonka.CertificateManagerPCA.PutPolicy
+    Amazonka.CertificateManagerPCA.RestoreCertificateAuthority
+    Amazonka.CertificateManagerPCA.RevokeCertificate
+    Amazonka.CertificateManagerPCA.TagCertificateAuthority
+    Amazonka.CertificateManagerPCA.Types
+    Amazonka.CertificateManagerPCA.Types.AccessDescription
+    Amazonka.CertificateManagerPCA.Types.AccessMethod
+    Amazonka.CertificateManagerPCA.Types.AccessMethodType
+    Amazonka.CertificateManagerPCA.Types.ActionType
+    Amazonka.CertificateManagerPCA.Types.ApiPassthrough
+    Amazonka.CertificateManagerPCA.Types.ASN1Subject
+    Amazonka.CertificateManagerPCA.Types.AuditReportResponseFormat
+    Amazonka.CertificateManagerPCA.Types.AuditReportStatus
+    Amazonka.CertificateManagerPCA.Types.CertificateAuthority
+    Amazonka.CertificateManagerPCA.Types.CertificateAuthorityConfiguration
+    Amazonka.CertificateManagerPCA.Types.CertificateAuthorityStatus
+    Amazonka.CertificateManagerPCA.Types.CertificateAuthorityType
+    Amazonka.CertificateManagerPCA.Types.CrlConfiguration
+    Amazonka.CertificateManagerPCA.Types.CsrExtensions
+    Amazonka.CertificateManagerPCA.Types.EdiPartyName
+    Amazonka.CertificateManagerPCA.Types.ExtendedKeyUsage
+    Amazonka.CertificateManagerPCA.Types.ExtendedKeyUsageType
+    Amazonka.CertificateManagerPCA.Types.Extensions
+    Amazonka.CertificateManagerPCA.Types.FailureReason
+    Amazonka.CertificateManagerPCA.Types.GeneralName
+    Amazonka.CertificateManagerPCA.Types.KeyAlgorithm
+    Amazonka.CertificateManagerPCA.Types.KeyStorageSecurityStandard
+    Amazonka.CertificateManagerPCA.Types.KeyUsage
+    Amazonka.CertificateManagerPCA.Types.OcspConfiguration
+    Amazonka.CertificateManagerPCA.Types.OtherName
+    Amazonka.CertificateManagerPCA.Types.Permission
+    Amazonka.CertificateManagerPCA.Types.PolicyInformation
+    Amazonka.CertificateManagerPCA.Types.PolicyQualifierId
+    Amazonka.CertificateManagerPCA.Types.PolicyQualifierInfo
+    Amazonka.CertificateManagerPCA.Types.Qualifier
+    Amazonka.CertificateManagerPCA.Types.ResourceOwner
+    Amazonka.CertificateManagerPCA.Types.RevocationConfiguration
+    Amazonka.CertificateManagerPCA.Types.RevocationReason
+    Amazonka.CertificateManagerPCA.Types.S3ObjectAcl
+    Amazonka.CertificateManagerPCA.Types.SigningAlgorithm
+    Amazonka.CertificateManagerPCA.Types.Tag
+    Amazonka.CertificateManagerPCA.Types.Validity
+    Amazonka.CertificateManagerPCA.Types.ValidityPeriodType
+    Amazonka.CertificateManagerPCA.UntagCertificateAuthority
+    Amazonka.CertificateManagerPCA.UpdateCertificateAuthority
+    Amazonka.CertificateManagerPCA.Waiters
 
-  reexported-modules: Network.AWS
+  reexported-modules: Amazonka
   build-depends:
     , amazonka  ^>=2.0
     , base      >=4.12 && <5
@@ -129,9 +129,9 @@ test-suite amazonka-certificatemanager-pca-test
   -- hand outside these namespaces will not correctly be added to the
   -- distribution package.
   other-modules:
-    Test.AWS.CertificateManagerPCA
-    Test.AWS.CertificateManagerPCA.Internal
-    Test.AWS.Gen.CertificateManagerPCA
+    Test.Amazonka.CertificateManagerPCA
+    Test.Amazonka.CertificateManagerPCA.Internal
+    Test.Amazonka.Gen.CertificateManagerPCA
 
   build-depends:
     , amazonka                         ^>=2.0

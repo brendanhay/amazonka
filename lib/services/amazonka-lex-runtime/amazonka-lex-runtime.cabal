@@ -25,10 +25,8 @@ description:
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
-  Generated lenses for legacy behaviour can be found in "Amazonka.LexRuntime.Lens"
-  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Amazonka.Prelude" module in this package.
+  Generated lenses can be found in "Amazonka.LexRuntime.Lens" and are
+  suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
   .
   See "Amazonka.LexRuntime" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
@@ -38,8 +36,8 @@ source-repository head
   subdir:   amazonka-lex-runtime
 
 library
-  default-language:   Haskell2010
-  hs-source-dirs:     src gen
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
   ghc-options:
     -Wall -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates -funbox-strict-fields
@@ -71,10 +69,9 @@ library
     Amazonka.LexRuntime.Types.SentimentResponse
     Amazonka.LexRuntime.Waiters
 
-  reexported-modules: Amazonka
   build-depends:
-    , amazonka  ^>=2.0
-    , base      >=4.12 && <5
+    , amazonka-core  ^>=2.0
+    , base           >=4.12 && <5
 
 test-suite amazonka-lex-runtime-test
   type:             exitcode-stdio-1.0
@@ -92,7 +89,7 @@ test-suite amazonka-lex-runtime-test
     Test.Amazonka.LexRuntime.Internal
 
   build-depends:
-    , amazonka              ^>=2.0
+    , amazonka-core         ^>=2.0
     , amazonka-lex-runtime
     , amazonka-test         ^>=2.0
     , base

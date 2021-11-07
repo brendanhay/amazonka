@@ -183,7 +183,7 @@ haskell_library(
     version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
-        "//lib/amazonka",
+        "//lib/amazonka-core",
         "@stackage//:base",
     ],
 )
@@ -206,7 +206,7 @@ haskell_test(
     visibility = ["//visibility:public"],
     deps = [
         ":amazonka-rekognition",
-        "//lib/amazonka",
+        "//lib/amazonka-core",
         "//lib/amazonka-test",
         "@stackage//:base",
         "@stackage//:bytestring",

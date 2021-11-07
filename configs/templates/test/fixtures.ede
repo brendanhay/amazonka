@@ -8,8 +8,8 @@
 module {{ moduleName }} where
 
 import qualified Data.Proxy as Proxy
-import Test.AWS.Fixture
-import Test.AWS.Prelude
+import Test.Amazonka.Fixture
+import Test.Amazonka.Prelude
 import Test.Tasty
 {% for import in moduleImports %}
 import {{ import.value }}

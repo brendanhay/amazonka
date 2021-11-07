@@ -93,7 +93,6 @@ import Amazonka.S3.Encryption.Envelope
 import Amazonka.S3.Encryption.Instructions
 import Amazonka.S3.Encryption.Types
 import Control.Lens
-import Control.Monad.Reader
 import Crypto.PubKey.RSA.Types as RSA
 import Crypto.Random
 

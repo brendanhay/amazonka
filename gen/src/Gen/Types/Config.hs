@@ -187,7 +187,7 @@ libraryNS, typesNS, waitersNS, fixturesNS, lensNS :: Getter Library NS
 libraryNS = serviceAbbrev . to (mappend "Amazonka" . mkNS)
 typesNS = libraryNS . to (<> "Types")
 waitersNS = libraryNS . to (<> "Waiters")
-fixturesNS = serviceAbbrev . to (mappend "Test.AWS.Gen" . mkNS)
+fixturesNS = serviceAbbrev . to (mappend "Test.Amazonka.Gen" . mkNS)
 lensNS = libraryNS . to (<> "Lens")
 
 otherModules :: Getter Library [NS]

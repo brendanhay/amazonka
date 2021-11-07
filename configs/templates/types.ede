@@ -56,7 +56,7 @@ import {{ import.value }}
 import {{ moduleName }}.{{ shape.value.name }}
 {% when "sum" %}
 import {{ moduleName }}.{{ shape.value.name }}
-{% endcase %}  
+{% endcase %}
 {% endfor %}
 
 {% include "_include/function.ede" with function = serviceInstance %}

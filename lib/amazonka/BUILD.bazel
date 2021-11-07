@@ -1,4 +1,4 @@
-load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+load("@rules_haskell//haskell:defs.bzl", "haskell_library")
 
 # rule generated from amazonka/amazonka.cabal by gazelle_cabal
 haskell_library(
@@ -49,6 +49,7 @@ haskell_library(
         "-fwarn-incomplete-record-updates",
         "-fwarn-missing-deriving-strategies",
         "-DVERSION_amazonka=\"2.0\"",
+        "-fwarn-unused-packages",
     ],
     hidden_modules = [
         "Amazonka.Bytes",
@@ -76,35 +77,18 @@ haskell_library(
     visibility = ["//visibility:public"],
     deps = [
         "//lib/amazonka-core",
-        "@stackage//:aeson",
-        "@stackage//:attoparsec",
         "@stackage//:base",
         "@stackage//:bytestring",
-        "@stackage//:case-insensitive",
         "@stackage//:conduit",
-        "@stackage//:conduit-extra",
-        "@stackage//:cryptonite",
-        "@stackage//:deepseq",
         "@stackage//:directory",
-        "@stackage//:hashable",
         "@stackage//:http-client",
         "@stackage//:http-conduit",
         "@stackage//:http-types",
         "@stackage//:ini",
-        "@stackage//:lens",
-        "@stackage//:memory",
-        "@stackage//:mtl",
-        "@stackage//:regex-posix",
         "@stackage//:resourcet",
         "@stackage//:retry",
-        "@stackage//:scientific",
-        "@stackage//:tagged",
         "@stackage//:text",
         "@stackage//:time",
         "@stackage//:transformers",
-        "@stackage//:unliftio-core",
-        "@stackage//:unordered-containers",
-        "@stackage//:xml-conduit",
-        "@stackage//:xml-types",
     ],
 )

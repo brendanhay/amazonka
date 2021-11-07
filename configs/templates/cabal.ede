@@ -70,9 +70,9 @@ test-suite {{ libraryName }}-test
     -- hand outside these namespaces will not correctly be added to the
     -- distribution package.
     other-modules:
-          Test.AWS.{{ serviceAbbrev }}
-        , Test.AWS.Gen.{{ serviceAbbrev }}
-        , Test.AWS.{{ serviceAbbrev }}.Internal
+          Test.Amazonka.{{ serviceAbbrev }}
+        , Test.Amazonka.Gen.{{ serviceAbbrev }}
+        , Test.Amazonka.{{ serviceAbbrev }}.Internal
 
     build-depends:
           amazonka-core == {{ clientVersion }}.*

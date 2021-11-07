@@ -318,7 +318,6 @@ stack_snapshot(
         "retry",
         "scientific",  # keep
         "semigroups",
-        "tagged",
         "tasty",
         "tasty-hunit",
         "tasty-quickcheck",
@@ -329,7 +328,6 @@ stack_snapshot(
         "transformers",  # keep
         "unexceptionalio",  # keep
         "unliftio",  # keep
-        "unliftio-core",
         "unordered-containers",  # keep
         "xml-conduit",
         "xml-types",

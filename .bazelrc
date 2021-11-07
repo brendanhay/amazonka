@@ -57,7 +57,7 @@ common:ci --color=no
 build:ci --disk_cache=
 build:ci --loading_phase_threads=1
 build:ci --remote_upload_local_results=true
-build:ci --remote_download_minimal
+# build:ci --remote_download_minimal
 
 test:ci --test_output=errors
 test:ci --test_timeout=120,600,1800,3600

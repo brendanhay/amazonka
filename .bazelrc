@@ -57,6 +57,7 @@ common:ci --color=no
 build:ci --disk_cache=
 build:ci --loading_phase_threads=1
 build:ci --remote_upload_local_results=true
+build:ci --experimental_ui_max_stdouterr_bytes=-1
 # build:ci --remote_download_minimal
 
 test:ci --test_output=errors

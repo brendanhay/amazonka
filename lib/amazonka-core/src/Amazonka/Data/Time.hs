@@ -1,5 +1,3 @@
-{-# LANGUAGE MagicHash #-}
-
 -- |
 -- Module      : Amazonka.Data.Time
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -33,7 +31,6 @@ import Amazonka.Prelude
 import qualified Data.Aeson as Aeson
 import qualified Data.Aeson.Types as Aeson
 import qualified Data.Attoparsec.Text as A
-import GHC.Exts (Proxy#, proxy#)
 import qualified Data.Attoparsec.Text as AText
 import qualified Data.ByteString.Char8 as BS
 import Data.Hashable (hashWithSalt)
@@ -77,7 +74,7 @@ type AWSTime = Time 'AWSFormat
 type POSIX = Time 'POSIXFormat
 
 class TimeFormat a where
-  format :: Proxy# a -> String
+  format :: proxy a -> String
 
 instance TimeFormat RFC822 where
   format _ = "%a, %d %b %Y %H:%M:%S GMT"
@@ -122,10 +119,10 @@ parseFormattedTime = do
                   ++ show s
               )
 
-  parse (format (proxy# @RFC822))
-    <|> parse (format (proxy# @ISO8601))
-    <|> parse (format (proxy# @BasicTime))
-    <|> parse (format (proxy# @AWSTime))
+  parse (format (Proxy @RFC822))
+    <|> parse (format (Proxy @ISO8601))
+    <|> parse (format (Proxy @BasicTime))
+    <|> parse (format (Proxy @AWSTime))
     -- Deprecated ISO8601 format exhibited in the AWS-supplied examples.
     <|> parse (iso8601DateFormat (Just "%X%Q%Z"))
     -- Exhaustive Failure
@@ -154,7 +151,7 @@ instance ToText POSIX where
 
 renderFormattedTime :: forall a. TimeFormat (Time a) => Time a -> String
 renderFormattedTime (Time t) =
-  formatTime defaultTimeLocale (format (proxy# @(Time a))) t
+  formatTime defaultTimeLocale (format (Proxy @(Time a))) t
 
 instance FromXML RFC822 where
   parseXML = parseXMLText "RFC822"

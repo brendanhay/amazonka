@@ -36,7 +36,9 @@ build --remote_upload_local_results=false
 # build:linux --remote_cache=https://storage.googleapis.com/tlon-opensource-cache/linux
 # build:darwin --remote_cache=https://storage.googleapis.com/tlon-opensource-cache/darwin
 
-build --remote_cache=grpcs://remote.buildbuddy.io
+build:linux --remote_cache=grpcs://remote.buildbuddy.io
+build:darwin --remote_cache=grpcs://remote.buildbuddy.io
+
 build --remote_timeout=3600s
 build --remote_upload_local_results=false
 

@@ -1,11 +1,12 @@
 # See: https://docs.bazel.build/versions/master/user-manual.html#bazelrc.
 
-startup --host_jvm_args=-Xmx2g
+startup --host_jvm_args=-Xms2g --host_jvm_args=-Xmx2g
 
 build --compilation_mode=fastbuild
 build --distinct_host_configuration=false
 build --experimental_repository_cache_hardlinks
 build --incompatible_disallow_empty_glob
+build --incompatible_exclusive_test_sandboxed
 build --incompatible_remote_results_ignore_disk=true
 build --incompatible_strict_action_env
 build --verbose_failures
@@ -30,19 +31,22 @@ build --disk_cache=~/.cache/bazel/amazonka/disk
 
 run --remote_download_outputs=all
 
-build --remote_timeout=3600s
-build --remote_upload_local_results=false
-
 # build:linux --remote_cache=https://storage.googleapis.com/tlon-opensource-cache/linux
 # build:darwin --remote_cache=https://storage.googleapis.com/tlon-opensource-cache/darwin
 
 build:linux --remote_instance_name=amazonka-linux
 build:darwin --remote_instance_name=amazonka-darwin
 
+build --remote_cache=grpcs://remote.buildbuddy.io
 build --remote_timeout=3600s
 build --remote_upload_local_results=false
+build --remote_retries=10
+build --http_timeout_scaling=2.0
 
-# Upload build telemetry to buildbuddy.io. Disabled by default.
+#
+# Build Telemetry
+#
+
 build:remote --bes_backend=grpcs://remote.buildbuddy.io
 build:remote --bes_results_url=https://app.buildbuddy.io/invocation/
 build:remote --bes_timeout=900s
@@ -58,10 +62,9 @@ build:ci --disk_cache=
 build:ci --loading_phase_threads=1
 build:ci --remote_upload_local_results=true
 build:ci --experimental_ui_max_stdouterr_bytes=-1
-# build:ci --remote_download_minimal
+build:ci --remote_download_minimal
 
 test:ci --test_output=errors
-test:ci --test_timeout=120,600,1800,3600
 test:ci --test_verbose_timeout_warnings
 
 #

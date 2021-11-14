@@ -1,5 +1,6 @@
 {-# LANGUAGE TemplateHaskell #-}
 
+-- |
 -- Module      : Gen.Types.Data
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -9,24 +10,22 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-
 module Gen.Types.Data where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Aeson.Types
-import Data.Function (on)
+import qualified Control.Lens as Lens
+import Data.Aeson ((.=))
+import qualified Data.Aeson as Aeson
+import Data.Aeson.Types (Pair)
+import qualified Data.Function as Function
 import qualified Data.Set as Set
-import Data.Text (Text)
 import qualified Data.Text as Text
-import qualified Data.Text.Lazy as LText
+import Gen.Prelude
 import Gen.Types.Ann
 import Gen.Types.Help
 import Gen.Types.Id
-import Gen.Types.Map
 import Gen.Types.TypeOf
 
-type Rendered = LText.Text
+type Rendered = TextLazy
 
 data Fun = Fun'
   { _funName :: Text,
@@ -39,7 +38,7 @@ data Fun = Fun'
 
 instance ToJSON Fun where
   toJSON Fun' {..} =
-    object
+    Aeson.object
       [ "type" .= Text.pack "function",
         "name" .= _funName,
         "documentation" .= _funDoc,
@@ -58,7 +57,7 @@ data Prod = Prod'
   }
   deriving (Eq, Show)
 
-prodToJSON :: ToJSON a => Solved -> Prod -> Map Text a -> [Pair]
+prodToJSON :: ToJSON a => Solved -> Prod -> HashMap Text a -> [Pair]
 prodToJSON s Prod' {..} is =
   [ "type" .= Text.pack "product",
     "name" .= _prodName,
@@ -76,7 +75,7 @@ data Sum = Sum'
     _sumDoc :: Maybe Help,
     _sumDecl :: Rendered,
     _sumCtor :: Text,
-    _sumCtors :: Map Text Text
+    _sumCtors :: HashMap Text Text
   }
   deriving (Eq, Show)
 
@@ -102,7 +101,7 @@ data Gen = Gen'
 
 instance ToJSON Gen where
   toJSON Gen' {..} =
-    object
+    Aeson.object
       [ "type" .= Text.pack "error",
         "name" .= _genName,
         "documentation" .= _genDoc,
@@ -111,7 +110,7 @@ instance ToJSON Gen where
 
 data SData
   = -- | A product type (record).
-    Prod !Solved Prod (Map Text Rendered)
+    Prod !Solved Prod (HashMap Text Rendered)
   | -- | A nullary sum type.
     Sum !Solved Sum [Text]
   | -- | A function declaration.
@@ -121,8 +120,8 @@ data SData
 instance Ord SData where
   compare a b =
     case (a, b) of
-      (Prod _ x _, Prod _ y _) -> on compare _prodName x y
-      (Sum _ x _, Sum _ y _) -> on compare _sumName x y
+      (Prod _ x _, Prod _ y _) -> Function.on compare _prodName x y
+      (Sum _ x _, Sum _ y _) -> Function.on compare _sumName x y
       (Fun _, Fun _) -> EQ
       (Prod {}, _) -> GT
       (_, Prod {}) -> LT
@@ -131,9 +130,9 @@ instance Ord SData where
 
 instance ToJSON SData where
   toJSON = \case
-    Prod s x is -> object (prodToJSON s x is)
-    Sum s st is -> object (sumToJSON s st is)
-    Fun f -> toJSON f
+    Prod s x is -> Aeson.object (prodToJSON s x is)
+    Sum s st is -> Aeson.object (sumToJSON s st is)
+    Fun f -> Aeson.toJSON f
 
 instance HasId SData where
   identifier = \case
@@ -148,11 +147,11 @@ data WData = WData
   }
   deriving (Show)
 
-makeLenses ''WData
+$(Lens.makeLenses ''WData)
 
 instance ToJSON WData where
   toJSON (WData n _ c) =
-    object
+    Aeson.object
       [ "name" .= n,
         "constructor" .= c
       ]

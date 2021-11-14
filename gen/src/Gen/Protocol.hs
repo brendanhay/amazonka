@@ -1,3 +1,4 @@
+-- |
 -- Module      : Gen.Protocol
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -7,7 +8,6 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-
 module Gen.Protocol
   ( Names (..),
     memberName,
@@ -16,15 +16,13 @@ module Gen.Protocol
   )
 where
 
-import Control.Applicative
-import Control.Comonad.Cofree
-import Control.Lens hiding (List)
-import Data.Maybe
-import Data.Text (Text)
+import qualified Control.Comonad.Cofree as Cofree
+import Gen.Prelude
 import Gen.Text
 import Gen.Types
 
 data Level = Flat | Nest
+  deriving (Show)
 
 suffix :: Protocol -> Text
 suffix = \case
@@ -50,7 +48,7 @@ memberName p d n r =
 
 nestedNames :: Protocol -> Direction -> Id -> RefF (Shape a) -> Names
 nestedNames p d n r =
-  case unwrap (r ^. refAnn) of
+  case Cofree.unwrap (r ^. refAnn) of
     Map m -> mapNames p d n r m
     List l -> listNames p d n r l
     _ -> NName (name p d n r)

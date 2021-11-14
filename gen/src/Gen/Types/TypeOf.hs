@@ -1,3 +1,4 @@
+-- |
 -- Module      : Gen.Types.TypeOf
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -7,7 +8,6 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-
 module Gen.Types.TypeOf
   ( TypeOf (..),
     derivingOf,
@@ -21,11 +21,8 @@ module Gen.Types.TypeOf
   )
 where
 
-import Control.Comonad.Cofree
-import Control.Lens hiding (List, enum, mapping, (:<), (??))
-import Data.Foldable (foldr')
-import Data.List (delete, intersect, nub, sort)
-import Data.Text (Text)
+import qualified Data.List as List
+import Gen.Prelude
 import Gen.Types.Ann
 import Gen.Types.Id
 import Gen.Types.Service
@@ -68,7 +65,7 @@ instance HasId a => TypeOf (Shape a) where
         | isStreaming st = stream
         | otherwise =
           uniq $
-            foldr' (intersect . derivingOf) derivingBase (st ^.. references)
+            foldr (List.intersect . derivingOf) derivingBase (st ^.. references)
 
 instance HasId a => TypeOf (RefF (Shape a)) where
   typeOf r
@@ -102,10 +99,10 @@ derivingOf = uniq . typ . typeOf
       TNatural -> derivingBase <> num
       TStream -> stream
       TMaybe t -> typ t
-      TSensitive t -> DShow : delete DRead (typ t)
-      TList e -> monoid <> intersect derivingBase (typ e)
-      TList1 e -> DSemigroup : intersect derivingBase (typ e)
-      TMap k v -> monoid <> intersect (typ k) (typ v)
+      TSensitive t -> DShow : List.delete DRead (typ t)
+      TList e -> monoid <> List.intersect derivingBase (typ e)
+      TList1 e -> DSemigroup : List.intersect derivingBase (typ e)
+      TMap k v -> monoid <> List.intersect (typ k) (typ v)
 
     lit = \case
       Int -> derivingBase <> num
@@ -164,4 +161,4 @@ sensitive x
   | otherwise = id
 
 uniq :: Ord a => [a] -> [a]
-uniq = sort . nub
+uniq = List.sort . List.nub

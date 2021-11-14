@@ -1,5 +1,6 @@
 {-# LANGUAGE TemplateHaskell #-}
 
+-- |
 -- Module      : Gen.Types.Config
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -9,31 +10,24 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-
 module Gen.Types.Config where
 
-import Control.Error
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.List ((\\))
+import qualified Control.Lens as Lens
+import Data.Aeson ((.!=), (.:), (.:?), (.=))
+import qualified Data.Aeson as Aeson
 import qualified Data.List as List
-import Data.Ord
-import Data.String (fromString)
-import Data.Text (Text)
+import Data.Ord (Down (..))
 import qualified Data.Text as Text
-import Data.Time
-import GHC.Generics (Generic)
-import GHC.TypeLits
+import qualified Data.Time as Time
+import Gen.Prelude
 import Gen.TH
 import Gen.Text
 import Gen.Types.Ann
 import Gen.Types.Data
 import Gen.Types.Id
-import Gen.Types.Map
 import Gen.Types.NS
 import Gen.Types.Service
 import Gen.Types.TypeOf
-import System.FilePath ((</>))
 import qualified System.FilePath as FilePath
 import Text.EDE (Template)
 
@@ -43,14 +37,14 @@ data Replace = Replace
   }
   deriving (Eq, Show, Generic)
 
-makeLenses ''Replace
+$(Lens.makeLenses ''Replace)
 
 instance FromJSON Replace where
   parseJSON = gParseJSON' (lower & field %~ (. stripPrefix "replace"))
 
 instance TypeOf Replace where
   typeOf Replace {..} =
-    TType (typeId _replaceName) (derivingBase \\ _replaceUnderive)
+    TType (typeId _replaceName) (derivingBase List.\\ _replaceUnderive)
 
 data Override = Override
   { -- | Rename type
@@ -62,20 +56,21 @@ data Override = Override
     -- | Optional fields
     _optionalFields :: [Id],
     -- | Rename fields
-    _renamedFields :: Map Id Id
+    _renamedFields :: HashMap Id Id
   }
   deriving (Eq, Show)
 
-makeLenses ''Override
+$(Lens.makeLenses ''Override)
 
 instance FromJSON Override where
-  parseJSON = withObject "override" $ \o ->
-    Override
-      <$> (o .:? "renamedTo" <&> fmap (\unsafe -> Id unsafe unsafe))
-      <*> o .:? "replacedBy"
-      <*> o .:? "requiredFields" .!= mempty
-      <*> o .:? "optionalFields" .!= mempty
-      <*> o .:? "renamedFields" .!= mempty
+  parseJSON =
+    Aeson.withObject "override" $ \o ->
+      Override
+        <$> (o .:? "renamedTo" <&> fmap (\unsafe -> Id unsafe unsafe))
+        <*> o .:? "replacedBy"
+        <*> o .:? "requiredFields" .!= mempty
+        <*> o .:? "optionalFields" .!= mempty
+        <*> o .:? "renamedFields" .!= mempty
 
 defaultOverride :: Override
 defaultOverride =
@@ -91,7 +86,7 @@ newtype Version (v :: Symbol) = Version {semver :: Text}
   deriving (Eq, Show)
 
 instance ToJSON (Version v) where
-  toJSON (Version v) = toJSON v
+  toJSON (Version v) = Aeson.toJSON v
 
 type LibraryVer = Version "library"
 
@@ -103,7 +98,7 @@ data Versions = Versions
   }
   deriving (Show)
 
-makeClassy ''Versions
+$(Lens.makeClassy ''Versions)
 
 data Config = Config
   { _libraryName :: Text,
@@ -114,27 +109,28 @@ data Config = Config
     -- Using a wildcard key of @*@ in the configuration results in the plugins
     -- being applied to _all_ operations. The wildcard is only applied if no
     -- matching operation name is found in the map.
-    _operationPlugins :: Map Id [Text],
+    _operationPlugins :: HashMap Id [Text],
     _typeModules :: [NS],
-    _typeOverrides :: Map Id Override,
-    _ignoredWaiters :: Set Id,
-    _ignoredPaginators :: Set Id,
+    _typeOverrides :: HashMap Id Override,
+    _ignoredWaiters :: HashSet Id,
+    _ignoredPaginators :: HashSet Id,
     _extraDependencies :: [Text]
   }
 
-makeClassy ''Config
+$(Lens.makeClassy ''Config)
 
 instance FromJSON Config where
-  parseJSON = withObject "config" $ \o ->
-    Config
-      <$> o .: "libraryName"
-      <*> o .:? "operationModules" .!= mempty
-      <*> o .:? "operationPlugins" .!= mempty
-      <*> o .:? "typeModules" .!= mempty
-      <*> o .:? "typeOverrides" .!= mempty
-      <*> o .:? "ignoredWaiters" .!= mempty
-      <*> o .:? "ignoredPaginators" .!= mempty
-      <*> o .:? "extraDependencies" .!= mempty
+  parseJSON =
+    Aeson.withObject "config" $ \o ->
+      Config
+        <$> o .: "libraryName"
+        <*> o .:? "operationModules" .!= mempty
+        <*> o .:? "operationPlugins" .!= mempty
+        <*> o .:? "typeModules" .!= mempty
+        <*> o .:? "typeOverrides" .!= mempty
+        <*> o .:? "ignoredWaiters" .!= mempty
+        <*> o .:? "ignoredPaginators" .!= mempty
+        <*> o .:? "extraDependencies" .!= mempty
 
 data Library = Library
   { _versions' :: Versions,
@@ -143,7 +139,7 @@ data Library = Library
     _instance' :: Fun
   }
 
-makeLenses ''Library
+$(Lens.makeLenses ''Library)
 
 instance HasMetadata Library Identity where
   metadata = service' . metadata'
@@ -158,11 +154,13 @@ instance HasVersions Library where
   versions = versions'
 
 instance ToJSON Library where
-  toJSON l = Object (x <> y)
+  toJSON l = Aeson.Object (x <> y)
     where
-      y = case toJSON (l ^. metadata) of
-        Object obj -> obj
-        oops -> error $ "metadata: expected JSON object, got " ++ show oops
+      y =
+        case Aeson.toJSON (l ^. metadata) of
+          Aeson.Object obj -> obj
+          other -> error $ "metadata: expected JSON object, got " ++ show other
+
       x =
         mconcat
           [ "documentation" .= (l ^. documentation),
@@ -177,39 +175,41 @@ instance ToJSON Library where
             "exposedModules" .= List.sort (l ^. exposedModules),
             "otherModules" .= List.sort (l ^. otherModules),
             "extraDependencies" .= List.sort (l ^. extraDependencies),
-            "operations" .= (l ^.. operations . each),
-            "shapes" .= List.sort (l ^.. shapes . each),
-            "waiters" .= (l ^.. waiters . each)
+            "operations" .= (l ^.. operations . Lens.each),
+            "shapes" .= List.sort (l ^.. shapes . Lens.each),
+            "waiters" .= (l ^.. waiters . Lens.each)
           ]
 
 -- FIXME: Remove explicit construction of getters, just use functions.
 libraryNS, typesNS, waitersNS, fixturesNS, lensNS :: Getter Library NS
-libraryNS = serviceAbbrev . to (mappend "Amazonka" . mkNS)
-typesNS = libraryNS . to (<> "Types")
-waitersNS = libraryNS . to (<> "Waiters")
-fixturesNS = serviceAbbrev . to (mappend "Test.Amazonka.Gen" . mkNS)
-lensNS = libraryNS . to (<> "Lens")
+libraryNS = serviceAbbrev . Lens.to (mappend "Amazonka" . mkNS)
+typesNS = libraryNS . Lens.to (<> "Types")
+waitersNS = libraryNS . Lens.to (<> "Waiters")
+fixturesNS = serviceAbbrev . Lens.to (mappend "Test.Amazonka.Gen" . mkNS)
+lensNS = libraryNS . Lens.to (<> "Lens")
 
 otherModules :: Getter Library [NS]
-otherModules = to f
+otherModules = Lens.to f
   where
     f x =
       x ^. operationModules
         <> x ^. typeModules
-        <> mapMaybe (shapeNS x) (x ^.. shapes . each)
-    shapeNS x s@(Prod _ _ _) = Just $ (x ^. typesNS) <> ((mkNS . typeId) $ identifier s)
-    shapeNS x s@(Sum _ _ _) = Just $ (x ^. typesNS) <> ((mkNS . typeId) $ identifier s)
-    shapeNS _ (Fun _) = Nothing
+        <> mapMaybe (shapeNS x) (x ^.. shapes . Lens.each)
+
+    shapeNS x = \case
+      s@Prod {} -> Just $ (x ^. typesNS) <> ((mkNS . typeId) $ identifier s)
+      s@Sum {} -> Just $ (x ^. typesNS) <> ((mkNS . typeId) $ identifier s)
+      Fun {} -> Nothing
 
 exposedModules :: Getter Library [NS]
-exposedModules = to f
+exposedModules = Lens.to f
   where
     f x =
       let ns = x ^. libraryNS
        in x ^. typesNS :
           x ^. lensNS :
           x ^. waitersNS :
-          x ^.. operations . each . to (operationNS ns . view opName)
+          x ^.. operations . Lens.each . Lens.to (operationNS ns . Lens.view opName)
 
 data Templates = Templates
   { cabalTemplate :: Template,
@@ -237,7 +237,7 @@ data Model = Model
   }
   deriving (Eq, Show)
 
-makeLenses ''Model
+$(Lens.makeLenses ''Model)
 
 configFile, annexFile :: Model -> FilePath
 configFile = flip FilePath.addExtension "json" . Text.unpack . _modelName
@@ -250,23 +250,24 @@ pagersFile = flip FilePath.combine "paginators-1.json" . _modelPath
 
 loadModel :: FilePath -> [FilePath] -> Either String Model
 loadModel path xs = do
-  version <- headErr ("No valid model versions found in " ++ show xs) sortedVersions
+  let sortedVersions =
+        List.sortOn Down (mapMaybe parseVersion xs)
 
-  pure
-    Model
-      { _modelName = fromString (FilePath.takeFileName path),
-        _modelVersions = map fst sortedVersions,
-        _modelVersion = fst version,
-        _modelPath = path </> snd version
-      }
-  where
-    sortedVersions =
-      List.sortOn Down (mapMaybe parseVersion xs)
+      parseVersion date =
+        (,date)
+          <$> Time.parseTimeM
+            True
+            Time.defaultTimeLocale
+            (Time.iso8601DateFormat Nothing)
+            (FilePath.takeFileName date)
 
-    parseVersion date =
-      (,date)
-        <$> parseTimeM
-          True
-          defaultTimeLocale
-          (iso8601DateFormat Nothing)
-          (FilePath.takeFileName date)
+  case sortedVersions of
+    [] -> Left ("No valid model versions found in " ++ show xs)
+    version : _ ->
+      pure
+        Model
+          { _modelName = fromString (FilePath.takeFileName path),
+            _modelVersions = map fst sortedVersions,
+            _modelVersion = fst version,
+            _modelPath = path </> snd version
+          }

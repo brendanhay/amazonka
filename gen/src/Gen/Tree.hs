@@ -1,3 +1,4 @@
+-- |
 -- Module      : Gen.Tree
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -7,7 +8,6 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-
 module Gen.Tree
   ( root,
     fold,
@@ -15,23 +15,19 @@ module Gen.Tree
   )
 where
 
-import Control.Lens (each, (^.), (^..))
-import Control.Monad
-import Data.Aeson hiding (json)
-import Data.Bifunctor
-import Data.Functor.Identity
-import Data.Maybe (mapMaybe)
-import Data.Monoid hiding (Sum)
-import Data.Text (Text)
+import qualified Control.Lens as Lens
+import Data.Aeson ((.=))
+import qualified Data.Aeson as Aeson
+import qualified Data.List as List
 import qualified Data.Text as Text
 import Gen.Import
-import qualified Gen.JSON as JS
+import qualified Gen.JSON as JSON
+import Gen.Prelude hiding (mod)
 import Gen.Types
-import System.Directory.Tree hiding (file)
-import System.FilePath ((<.>), (</>))
+import System.Directory.Tree (AnchoredDirTree ((:/)), DirTree (..))
 import qualified System.FilePath as FilePath
-import Text.EDE hiding (failure, render)
-import Prelude hiding (mod)
+import Text.EDE (Template)
+import qualified Text.EDE as EDE
 
 root :: AnchoredDirTree a -> FilePath
 root (p :/ d) = p </> name d
@@ -47,7 +43,7 @@ fold ::
 fold g f (p :/ t) = (p :/) <$> go p t
   where
     go x = \case
-      Failed n e -> fail (show e) >> return (Failed n e)
+      Failed n e -> fail (show e) >> pure (Failed n e)
       File n a -> File n <$> f (x </> n) a
       Dir n cs -> g d >> Dir n <$> mapM (go d) cs
         where
@@ -77,12 +73,12 @@ populate d Templates {..} l = (d :/) . dir lib <$> layout
                 "Amazonka"
                 [ dir svc $
                     [ dir "Types" $
-                        mapMaybe shape (l ^.. shapes . each),
+                        mapMaybe shape (l ^.. shapes . Lens.each),
                       mod (l ^. typesNS) (typeImports l) typesTemplate,
                       mod (l ^. waitersNS) (waiterImports l) waitersTemplate,
                       mod (l ^. lensNS) (lensImports l) lensTemplate
                     ]
-                      ++ map op (l ^.. operations . each),
+                      ++ map op (l ^.. operations . Lens.each),
                   mod (l ^. libraryNS) mempty tocTemplate
                 ]
             ],
@@ -94,14 +90,14 @@ populate d Templates {..} l = (d :/) . dir lib <$> layout
                 [ dir
                     "Amazonka"
                     [ touch (l ^. serviceAbbrev <> ".hs") testNamespaceTemplate $
-                        fromPairs
+                        EDE.fromPairs
                           [ "moduleName"
                               .= ("Test.Amazonka." <> l ^. serviceAbbrev)
                           ],
                       dir
                         svc
                         [ touch "Internal.hs" testInternalTemplate $
-                            fromPairs
+                            EDE.fromPairs
                               [ "moduleName"
                                   .= ("Test.Amazonka." <> l ^. serviceAbbrev <> ".Internal")
                               ]
@@ -113,7 +109,7 @@ populate d Templates {..} l = (d :/) . dir lib <$> layout
                     ]
                 ]
             ],
-          dir "fixture" (concatMap fixture (l ^.. operations . each)),
+          dir "fixture" (concatMap fixture (l ^.. operations . Lens.each)),
           file (lib <.> "cabal") cabalTemplate,
           file "README.md" readmeTemplate
         ]
@@ -136,7 +132,7 @@ populate d Templates {..} l = (d :/) . dir lib <$> layout
     fixture o =
       [ touch (n <> "Response.proto") blankTemplate mempty,
         touch (n <> ".yaml") fixtureRequestTemplate $
-          fromPairs
+          EDE.fromPairs
             [ "method" .= (o ^. opHttp . method),
               "endpointPrefix" .= (l ^. endpointPrefix)
             ]
@@ -150,8 +146,8 @@ populate d Templates {..} l = (d :/) . dir lib <$> layout
     file :: FilePath -> Template -> DirTree (Either String Touch)
     file p t = write $ file' p t (pure env)
 
-    env :: Value
-    env = toJSON l
+    env :: Aeson.Value
+    env = Aeson.toJSON l
 
 operation' ::
   Library ->
@@ -159,9 +155,9 @@ operation' ::
   Operation Identity SData a ->
   DirTree (Either String Rendered)
 operation' l t o = module' n is t $ do
-  x <- JS.objectErr (show n) o
-  y <- JS.objectErr "metadata" (toJSON m)
-  return $! y <> x
+  x <- JSON.objectErr (show n) o
+  y <- JSON.objectErr "metadata" (Aeson.toJSON m)
+  pure $! y <> x
   where
     n = operationNS (l ^. libraryNS) (o ^. opName)
     m = l ^. metadata
@@ -181,7 +177,7 @@ shape' l t s = module' n (is s) t $ pure env
     is (Sum _ _ _) = sumImports l
     is _ = []
 
-    env = object ["shape" .= s]
+    env = Aeson.object ["shape" .= s]
 
 module' ::
   ToJSON a =>
@@ -192,15 +188,15 @@ module' ::
   DirTree (Either String Rendered)
 module' ns is tmpl f =
   file' (FilePath.takeFileName (nsToPath ns)) tmpl $ do
-    x <- f >>= JS.objectErr (show ns)
-    return $! x
-      <> fromPairs
+    x <- f >>= JSON.objectErr (show ns)
+    pure $! x
+      <> EDE.fromPairs
         [ "moduleName" .= ns,
           "moduleImports" .= is,
           "templateName" .= (templateName ns)
         ]
   where
-    templateName (NS xs) = last xs
+    templateName (NS xs) = List.last xs
 
 file' ::
   ToJSON a =>
@@ -209,7 +205,7 @@ file' ::
   Either String a ->
   DirTree (Either String Rendered)
 file' p tmpl f =
-  File p (f >>= JS.objectErr p >>= eitherRender tmpl)
+  File p (f >>= JSON.objectErr p >>= EDE.eitherRender tmpl)
 
 dir :: FilePath -> [DirTree a] -> DirTree a
 dir = Dir
@@ -217,6 +213,7 @@ dir = Dir
 write :: DirTree (Either e b) -> DirTree (Either e (Either a b))
 write = fmap (second Right)
 
-touch :: Text -> Template -> Object -> DirTree (Either String Touch)
+touch :: Text -> Template -> Aeson.Object -> DirTree (Either String Touch)
 touch f tmpl env =
-  File (Text.unpack f) (bimap id Left (eitherRender tmpl env))
+  File (Text.unpack f) $
+    bimap id Left (EDE.eitherRender tmpl env)

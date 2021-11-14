@@ -11,7 +11,8 @@ import qualified Data.Maybe as Maybe
 import qualified Data.Set as Set
 import Data.Text (Text)
 import qualified Data.Text as Text
-import qualified Data.Text.Encoding as Text.Encoding
+import qualified Data.Text.Encoding as Text.Encoding.Encoding
+import Gen.Prelude
 import Options.Applicative ((<**>))
 import qualified Options.Applicative as Options
 import System.FilePath ((<.>), (</>))

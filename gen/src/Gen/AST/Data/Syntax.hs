@@ -1,31 +1,26 @@
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
+-- |
 -- Module      : Gen..AST.Data.Syntax
 -- Copyright   : (c) 2013-2021 Brendan Hay
--- License     : This Source Code Form is subject to the terms of
+-- License     : This Source Code Form is subject Lens.to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-
 module Gen.AST.Data.Syntax where
 
-import Control.Applicative ((<|>))
-import Control.Comonad
-import Control.Error
-import Control.Lens hiding (iso, mapping, op, strict)
+import qualified Control.Comonad as Comonad
+import qualified Control.Lens as Lens
 import qualified Data.Char as Char
-import Data.Foldable (foldl', foldr')
 import qualified Data.Foldable as Fold
-import qualified Data.HashMap.Strict as Map
-import Data.List.NonEmpty (NonEmpty (..))
-import Data.String
-import Data.Text (Text)
+import qualified Data.HashMap.Strict as HashMap
 import qualified Data.Text as Text
 import Gen.AST.Data.Field
 import Gen.AST.Data.Instance
+import Gen.Prelude
 import Gen.Protocol (Names (..))
 import qualified Gen.Protocol as Proto
 import Gen.Types
@@ -100,7 +95,7 @@ toQMap = var "Core.toQueryMap"
 ctorS :: HasMetadata a Identity => a -> Id -> [Field] -> Decl
 ctorS m n fs = Exts.TypeSig () [ident (smartCtorId n)] ty
   where
-    ty = foldr' (Exts.TyFun ()) (tycon (typeId n)) ps
+    ty = foldr (Exts.TyFun ()) (tycon (typeId n)) ps
 
     ps = map (external m) (filter fieldIsParam fs)
 
@@ -226,9 +221,9 @@ serviceD m r = Exts.patBindWhere (pvar n) rhs bs
         (unqual "Core.Service")
         [ field (unqual "Core._serviceAbbrev") (str abbrev),
           field (unqual "Core._serviceSigner") (var sig),
-          field (unqual "Core._serviceEndpointPrefix") (m ^. endpointPrefix . to str),
-          field (unqual "Core._serviceSigningName") (m ^. signingName . to str),
-          field (unqual "Core._serviceVersion") (m ^. apiVersion . to str),
+          field (unqual "Core._serviceEndpointPrefix") (m ^. endpointPrefix . Lens.to str),
+          field (unqual "Core._serviceSigningName") (m ^. signingName . Lens.to str),
+          field (unqual "Core._serviceVersion") (m ^. apiVersion . Lens.to str),
           field (unqual "Core._serviceEndpoint") (Exts.app (var "Core.defaultEndpoint") (var n)),
           field (unqual "Core._serviceTimeout") (Exts.app justE (Exts.intE 70)),
           field (unqual "Core._serviceCheck") (var "Core.statusSuccess"),
@@ -239,10 +234,10 @@ serviceD m r = Exts.patBindWhere (pvar n) rhs bs
     try =
       Exts.sfun (ident "retry") [] . unguarded $
         recconstr
-          (r ^. delayType . to (unqual . mappend "Core."))
-          [ field (unqual "Core._retryBase") (r ^. delayBase . to frac),
-            field (unqual "Core._retryGrowth") (r ^. delayGrowth . to Exts.intE),
-            field (unqual "Core._retryAttempts") (r ^. retryAttempts . to Exts.intE),
+          (r ^. delayType . Lens.to (unqual . mappend "Core."))
+          [ field (unqual "Core._retryBase") (r ^. delayBase . Lens.to frac),
+            field (unqual "Core._retryGrowth") (r ^. delayGrowth . Lens.to Exts.intE),
+            field (unqual "Core._retryAttempts") (r ^. retryAttempts . Lens.to Exts.intE),
             field (unqual "Core._retryCheck") (var "check")
           ]
 
@@ -316,13 +311,13 @@ pagerD n p =
         f :: Exp -> Token Field -> Exp
         f e x =
           Exts.infixApp e "Prelude.&"
-            . Exts.infixApp (x ^. tokenInput . to (notationE' False)) "Lens..~"
-            $ rs (x ^. tokenOutput . to notationE)
+            . Exts.infixApp (x ^. tokenInput . Lens.to (notationE' False)) "Lens..~"
+            $ rs (x ^. tokenOutput . Lens.to notationE)
 
     check t ts = guardE (foldl' f (g t) ts) nothingE
       where
         f x = Exts.infixApp x "Prelude.&&" . g
-        g y = Exts.app (var "Prelude.isNothing") $ rs (y ^. tokenOutput . to notationE)
+        g y = Exts.app (var "Prelude.isNothing") $ rs (y ^. tokenOutput . Lens.to notationE)
 
     rq = Exts.infixApp justE "Prelude.$" (var "rq")
     rs x = Exts.infixApp (var "rs") (qop (getterN x)) x
@@ -394,8 +389,8 @@ requestD c m h (a, as) (b, bs) =
 responseE :: Protocol -> Ref -> [Field] -> Exp
 responseE p r fs = Exts.app (responseF p r fs) bdy
   where
-    n = r ^. to identifier
-    s = r ^. refAnn . to extract
+    n = r ^. Lens.to identifier
+    s = r ^. refAnn . Lens.to Comonad.extract
 
     bdy :: Exp
     bdy
@@ -430,7 +425,7 @@ responseE p r fs = Exts.app (responseF p r fs) bdy
       | fieldLit f =
         if fieldIsParam f
           then Exts.app (var "Prelude.pure") (var "x")
-          else -- Coerce is inserted here to handle newtypes such as Sensitive.
+          else -- Coerce is inserted here Lens.to handle newtypes such as Sensitive.
 
             Exts.app (var "Prelude.pure")
               . Exts.paren
@@ -770,7 +765,7 @@ requestF ::
   [Inst] ->
   Exp
 requestF c meta h r is =
-  maybe e (foldr' applyPlugin e) selectedPlugins
+  maybe e (foldr applyPlugin e) selectedPlugins
   where
     applyPlugin x =
       -- Plugin functions are of the form :: Request a -> Request a
@@ -778,8 +773,8 @@ requestF c meta h r is =
 
     selectedPlugins =
       -- Lookup a specific operationPlugins key before the wildcard.
-      Map.lookup (identifier r) (c ^. operationPlugins)
-        <|> Map.lookup (mkId "*") (c ^. operationPlugins)
+      HashMap.lookup (identifier r) (c ^. operationPlugins)
+        <|> HashMap.lookup (mkId "*") (c ^. operationPlugins)
 
     e = Exts.app v (var n)
 
@@ -824,7 +819,7 @@ responseF p r fs
 waiterS :: Id -> Waiter a -> Decl
 waiterS n w = Exts.TypeSig () [ident c] $ tyapp (tycon "Core.Wait") (tycon k)
   where
-    k = w ^. waitOperation . to typeId
+    k = w ^. waitOperation . Lens.to typeId
     c = smartCtorId n
 
 waiterD :: Id -> Waiter Field -> Decl
@@ -836,8 +831,8 @@ waiterD n w = Exts.sfun (ident c) [] (unguarded rhs) Exts.noBinds
       recconstr
         (unqual "Core.Wait")
         [ field (unqual "Core._waitName") (str (memberId n)),
-          field (unqual "Core._waitAttempts") (w ^. waitAttempts . to Exts.intE),
-          field (unqual "Core._waitDelay") (w ^. waitDelay . to Exts.intE),
+          field (unqual "Core._waitAttempts") (w ^. waitAttempts . Lens.to Exts.intE),
+          field (unqual "Core._waitDelay") (w ^. waitDelay . Lens.to Exts.intE),
           field (unqual "Core._waitAcceptors")
             . Exts.listE
             $ map match (w ^. waitAcceptors)

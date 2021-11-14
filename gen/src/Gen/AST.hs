@@ -1,3 +1,4 @@
+-- |
 -- Module      : Gen.AST
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -7,22 +8,21 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-
 module Gen.AST where
 
-import Control.Arrow
-import Control.Error
-import Control.Lens
-import Control.Monad.Except (throwError)
-import Control.Monad.State
-import qualified Data.HashMap.Strict as Map
-import qualified Data.HashSet as Set
+import Control.Arrow ((&&&))
+import qualified Control.Lens as Lens
+import qualified Control.Monad.Except as Except
+import qualified Control.Monad.State.Strict as State
+import qualified Data.HashMap.Strict as HashMap
+import qualified Data.HashSet as HashSet
 import qualified Data.Text as Text
 import Gen.AST.Cofree
 import Gen.AST.Data
 import Gen.AST.Override
 import Gen.AST.Prefix
 import Gen.AST.Subst
+import Gen.Prelude
 import Gen.Types
 
 -- FIXME: Relations need to be updated by the solving step.
@@ -37,16 +37,16 @@ rewrite v cfg s' = do
   Library v cfg s <$> serviceData (s ^. metadata) (s ^. retry)
 
 deprecate :: Service f a b c -> Service f a b c
-deprecate = operations %~ Map.filter (not . view opDeprecated)
+deprecate = operations %~ HashMap.filter (not . Lens.view opDeprecated)
 
 ignore :: Config -> Service f a b c -> Service f a b c
 ignore c srv =
   srv
-    & waiters %~ Map.filterWithKey (const . validWaiter)
-    & operations %~ Map.mapWithKey (\k v -> if validPager k then v else (opPager .~ Nothing) v)
+    & waiters %~ HashMap.filterWithKey (const . validWaiter)
+    & operations %~ HashMap.mapWithKey (\k v -> if validPager k then v else (opPager .~ Nothing) v)
   where
-    validWaiter k = not $ Set.member k (c ^. ignoredWaiters)
-    validPager k = not $ Set.member k (c ^. ignoredPaginators)
+    validWaiter k = not $ HashSet.member k (c ^. ignoredWaiters)
+    validPager k = not $ HashSet.member k (c ^. ignoredPaginators)
 
 rewriteService ::
   Config ->
@@ -62,7 +62,7 @@ rewriteService cfg s = do
     >>= traverse (pure . attach Related rs)
     -- Apply the override configuration to the service, and default any
     -- optional fields from the JSON where needed.
-    >>= return . (\ss -> override (cfg ^. typeOverrides) (s {_shapes = ss}))
+    >>= pure . (\ss -> override (cfg ^. typeOverrides) (s {_shapes = ss}))
     -- Ensure no empty operation references exist, and that operation shapes
     -- are considered 'unique', so they can be lifted into the operation's
     -- module, separately from .Types.
@@ -79,17 +79,17 @@ renderShapes cfg svc = do
     prefixes (svc ^. shapes)
       -- Determine the appropriate Haskell AST type, auto deriveable instances,
       -- and fully rendered instances.
-      >>= return . solve cfg
+      >>= pure . solve cfg
       -- Separate the operation input/output shapes from the .Types shapes.
       >>= separate (svc ^. operations)
 
   -- Prune anything that is an orphan, or not an exception
-  let prune = Map.filter $ \s -> not (isOrphan s) || s ^. infoException
+  let prune = HashMap.filter $ \s -> not (isOrphan s) || s ^. infoException
 
   -- Convert shape ASTs into a rendered Haskell AST declaration,
   xs <- traverse (operationData cfg svc) x
   ys <- kvTraverseMaybe (const (shapeData svc)) (prune y)
-  zs <- Map.traverseWithKey (waiterData svc x) (svc ^. waiters)
+  zs <- HashMap.traverseWithKey (waiterData svc x) (svc ^. waiters)
 
   return
     $! svc
@@ -98,7 +98,7 @@ renderShapes cfg svc = do
         _waiters = zs
       }
 
-type MemoR = StateT (Map Id Relation, Set (Id, Direction, Id)) (Either String)
+type MemoR = StateT (HashMap Id Relation, HashSet (Id, Direction, Id)) (Either String)
 
 -- | Determine the relation for operation payloads, both input and output.
 --
@@ -106,37 +106,41 @@ type MemoR = StateT (Map Id Relation, Set (Id, Direction, Id)) (Either String)
 -- used by 'setDefaults'.
 relations ::
   Show a =>
-  Map Id (Operation Maybe (RefF b) c) ->
-  Map Id (ShapeF a) ->
-  Either String (Map Id Relation)
-relations os ss = fst <$> execStateT (traverse go os) (mempty, mempty)
+  HashMap Id (Operation Maybe (RefF b) c) ->
+  HashMap Id (ShapeF a) ->
+  Either String (HashMap Id Relation)
+relations os ss = fst <$> State.execStateT (traverse go os) (mempty, mempty)
   where
     -- FIXME: opName here is incorrect as a parent.
     go :: Operation Maybe (RefF a) b -> MemoR ()
     go o =
-      count Nothing Input (o ^? opInput . _Just . refShape)
-        >> count Nothing Output (o ^? opOutput . _Just . refShape)
+      count Nothing Input (o ^? opInput . Lens._Just . refShape)
+        >> count Nothing Output (o ^? opOutput . Lens._Just . refShape)
+
     count :: Maybe Id -> Direction -> Maybe Id -> MemoR ()
     count _ _ Nothing = pure ()
     count p d (Just n) = do
-      _1 %= Map.insertWith (<>) n (mkRelation p d)
+      Lens._1 %= HashMap.insertWith (<>) n (mkRelation p d)
+
       check p d n $ do
         s <- lift (safe n)
         shape n d s
 
     shape :: Id -> Direction -> ShapeF a -> MemoR ()
     shape p d =
-      mapM_ (count (Just p) d . Just . view refShape)
-        . toListOf references
+      mapM_ (count (Just p) d . Just . Lens.view refShape)
+        . Lens.toListOf references
 
     -- Ensure cyclic dependencies are only checked once per direction/parent.
     check Nothing _ _ f = f
     check (Just p) d n f = do
       let k = (p, d, n)
-      m <- uses _2 (Set.member k)
+
+      m <- Lens.uses Lens._2 (HashSet.member k)
+
       if m
         then pure ()
-        else _2 %= Set.insert k >> f
+        else Lens._2 %= HashSet.insert k >> f
 
     safe n =
       note
@@ -145,7 +149,7 @@ relations os ss = fst <$> execStateT (traverse go os) (mempty, mempty)
             ++ ", possible matches: "
             ++ partial n ss
         )
-        (Map.lookup n ss)
+        (HashMap.lookup n ss)
 
 -- FIXME: Necessary to update the Relation?
 solve ::
@@ -153,32 +157,32 @@ solve ::
   Config ->
   t (Shape Prefixed) ->
   t (Shape Solved)
-solve cfg ss = evalState (go ss) (replaced typeOf cfg)
+solve cfg ss = State.evalState (go ss) (replaced typeOf cfg)
   where
     go = traverse (annotate Solved id (pure . typeOf))
 
-    replaced :: (Replace -> a) -> Config -> Map Id a
+    replaced :: (Replace -> a) -> Config -> HashMap Id a
     replaced f =
-      Map.fromList
+      HashMap.fromList
         . map (_replaceName &&& f)
-        . Map.elems
+        . HashMap.elems
         . vMapMaybe _replacedBy
         . _typeOverrides
 
-type MemoS a = StateT (Map Id a) (Either String)
+type MemoS a = StateT (HashMap Id a) (Either String)
 
 -- | Filter the ids representing operation input/outputs from the supplied map,
 -- and attach the associated shape to the appropriate operation.
 separate ::
   (Show a, HasRelation a) =>
-  Map Id (Operation Identity (RefF b) c) ->
-  Map Id a ->
+  HashMap Id (Operation Identity (RefF b) c) ->
+  HashMap Id a ->
   Either
     String
-    ( Map Id (Operation Identity (RefF a) c), -- Operations.
-      Map Id a -- Data Types.
+    ( HashMap Id (Operation Identity (RefF a) c), -- Operations.
+      HashMap Id a -- Data Types.
     )
-separate os = runStateT (traverse go os)
+separate os = State.runStateT (traverse go os)
   where
     go ::
       (HasRelation b) =>
@@ -188,7 +192,7 @@ separate os = runStateT (traverse go os)
       x <- remove Input (inputName o)
       y <- remove Output (outputName o)
 
-      return
+      pure
         $! o
           { _opInput = Identity (o ^. opInput . _Identity & refAnn .~ x),
             _opOutput = Identity (o ^. opOutput . _Identity & refAnn .~ y)
@@ -196,15 +200,17 @@ separate os = runStateT (traverse go os)
 
     remove :: HasRelation a => Direction -> Id -> MemoS a a
     remove d n = do
-      s <- get
+      s <- State.get
 
-      case Map.lookup n s of
+      case HashMap.lookup n s of
         Nothing ->
-          throwError $
+          Except.throwError $
             "Failure separating operation wrapper " ++ Text.unpack (memberId n)
               ++ " from "
-              ++ show (Map.map (const ()) s)
+              ++ show (HashMap.map (const ()) s)
+        --
         Just x -> do
           when (d == Input || not (isShared x)) $
-            modify (Map.delete n)
-          return x
+            State.modify' (HashMap.delete n)
+
+          pure x

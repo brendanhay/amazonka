@@ -1,5 +1,6 @@
 {-# LANGUAGE TemplateHaskell #-}
 
+-- |
 -- Module      : Gen.AST.Subst
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -9,29 +10,27 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-
 module Gen.AST.Subst
   ( substitute,
   )
 where
 
-import Control.Comonad.Cofree
-import Control.Error
-import Control.Lens hiding ((:<))
-import Control.Monad.Except
-import Control.Monad.State
-import qualified Data.HashMap.Strict as Map
-import Data.List (find)
+import qualified Control.Lens as Lens
+import qualified Control.Monad.Except as Except
+import qualified Control.Monad.State.Strict as State
+import qualified Data.HashMap.Strict as HashMap
+import qualified Data.List as List
 import qualified Data.Text as Text
 import Gen.AST.Override
+import Gen.Prelude
 import Gen.Types
 
 data Env a = Env
-  { _overrides :: Map Id Override,
-    _memo :: Map Id (Shape a)
+  { _overrides :: HashMap Id Override,
+    _memo :: HashMap Id (Shape a)
   }
 
-makeLenses ''Env
+$(Lens.makeLenses ''Env)
 
 type MemoS a = StateT (Env a) (Either String)
 
@@ -44,8 +43,8 @@ substitute ::
   Service Maybe (RefF ()) (Shape Related) a ->
   Either String (Service Identity (RefF ()) (Shape Related) a)
 substitute svc@Service {..} = do
-  (os, e) <- runStateT (traverse operation _operations) (Env mempty _shapes)
-  return $! override (e ^. overrides) $
+  (os, e) <- State.runStateT (traverse operation _operations) (Env mempty _shapes)
+  pure $! override (e ^. overrides) $
     svc
       { _metadata' = meta _metadata',
         _operations = os,
@@ -68,7 +67,7 @@ substitute svc@Service {..} = do
     operation o@Operation {..} = do
       inp <- subst Input (name Input _opName) _opInput
       out <- subst Output (name Output _opName) _opOutput
-      return
+      pure
         $! o
           { _opDocumentation = _opDocumentation .! "-- | Undocumented operation.",
             _opInput = Identity inp,
@@ -81,10 +80,10 @@ substitute svc@Service {..} = do
     -- operation with the same name.
     name :: Direction -> Id -> Id
     name Input n
-      | Map.member n _shapes = mkId (typeId (appendId n "'"))
+      | HashMap.member n _shapes = mkId (typeId (appendId n "'"))
       | otherwise = n
     name Output n
-      | Map.member rs _operations = mkId (typeId (appendId n "Response'"))
+      | HashMap.member rs _operations = mkId (typeId (appendId n "Response'"))
       | otherwise = rs
       where
         rs = mkId (typeId (appendId n "Response"))
@@ -104,9 +103,9 @@ substitute svc@Service {..} = do
     -- status code on responses.
     subst d n Nothing = do
       verify n "Failure attempting to substitute fresh shape"
-      -- No Ref exists, safely insert an empty shape and return a related Ref.
+      -- No Ref exists, safely insert an empty shape and pure a related Ref.
       save n (Related n (mkRelation Nothing d) :< emptyStruct)
-      return (emptyRef n)
+      pure (emptyRef n)
     subst d n (Just r) = do
       let k = r ^. refShape
       x :< s <- lift (safe k _shapes)
@@ -119,8 +118,8 @@ substitute svc@Service {..} = do
             -- Copy the shape by saving it under the desired name.
             save n ((x & annId .~ n) :< s)
             -- Update the Ref to point to the new wrapper.
-            return (r & refShape .~ n)
-          | isShared x -> return r
+            pure (r & refShape .~ n)
+          | isShared x -> pure r
           | otherwise -> do
             -- Ref exists, and is not referred to by any other Shape.
             -- Insert override to rename the Ref/Shape to the desired name.
@@ -130,7 +129,7 @@ substitute svc@Service {..} = do
             -- non-shared response.
             save k (Related k (_annRelation x) :< addStatus d k s)
             rename k n
-            return r
+            pure r
 
 addStatus :: Direction -> Id -> ShapeF (Shape Related) -> ShapeF (Shape Related)
 addStatus Input _k = id
@@ -140,14 +139,14 @@ addStatus Output _k = go
       Struct st -> Struct (maybe missing exists mstatus)
         where
           mstatus =
-            find ((Just StatusCode ==) . view refLocation . snd) $
-              Map.toList (st ^. members)
+            List.find ((Just StatusCode ==) . Lens.view refLocation . snd) $
+              HashMap.toList (st ^. members)
 
           missing =
-            st & required' %~ cons n & members %~ Map.insert n ref
+            st & required' %~ Lens.cons n & members %~ HashMap.insert n ref
 
           exists (name, _) =
-            st & required' %~ cons name
+            st & required' %~ Lens.cons name
 
           ref =
             emptyRef n
@@ -161,19 +160,19 @@ addStatus Output _k = go
         other
 
 save :: Id -> Shape a -> MemoS a ()
-save n s = memo %= Map.insert n s
+save n s = memo %= HashMap.insert n s
 
 rename :: Id -> Id -> MemoS a ()
-rename x y = overrides %= Map.insert x (defaultOverride & renamedTo ?~ y)
+rename x y = overrides %= HashMap.insert x (defaultOverride & renamedTo ?~ y)
 
-safe :: Show a => Id -> Map Id a -> Either String a
+safe :: Show a => Id -> HashMap Id a -> Either String a
 safe n ss =
   note
     ( "Missing shape " ++ Text.unpack (memberId n)
         ++ ", possible matches: "
         ++ partial n ss
     )
-    (Map.lookup n ss)
+    (HashMap.lookup n ss)
 
 verify ::
   (MonadState (Env a) m, MonadError String m) =>
@@ -181,8 +180,9 @@ verify ::
   String ->
   m ()
 verify n msg = do
-  p <- uses memo (Map.member n)
-  when p . throwError $
+  p <- Lens.uses memo (HashMap.member n)
+
+  when p . Except.throwError $
     msg ++ " for " ++ Text.unpack (memberId n)
 
 infixl 7 .!

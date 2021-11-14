@@ -1,3 +1,4 @@
+-- |
 -- Module      : Gen.AST.Cofree
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -7,17 +8,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-
 module Gen.AST.Cofree where
 
-import Control.Comonad
-import Control.Comonad.Cofree
-import Control.Error
-import Control.Lens hiding ((:<))
-import Control.Monad.Except
-import Control.Monad.State
-import qualified Data.HashMap.Strict as Map
+import qualified Control.Comonad as Comonad
+import qualified Control.Lens as Lens
+import qualified Control.Monad.Except as Except
+import qualified Control.Monad.State.Strict as State
+import qualified Data.HashMap.Strict as HashMap
 import qualified Data.Text as Text
+import Gen.Prelude
 import Gen.Types
 
 newtype Fix f = Fix (f (Fix f))
@@ -30,61 +29,61 @@ cofree x = go
 attach ::
   (Traversable t, HasId a, Monoid b) =>
   (a -> b -> c) ->
-  Map Id b ->
+  HashMap Id b ->
   Cofree t a ->
   Cofree t c
-attach ctor m = extend (go . extract)
+attach ctor m = Comonad.extend (go . Comonad.extract)
   where
-    go x = ctor x . fromMaybe mempty $ Map.lookup (identifier x) m
+    go x = ctor x . fromMaybe mempty $ HashMap.lookup (identifier x) m
 
 -- | Allows the new annotation to be memoised separately
 -- from the pre-existing annotation.
 annotate ::
   (Traversable t, MonadState s m, HasId a, Show b) =>
   (a -> b -> c) ->
-  Lens' s (Map Id b) ->
+  Lens' s (HashMap Id b) ->
   (Cofree t a -> m b) ->
   Cofree t a ->
   m (Cofree t c)
-annotate ctor l f = sequence . extend go
+annotate ctor l f = sequenceA . Comonad.extend go
   where
     go x@(a :< _) = ctor a <$> memoise l f x
 
 memoise ::
   (MonadState s m, HasId a, Show b) =>
-  Lens' s (Map Id b) ->
+  Lens' s (HashMap Id b) ->
   (a -> m b) ->
   a ->
   m b
-memoise l f x = uses l (Map.lookup n) >>= maybe go return
+memoise l f x = Lens.uses l (HashMap.lookup n) >>= maybe go return
   where
     go = do
       r <- f x
-      l %= Map.insert n r
-      return r
+      l %= HashMap.insert n r
+      pure r
 
     n = identifier x
 
-type MemoE = StateT (Map Id (Shape Id)) (Either String)
+type MemoE = StateT (HashMap Id (Shape Id)) (Either String)
 
-elaborate :: Show a => Map Id (ShapeF a) -> Either String (Map Id (Shape Id))
-elaborate m = evalStateT (Map.traverseWithKey (shape []) m) mempty
+elaborate :: Show a => HashMap Id (ShapeF a) -> Either String (HashMap Id (Shape Id))
+elaborate m = State.evalStateT (HashMap.traverseWithKey (shape []) m) mempty
   where
     shape :: [Id] -> Id -> ShapeF a -> MemoE (Shape Id)
     shape seen n s
-      | length seen > 30 = throwError $ depth seen
-      | conseq seen = return $! n :< Ptr (s ^. info) (pointerTo n s)
+      | length seen > 30 = Except.throwError $ depth seen
+      | conseq seen = pure $! n :< Ptr (s ^. info) (pointerTo n s)
       | otherwise = do
-        ms <- gets (Map.lookup n)
+        ms <- State.gets (HashMap.lookup n)
         case ms of
-          Just x -> return x
+          Just x -> pure x
           Nothing -> do
-            x <- (n :<) <$> traverseOf references (ref seen) s
-            modify (Map.insert n x)
-            return x
+            x <- (n :<) <$> Lens.traverseOf references (ref seen) s
+            State.modify' (HashMap.insert n x)
+            pure x
 
     ref :: [Id] -> RefF a -> MemoE (RefF (Shape Id))
-    ref seen r = flip (set refAnn) r <$> (lift (safe n) >>= shape (n : seen) n)
+    ref seen r = flip (Lens.set refAnn) r <$> (lift (safe n) >>= shape (n : seen) n)
       where
         n = r ^. refShape
 
@@ -94,7 +93,7 @@ elaborate m = evalStateT (Map.traverseWithKey (shape []) m) mempty
             ++ ", possible matches: "
             ++ partial n m
         )
-        (Map.lookup n m)
+        (HashMap.lookup n m)
 
     depth xs =
       "Too many cycles "

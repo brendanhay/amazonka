@@ -1,3 +1,4 @@
+-- |
 -- Module      : Gen.Types.Id
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -7,7 +8,6 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-
 module Gen.Types.Id
   ( -- * Class
     HasId (..),
@@ -35,16 +35,13 @@ module Gen.Types.Id
   )
 where
 
-import Control.Comonad
-import Control.Comonad.Cofree
-import Control.Lens
-import Data.Aeson
+import qualified Control.Comonad as Comonad
+import qualified Control.Lens as Lens
+import qualified Data.Aeson as Aeson
 import qualified Data.Char as Char
-import qualified Data.HashMap.Strict as Map
-import Data.Hashable
-import Data.String
-import Data.Text (Text)
+import qualified Data.HashMap.Strict as HashMap
 import qualified Data.Text as Text
+import Gen.Prelude
 import Gen.Text
 
 -- | A class to extract identifiers from arbitrary products.
@@ -55,7 +52,7 @@ instance HasId Id where
   identifier = id
 
 instance (Functor f, HasId a) => HasId (Cofree f a) where
-  identifier = identifier . extract
+  identifier = identifier . Comonad.extract
 
 -- | A type where the actual identifier is immutable,
 -- but the usable representation can be appended/modified.
@@ -69,13 +66,13 @@ instance Hashable Id where
   hashWithSalt n (Id x _) = hashWithSalt n x
 
 instance FromJSONKey Id where
-  fromJSONKey = mkId <$> fromJSONKey
+  fromJSONKey = mkId <$> Aeson.fromJSONKey
 
 instance FromJSON Id where
-  parseJSON = withText "id" (pure . mkId)
+  parseJSON = Aeson.withText "Id" (pure . mkId)
 
 instance ToJSON Id where
-  toJSON = toJSON . view representation
+  toJSON = Aeson.toJSON . Lens.view representation
 
 mkId :: Text -> Id
 mkId t = Id t (format t)
@@ -83,15 +80,15 @@ mkId t = Id t (format t)
 format :: Text -> Text
 format = upperHead . Text.dropWhile (not . Char.isAlpha)
 
-partial :: Show a => Id -> Map.HashMap Id a -> String
+partial :: Show a => Id -> HashMap Id a -> String
 partial p m =
   let text = Text.take 3 (memberId p)
-      matches = Map.filterWithKey (const . Text.isPrefixOf text . memberId) m
-   in fromString (show (Map.toList matches))
+      matches = HashMap.filterWithKey (const . Text.isPrefixOf text . memberId) m
+   in fromString (show (HashMap.toList matches))
 
 representation :: Lens' Id Text
 representation =
-  lens
+  Lens.lens
     (\(Id _ t) -> t)
     (\(Id x _) t -> Id x (format t))
 
@@ -99,7 +96,7 @@ memberId :: Id -> Text
 memberId (Id x _) = x
 
 typeId :: Id -> Text
-typeId = view representation
+typeId = Lens.view representation
 
 ctorId :: Id -> Text
 ctorId = (`Text.snoc` '\'') . typeId
@@ -118,8 +115,8 @@ lensId :: Maybe Text -> Id -> Text
 lensId p = accessor p
 
 accessor :: Maybe Text -> Id -> Text
-accessor Nothing = lowerHead . view representation
-accessor (Just p) = f . view representation
+accessor Nothing = lowerHead . Lens.view representation
+accessor (Just p) = f . Lens.view representation
   where
     f
       | Text.null p = lowerHead

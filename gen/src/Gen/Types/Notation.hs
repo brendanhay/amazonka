@@ -1,3 +1,4 @@
+-- |
 -- Module      : Gen.Types.Notation
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -7,17 +8,13 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-
 module Gen.Types.Notation where
 
-import Control.Applicative
 import qualified Control.Monad as Monad
-import Data.Aeson
-import qualified Data.Attoparsec.Text as A
-import Data.Bifunctor
-import Data.List.NonEmpty (NonEmpty (..))
-import Data.Text (Text)
+import qualified Data.Aeson as Aeson
+import qualified Data.Attoparsec.Text as Atto
 import qualified Data.Text as Text
+import Gen.Prelude
 import Gen.Types.Id
 
 data Key a
@@ -35,10 +32,10 @@ data Notation a
   deriving (Eq, Show, Functor, Foldable)
 
 instance FromJSON (Notation Id) where
-  parseJSON = withText "notation" (either fail pure . parseNotation)
+  parseJSON = Aeson.withText "Notation" (either fail pure . parseNotation)
 
 parseNotation :: Text -> Either String (Notation Id)
-parseNotation t = mappend msg `first` A.parseOnly expr1 t
+parseNotation t = mappend msg `first` Atto.parseOnly expr1 t
   where
     msg =
       "Failed parsing index notation: "
@@ -51,41 +48,41 @@ parseNotation t = mappend msg `first` A.parseOnly expr1 t
     choice =
       Choice
         <$> expr0
-          <* A.string "||"
+          <* Atto.string "||"
         <*> expr1
 
     isEmptyList =
       IsEmptyList
-        <$> (A.string "length(" *> access <* A.char ')')
-        <* strip (A.string "==")
-        <* strip (A.string "`0`")
+        <$> (Atto.string "length(" *> access <* Atto.char ')')
+        <* strip (Atto.string "==")
+        <* strip (Atto.string "`0`")
 
     nonEmptyList =
       NonEmptyList
-        <$> (A.string "length(" *> access <* A.char ')')
-        <* strip (A.char '>')
-        <* strip (A.string "`0`")
+        <$> (Atto.string "length(" *> access <* Atto.char ')')
+        <* strip (Atto.char '>')
+        <* strip (Atto.string "`0`")
 
     nonEmptyText =
       NonEmptyText
-        <$> (A.string "length(" *> key0 <* A.char ')')
-        <* strip (A.char '>')
-        <* strip (A.string "`0`")
+        <$> (Atto.string "length(" *> key0 <* Atto.char ')')
+        <* strip (Atto.char '>')
+        <* strip (Atto.string "`0`")
 
     access = do
-      x : xs <- A.sepBy1 key (A.char '.')
+      x : xs <- Atto.sepBy1 key (Atto.char '.')
       pure (x :| xs)
 
     key = key1 <|> key0
     key1 =
-      (Each <$> label <* A.string "[]")
-        <|> (Last <$> label <* A.string "[-1]")
+      (Each <$> label <* Atto.string "[]")
+        <|> (Last <$> label <* Atto.string "[-1]")
     key0 = (Key <$> label)
 
     label =
       strip $ do
-        text <- A.takeWhile1 (A.notInClass "[].()|><= ")
-        next <- A.peekChar
+        text <- Atto.takeWhile1 (Atto.notInClass "[].()|><= ")
+        next <- Atto.peekChar
 
         Monad.when (next == Just '(') $
           fail $
@@ -96,4 +93,4 @@ parseNotation t = mappend msg `first` A.parseOnly expr1 t
         pure (mkId text)
 
     strip p =
-      A.skipSpace *> p <* A.skipSpace
+      Atto.skipSpace *> p <* Atto.skipSpace

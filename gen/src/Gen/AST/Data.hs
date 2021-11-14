@@ -1,3 +1,4 @@
+-- |
 -- Module      : Gen.AST.Data
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -7,7 +8,6 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-
 module Gen.AST.Data
   ( serviceData,
     operationData,
@@ -16,26 +16,20 @@ module Gen.AST.Data
   )
 where
 
-import Control.Comonad.Cofree
-import Control.Error
-import Control.Lens hiding (List, enum, mapping, (:<), (??))
-import Control.Monad
-import Control.Monad.Except
-import Control.Monad.Trans.State
-import Data.Bifunctor
-import qualified Data.ByteString.Char8 as BS8
-import Data.Char (isSpace)
-import qualified Data.HashMap.Strict as Map
+import qualified Control.Lens as Lens
+import qualified Control.Monad.Trans.State as State
+import qualified Data.ByteString.Char8 as ByteString.Char8
+import qualified Data.Char as Char
+import qualified Data.HashMap.Strict as HashMap
 import qualified Data.List as List
 import qualified Data.Set as Set
-import Data.String
-import Data.Text (Text)
 import qualified Data.Text as Text
-import qualified Data.Text.Encoding as Text
-import qualified Data.Text.Lazy as LText
+import qualified Data.Text.Encoding as Text.Encoding
+import qualified Data.Text.Lazy as Text.Lazy
 import Gen.AST.Data.Field
 import Gen.AST.Data.Instance
 import Gen.AST.Data.Syntax as Syntax
+import Gen.Prelude
 import Gen.Types
 import qualified Language.Haskell.Exts as Exts
 import Language.Haskell.Exts.Pretty (Pretty)
@@ -60,8 +54,8 @@ operationData cfg m o = do
 
   yis' <- renderInsts p yn (responseInsts ys)
   xis' <-
-    maybe id (Map.insert "AWSPager") mpage
-      . Map.insert "AWSRequest" cls
+    maybe id (HashMap.insert "AWSPager") mpage
+      . HashMap.insert "AWSRequest" cls
       <$> renderInsts p xn xis
 
   return
@@ -96,8 +90,8 @@ shapeData m (a :< s) = case s of
   Struct st -> do
     (d, fs) <- prodData m a st
     is <- renderInsts p (a ^. annId) (addInstances a (shapeInsts p r fs))
-    return $! Just $ Prod a d is
-  _ -> return Nothing
+    pure $! Just $ Prod a d is
+  _ -> pure Nothing
   where
     p = m ^. protocol
     r = a ^. relMode
@@ -128,8 +122,8 @@ errorData m s i = Fun <$> mk
         . fromString
         $ "Prism for " ++ Text.unpack (memberId n) ++ "' errors."
 
-    status = i ^? infoError . _Just . errStatus
-    code = fromMaybe (memberId n) (i ^. infoError . _Just . errCode)
+    status = i ^? infoError . Lens._Just . errStatus
+    code = fromMaybe (memberId n) (i ^. infoError . Lens._Just . errCode)
 
     p = Text.cons '_' (typeId n)
     n = s ^. annId
@@ -138,9 +132,9 @@ sumData ::
   Protocol ->
   Solved ->
   Info ->
-  Map Id Text ->
+  HashMap Id Text ->
   Either String SData
-sumData p s i vs = Sum s <$> mk <*> fmap Map.keys insts
+sumData p s i vs = Sum s <$> mk <*> fmap HashMap.keys insts
   where
     mk =
       Sum' (typeId n) (i ^. infoDocumentation)
@@ -195,11 +189,11 @@ prodData m s st = (,fields) <$> mk
       derv <- derivings
 
       pure $
-        LText.intercalate
+        Text.Lazy.intercalate
           "\n"
           [ decl,
             "    {",
-            LText.intercalate "\n" sels,
+            Text.Lazy.intercalate "\n" sels,
             "    } " <> derv
           ]
 
@@ -244,7 +238,7 @@ prodData m s st = (,fields) <$> mk
       Fun' (fieldLens f) (fieldHelp f)
         <$> pp None (lensS m (s ^. annType) f)
         <*> pp None (lensD n f)
-        <*> pure (LText.fromStrict (fieldAccessor f))
+        <*> pure (Text.Lazy.fromStrict (fieldAccessor f))
 
     mkCtor :: Either String Fun
     mkCtor =
@@ -263,14 +257,14 @@ prodData m s st = (,fields) <$> mk
     -- FIXME: dirty hack to render smart ctor parameter haddock comments.
     addParamComments :: [Field] -> Rendered -> Rendered
     addParamComments fs =
-      LText.replace " :: " "\n    :: "
-        . LText.intercalate "\n    -> "
+      Text.Lazy.replace " :: " "\n    :: "
+        . Text.Lazy.intercalate "\n    -> "
         . zipWith rel ps
-        . map LText.strip
-        . LText.splitOn "->"
+        . map Text.Lazy.strip
+        . Text.Lazy.splitOn "->"
       where
         rel Nothing t = t
-        rel (Just p) t = t <> " -- ^ '" <> LText.fromStrict (fieldAccessor p) <> "'"
+        rel (Just p) t = t <> " -- ^ '" <> Text.Lazy.fromStrict (fieldAccessor p) <> "'"
 
         ps = map Just (filter fieldIsParam fs) ++ repeat Nothing
 
@@ -298,8 +292,8 @@ prodData m s st = (,fields) <$> mk
 
     n = s ^. annId
 
-renderInsts :: Protocol -> Id -> [Inst] -> Either String (Map Text LText.Text)
-renderInsts p n = fmap Map.fromList . traverse go
+renderInsts :: Protocol -> Id -> [Inst] -> Either String (HashMap Text Text.Lazy.Text)
+renderInsts p n = fmap HashMap.fromList . traverse go
   where
     go i = (instToText i,) <$> pp Print (instanceD p n i)
 
@@ -325,12 +319,12 @@ serviceData m r =
 waiterData ::
   HasMetadata a Identity =>
   a ->
-  Map Id (Operation Identity Ref b) ->
+  HashMap Id (Operation Identity Ref b) ->
   Id ->
   Waiter Id ->
   Either String WData
 waiterData m os n w = do
-  o <- note (missingErr key (Map.map _opName os)) $ Map.lookup key os
+  o <- note (missingErr key (HashMap.map _opName os)) $ HashMap.lookup key os
   wf <- waiterFields m o w
   c <-
     Fun' (smartCtorId n) help
@@ -338,7 +332,7 @@ waiterData m os n w = do
       <*> pp Print (waiterD n wf)
       <*> pure mempty
 
-  return $! WData (typeId n) (_opName o) c
+  pure $! WData (typeId n) (_opName o) c
   where
     missingErr i xs =
       "Missing operation " ++ Text.unpack (memberId i)
@@ -367,14 +361,14 @@ waiterFields ::
   Operation Identity Ref b ->
   Waiter Id ->
   Either String (Waiter Field)
-waiterFields m o = traverseOf (waitAcceptors . each) go
+waiterFields m o = Lens.traverseOf (waitAcceptors . Lens.each) go
   where
     out = o ^. opOutput . _Identity . refAnn
 
     go :: Accept Id -> Either String (Accept Field)
     go x = do
       n <- traverse (notation m out) (x ^. acceptArgument)
-      return $! x & acceptArgument .~ n
+      pure $! x & acceptArgument .~ n
 
 pagerFields ::
   HasMetadata a Identity =>
@@ -415,10 +409,10 @@ notation m = go
       Choice x y -> Choice <$> go s x <*> go s y
       where
         deref ks =
-          flip evalStateT s . forM ks $ \x -> do
-            k <- get >>= lift . (`key` x)
-            put (skip (shape k))
-            return k
+          flip State.evalStateT s . forM ks $ \x -> do
+            k <- State.get >>= lift . (`key` x)
+            State.put (skip (shape k))
+            pure k
 
     key :: Shape Solved -> Key Id -> Either String (Key Field)
     key s = \case
@@ -429,14 +423,14 @@ notation m = go
     field' :: Id -> Shape Solved -> Either String Field
     field' n = \case
       a :< Struct st ->
-        note (missingErr n (identifier a) (Map.keys (st ^. members)))
+        note (missingErr n (identifier a) (HashMap.keys (st ^. members)))
           . List.find ((n ==) . _fieldId)
           $ mkFields m a st
       _ -> Left (descendErr n)
 
     shape :: Key Field -> Shape Solved
     shape =
-      view (fieldRef . refAnn) . \case
+      Lens.view (fieldRef . refAnn) . \case
         Key f -> f
         Each f -> f
         Last f -> f
@@ -466,10 +460,10 @@ data PP
 
 pp :: Pretty a => PP -> a -> Either String Rendered
 pp i d
-  | otherwise = pure (LText.fromStrict (Text.decodeUtf8 printed))
+  | otherwise = pure (Text.Lazy.fromStrict (Text.Encoding.decodeUtf8 printed))
   where
     printed =
-      BS8.dropWhile isSpace . BS8.pack $
+      ByteString.Char8.dropWhile Char.isSpace . ByteString.Char8.pack $
         Exts.prettyPrintStyleMode style mode d
 
     style =

@@ -1,3 +1,4 @@
+-- |
 -- Module      : Gen.IO
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -7,18 +8,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-
 module Gen.IO where
 
-import Control.Monad.Except
-import Data.ByteString (ByteString)
 import qualified Data.ByteString as ByteString
-import Data.String (fromString)
-import qualified Data.Text.Lazy as LText
-import qualified Data.Text.Lazy.IO as LText
-import System.FilePath ((</>))
+import qualified Data.Text.Lazy as Text.Lazy
+import qualified Data.Text.Lazy.IO as Text.Lazy.IO
+import Gen.Prelude
 import qualified System.FilePath as FilePath
-import System.IO
+import qualified System.IO as IO
 import Text.EDE (Template)
 import qualified Text.EDE as EDE
 import qualified UnliftIO
@@ -38,15 +35,15 @@ readBSFile path =
   say ("Reading " ++ path)
     >> liftIO (ByteString.readFile path)
 
-writeLTFile :: UnliftIO.MonadUnliftIO m => FilePath -> LText.Text -> m ()
+writeLTFile :: UnliftIO.MonadUnliftIO m => FilePath -> Text.Lazy.Text -> m ()
 writeLTFile path text = do
   say ("Writing " ++ path)
-  UnliftIO.withFile path WriteMode $ \handle ->
+  UnliftIO.withFile path IO.WriteMode $ \handle ->
     liftIO $ do
-      hSetEncoding handle utf8
-      LText.hPutStr handle text
+      IO.hSetEncoding handle IO.utf8
+      Text.Lazy.IO.hPutStr handle text
 
-touchFile :: UnliftIO.MonadUnliftIO m => FilePath -> LText.Text -> m ()
+touchFile :: UnliftIO.MonadUnliftIO m => FilePath -> Text.Lazy.Text -> m ()
 touchFile path text = do
   exists <- UnliftIO.doesFileExist path
   unless exists $

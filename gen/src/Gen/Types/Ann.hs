@@ -1,5 +1,6 @@
 {-# LANGUAGE TemplateHaskell #-}
 
+-- |
 -- Module      : Gen.Types.Ann
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -9,23 +10,17 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-
 module Gen.Types.Ann where
 
-import Control.Comonad
-import Control.Comonad.Cofree
-import Control.Lens hiding ((:<))
-import Data.Aeson
-import Data.Function (on)
-import qualified Data.HashSet as Set
-import Data.Hashable
-import Data.Text (Text)
+import qualified Control.Comonad as Comonad
+import qualified Control.Comonad.Cofree as Cofree
+import qualified Control.Lens as Lens
+import qualified Data.Aeson as Aeson
+import qualified Data.Function as Function
 import qualified Data.Text as Text
-import GHC.Generics (Generic)
+import Gen.Prelude
 import Gen.TH
 import Gen.Types.Id
-
-type Set = Set.HashSet
 
 data Direction
   = Output
@@ -54,10 +49,10 @@ data Relation = Relation
   }
   deriving (Eq, Show)
 
-makeClassy ''Relation
+$(Lens.makeClassy ''Relation)
 
 instance Semigroup Relation where
-  a <> b = Relation (on add _relShared b a) (on (<>) _relMode b a)
+  a <> b = Relation (Function.on add _relShared b a) (Function.on (<>) _relMode b a)
     where
       add 0 0 = 2
       add 1 0 = 2
@@ -69,16 +64,16 @@ instance Monoid Relation where
   mappend = (<>)
 
 instance (Functor f, HasRelation a) => HasRelation (Cofree f a) where
-  relation = lens extract (flip (:<) . unwrap) . relation
+  relation = Lens.lens Comonad.extract (flip (:<) . Cofree.unwrap) . relation
 
 mkRelation :: Maybe Id -> Direction -> Relation
 mkRelation p = Relation (maybe 0 (const 1) p) . Uni
 
 isShared :: HasRelation a => a -> Bool
-isShared = (> 1) . view relShared
+isShared = (> 1) . Lens.view relShared
 
 isOrphan :: HasRelation a => a -> Bool
-isOrphan = (== 0) . view relShared
+isOrphan = (== 0) . Lens.view relShared
 
 data Derive
   = DEq
@@ -144,13 +139,13 @@ data Related = Related
   }
   deriving (Eq, Show)
 
-makeClassy ''Related
+$(Lens.makeClassy ''Related)
 
 instance (Functor f, HasRelated a) => HasRelated (Cofree f a) where
-  related = lens extract (flip (:<) . unwrap) . related
+  related = Lens.lens Comonad.extract (flip (:<) . Cofree.unwrap) . related
 
 instance HasId Related where
-  identifier = view annId
+  identifier = Lens.view annId
 
 instance HasRelation Related where
   relation = annRelation
@@ -161,10 +156,10 @@ data Prefixed = Prefixed
   }
   deriving (Eq, Show)
 
-makeClassy ''Prefixed
+$(Lens.makeClassy ''Prefixed)
 
 instance (Functor f, HasPrefixed a) => HasPrefixed (Cofree f a) where
-  prefixed = lens extract (flip (:<) . unwrap) . prefixed
+  prefixed = Lens.lens Comonad.extract (flip (:<) . Cofree.unwrap) . prefixed
 
 instance HasRelation Prefixed where
   relation = related . relation
@@ -173,7 +168,7 @@ instance HasRelated Prefixed where
   related = annRelated
 
 instance HasId Prefixed where
-  identifier = view annId
+  identifier = Lens.view annId
 
 data Solved = Solved
   { _annPrefixed :: Prefixed,
@@ -181,10 +176,10 @@ data Solved = Solved
   }
   deriving (Eq, Show)
 
-makeClassy ''Solved
+$(Lens.makeClassy ''Solved)
 
 instance (Functor f, HasSolved a) => HasSolved (Cofree f a) where
-  solved = lens extract (flip (:<) . unwrap) . solved
+  solved = Lens.lens Comonad.extract (flip (:<) . Cofree.unwrap) . solved
 
 instance HasRelation Solved where
   relation = prefixed . relation
@@ -196,4 +191,4 @@ instance HasPrefixed Solved where
   prefixed = annPrefixed
 
 instance HasId Solved where
-  identifier = view annId
+  identifier = Lens.view annId

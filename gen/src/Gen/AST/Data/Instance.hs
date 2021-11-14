@@ -1,3 +1,4 @@
+-- |
 -- Module      : Gen.AST.Data.Instance
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -7,19 +8,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-
 module Gen.AST.Data.Instance where
 
-import Control.Applicative
-import Control.Error
-import Control.Lens
-import Control.Monad (guard)
-import Data.Aeson
-import Data.Functor (($>))
-import Data.List (find, partition)
-import Data.Text (Text)
+import qualified Control.Lens as Lens
+import qualified Data.Aeson as Aeson
+import qualified Data.List as List
 import qualified Data.Text as Text
 import Gen.AST.Data.Field
+import Gen.Prelude
 import Gen.Types
 
 data Inst
@@ -36,7 +32,7 @@ data Inst
   | IsNFData
 
 instance ToJSON Inst where
-  toJSON = toJSON . instToText
+  toJSON = Aeson.toJSON . instToText
 
 instToText :: Inst -> Text
 instToText = \case
@@ -88,7 +84,7 @@ responseInsts fs
   | stream = mempty
   | otherwise = [IsNFData]
   where
-    (not . null -> stream, _) = partition fieldStream (notLocated fs)
+    (not . null -> stream, _) = List.partition fieldStream (notLocated fs)
 
 requestInsts ::
   HasMetadata a f =>
@@ -117,7 +113,7 @@ requestInsts m oname h r fs = do
     toPath = ToPath <$> uriFields oname h uriPath id fs
 
     toBody :: Maybe Inst
-    toBody = ToBody <$> (stream <|> find fieldLitPayload fields)
+    toBody = ToBody <$> (stream <|> List.find fieldLitPayload fields)
 
     body :: Bool
     body = isJust toBody
@@ -125,13 +121,13 @@ requestInsts m oname h r fs = do
     concatQuery :: [Inst] -> Either String [Inst]
     concatQuery is = do
       xs <- uriFields oname h uriQuery (,Nothing) fs
-      return $! merged xs : filter (not . f) is
+      pure $! merged xs : filter (not . f) is
       where
         merged xs =
           let ys =
                 map Right (satisfies [Querystring] fs) <> xs
                   ++ map Left protocolQuery
-           in case find f is of
+           in case List.find f is of
                 Just (ToQuery zs) -> ToQuery (ys <> zs)
                 _ -> ToQuery ys
 
@@ -140,24 +136,24 @@ requestInsts m oname h r fs = do
 
     replaceXML :: [Inst] -> Either String [Inst]
     replaceXML is
-      | all nonEmptyXML is = return $! filter anyXML is
+      | all nonEmptyXML is = pure $! filter anyXML is
       | otherwise =
-        case ( r ^? refXMLNamespace . _Just . xmlUri,
+        case ( r ^? refXMLNamespace . Lens._Just . xmlUri,
                r ^. refLocationName,
                listToMaybe (mapMaybe findElement is)
              ) of
           -- 1. If there's an xmlNamespace and/or locationName on the ref,
           --    it should define separate ToXML + ToElement instances
           (ns, Just e, _) ->
-            return $! ToElement (ns <|> m ^. xmlNamespace) (Left e) : is
+            pure $! ToElement (ns <|> m ^. xmlNamespace) (Left e) : is
           -- 2. Otherwise, a single field should be found in the ToXML instance
           -- and lifted to a single ToElement instance.
           (_, _, Just f) ->
-            return $! ToElement ns (Right f) : filter anyXML is
+            pure $! ToElement ns (Right f) : filter anyXML is
             where
               ns =
                 m ^. xmlNamespace
-                  <|> f ^? fieldRef . refXMLNamespace . _Just . xmlUri
+                  <|> f ^? fieldRef . refXMLNamespace . Lens._Just . xmlUri
 
           -- 3. Unknown.
           (ns, e, _) ->
@@ -192,7 +188,8 @@ requestInsts m oname h r fs = do
 
         idem = (h ^. method) `elem` [HEAD, GET, DELETE]
 
-    (listToMaybe -> stream, fields) = partition fieldStream (notLocated fs)
+    (listToMaybe -> stream, fields) =
+      List.partition fieldStream (notLocated fs)
 
     protocolHeaders :: [(Text, Text)]
     protocolHeaders = case p of
@@ -223,7 +220,7 @@ requestInsts m oname h r fs = do
     -- already has a field serialized to the Content-Type header.
     content =
       let go x = x ^. fieldRef . refLocationName == Just "Content-Type"
-       in if isJust (find go headers)
+       in if isJust (List.find go headers)
             then Nothing
             else ("application/x-amz-json-" <>) <$> m ^. jsonVersion
 
@@ -246,8 +243,8 @@ uriFields ::
   Either String (t (Either a Field))
 uriFields oname h l f fs = traverse go (h ^. l)
   where
-    go (Tok t) = return $ Left (f t)
-    go (Var v) = Right <$> note missing (find match fs)
+    go (Tok t) = pure $ Left (f t)
+    go (Var v) = Right <$> note missing (List.find match fs)
       where
         match x = memberId v == name x
         missing =
@@ -263,7 +260,7 @@ uriFields oname h l f fs = traverse go (h ^. l)
 
     name x =
       fromMaybe
-        (x ^. fieldId . to memberId)
+        (x ^. fieldId . Lens.to memberId)
         (x ^. fieldRef . refLocationName)
 
 satisfies :: [Location] -> [Field] -> [Field]

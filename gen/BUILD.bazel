@@ -120,6 +120,7 @@ haskell_binary(
         "-O1",
         "-threaded",
         "-rtsopts",
+        "-with-rtsopts=-qg -I0 -A128m",
     ],
     visibility = ["//visibility:public"],
     deps = [

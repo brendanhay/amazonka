@@ -37,6 +37,9 @@ jobs:
       - uses: cachix/install-nix-action@v14.1
         with:
           nix_path: nixpkgs=./nix/nixpkgs.nix
+          extra_nix_config: |
+            trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=
+            extra-substituters = https://hydra.iohk.io
 
       - uses: cachix/cachix-action@v10
         with:
@@ -52,12 +55,10 @@ jobs:
       - name: Configure
         env:
           BUILDBUDDY_API_KEY: ${{ secrets.BUILDBUDDY_API_KEY }}
-          SERVICE_ACCOUNT_KEY: ${{ secrets.SERVICE_ACCOUNT_KEY }}
         run: |
-          printf '%s\n' "$SERVICE_ACCOUNT_KEY" >/tmp/service-account.json
           cat >.bazelrc.local <<EOF
           common --config=ci
-          build --google_credentials=/tmp/service-account.json
+          common --config=remote
           build --remote_header=x-buildbuddy-api-key="$BUILDBUDDY_API_KEY"
           EOF
 
@@ -66,5 +67,5 @@ jobs:
           nix-shell --argstr ghcVersion '${{ matrix.ghc }}' --run '
             set -euo pipefail
             bazel build //lib/... //gen/...
-            bazel test  //...
+            bazel test  //lib/...
             '

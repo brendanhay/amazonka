@@ -89,6 +89,13 @@ The [Nix] package manager is used to obtain and build the other dependencies in 
 sh <(curl -L https://nixos.org/nix/install) --daemon
 ```
 
+Once Nix is setup, you can enable the [cache](https://amazonka.cachix.org) to avoid building dependencies:
+
+```bash
+nix-env -iA cachix -f https://cachix.org/api/v1/install
+cachix use amazonka
+```
+
 ### 3. Enter a Nix Shell
 
 The build tools are installed and activated upon entering a [Nix] shell, which is achieved by running the following command in the root of the repository:

@@ -378,17 +378,17 @@ instance AsAuthError AuthError where
 -- and credentials files are invalid or cannot be found.
 getAuth ::
   MonadIO m =>
-  Client.Manager ->
+  Env' withAuth ->
   Credentials ->
   m (Auth, Maybe Region)
-getAuth m =
+getAuth Env{..} =
   liftIO . \case
     FromKeys a s -> pure (fromKeys a s, Nothing)
     FromSession a s t -> pure (fromSession a s t, Nothing)
     FromEnv a s t r -> fromEnvKeys a s t r
-    FromProfile n -> fromProfileName m n
+    FromProfile n -> fromProfileName _envManager n
     FromFile n cred conf -> fromFilePath n cred conf
-    FromContainer -> fromContainer m
+    FromContainer -> fromContainer _envManager
     Discover ->
       -- Don't try and catch InvalidFileError, or InvalidIAMProfile,
       -- let both errors propagate.
@@ -396,16 +396,16 @@ getAuth m =
         -- proceed, missing env keys
         catching _MissingFileError fromFile $ \f ->
           -- proceed, missing credentials file
-          catching_ _MissingEnvError (fromContainer m) $ do
+          catching_ _MissingEnvError (fromContainer _envManager) $ do
             -- proceed, missing env key
-            p <- isEC2 m
+            p <- isEC2 _envManager
 
             unless p $
               -- not an EC2 instance, rethrow the previous error.
               throwingM _MissingFileError f
 
             -- proceed, check EC2 metadata for IAM information.
-            fromProfile m
+            fromProfile _envManager
 
 -- | Retrieve access key, secret key, and a session token from the default
 -- environment variables.

@@ -106,8 +106,8 @@ authenticate ::
   -- | Previous environment.
   Env' a ->
   m Env
-authenticate c Env {..} = do
-  (a, fromMaybe NorthVirginia -> r) <- getAuth _envManager c
+authenticate c env@Env {..} = do
+  (a, fromMaybe NorthVirginia -> r) <- getAuth env c
 
   pure $ Env {_envRegion = r, _envAuth = Identity a, ..}
 

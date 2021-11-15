@@ -34,9 +34,10 @@ import qualified Network.HTTP.Conduit as Client.Conduit
 
 retryRequest ::
   ( MonadResource m,
-    AWSRequest a
+    AWSRequest a,
+    Foldable withAuth
   ) =>
-  Env ->
+  Env' withAuth ->
   a ->
   m (Either Error (ClientResponse (AWSResponse a)))
 retryRequest env x = do
@@ -74,9 +75,10 @@ retryRequest env x = do
 
 awaitRequest ::
   ( MonadResource m,
-    AWSRequest a
+    AWSRequest a,
+    Foldable withAuth
   ) =>
-  Env ->
+  Env' withAuth ->
   Wait a ->
   a ->
   m (Either Error Accept)
@@ -152,7 +154,7 @@ httpRequest env@Env {..} x =
     proxy :: Request a -> Proxy a
     proxy _ = Proxy
 
-configureRequest :: AWSRequest a => Env -> a -> Request a
+configureRequest :: AWSRequest a => Env' withAuth -> a -> Request a
 configureRequest env x =
   let overrides = _envOverride env
    in request x & requestService %~ appEndo (getDual overrides)

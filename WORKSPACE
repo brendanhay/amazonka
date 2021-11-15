@@ -329,6 +329,7 @@ stack_snapshot(
         "unexceptionalio",  # keep
         "unliftio",  # keep
         "unordered-containers",  # keep
+        "uuid",
         "xml-conduit",
         "xml-types",
         "yaml",

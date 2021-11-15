@@ -89,10 +89,12 @@ library
 
   build-depends:
     , amazonka-core         ^>=2.0
+    , amazonka-sts          ^>=2.0
     , text                  >=1.1
     , bytestring            >=0.10.8
     , transformers          >=0.2
     , ini                   >=0.3.5
+    , lens                  >=4
     , time                  >=1.9
     , directory             >=1.2
     , conduit               >=1.3
@@ -101,3 +103,4 @@ library
     , http-types            >=0.12
     , resourcet             >=1.1
     , retry                 >=0.7.6.2
+    , uuid                  >=1.2.6   && <1.4

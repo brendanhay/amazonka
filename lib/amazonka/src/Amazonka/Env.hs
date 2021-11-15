@@ -100,11 +100,11 @@ newEnvWith m =
 --
 -- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
 authenticate ::
-  MonadIO m =>
+  (MonadIO m, Foldable withAuth) =>
   -- | Credential discovery mechanism.
   Credentials ->
   -- | Previous environment.
-  Env' a ->
+  Env' withAuth ->
   m Env
 authenticate c env@Env {..} = do
   (a, fromMaybe NorthVirginia -> r) <- getAuth env c

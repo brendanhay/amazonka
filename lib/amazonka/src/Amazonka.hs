@@ -16,7 +16,7 @@ module Amazonka
     -- $usage
 
     -- * Authentication and Environment
-    Env.Env'(..),
+    Env.Env' (..),
     Env.Env,
     Env.EnvNoAuth,
     Env.newEnv,

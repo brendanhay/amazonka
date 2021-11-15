@@ -55,7 +55,7 @@ retryRequest env x = do
       _other -> return False
       where
         transportErr =
-          _TransportError . to (envRetryCheck env (Retry.rsIterNumber s))
+          _TransportError . to (_envRetryCheck env (Retry.rsIterNumber s))
 
         serviceErr =
           _ServiceError . to rc . _Just
@@ -63,7 +63,7 @@ retryRequest env x = do
         rc = rq ^. requestService . serviceRetry . retryCheck
 
     logger m s =
-      logDebug (envLogger env)
+      logDebug (_envLogger env)
         . mconcat
         . List.intersperse " "
         $ [ "[Retry " <> build m <> "]",
@@ -84,7 +84,7 @@ awaitRequest env@Env {..} w@Wait {..} x = do
   let rq = configureRequest env x
       attempt _ = handleResult rq <$> httpRequest env rq
 
-  Retry.retrying policy (check envLogger) attempt <&> \case
+  Retry.retrying policy (check _envLogger) attempt <&> \case
     (AcceptSuccess, _) -> Right AcceptSuccess
     (_, Left e) -> Left e
     (a, _) -> Right a
@@ -130,31 +130,31 @@ httpRequest env@Env {..} x =
       time <- liftIO Time.getCurrentTime
 
       rq <- case envAuthMaybe env of
-        Nothing -> pure $! requestUnsigned x envRegion
+        Nothing -> pure $! requestUnsigned x _envRegion
         Just auth -> withAuth auth $ \a -> do
-          let Signed meta rq = requestSign x a envRegion time
-          logTrace envLogger meta -- trace:Signing:Meta
+          let Signed meta rq = requestSign x a _envRegion time
+          logTrace _envLogger meta -- trace:Signing:Meta
           pure $! rq
 
-      logDebug envLogger rq -- debug:ClientRequest
-      rs <- Client.Conduit.http rq envManager
+      logDebug _envLogger rq -- debug:ClientRequest
+      rs <- Client.Conduit.http rq _envManager
 
-      logDebug envLogger rs -- debug:ClientResponse
-      response envLogger (_requestService x) (proxy x) rs
+      logDebug _envLogger rs -- debug:ClientResponse
+      response _envLogger (_requestService x) (proxy x) rs
 
     handlers =
       [ Handler $ err,
         Handler $ err . TransportError
       ]
       where
-        err e = logError envLogger e >> return (Left e)
+        err e = logError _envLogger e >> return (Left e)
 
     proxy :: Request a -> Proxy a
     proxy _ = Proxy
 
 configureRequest :: AWSRequest a => Env -> a -> Request a
 configureRequest env x =
-  let overrides = envOverride env
+  let overrides = _envOverride env
    in request x & requestService %~ appEndo (getDual overrides)
 
 retryStream :: Request a -> Retry.RetryPolicy

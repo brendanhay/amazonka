@@ -60,6 +60,10 @@ module Amazonka.Auth
     -- ** Handling Errors
     AsAuthError (..),
     AuthError (..),
+
+    -- * Env'
+    -- $env
+    Env'(..)
   )
 where
 
@@ -67,6 +71,7 @@ import Amazonka.Data
 import Amazonka.EC2.Metadata
 import Amazonka.Lens (catching, catching_, exception, prism, throwingM, _IOException)
 import Amazonka.Prelude
+import Data.Monoid (Dual, Endo)
 import Amazonka.Types
 import Control.Concurrent (ThreadId)
 import qualified Control.Concurrent as Concurrent
@@ -716,3 +721,22 @@ fetchAuthInBackground menv =
     diff (Time !x) !y = (* 1000000) $ if n > 0 then n else 1
       where
         !n = truncate (Time.diffUTCTime x y) - 60
+
+-- $env
+-- This really should be defined in @Amazonka.Env@, but we define it
+-- here to break a module import cycle without .hs-boot files.
+
+-- | The environment containing the parameters required to make AWS requests.
+--
+-- This type tracks whether or not we have credentials at the type
+-- level, to avoid "presigning" requests when we lack auth
+-- information.
+data Env' withAuth = Env
+  { _envRegion :: Region,
+    _envLogger :: Logger,
+    _envRetryCheck :: Int -> Client.HttpException -> Bool,
+    _envOverride :: Dual (Endo Service),
+    _envManager :: Client.Manager,
+    _envAuth :: withAuth Auth
+  }
+  deriving stock (Generic)

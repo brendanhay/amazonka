@@ -35,28 +35,12 @@ where
 
 import Amazonka.Auth
 import Amazonka.Lens ((.~), (?~))
-import Amazonka.Logger
 import Amazonka.Prelude
 import Amazonka.Types
 import qualified Data.Function as Function
 import Data.Monoid (Dual (..), Endo (..))
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Conduit as Client.Conduit
-
--- | The environment containing the parameters required to make AWS requests.
---
--- This type tracks whether or not we have credentials at the type
--- level, to avoid "presigning" requests when we lack auth
--- information.
-data Env' withAuth = Env
-  { envRegion :: Region,
-    envLogger :: Logger,
-    envRetryCheck :: Int -> Client.HttpException -> Bool,
-    envOverride :: Dual (Endo Service),
-    envManager :: Client.Manager,
-    envAuth :: withAuth Auth
-  }
-  deriving stock (Generic)
 
 type Env = Env' Identity
 
@@ -104,12 +88,12 @@ newEnvNoAuth =
 newEnvWith :: Client.Manager -> EnvNoAuth
 newEnvWith m =
   Env
-    { envRegion = NorthVirginia,
-      envLogger = \_ _ -> pure (),
-      envRetryCheck = retryConnectionFailure 3,
-      envOverride = mempty,
-      envManager = m,
-      envAuth = Proxy
+    { _envRegion = NorthVirginia,
+      _envLogger = \_ _ -> pure (),
+      _envRetryCheck = retryConnectionFailure 3,
+      _envOverride = mempty,
+      _envManager = m,
+      _envAuth = Proxy
     }
 
 -- | /See:/ 'newEnv'
@@ -122,14 +106,14 @@ authenticate ::
   -- | Previous environment.
   Env' a ->
   m Env
-authenticate c Env{..} = do
-  (a, fromMaybe NorthVirginia -> r) <- getAuth envManager c
+authenticate c Env {..} = do
+  (a, fromMaybe NorthVirginia -> r) <- getAuth _envManager c
 
-  pure $ Env {envRegion = r, envAuth = Identity a, ..}
+  pure $ Env {_envRegion = r, _envAuth = Identity a, ..}
 
 -- | Get "the" 'Auth' from an 'Env'', if we can.
 envAuthMaybe :: Foldable withAuth => Env' withAuth -> Maybe Auth
-envAuthMaybe = foldr (const . Just) Nothing . envAuth
+envAuthMaybe = foldr (const . Just) Nothing . _envAuth
 
 -- | Retry the subset of transport specific errors encompassing connection
 -- failure up to the specific number of times.
@@ -150,7 +134,7 @@ retryConnectionFailure limit n = \case
 -- | Provide a function which will be added to the existing stack
 -- of overrides applied to all service configurations.
 override :: (Service -> Service) -> Env -> Env
-override f env = env {envOverride = envOverride env <> Dual (Endo f)}
+override f env = env {_envOverride = _envOverride env <> Dual (Endo f)}
 
 -- | Configure a specific service. All requests belonging to the
 -- supplied service will use this configuration instead of the default.
@@ -166,7 +150,7 @@ configure s = override f
 
 -- | Scope an action within the specific 'Region'.
 within :: Region -> Env -> Env
-within r env = env {envRegion = r}
+within r env = env {_envRegion = r}
 
 -- | Scope an action such that any retry logic for the 'Service' is
 -- ignored and any requests will at most be sent once.

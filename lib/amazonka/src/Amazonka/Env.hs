@@ -6,8 +6,8 @@
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
--- Environment and AWS specific configuration for the
--- 'Amazonka.AWS' and 'Control.Monad.Trans.AWS.AWST' monads.
+-- Environment and AWS specific configuration needed to perform AWS
+-- requests.
 module Amazonka.Env
   ( -- * Creating the Environment
     newEnv,

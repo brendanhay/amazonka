@@ -1,6 +1,5 @@
 module Gen.Tree
-  ( root,
-    fold,
+  ( fold,
     populate,
   )
 where
@@ -19,25 +18,22 @@ import qualified System.FilePath as FilePath
 import Text.EDE (Template)
 import qualified Text.EDE as EDE
 
-root :: AnchoredDirTree a -> FilePath
-root (p :/ d) = p </> name d
-
 fold ::
   MonadFail m =>
   -- | Directories
   (FilePath -> m ()) ->
   -- | Files
-  (FilePath -> a -> m b) ->
+  (FilePath -> a -> m ()) ->
   AnchoredDirTree a ->
-  m (AnchoredDirTree b)
-fold g f (p :/ t) = (p :/) <$> go p t
+  m FilePath
+fold handleDir handleFile (p :/ tree) = go p tree >> pure p
   where
-    go x = \case
-      Failed n e -> fail (show e) >> pure (Failed n e)
-      File n a -> File n <$> f (x </> n) a
-      Dir n cs -> g d >> Dir n <$> mapM (go d) cs
+    go path = \case
+      Failed _n err -> fail (show err)
+      File name x -> handleFile (path </> name) x
+      Dir name xs -> handleDir dir >> traverse_ (go dir) xs
         where
-          d = x </> n
+          dir = path </> name
 
 type Touch = Either Rendered Rendered
 
@@ -46,24 +42,18 @@ populate ::
   Templates ->
   Library ->
   Either String (AnchoredDirTree Touch)
-populate d Templates {..} l = (d :/) . dir lib <$> layout
+populate d Templates {..} l = (d :/) . Dir lib <$> layout
   where
     layout :: Either String [DirTree Touch]
-    layout =
-      traverse
-        sequenceA
-        [ dir
-            "src"
+    layout = traverse sequenceA $
+        [ Dir "src" $
             -- Supress cabal warnings about directories listed that don't exist.
             [ touch ".gitkeep" blankTemplate mempty
             ],
-          dir
-            "gen"
-            [ dir
-                "Amazonka"
-                [ dir svc $
-                    [ dir "Types" $
-                        mapMaybe shape (l ^.. shapes . Lens.each),
+          Dir "gen" $
+            [ Dir "Amazonka" $
+                [ Dir svc $
+                    [ Dir "Types" (mapMaybe shape (l ^.. shapes . Lens.each)),
                       mod (l ^. typesNS) (typeImports l) typesTemplate,
                       mod (l ^. waitersNS) (waiterImports l) waitersTemplate,
                       mod (l ^. lensNS) (lensImports l) lensTemplate
@@ -72,34 +62,29 @@ populate d Templates {..} l = (d :/) . dir lib <$> layout
                   mod (l ^. libraryNS) mempty tocTemplate
                 ]
             ],
-          dir
-            "test"
+          Dir "test" $
             [ mod "Main" (testImports l) testMainTemplate,
-              dir
-                "Test"
-                [ dir
-                    "Amazonka"
+              Dir "Test" $
+                [ Dir "Amazonka" $
                     [ touch (l ^. serviceAbbrev <> ".hs") testNamespaceTemplate $
                         EDE.fromPairs
                           [ "moduleName"
                               .= ("Test.Amazonka." <> l ^. serviceAbbrev)
                           ],
-                      dir
-                        svc
+                      Dir svc $
                         [ touch "Internal.hs" testInternalTemplate $
                             EDE.fromPairs
                               [ "moduleName"
                                   .= ("Test.Amazonka." <> l ^. serviceAbbrev <> ".Internal")
                               ]
                         ],
-                      dir
-                        "Gen"
+                      Dir "Gen" $
                         [ mod (l ^. fixturesNS) (fixtureImports l) fixturesTemplate
                         ]
                     ]
                 ]
             ],
-          dir "fixture" (concatMap fixture (l ^.. operations . Lens.each)),
+          Dir "fixture" (concatMap fixture (l ^.. operations . Lens.each)),
           file (lib <.> "cabal") cabalTemplate,
           file "README.md" readmeTemplate
         ]
@@ -134,7 +119,7 @@ populate d Templates {..} l = (d :/) . dir lib <$> layout
     mod n is t = write $ module' n is t (pure env)
 
     file :: FilePath -> Template -> DirTree (Either String Touch)
-    file p t = write $ file' p t (pure env)
+    file p t = write $ render p t (pure env)
 
     env :: Aeson.Value
     env = Aeson.toJSON l
@@ -177,7 +162,7 @@ module' ::
   Either String a ->
   DirTree (Either String Rendered)
 module' ns is tmpl f =
-  file' (FilePath.takeFileName (nsToPath ns)) tmpl $ do
+  render (FilePath.takeFileName (nsToPath ns)) tmpl $ do
     x <- f >>= JSON.objectErr (show ns)
     pure $! x
       <> EDE.fromPairs
@@ -188,22 +173,19 @@ module' ns is tmpl f =
   where
     templateName (NS xs) = List.last xs
 
-file' ::
+render ::
   ToJSON a =>
   FilePath ->
   Template ->
   Either String a ->
   DirTree (Either String Rendered)
-file' p tmpl f =
+render p tmpl f =
   File p (f >>= JSON.objectErr p >>= EDE.eitherRender tmpl)
-
-dir :: FilePath -> [DirTree a] -> DirTree a
-dir = Dir
-
-write :: DirTree (Either e b) -> DirTree (Either e (Either a b))
-write = fmap (second Right)
 
 touch :: Text -> Template -> Aeson.Object -> DirTree (Either String Touch)
 touch f tmpl env =
   File (Text.unpack f) $
     bimap id Left (EDE.eitherRender tmpl env)
+
+write :: DirTree (Either e b) -> DirTree (Either e (Either a b))
+write = fmap (second Right)

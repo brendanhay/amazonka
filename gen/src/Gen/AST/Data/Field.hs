@@ -1,15 +1,5 @@
 {-# LANGUAGE TemplateHaskell #-}
 
--- |
--- Module      : Gen.AST.Data.Field
--- Copyright   : (c) 2013-2021 Brendan Hay
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
--- Stability   : provisional
--- Portability : non-portable (GHC extensions)
 module Gen.AST.Data.Field where
 
 import qualified Control.Comonad.Cofree as Cofree
@@ -125,8 +115,8 @@ sortFields :: [Id] -> [Field] -> [Field]
 sortFields xs =
   zipWith (Lens.set fieldOrdinal) [1 ..]
     -- FIXME: optimise
-    . List.sortBy (Function.on compare isStreaming)
-    . List.sortBy (Function.on compare idx)
+    . List.sortBy (Ord.comparing isStreaming)
+    . List.sortBy (Ord.comparing idx)
   where
     idx x = fromMaybe (-1) (List.elemIndex (_fieldId x) xs)
 

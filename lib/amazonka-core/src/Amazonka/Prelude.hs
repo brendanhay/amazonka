@@ -37,8 +37,8 @@ import Control.Lens as Export
   )
 import Control.Monad as Export
 import Control.Monad.IO.Class as Export (MonadIO (liftIO))
-import Control.Monad.Trans.Resource as Export (MonadResource)
 import Control.Monad.Trans.Class as Export (MonadTrans (lift))
+import Control.Monad.Trans.Resource as Export (MonadResource)
 import Data.Bifoldable as Export
 import Data.Bifunctor as Export
 import Data.Bitraversable as Export

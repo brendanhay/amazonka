@@ -6,15 +6,20 @@
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
--- Environment and AWS specific configuration for the
--- 'Amazonka.AWS' and 'Control.Monad.Trans.AWS.AWST' monads.
+-- Environment and AWS specific configuration needed to perform AWS
+-- requests.
 module Amazonka.Env
   ( -- * Creating the Environment
     newEnv,
+    newEnvNoAuth,
     newEnvWith,
-    Env (..),
+    Env' (..),
+    Env,
+    EnvNoAuth,
+    envAuthMaybe,
 
     -- * Overriding Default Configuration
+    authenticate,
     override,
     configure,
 
@@ -30,7 +35,6 @@ where
 
 import Amazonka.Auth
 import Amazonka.Lens ((.~), (?~))
-import Amazonka.Logger
 import Amazonka.Prelude
 import Amazonka.Types
 import qualified Data.Function as Function
@@ -38,16 +42,9 @@ import Data.Monoid (Dual (..), Endo (..))
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Conduit as Client.Conduit
 
--- | The environment containing the parameters required to make AWS requests.
-data Env = Env
-  { envRegion :: Region,
-    envLogger :: Logger,
-    envRetryCheck :: Int -> Client.HttpException -> Bool,
-    envOverride :: Dual (Endo Service),
-    envManager :: Client.Manager,
-    envAuth :: Auth
-  }
-  deriving stock (Generic)
+type Env = Env' Identity
+
+type EnvNoAuth = Env' Proxy
 
 -- | Creates a new environment with a new 'Manager' without debug logging
 -- and uses 'getAuth' to expand/discover the supplied 'Credentials'.
@@ -74,26 +71,49 @@ newEnv ::
   m Env
 newEnv c =
   liftIO (Client.newManager Client.Conduit.tlsManagerSettings)
-    >>= newEnvWith c
+    >>= authenticate c . newEnvWith
+
+-- | Generate an environment without credentials, which may only make
+-- unsigned requests.
+--
+-- This is useful for the STS
+-- <https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html AssumeRoleWithWebIdentity>
+-- operation, which needs to make an unsigned request to pass the
+-- token from an identity provider.
+newEnvNoAuth :: MonadIO m => m EnvNoAuth
+newEnvNoAuth =
+  newEnvWith <$> liftIO (Client.newManager Client.Conduit.tlsManagerSettings)
+
+-- | Construct a default 'EnvNoAuth' from a HTTP 'Client.Manager'.
+newEnvWith :: Client.Manager -> EnvNoAuth
+newEnvWith m =
+  Env
+    { _envRegion = NorthVirginia,
+      _envLogger = \_ _ -> pure (),
+      _envRetryCheck = retryConnectionFailure 3,
+      _envOverride = mempty,
+      _envManager = m,
+      _envAuth = Proxy
+    }
 
 -- | /See:/ 'newEnv'
 --
--- The 'Maybe' 'Bool' parameter is used by the EC2 instance check. By passing a
--- value of 'Nothing', the check will be performed. 'Just' 'True' would cause
--- the check to be skipped and the host treated as an EC2 instance.
---
 -- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
-newEnvWith ::
-  MonadIO m =>
+authenticate ::
+  (MonadIO m, Foldable withAuth) =>
   -- | Credential discovery mechanism.
   Credentials ->
-  -- | Preload the EC2 instance check.
-  Client.Manager ->
+  -- | Previous environment.
+  Env' withAuth ->
   m Env
-newEnvWith c m = do
-  (a, fromMaybe NorthVirginia -> r) <- getAuth m c
+authenticate c env@Env {..} = do
+  (a, fromMaybe NorthVirginia -> r) <- getAuth env c
 
-  pure $ Env r (\_ _ -> pure ()) (retryConnectionFailure 3) mempty m a
+  pure $ Env {_envRegion = r, _envAuth = Identity a, ..}
+
+-- | Get "the" 'Auth' from an 'Env'', if we can.
+envAuthMaybe :: Foldable withAuth => Env' withAuth -> Maybe Auth
+envAuthMaybe = foldr (const . Just) Nothing . _envAuth
 
 -- | Retry the subset of transport specific errors encompassing connection
 -- failure up to the specific number of times.
@@ -114,7 +134,7 @@ retryConnectionFailure limit n = \case
 -- | Provide a function which will be added to the existing stack
 -- of overrides applied to all service configurations.
 override :: (Service -> Service) -> Env -> Env
-override f env = env {envOverride = envOverride env <> Dual (Endo f)}
+override f env = env {_envOverride = _envOverride env <> Dual (Endo f)}
 
 -- | Configure a specific service. All requests belonging to the
 -- supplied service will use this configuration instead of the default.
@@ -130,7 +150,7 @@ configure s = override f
 
 -- | Scope an action within the specific 'Region'.
 within :: Region -> Env -> Env
-within r env = env {envRegion = r}
+within r env = env {_envRegion = r}
 
 -- | Scope an action such that any retry logic for the 'Service' is
 -- ignored and any requests will at most be sent once.

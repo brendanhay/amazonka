@@ -6,9 +6,11 @@ haskell_library(
     srcs = [
         "src/Amazonka.hs",
         "src/Amazonka/Auth.hs",
+        "src/Amazonka/Auth.hs-boot",  # keep
         "src/Amazonka/EC2/Metadata.hs",
         "src/Amazonka/Env.hs",
         "src/Amazonka/HTTP.hs",
+        "src/Amazonka/HTTP.hs-boot",  # keep
         "src/Amazonka/Logger.hs",
         "src/Amazonka/Presign.hs",
     ],
@@ -77,6 +79,7 @@ haskell_library(
     visibility = ["//visibility:public"],
     deps = [
         "//lib/amazonka-core",
+        "//lib/services/amazonka-sts",
         "@stackage//:base",
         "@stackage//:bytestring",
         "@stackage//:conduit",
@@ -85,10 +88,12 @@ haskell_library(
         "@stackage//:http-conduit",
         "@stackage//:http-types",
         "@stackage//:ini",
+        "@stackage//:lens",
         "@stackage//:resourcet",
         "@stackage//:retry",
         "@stackage//:text",
         "@stackage//:time",
         "@stackage//:transformers",
+        "@stackage//:uuid",
     ],
 )

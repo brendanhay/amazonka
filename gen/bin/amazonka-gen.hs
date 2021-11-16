@@ -198,7 +198,7 @@ main = do
         ++ Text.unpack (library ^. libraryName)
         ++ "' Haskell package"
 
-    directoryTree <-
+    root <-
       hoistEither (Tree.populate _optionOutput templates library)
         >>= Tree.fold createDir (\x -> either (touchFile x) (writeLTFile x))
 
@@ -208,9 +208,9 @@ main = do
         ++ "-"
         ++ Text.unpack (semver (library ^. libraryVersion))
         ++ " package in "
-        ++ Tree.root directoryTree
+        ++ root
 
-    copyDir _optionAssets (Tree.root directoryTree)
+    copyDir _optionAssets root
 
     done
 

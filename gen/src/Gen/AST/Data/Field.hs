@@ -4,9 +4,9 @@ module Gen.AST.Data.Field where
 
 import qualified Control.Comonad.Cofree as Cofree
 import qualified Control.Lens as Lens
-import qualified Data.Function as Function
 import qualified Data.HashMap.Strict as HashMap
 import qualified Data.List as List
+import qualified Data.Ord as Ord
 import qualified Data.Text as Text
 import Gen.Prelude
 import Gen.Text

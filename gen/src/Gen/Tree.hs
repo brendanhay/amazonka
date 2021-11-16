@@ -45,7 +45,8 @@ populate ::
 populate d Templates {..} l = (d :/) . Dir lib <$> layout
   where
     layout :: Either String [DirTree Touch]
-    layout = traverse sequenceA $
+    layout =
+      traverse sequenceA $
         [ Dir "src" $
             -- Supress cabal warnings about directories listed that don't exist.
             [ touch ".gitkeep" blankTemplate mempty

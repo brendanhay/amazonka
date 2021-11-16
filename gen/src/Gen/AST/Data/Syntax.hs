@@ -415,7 +415,7 @@ responseE p r fs = Exts.app (responseF p r fs) bdy
       | fieldLit f =
         if fieldIsParam f
           then Exts.app (var "Prelude.pure") (var "x")
-          else -- Coerce is inserted here Lens.to handle newtypes such as Sensitive.
+          else -- Coerce is inserted here to handle newtypes such as Sensitive.
 
             Exts.app (var "Prelude.pure")
               . Exts.paren

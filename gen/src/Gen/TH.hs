@@ -15,7 +15,6 @@ where
 
 import qualified Control.Lens as Lens
 import qualified Data.Aeson as Aeson
-import qualified Data.Aeson.TH as Aeson.TH
 import Data.Aeson.Types
   ( GFromJSON,
     GToJSON,

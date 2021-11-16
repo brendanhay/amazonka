@@ -25,7 +25,7 @@ roundTrip ::
   IO ()
 roundTrip r name xs = do
   lgr <- newLogger Debug stdout
-  env <- newEnv Discover <&> set (field @"envLogger") lgr . within r
+  env <- newEnv Discover <&> set (field @"_envLogger") lgr . within r
 
   let say = liftIO . Text.putStrLn
 

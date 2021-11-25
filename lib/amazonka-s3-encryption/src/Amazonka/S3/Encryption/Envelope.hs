@@ -1,3 +1,5 @@
+{-# LANGUAGE CPP #-}
+
 -- |
 -- Module      : Amazonka.S3.Encryption.Envelope
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -33,6 +35,10 @@ import qualified Data.ByteArray as ByteArray
 import qualified Data.ByteString as BS
 import qualified Data.CaseInsensitive as CI
 import qualified Data.HashMap.Strict as Map
+
+#if MIN_VERSION_aeson(2,0,0)
+import qualified Data.Aeson.Key as Key
+#endif
 
 data V1Envelope = V1Envelope
   { -- | @x-amz-key@: Content encrypting key (cek) in encrypted form, base64
@@ -167,11 +173,19 @@ data Envelope
 instance ToHeaders Envelope where
   toHeaders = fmap (first (CI.map ("X-Amz-Meta-" <>))) . toMetadata
 
+#if MIN_VERSION_aeson(2,0,0)
+instance ToJSON Envelope where
+  toJSON = object . map (bimap k v) . toMetadata
+    where
+      k = Key.fromText . toText . CI.foldedCase
+      v = Aeson.String . toText
+#else
 instance ToJSON Envelope where
   toJSON = object . map (bimap k v) . toMetadata
     where
       k = toText . CI.foldedCase
       v = Aeson.String . toText
+#endif
 
 instance ToBody Envelope where
   toBody = toBody . toJSON

@@ -139,7 +139,7 @@ data InvokeEndpoint = InvokeEndpoint'
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html Common Data Formats-Inference>.
     body :: Prelude.Text
   }
-  deriving (Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InvokeEndpoint' with all optional fields omitted.
@@ -381,7 +381,7 @@ data InvokeEndpointResponse = InvokeEndpointResponse'
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html Common Data Formats-Inference>.
     body :: Prelude.Text
   }
-  deriving (Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'InvokeEndpointResponse' with all optional fields omitted.

@@ -53,6 +53,12 @@ requestInvokeEndpointAsync =
     "InvokeEndpointAsync"
     "fixture/InvokeEndpointAsync.yaml"
 
+requestInvokeEndpoint :: InvokeEndpoint -> TestTree
+requestInvokeEndpoint =
+  req
+    "InvokeEndpoint"
+    "fixture/InvokeEndpoint.yaml"
+
 -- Responses
 
 responseInvokeEndpointAsync :: InvokeEndpointAsyncResponse -> TestTree
@@ -62,3 +68,11 @@ responseInvokeEndpointAsync =
     "fixture/InvokeEndpointAsyncResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy InvokeEndpointAsync)
+
+responseInvokeEndpoint :: InvokeEndpointResponse -> TestTree
+responseInvokeEndpoint =
+  res
+    "InvokeEndpointResponse"
+    "fixture/InvokeEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy InvokeEndpoint)

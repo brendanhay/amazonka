@@ -9,19 +9,16 @@ import qualified Data.ByteString.Lazy as ByteString.Lazy
 import qualified Data.Char as Char
 import qualified Data.Maybe as Maybe
 import qualified Data.Set as Set
-import Data.Text (Text)
 import qualified Data.Text as Text
-import qualified Data.Text.Encoding as Text.Encoding.Encoding
-import Gen.Prelude
+import qualified Data.Text.Encoding as Text.Encoding
+import Gen.Prelude hiding (words)
 import Options.Applicative ((<**>))
 import qualified Options.Applicative as Options
-import System.FilePath ((<.>), (</>))
 import qualified System.FilePath as FilePath
 import qualified System.IO as IO
 import qualified UnliftIO
 import qualified UnliftIO.Directory as UnliftIO
 import qualified WordFrequency
-import Prelude hiding (words)
 
 data Options = Options
   { botocoreDir :: FilePath,

@@ -5,9 +5,7 @@
             "replacedBy": {
                 "name": "Prelude.Text",
                 "underive": [
-                    "show",
-                    "read",
-                    "eq"
+                    "read"
                 ]
             }
         }

@@ -1,3 +1,5 @@
+{-# LANGUAGE CPP #-}
+
 -- |
 -- Module      : Amazonka.Data.Body
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -30,6 +32,10 @@ import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Conduit as Client.Conduit
 import qualified System.IO as IO
 import qualified Text.XML as XML
+
+#if MIN_VERSION_aeson(2,0,0)
+import Data.Aeson.KeyMap (KeyMap)
+#endif
 
 -- | Convenience function for obtaining the size of a file.
 getFileSize :: MonadIO m => FilePath -> m Integer
@@ -369,8 +375,13 @@ instance ToHashedBody XML.Element where
 instance ToHashedBody QueryString where
   toHashed = toHashed . toBS
 
+#if MIN_VERSION_aeson(2,0,0)
+instance ToHashedBody (KeyMap Aeson.Value) where
+  toHashed = toHashed . Aeson.Object
+#else
 instance ToHashedBody (HashMap Text Aeson.Value) where
   toHashed = toHashed . Aeson.Object
+#endif
 
 -- | Anything that can be converted to a streaming request 'Body'.
 class ToBody a where
@@ -401,7 +412,11 @@ instance ToBody Text
 
 instance ToBody TextLazy
 
+#if MIN_VERSION_aeson(2,0,0)
+instance ToBody (KeyMap Aeson.Value)
+#else
 instance ToBody (HashMap Text Aeson.Value)
+#endif
 
 instance ToBody Aeson.Value
 
